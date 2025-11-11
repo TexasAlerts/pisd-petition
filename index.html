@@ -378,6 +378,86 @@
     color: #fff;
   }
   
+  /* Resources Section */
+  .resources-section {
+    background: #f0f9ff;
+    border: 2px solid #0284c7;
+    border-radius: 12px;
+    padding: 30px;
+  }
+  
+  .resources-section h2 {
+    color: #0c4a6e;
+    margin-top: 0;
+    font-size: 1.75rem;
+  }
+  
+  .resources-section p {
+    color: #075985;
+    line-height: 1.6;
+  }
+  
+  .resources-list {
+    list-style: none;
+    padding: 0;
+    margin: 24px 0;
+  }
+  
+  .resources-list li {
+    background: #fff;
+    border: 1px solid #bae6fd;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 12px;
+    transition: all 0.2s;
+  }
+  
+  .resources-list li:hover {
+    border-color: #0284c7;
+    box-shadow: 0 2px 8px rgba(2, 132, 199, 0.15);
+    transform: translateX(4px);
+  }
+  
+  .resources-list a {
+    color: #0369a1;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.05rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .resources-list a:hover {
+    color: #075985;
+  }
+  
+  .resources-list .doc-description {
+    color: #64748b;
+    font-size: 0.9rem;
+    margin-top: 6px;
+    font-weight: 400;
+  }
+  
+  .view-all-btn {
+    display: inline-block;
+    background: #0284c7;
+    color: #fff;
+    padding: 14px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.05rem;
+    transition: all 0.2s;
+    margin-top: 12px;
+  }
+  
+  .view-all-btn:hover {
+    background: #0369a1;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
+  }
+  
   /* Footer */
   footer { 
     text-align: center; 
@@ -487,6 +567,45 @@
       <li>✅ <strong>Ensuring accountability</strong> — tax dollars follow students to the district serving them</li>
     </ul>
   </div>
+</section>
+
+<section class="resources-section">
+  <h2>📚 View Petition Materials</h2>
+  <p>Want to learn more? Review the official petition documents, supporting materials, and signature data. All documents are public and free to review, share, and distribute.</p>
+  
+  <ul class="resources-list">
+    <li>
+      <a href="https://drive.google.com/file/d/1BFF1I86lraSeIR45oli6PI53qnFUovSP/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+        📄 Official Petition Letter
+      </a>
+      <div class="doc-description">The formal letter submitted to both school district boards of trustees</div>
+    </li>
+    
+    <li>
+      <a href="https://drive.google.com/file/d/1XV1VBcjgjnIUWBzRx3hjaYGxeFL3OYOv/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+        📧 Electronic Filing Email
+      </a>
+      <div class="doc-description">Email submission sent to trustees when electronically filing the petition</div>
+    </li>
+    
+    <li>
+      <a href="https://drive.google.com/file/d/1xvFo7wXAK4KW1ncwtRV6Ryfv32ot5m-1/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+        📋 Current PISD Contract
+      </a>
+      <div class="doc-description">The existing contract between Windsong Ranch and Prosper ISD that allows these homes to attend PISD</div>
+    </li>
+    
+    <li>
+      <a href="https://drive.google.com/file/d/19Ee5WkWmEfajzkYhWpLeanoPG-Pc32jB/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+        📊 Signature Statistics
+      </a>
+      <div class="doc-description">Complete summary data showing verified petition signatures and support levels</div>
+    </li>
+  </ul>
+  
+  <a href="https://drive.google.com/drive/folders/1iPI_dp-wcZ5YrnVgSWgkF7A44p7iPJ_j" target="_blank" rel="noopener noreferrer" class="view-all-btn">
+    📁 View All Documents →
+  </a>
 </section>
 
 <section>
