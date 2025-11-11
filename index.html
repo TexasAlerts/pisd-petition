@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Prosper ISD: Bring Our Students' Tax Dollars Home</title>
+
+<!-- SEO Meta Tags -->
+<meta name="description" content="Join Prosper ISD voters in supporting permanent alignment of Windsong Ranch students with the district where they already attend school. Make your voice heard!" />
+<meta name="keywords" content="Prosper ISD, Denton ISD, Windsong Ranch, school district, petition, Texas Education Code, TEC 13.051" />
+<meta name="author" content="Doug Charles, Jeff Sterling" />
+
+<!-- Open Graph / Social Media -->
+<meta property="og:title" content="Prosper ISD: Bring Our Students' Tax Dollars Home" />
+<meta property="og:description" content="Support permanent alignment of Windsong Ranch with Prosper ISD - where students already attend!" />
+<meta property="og:type" content="website" />
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏫</text></svg>" />
+
+<style>
+  /* Reset and Base Styles */
+  *, *::before, *::after { box-sizing: border-box; }
+  
+  body { 
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; 
+    margin: 0; 
+    background: #f8fafc; 
+    color: #0f172a; 
+    line-height: 1.6; 
+  }
+  
+  /* Header */
+  header { 
+    background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+    color: #fff; 
+    padding: 50px 20px; 
+    text-align: center; 
+  }
+  header h1 { 
+    margin: 0; 
+    font-size: 2.5rem; 
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  }
+  header p {
+    margin: 16px auto 0 auto;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    max-width: 900px;
+  }
+  header .stats {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    padding: 12px 24px;
+    border-radius: 8px;
+    margin-top: 16px;
+    font-weight: 600;
+  }
+  
+  /* Call to Action Banner */
+  .cta-banner {
+    background: #fef3c7;
+    border-left: 4px solid #f59e0b;
+    padding: 24px;
+    margin: 24px auto;
+    max-width: 900px;
+    border-radius: 8px;
+  }
+  .cta-banner h3 {
+    margin: 0 0 12px 0;
+    color: #92400e;
+    font-size: 1.3rem;
+  }
+  .cta-banner p {
+    margin: 0;
+    color: #78350f;
+    line-height: 1.6;
+  }
+  
+  /* Sections */
+  section { 
+    max-width: 900px; 
+    margin: 24px auto; 
+    background: #fff; 
+    border-radius: 12px; 
+    padding: 30px; 
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08); 
+  }
+  
+  h2 { 
+    color: #1e3a8a; 
+    margin-top: 0;
+    font-size: 1.75rem;
+  }
+  
+  h3 {
+    color: #1e40af;
+    margin-top: 24px;
+    font-size: 1.3rem;
+  }
+  
+  ul {
+    padding-left: 20px;
+  }
+  
+  li {
+    margin-bottom: 12px;
+  }
+  
+  .highlight-box {
+    background: #dbeafe;
+    border-left: 4px solid #1e40af;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 4px;
+  }
+  
+  .highlight-box strong {
+    color: #1e40af;
+  }
+  
+  /* Form Styles */
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .form-row.full {
+    grid-template-columns: 1fr;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label { 
+    display: block;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #334155;
+    font-size: 0.95rem;
+  }
+  
+  input, textarea, select { 
+    width: 100%; 
+    padding: 12px; 
+    border-radius: 8px; 
+    border: 1px solid #cbd5e1;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+  }
+  
+  input:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: #1e3a8a;
+    box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.1);
+  }
+  
+  .error-message {
+    color: #dc2626;
+    font-size: 0.875rem;
+    margin-top: 4px;
+    display: none;
+  }
+  
+  .error-message.show {
+    display: block;
+  }
+  
+  input.error, textarea.error, select.error {
+    border-color: #dc2626;
+  }
+  
+  /* Honeypot - Hidden spam trap */
+  .honeypot {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+  }
+  
+  /* Email Draft Section */
+  .email-draft {
+    background: #f8fafc;
+    border: 2px solid #cbd5e1;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 24px 0;
+  }
+  
+  .email-draft h4 {
+    margin: 0 0 12px 0;
+    color: #1e3a8a;
+    font-size: 1.1rem;
+  }
+  
+  .email-recipients {
+    background: #fff;
+    padding: 12px;
+    border-radius: 4px;
+    margin: 12px 0;
+    font-size: 0.9rem;
+  }
+  
+  .email-recipients strong {
+    display: block;
+    margin-bottom: 6px;
+    color: #475569;
+  }
+  
+  .email-recipients .addresses {
+    color: #64748b;
+    line-height: 1.8;
+  }
+  
+  .email-template {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+    padding: 16px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    white-space: pre-wrap;
+    max-height: 300px;
+    overflow-y: auto;
+    margin: 12px 0;
+  }
+  
+  .copy-btn {
+    background: #64748b;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: background 0.2s;
+  }
+  
+  .copy-btn:hover {
+    background: #475569;
+  }
+  
+  .copy-btn.copied {
+    background: #16a34a;
+  }
+  
+  /* CTA Button */
+  .cta { 
+    text-align: center; 
+    margin: 30px 0 20px 0; 
+  }
+  
+  .cta button { 
+    background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+    color: #fff; 
+    border: none; 
+    padding: 18px 40px; 
+    font-size: 1.2rem; 
+    font-weight: 700;
+    border-radius: 8px; 
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+    box-shadow: 0 4px 14px rgba(30, 58, 138, 0.4);
+  }
+  
+  .cta button:hover:not(:disabled) { 
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(30, 58, 138, 0.5);
+  }
+  
+  .cta button:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+  
+  .cta button.loading::after {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    top: 50%;
+    right: 20px;
+    margin-top: -8px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spinner 0.6s linear infinite;
+  }
+  
+  @keyframes spinner {
+    to { transform: rotate(360deg); }
+  }
+  
+  /* Status Messages */
+  .status-message {
+    padding: 16px;
+    border-radius: 8px;
+    margin-top: 20px;
+    display: none;
+    text-align: center;
+    font-weight: 600;
+  }
+  
+  .status-message.show {
+    display: block;
+  }
+  
+  .status-message.success {
+    background: #dcfce7;
+    color: #166534;
+    border: 1px solid #86efac;
+  }
+  
+  .status-message.error {
+    background: #fee2e2;
+    color: #991b1b;
+    border: 1px solid #fca5a5;
+  }
+  
+  .status-message.warning {
+    background: #fef3c7;
+    color: #92400e;
+    border: 1px solid #fcd34d;
+  }
+  
+  /* Share Section */
+  .share-section {
+    background: #ecfdf5;
+    border: 2px solid #10b981;
+    border-radius: 12px;
+    padding: 30px;
+    text-align: center;
+    margin-top: 30px;
+  }
+  
+  .share-section h3 {
+    color: #065f46;
+    margin-top: 0;
+    font-size: 1.5rem;
+  }
+  
+  .share-section p {
+    color: #047857;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+  }
+  
+  .share-buttons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .share-btn {
+    background: #fff;
+    color: #065f46;
+    border: 2px solid #10b981;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    display: inline-block;
+  }
+  
+  .share-btn:hover {
+    background: #10b981;
+    color: #fff;
+  }
+  
+  /* Footer */
+  footer { 
+    text-align: center; 
+    font-size: 0.9rem; 
+    color: #475569; 
+    padding: 30px 20px; 
+    margin-top: 40px;
+    background: #f1f5f9;
+  }
+  
+  footer a {
+    color: #1e3a8a;
+    text-decoration: none;
+  }
+  
+  footer a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Privacy Notice */
+  .privacy-notice {
+    font-size: 0.85rem;
+    color: #64748b;
+    text-align: center;
+    margin-top: 16px;
+    line-height: 1.5;
+    padding: 16px;
+    background: #f8fafc;
+    border-radius: 6px;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    header h1 {
+      font-size: 1.75rem;
+    }
+    
+    header p {
+      font-size: 1rem;
+    }
+    
+    section {
+      padding: 20px;
+      margin: 16px;
+    }
+    
+    .form-row {
+      grid-template-columns: 1fr;
+    }
+    
+    .cta button {
+      width: 100%;
+      padding: 16px 24px;
+      font-size: 1.1rem;
+    }
+    
+    .share-buttons {
+      flex-direction: column;
+    }
+    
+    .share-btn {
+      width: 100%;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🏫 Prosper ISD: Bring Our Students' Tax Dollars Home</h1>
+  <p><strong>These ~274 students already attend Prosper ISD</strong> — yet under a contractual arrangement between Prosper Education Foundation, Windsong Ranch HOA/Developers, and Prosper ISD, <strong>the district receives $0.00 in property tax dollars</strong> to fund their education. This petition corrects this injustice by permanently aligning students with the district that educates them and ensuring tax dollars follow.</p>
+  <div class="stats">466 homes • $510M taxable value • ≈$6.2M/year to PISD after approval</div>
+</header>
+
+<div class="cta-banner">
+  <h3>🎯 Why ALL Prosper ISD Voters Should Act Now</h3>
+  <p><strong>This isn't just about Windsong Ranch</strong> — this is about ensuring <strong>every student who attends Prosper ISD</strong> has their tax dollars aligned with their school. When families pay taxes to one district but send their children to another, it creates inefficiencies, funding gaps, and administrative complexity. <strong>By supporting this petition, you're advocating for common-sense governance, financial accountability, and a stronger Prosper ISD for ALL students.</strong></p>
+</div>
+
+<section>
+  <h2>The Facts: Why This Matters</h2>
+  
+  <div class="highlight-box">
+    <strong>🎓 Students Already Here:</strong> All ~274 students from the affected area attend Prosper ISD today. <strong>NONE</strong> attend Denton ISD.
+  </div>
+  
+  <ul>
+    <li><strong>Unified Community:</strong> ~86% of Windsong Ranch is already in PISD. This petition moves the remaining ~14% to create <strong>one consistent district identity</strong> — ending the confusion of split boundaries within a single neighborhood.</li>
+    
+    <li><strong>Proven Voter Support:</strong> A majority of registered voters have already signed: <strong>360 of 684 registered voters (52.63%)</strong> and <strong>174 of 308 addresses (56.49%)</strong> have verified their support.</li>
+    
+    <li><strong>Good Governance:</strong> This aligns with Texas Education Code §13.051, which allows districts to permanently annex territory when it makes sense for students, families, and taxpayers.</li>
+  </ul>
+  
+  <div class="highlight-box">
+    <strong>💰 Financial Correction:</strong> Currently, these 466 homes pay <strong>$0.00 in property taxes to Prosper ISD</strong> despite their children attending PISD schools. After approval, these homes will generate approximately <strong>$6.2 million annually for Prosper ISD</strong> — finally aligning tax dollars with educational responsibility.
+  </div>
+  
+  <h3>💡 What This Means for ALL Prosper ISD Voters</h3>
+  <p><strong>Even if you don't live in Windsong Ranch</strong>, this petition strengthens YOUR district by:</p>
+  
+  <div class="highlight-box">
+    <ul style="margin: 0; padding-left: 20px;">
+      <li>✅ <strong>Increasing PISD funding</strong> by ~$6.2 million annually</li>
+      <li>✅ <strong>Giving parents and voters in this area a voice</strong> in Prosper ISD governance through voting rights</li>
+      <li>✅ <strong>Leveraging $510M in assessed property values</strong> for future bonds and increased borrowing capabilities</li>
+      <li>✅ <strong>Ensuring accountability</strong> — tax dollars follow students to the district serving them</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2>📧 Send Your Support to Both School Boards</h2>
+  <p>The petition has been filed and verified. Now both the <strong>Prosper ISD Board</strong> and <strong>Denton ISD Board</strong> must approve it. <strong>Your voice matters!</strong> Email them directly to show broad community support.</p>
+  
+  <div class="highlight-box">
+    <strong>🎯 Why This Will Succeed:</strong> We need at least one ISD to vote Yes — and <strong>Prosper ISD should absolutely vote yes</strong>. We are the <strong>only known case in Texas</strong> where students already attend the ISD they are petitioning to join. When at least one ISD approves, the Texas Education Commissioner will likely approve as well, given the precedent and case law supporting this process.
+  </div>
+  
+  <p><strong>To Denton ISD Trustees:</strong> While Denton ISD could oppose this petition, doing so would waste taxpayer dollars fighting a case strongly supported by Texas Supreme Court precedent and the Education Commissioner's authority — especially after your November 2025 tax rate increase. The right decision is to say <strong>yes for the students and families</strong> who don't attend your schools, and <strong>yes to fiscal responsibility</strong> by not spending money on a likely losing legal battle.</p>
+  
+  <h3>Option 1: Fill Out the Form (Recommended)</h3>
+  <p>We'll open your email client with a pre-written, powerful message ready to send.</p>
+  
+  <div style="background: #fef3c7; border-left: 4px solid #f59e0b; padding: 16px; margin: 16px 0; border-radius: 6px;">
+    <strong>📧 Important Note:</strong> When you click submit, your browser may ask for permission to open your email app. <strong>Click "Allow" or "OK"</strong> — this is a normal security feature. It simply lets this website open your email so you can review and send the message yourself. We never send emails on your behalf.
+  </div>
+  
+  <form id="petitionForm" novalidate>
+    
+    <!-- Honeypot Field - Leave empty to prevent spam -->
+    <input type="text" name="website" class="honeypot" tabindex="-1" autocomplete="off" />
+    
+    <div class="form-group">
+      <label for="name">Full Name *</label>
+      <input type="text" id="name" name="name" placeholder="Your full name" required aria-required="true" />
+      <div class="error-message" id="name-error">Please enter your full name</div>
+    </div>
+    
+    <div class="form-group">
+      <label for="email">Email Address *</label>
+      <input type="email" id="email" name="email" placeholder="you@example.com" required aria-required="true" />
+      <div class="error-message" id="email-error">Please enter a valid email address</div>
+    </div>
+    
+    <div class="form-group">
+      <label for="street">Street Address *</label>
+      <input type="text" id="street" name="street" placeholder="123 Main Street" required aria-required="true" />
+      <div class="error-message" id="street-error">Please enter your street address</div>
+    </div>
+    
+    <div class="form-row">
+      <div class="form-group">
+        <label for="city">City *</label>
+        <input type="text" id="city" name="city" placeholder="Prosper" required aria-required="true" />
+        <div class="error-message" id="city-error">Please enter your city</div>
+      </div>
+      
+      <div class="form-group">
+        <label for="state">State *</label>
+        <input type="text" id="state" name="state" placeholder="TX" value="TX" required aria-required="true" maxlength="2" />
+        <div class="error-message" id="state-error">Please enter state</div>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label for="zip">ZIP Code *</label>
+      <input type="text" id="zip" name="zip" placeholder="75078" required aria-required="true" pattern="[0-9]{5}" />
+      <div class="error-message" id="zip-error">Please enter a valid 5-digit ZIP code</div>
+    </div>
+    
+    <div class="form-group">
+      <label for="voterType">Your Connection to This Issue *</label>
+      <select id="voterType" name="voterType" required aria-required="true">
+        <option value="">-- Select one --</option>
+        <option value="Prosper ISD Voter (NOT in Windsong Ranch)">Prosper ISD Voter (NOT in Windsong Ranch)</option>
+        <option value="Windsong Ranch Resident (Affected by Petition)">Windsong Ranch Resident (Affected by Petition)</option>
+        <option value="Denton ISD Voter">Denton ISD Voter</option>
+        <option value="Concerned Community Member">Concerned Community Member</option>
+      </select>
+      <div class="error-message" id="voterType-error">Please select your connection</div>
+    </div>
+    
+    <div class="privacy-notice">
+      ✅ By submitting, your email client will open with a pre-filled message to both school boards. <strong>You review and send it yourself</strong> — we don't send it for you.
+      <br><br>
+      ⚠️ <strong>Browser Permission:</strong> Your browser may ask for permission to open your email app. Click <strong>"Allow"</strong> or <strong>"OK"</strong> — this is a normal security feature and completely safe.
+    </div>
+    
+    <div class="cta">
+      <button type="submit" id="submitBtn">✉️ Email Both Boards Now</button>
+    </div>
+    
+    <div class="status-message" id="statusMessage"></div>
+  </form>
+  
+  <h3>Option 2: Copy & Paste the Email Yourself</h3>
+  <p>If your email client doesn't open automatically, you can copy this template and send it manually.</p>
+  
+  <div class="email-draft">
+    <h4>📧 Email Template</h4>
+    
+    <div class="email-recipients">
+      <strong>TO:</strong>
+      <div class="addresses">
+        wbbeavers@prosper-isd.net, dldixon@prosper-isd.net, kcavender@prosper-isd.net, jdial@prosper-isd.net, glinker@prosper-isd.net, jchurch@prosper-isd.net, mbartley@prosper-isd.net, board@dentonisd.org
+      </div>
+    </div>
+    
+    <div class="email-recipients">
+      <strong>CC:</strong>
+      <div class="addresses">
+        communications@prosper-isd.net, communications@dentonisd.org
+      </div>
+    </div>
+    
+    <div class="email-recipients">
+      <strong>SUBJECT:</strong>
+      <div class="addresses">
+        Please Approve Denton ISD Detachment and Prosper ISD Attachment under TEC §13.051
+      </div>
+    </div>
+    
+    <div class="email-template" id="emailTemplate">Dear Trustees,
+
+My name is [YOUR NAME], a [YOUR VOTER TYPE] residing at [YOUR ADDRESS].
+
+I urge both Boards to approve the pending petition for detachment from Denton ISD and attachment to Prosper ISD under Texas Education Code §13.051.
+
+To Prosper ISD: You should absolutely vote YES. These 274 students already attend your schools, yet you receive $0.00 in property taxes to educate them. This petition will:
+• Generate $6.2 million annually for Prosper ISD operations
+• Add $510M in taxable property for future bond capacity
+• Give these families voting rights in PISD governance
+• Align tax responsibility with educational responsibility
+
+This is the only known case in Texas where students already attend the district they're petitioning to join. Approval is the fiscally responsible and morally correct decision.
+
+To Denton ISD: The right decision is to vote YES and avoid costly litigation. Texas Supreme Court precedent and the Education Commissioner's authority strongly support this petition. With your recent November 2025 tax rate increase, spending taxpayer dollars fighting a likely losing battle is indefensible. These students don't attend your schools — do the right thing for them and your taxpayers.
+
+This petition has majority voter support (52.63% of registered voters, 56.49% of addresses). It represents common-sense governance, fairness for students, and fiscal accountability.
+
+I respectfully urge both Boards to approve this petition.
+
+Thank you for your service and consideration.
+
+Sincerely,
+[YOUR NAME]
+[YOUR ADDRESS]
+[YOUR EMAIL]</div>
+    
+    <button class="copy-btn" onclick="copyTemplate()">📋 Copy Email Template</button>
+  </div>
+</section>
+
+<section class="share-section">
+  <h3>📢 Spread the Word!</h3>
+  <p><strong>Share this petition with your neighbors, friends, and fellow Prosper ISD voters.</strong> The more voices we have, the stronger our case to both school boards.</p>
+  
+  <div class="share-buttons">
+    <a href="mailto:?subject=Support%20Prosper%20ISD%20Petition&body=I%20just%20emailed%20both%20school%20boards%20to%20support%20the%20Windsong%20Ranch%20annexation%20to%20Prosper%20ISD.%0A%0ACheck%20it%20out%20and%20add%20your%20voice%3A%20https%3A%2F%2F[WEBSITE-URL-HERE]" class="share-btn">✉️ Email to a Friend</a>
+    <button class="share-btn" onclick="copyPageLink()">🔗 Copy Page Link</button>
+    <button class="share-btn" onclick="shareOnSocial()">📱 Share on Social Media</button>
+  </div>
+</section>
+
+<footer>
+  <p><strong>Built by Doug Charles</strong> • Co-Petitioner and Project Lead for Windsong Ranch Annexation</p>
+  <p>In collaboration with <strong>Co-Petitioner Jeff Sterling</strong> • Verified public petition materials</p>
+  <p style="margin-top: 20px; font-size: 0.85rem;">
+    <a href="#privacy">Privacy</a> • 
+    <a href="mailto:dbcharles@me.com">Contact</a> • 
+    © 2025
+  </p>
+</footer>
+
+<script>
+// Configuration
+const CONFIG = {
+  ENDPOINT: "https://script.google.com/macros/s/AKfycbxjQjLBQJqZQcGt3Fsmw_56zE5-R6WtqvYBygLL4rX8IHboYEYQJUrTMYMw442HpcqPyg/exec",
+  RECIPIENTS_TO: [
+    "wbbeavers@prosper-isd.net",
+    "dldixon@prosper-isd.net",
+    "kcavender@prosper-isd.net",
+    "jdial@prosper-isd.net",
+    "glinker@prosper-isd.net",
+    "jchurch@prosper-isd.net",
+    "mbartley@prosper-isd.net",
+    "board@dentonisd.org"
+  ],
+  RECIPIENTS_CC: [
+    "communications@prosper-isd.net",
+    "communications@dentonisd.org"
+  ]
+};
+
+// Utility: Sanitize user input to prevent XSS
+function sanitizeInput(input) {
+  const div = document.createElement('div');
+  div.textContent = input;
+  return div.innerHTML;
+}
+
+// Utility: Validate email format
+function isValidEmail(email) {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+}
+
+// Utility: Show error message
+function showError(fieldId, message) {
+  const field = document.getElementById(fieldId);
+  const errorDiv = document.getElementById(`${fieldId}-error`);
+  
+  field.classList.add('error');
+  if (errorDiv) {
+    errorDiv.textContent = message;
+    errorDiv.classList.add('show');
+  }
+}
+
+// Utility: Clear error message
+function clearError(fieldId) {
+  const field = document.getElementById(fieldId);
+  const errorDiv = document.getElementById(`${fieldId}-error`);
+  
+  field.classList.remove('error');
+  if (errorDiv) {
+    errorDiv.classList.remove('show');
+  }
+}
+
+// Utility: Clear all errors
+function clearAllErrors() {
+  ['name', 'email', 'street', 'city', 'state', 'zip', 'voterType'].forEach(clearError);
+}
+
+// Utility: Show status message
+function showStatus(message, type = 'success') {
+  const statusDiv = document.getElementById('statusMessage');
+  statusDiv.textContent = message;
+  statusDiv.className = `status-message show ${type}`;
+  
+  setTimeout(() => {
+    statusDiv.classList.remove('show');
+  }, 10000);
+}
+
+// Utility: Set button loading state
+function setButtonLoading(loading) {
+  const btn = document.getElementById('submitBtn');
+  if (loading) {
+    btn.disabled = true;
+    btn.classList.add('loading');
+    btn.innerHTML = '⏳ Processing...';
+  } else {
+    btn.disabled = false;
+    btn.classList.remove('loading');
+    btn.innerHTML = '✉️ Email Both Boards Now';
+  }
+}
+
+// Build email subject
+function buildSubject() {
+  return "Please Approve Denton ISD Detachment and Prosper ISD Attachment under TEC §13.051";
+}
+
+// Build full address
+function buildFullAddress(street, city, state, zip) {
+  return `${street}, ${city}, ${state} ${zip}`;
+}
+
+// Build email body with sanitized inputs
+function buildBody(name, email, street, city, state, zip, voterType) {
+  const sanitizedName = sanitizeInput(name);
+  const sanitizedAddress = buildFullAddress(
+    sanitizeInput(street),
+    sanitizeInput(city),
+    sanitizeInput(state),
+    sanitizeInput(zip)
+  );
+  const sanitizedVoterType = sanitizeInput(voterType);
+  
+  let body = `Dear Trustees,\n\nMy name is ${sanitizedName}, a ${sanitizedVoterType} residing at ${sanitizedAddress}.\n\n`;
+  
+  body += `I urge both Boards to approve the pending petition for detachment from Denton ISD and attachment to Prosper ISD under Texas Education Code §13.051.\n\n`;
+  
+  body += `To Prosper ISD: You should absolutely vote YES. These 274 students already attend your schools, yet you receive $0.00 in property taxes to educate them. This petition will:\n`;
+  body += `• Generate $6.2 million annually for Prosper ISD operations\n`;
+  body += `• Add $510M in taxable property for future bond capacity\n`;
+  body += `• Give these families voting rights in PISD governance\n`;
+  body += `• Align tax responsibility with educational responsibility\n\n`;
+  
+  body += `This is the only known case in Texas where students already attend the district they're petitioning to join. Approval is the fiscally responsible and morally correct decision.\n\n`;
+  
+  body += `To Denton ISD: The right decision is to vote YES and avoid costly litigation. Texas Supreme Court precedent and the Education Commissioner's authority strongly support this petition. With your recent November 2025 tax rate increase, spending taxpayer dollars fighting a likely losing battle is indefensible. These students don't attend your schools — do the right thing for them and your taxpayers.\n\n`;
+  
+  body += `This petition has majority voter support (52.63% of registered voters, 56.49% of addresses). It represents common-sense governance, fairness for students, and fiscal accountability.\n\n`;
+  
+  body += `I respectfully urge both Boards to approve this petition.\n\n`;
+  
+  body += `Thank you for your service and consideration.\n\n`;
+  body += `Sincerely,\n${sanitizedName}\n${sanitizedAddress}\n${email}`;
+  
+  return body;
+}
+
+// Validate form inputs
+function validateForm(formData) {
+  clearAllErrors();
+  let isValid = true;
+  
+  // Check honeypot
+  if (formData.website) {
+    console.warn('Honeypot triggered - possible spam');
+    showStatus('There was an issue with your submission. Please try again.', 'error');
+    return false;
+  }
+  
+  // Validate name
+  if (!formData.name || formData.name.length < 2) {
+    showError('name', 'Please enter your full name');
+    isValid = false;
+  }
+  
+  // Validate email
+  if (!formData.email) {
+    showError('email', 'Please enter your email address');
+    isValid = false;
+  } else if (!isValidEmail(formData.email)) {
+    showError('email', 'Please enter a valid email address (e.g., you@example.com)');
+    isValid = false;
+  }
+  
+  // Validate street
+  if (!formData.street || formData.street.length < 3) {
+    showError('street', 'Please enter your street address');
+    isValid = false;
+  }
+  
+  // Validate city
+  if (!formData.city || formData.city.length < 2) {
+    showError('city', 'Please enter your city');
+    isValid = false;
+  }
+  
+  // Validate state
+  if (!formData.state || formData.state.length !== 2) {
+    showError('state', 'Please enter 2-letter state code');
+    isValid = false;
+  }
+  
+  // Validate ZIP
+  const zipRegex = /^\d{5}$/;
+  if (!formData.zip || !zipRegex.test(formData.zip)) {
+    showError('zip', 'Please enter a valid 5-digit ZIP code');
+    isValid = false;
+  }
+  
+  // Validate voter type
+  if (!formData.voterType) {
+    showError('voterType', 'Please select your connection to this issue');
+    isValid = false;
+  }
+  
+  return isValid;
+}
+
+// Send data to backend for capture
+async function captureSubmission(data) {
+  if (CONFIG.ENDPOINT === "PASTE_YOUR_APPS_SCRIPT_URL_HERE") {
+    console.warn('Backend endpoint not configured - skipping data capture');
+    return { success: true, warning: 'Backend not configured' };
+  }
+  
+  try {
+    const response = await fetch(CONFIG.ENDPOINT, {
+      method: "POST",
+      mode: "no-cors",
+      body: JSON.stringify(data)
+    });
+    
+    // Note: no-cors mode means we can't read the response, but submission will work
+    return { success: true };
+  } catch (error) {
+    console.error('Backend capture failed:', error);
+    return { success: false, error: error.message };
+  }
+}
+
+// Open email client with mailto link
+function openEmailClient(subject, body) {
+  const mailto = `mailto:${CONFIG.RECIPIENTS_TO.join(',')}?cc=${CONFIG.RECIPIENTS_CC.join(',')}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  
+  if (mailto.length > 2000) {
+    showStatus('Email created! Opening your email client... If it doesn\'t open, use the "Copy & Paste" option below.', 'warning');
+  }
+  
+  setTimeout(() => {
+    window.location.href = mailto;
+  }, 500);
+}
+
+// Main form submission handler
+async function handleSubmit(event) {
+  event.preventDefault();
+  
+  // Collect form data
+  const formData = {
+    name: document.getElementById('name').value.trim(),
+    email: document.getElementById('email').value.trim(),
+    street: document.getElementById('street').value.trim(),
+    city: document.getElementById('city').value.trim(),
+    state: document.getElementById('state').value.trim().toUpperCase(),
+    zip: document.getElementById('zip').value.trim(),
+    voterType: document.getElementById('voterType').value,
+    website: document.querySelector('.honeypot').value
+  };
+  
+  // Validate
+  if (!validateForm(formData)) {
+    return;
+  }
+  
+  // Set loading state
+  setButtonLoading(true);
+  
+  // Build email content
+  const subject = buildSubject();
+  const body = buildBody(
+    formData.name,
+    formData.email,
+    formData.street,
+    formData.city,
+    formData.state,
+    formData.zip,
+    formData.voterType
+  );
+  
+  // Prepare payload for backend
+  const payload = {
+    ...formData,
+    fullAddress: buildFullAddress(formData.street, formData.city, formData.state, formData.zip),
+    subject,
+    body,
+    recipients_to: CONFIG.RECIPIENTS_TO,
+    recipients_cc: CONFIG.RECIPIENTS_CC,
+    timestamp: new Date().toISOString(),
+    userAgent: navigator.userAgent
+  };
+  
+  // Capture to backend (await completion)
+  const captureResult = await captureSubmission(payload);
+  
+  // Show appropriate status
+  if (captureResult.success) {
+    if (captureResult.warning) {
+      showStatus('✅ Opening your email client... (Data capture not configured)', 'warning');
+    } else {
+      showStatus('✅ Success! Your information recorded. Opening email client now...', 'success');
+    }
+    
+    // Open email client after backend capture completes
+    openEmailClient(subject, body);
+    
+    // Reset form after successful submission
+    setTimeout(() => {
+      document.getElementById('petitionForm').reset();
+      setButtonLoading(false);
+    }, 2000);
+    
+  } else {
+    showStatus('⚠️ Data capture failed, but opening your email client anyway.', 'warning');
+    openEmailClient(subject, body);
+    setButtonLoading(false);
+  }
+}
+
+// Copy email template to clipboard
+function copyTemplate() {
+  const template = document.getElementById('emailTemplate').textContent;
+  const btn = event.target;
+  
+  // Try modern clipboard API first
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(template).then(() => {
+      btn.textContent = '✅ Copied!';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.textContent = '📋 Copy Email Template';
+        btn.classList.remove('copied');
+      }, 2000);
+    }).catch(err => {
+      // Fallback for clipboard API failure
+      fallbackCopyText(template, btn);
+    });
+  } else {
+    // Fallback for older browsers or file:// protocol
+    fallbackCopyText(template, btn);
+  }
+}
+
+// Copy page link
+function copyPageLink() {
+  const btn = event.target;
+  const originalText = btn.textContent;
+  const url = window.location.href;
+  
+  // Try modern clipboard API first
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(url).then(() => {
+      btn.textContent = '✅ Link Copied!';
+      setTimeout(() => {
+        btn.textContent = originalText;
+      }, 2000);
+    }).catch(err => {
+      // Fallback for clipboard API failure
+      fallbackCopyText(url, btn, originalText);
+    });
+  } else {
+    // Fallback for older browsers or file:// protocol
+    fallbackCopyText(url, btn, originalText);
+  }
+}
+
+// Fallback copy method using textarea
+function fallbackCopyText(text, btn, originalText = null) {
+  const textarea = document.createElement('textarea');
+  textarea.value = text;
+  textarea.style.position = 'fixed';
+  textarea.style.opacity = '0';
+  document.body.appendChild(textarea);
+  textarea.select();
+  
+  try {
+    const successful = document.execCommand('copy');
+    if (successful) {
+      btn.textContent = '✅ Copied!';
+      if (originalText) btn.classList.add('copied');
+      setTimeout(() => {
+        btn.textContent = originalText || '📋 Copy Email Template';
+        if (originalText) btn.classList.remove('copied');
+      }, 2000);
+    } else {
+      alert('Unable to copy. Please manually select and copy the text.');
+    }
+  } catch (err) {
+    alert('Unable to copy. Please manually select and copy the text.');
+  }
+  
+  document.body.removeChild(textarea);
+}
+
+// Share on social media
+function shareOnSocial() {
+  const shareText = "I just emailed both school boards to support the Windsong Ranch annexation to Prosper ISD. Join me in supporting common-sense governance!";
+  const shareUrl = window.location.href;
+  
+  // Try native Web Share API (mobile devices)
+  if (navigator.share) {
+    navigator.share({
+      title: 'Support Prosper ISD Petition',
+      text: shareText,
+      url: shareUrl
+    }).catch(err => {
+      // User cancelled or error occurred
+      if (err.name !== 'AbortError') {
+        // If real error, show fallback
+        showShareFallback(shareText, shareUrl);
+      }
+    });
+  } else {
+    // Fallback for desktop browsers
+    showShareFallback(shareText, shareUrl);
+  }
+}
+
+// Fallback share dialog
+function showShareFallback(text, url) {
+  const message = `Share this petition:\n\n${text}\n\nLink: ${url}`;
+  
+  // Try to copy to clipboard
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(url).then(() => {
+      alert(`✅ Link copied to clipboard!\n\n${url}\n\nPaste it anywhere to share with your network.`);
+    }).catch(() => {
+      alert(message);
+    });
+  } else {
+    alert(message);
+  }
+}
+
+// Add event listeners when DOM is ready
+document.addEventListener('DOMContentLoaded', function() {
+  const form = document.getElementById('petitionForm');
+  form.addEventListener('submit', handleSubmit);
+  
+  // Clear errors on input
+  ['name', 'email', 'street', 'city', 'state', 'zip', 'voterType'].forEach(fieldId => {
+    const field = document.getElementById(fieldId);
+    if (field) {
+      field.addEventListener('input', () => clearError(fieldId));
+      field.addEventListener('change', () => clearError(fieldId));
+    }
+  });
+  
+  console.log('✅ Petition form initialized successfully');
+});
+</script>
+
+</body>
+</html>
