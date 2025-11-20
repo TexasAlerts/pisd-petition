@@ -149,6 +149,44 @@
     font-size: 0.95rem;
   }
 
+  /* Academic KPI styling */
+  .fact-card.academic {
+    border-left: 4px solid #10b981;
+    background: linear-gradient(to bottom, #f0fdf4 0%, #ffffff 20%);
+  }
+
+  .fact-card.academic .fact-number {
+    color: #059669;
+  }
+
+  /* Section divider */
+  .section-divider {
+    text-align: center;
+    margin: 32px 0;
+    position: relative;
+  }
+
+  .section-divider::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    height: 1px;
+    background: #e5e7eb;
+  }
+
+  .section-divider span {
+    background: #f8f9fa;
+    padding: 0 16px;
+    position: relative;
+    font-weight: 600;
+    color: #64748b;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
   .why-matters {
     background: #fff3cd;
     border: 2px solid #ffc107;
@@ -812,11 +850,36 @@
       </div>
     </div>
 
+    <!-- Educational Excellence KPIs -->
+    <div class="section-divider">
+      <span>Educational Excellence</span>
+    </div>
+
+    <div class="facts-grid">
+      <div class="fact-card academic">
+        <p class="fact-number">100%</p>
+        <p class="fact-label">Of Prosper ISD schools are A-rated (27 of 27 schools) vs 12.5% for Denton ISD</p>
+      </div>
+      <div class="fact-card academic">
+        <p class="fact-number">99.5%</p>
+        <p class="fact-label">Prosper ISD graduation rate compared to 97.6% for Denton ISD</p>
+      </div>
+      <div class="fact-card academic">
+        <p class="fact-number">24</p>
+        <p class="fact-label">National Merit Scholars in Prosper ISD vs only 4 in Denton ISD (6X more)</p>
+      </div>
+      <div class="fact-card academic">
+        <p class="fact-number">A vs B</p>
+        <p class="fact-label">Prosper ISD district rating (91/100) compared to Denton ISD (80/100)</p>
+      </div>
+    </div>
+
     <div class="why-matters">
       <h3>What's Really Happening Here</h3>
       <ul>
         <li><strong>The Legal Framework:</strong> Texas Education Code Section 13.051 provides for detachment and annexation of territory. Section 13.004 addresses debt allocation. Section 13.005 sets effective dates</li>
         <li><strong>The Financial Reality:</strong> Prosper ISD educates all 274 students but loses $6.2 million annually from $510 million in assessed property value to Denton ISD - funds desperately needed for our schools and future bond capacity</li>
+        <li><strong>The Academic Reality:</strong> Families chose Prosper ISD where 100% of schools are A-rated (vs 12.5% for DISD), with a 99.5% graduation rate (vs 97.6%), and 24 National Merit Scholars (vs 4). Parents don't choose educational excellence by accident</li>
         <li><strong>The Student Reality:</strong> All students from these 466 homes attend Prosper ISD schools under the Windsong Ranch Education Agreement. Zero attend Denton ISD</li>
         <li><strong>The Petition Filed:</strong> October 20, 2025 - Official petition submitted with 52.6% voter support (360 of 684 registered voters), demonstrating clear majority support</li>
         <li><strong>Board Actions Required:</strong> Prosper ISD scheduled hearing for December 15 at 7:00 PM. Denton ISD must also hold hearing and vote. Both boards must approve</li>
