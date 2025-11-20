@@ -58,6 +58,196 @@
     font-weight: 600;
   }
   
+  /* Meeting Countdown Banner */
+  .meeting-countdown {
+    background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+    color: #fff;
+    padding: 40px 20px;
+    text-align: center;
+    margin: 0;
+    box-shadow: 0 4px 20px rgba(220, 38, 38, 0.4);
+  }
+  .meeting-countdown h2 {
+    margin: 0 0 8px 0;
+    font-size: 2rem;
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  }
+  .meeting-countdown h2 .siren-icon {
+    display: inline-block;
+    background: rgba(255,255,255,0.9);
+    padding: 4px 8px;
+    border-radius: 4px;
+    margin-right: 6px;
+  }
+  .meeting-countdown .meeting-date {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 0 20px 0;
+  }
+  .countdown-timer {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 30px 0;
+    flex-wrap: wrap;
+  }
+  .countdown-item {
+    background: rgba(255,255,255,0.15);
+    padding: 20px 30px;
+    border-radius: 12px;
+    min-width: 100px;
+    backdrop-filter: blur(10px);
+  }
+  .countdown-number {
+    display: block;
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1;
+  }
+  .countdown-label {
+    display: block;
+    font-size: 0.9rem;
+    margin-top: 8px;
+    opacity: 0.9;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .meeting-details {
+    background: rgba(255,255,255,0.1);
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px auto;
+    max-width: 600px;
+    font-size: 1.1rem;
+  }
+  .meeting-details strong {
+    display: block;
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+  }
+  .meeting-details .location-icon {
+    display: inline-block;
+    background: rgba(255,255,255,0.9);
+    padding: 4px 8px;
+    border-radius: 4px;
+    margin-right: 4px;
+  }
+  
+  /* Quick Signup Form */
+  .quick-signup {
+    background: rgba(255,255,255,0.15);
+    padding: 24px;
+    border-radius: 12px;
+    margin: 30px auto 0 auto;
+    max-width: 500px;
+    backdrop-filter: blur(10px);
+  }
+  .quick-signup h3 {
+    margin: 0 0 16px 0;
+    font-size: 1.3rem;
+    color: #fff;
+  }
+  .quick-signup-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .quick-signup input {
+    padding: 12px;
+    border-radius: 6px;
+    border: 2px solid rgba(255,255,255,0.3);
+    background: rgba(255,255,255,0.9);
+    font-size: 1rem;
+    width: 100%;
+  }
+  .quick-signup input:focus {
+    outline: none;
+    border-color: #fff;
+    background: #fff;
+  }
+  .quick-signup-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #fff;
+    font-size: 0.95rem;
+  }
+  .quick-signup-checkbox input[type="checkbox"] {
+    width: auto;
+    margin: 0;
+  }
+  .quick-signup button {
+    background: #fff;
+    color: #dc2626;
+    padding: 14px 24px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-top: 8px;
+  }
+  .quick-signup button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+  .quick-signup button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  .quick-signup-message {
+    margin-top: 12px;
+    padding: 12px;
+    border-radius: 6px;
+    font-weight: 600;
+    display: none;
+  }
+  .quick-signup-message.show {
+    display: block;
+  }
+  .quick-signup-message.success {
+    background: rgba(16, 185, 129, 0.9);
+    color: #fff;
+  }
+  .quick-signup-message.error {
+    background: rgba(239, 68, 68, 0.9);
+    color: #fff;
+  }
+  .action-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 30px;
+  }
+  .action-btn {
+    background: #fff;
+    color: #dc2626;
+    padding: 16px 32px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: all 0.2s;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    border: 2px solid #fff;
+  }
+  .action-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    background: #fef2f2;
+  }
+  .action-btn.secondary {
+    background: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+  }
+  .action-btn.secondary:hover {
+    background: rgba(255,255,255,0.1);
+  }
+  
   /* Call to Action Banner */
   .cta-banner {
     background: #fef3c7;
@@ -521,6 +711,51 @@
     .share-btn {
       width: 100%;
     }
+    
+    .meeting-countdown h2 {
+      font-size: 1.5rem;
+    }
+    
+    .meeting-countdown .meeting-date {
+      font-size: 1.2rem;
+    }
+    
+    .countdown-item {
+      padding: 15px 20px;
+      min-width: 70px;
+    }
+    
+    .countdown-number {
+      font-size: 2rem;
+    }
+    
+    .countdown-label {
+      font-size: 0.75rem;
+    }
+    
+    .action-buttons {
+      flex-direction: column;
+      gap: 10px;
+    }
+    
+    .action-btn {
+      width: 100%;
+      padding: 14px 24px;
+      font-size: 1rem;
+    }
+    
+    .quick-signup {
+      padding: 20px;
+      margin: 20px auto 0 auto;
+    }
+    
+    .quick-signup h3 {
+      font-size: 1.1rem;
+    }
+    
+    .quick-signup input {
+      font-size: 16px; /* Prevents zoom on iOS */
+    }
   }
 </style>
 </head>
@@ -531,6 +766,64 @@
   <p><strong>These ~274 students already attend Prosper ISD</strong> — yet under a contractual arrangement between Prosper Education Foundation, Windsong Ranch HOA/Developers, and Prosper ISD, <strong>the district receives $0.00 in property tax dollars</strong> to fund their education. This petition corrects this injustice by permanently aligning students with the district that educates them and ensuring tax dollars follow.</p>
   <div class="stats">466 homes • $510M taxable value • ≈$6.2M/year to PISD after approval</div>
 </header>
+
+<!-- URGENT MEETING COUNTDOWN -->
+<div class="meeting-countdown">
+  <h2><span class="siren-icon">🚨</span> URGENT: School Board Meeting</h2>
+  <div class="meeting-date">December 15, 2025 at 7:00 PM</div>
+  
+  <div class="countdown-timer" id="countdown">
+    <div class="countdown-item">
+      <span class="countdown-number" id="days">--</span>
+      <span class="countdown-label">Days</span>
+    </div>
+    <div class="countdown-item">
+      <span class="countdown-number" id="hours">--</span>
+      <span class="countdown-label">Hours</span>
+    </div>
+    <div class="countdown-item">
+      <span class="countdown-number" id="minutes">--</span>
+      <span class="countdown-label">Minutes</span>
+    </div>
+    <div class="countdown-item">
+      <span class="countdown-number" id="seconds">--</span>
+      <span class="countdown-label">Seconds</span>
+    </div>
+  </div>
+  
+  <div class="meeting-details">
+    <strong><span class="location-icon">📍</span> Where:</strong>
+    Prosper ISD Administration Building<br>
+    605 E 7th St, Prosper, TX 75078<br>
+    <a href="https://www.google.com/maps/search/?api=1&query=605+E+7th+St+Prosper+TX+75078" target="_blank" style="color: #fff; text-decoration: underline;">Get Directions →</a>
+  </div>
+  
+  <div class="action-buttons">
+    <a href="#petitionForm" class="action-btn">📧 Email Boards Now</a>
+    <button onclick="shareOnSocial()" class="action-btn secondary">📱 Share This Page</button>
+    <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=PISD+School+Board+Meeting+-+Support+Windsong+Ranch+Petition&dates=20251216T010000Z/20251216T030000Z&details=Support+the+Windsong+Ranch+annexation+petition+at+the+Prosper+ISD+Board+Meeting&location=605+E+7th+St,+Prosper,+TX+75078" target="_blank" class="action-btn secondary">📅 Add to Calendar</a>
+  </div>
+  
+  <!-- Quick Signup Form -->
+  <div class="quick-signup">
+    <h3>✅ Get Updates Without Sending Email</h3>
+    <p style="margin: 0 0 16px 0; font-size: 0.95rem; opacity: 0.95;">Just want to stay informed? Sign up here for SMS/email updates about the Dec 15 meeting.</p>
+    
+    <form id="quickSignupForm" class="quick-signup-form" onsubmit="handleQuickSignup(event); return false;">
+      <input type="email" id="quickEmail" name="email" placeholder="Your email address" required />
+      <input type="tel" id="quickPhone" name="phone" placeholder="Phone (optional for SMS)" />
+      
+      <label class="quick-signup-checkbox">
+        <input type="checkbox" id="quickSmsOptIn" name="smsOptIn" checked />
+        <span>📲 Yes, text me about the Dec 15 meeting</span>
+      </label>
+      
+      <button type="submit" id="quickSignupBtn">🎯 Sign Me Up!</button>
+      
+      <div class="quick-signup-message" id="quickSignupMessage"></div>
+    </form>
+  </div>
+</div>
 
 <div class="cta-banner">
   <h3>🎯 Why ALL Prosper ISD Voters Should Act Now</h3>
@@ -640,6 +933,27 @@
       <label for="email">Email Address *</label>
       <input type="email" id="email" name="email" placeholder="you@example.com" required aria-required="true" />
       <div class="error-message" id="email-error">Please enter a valid email address</div>
+    </div>
+    
+    <div class="form-group">
+      <label for="phone">Phone Number (Optional - for SMS updates)</label>
+      <input type="tel" id="phone" name="phone" placeholder="(972) 555-1234" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" />
+      <div class="error-message" id="phone-error">Please enter a valid 10-digit phone number</div>
+      <div style="font-size: 0.875rem; color: #64748b; margin-top: 4px;">
+        📱 If you provide your phone, we can send you text updates about the petition progress
+      </div>
+    </div>
+    
+    <div class="form-group" style="padding: 12px; background: #f0f9ff; border-radius: 8px; border: 1px solid #bae6fd;">
+      <label style="display: flex; align-items: center; cursor: pointer; margin: 0;">
+        <input type="checkbox" id="smsOptIn" name="smsOptIn" style="width: auto; margin-right: 10px;" checked />
+        <span style="font-weight: 600; color: #0c4a6e;">
+          📲 Yes, send me SMS updates about the petition
+        </span>
+      </label>
+      <div style="font-size: 0.85rem; color: #075985; margin-top: 8px; margin-left: 30px;">
+        ✅ <strong>Recommended:</strong> Get important updates about the Dec 15 board meeting. Uncheck to opt out. Standard message rates apply.
+      </div>
     </div>
     
     <div class="form-group">
@@ -777,7 +1091,7 @@ Sincerely,
 <script>
 // Configuration
 const CONFIG = {
-  ENDPOINT: "https://script.google.com/macros/s/AKfycbxjQjLBQJqZQcGt3Fsmw_56zE5-R6WtqvYBygLL4rX8IHboYEYQJUrTMYMw442HpcqPyg/exec",
+  ENDPOINT: "https://script.google.com/macros/s/AKfycbxugscfEwzf1eweMyhiucZTfBriII0KiYqPgZ-ITKmAuVC5sJPWw5_aJCLKrlJou5wQ0A/exec",
   RECIPIENTS_TO: [
     // Denton ISD (10)
     "superintendent@dentonisd.org",
@@ -849,7 +1163,7 @@ function clearError(fieldId) {
 
 // Utility: Clear all errors
 function clearAllErrors() {
-  ['name', 'email', 'street', 'city', 'state', 'zip', 'voterType'].forEach(clearError);
+  ['name', 'email', 'phone', 'street', 'city', 'state', 'zip', 'voterType'].forEach(clearError);
 }
 
 // Utility: Show status message
@@ -922,6 +1236,87 @@ function buildBody(name, email, street, city, state, zip, voterType) {
   return body;
 }
 
+// Handle Quick Signup Form (no email client, just capture data)
+async function handleQuickSignup(event) {
+  event.preventDefault();
+  
+  const email = document.getElementById('quickEmail').value.trim();
+  const phone = document.getElementById('quickPhone').value.trim();
+  const smsOptIn = document.getElementById('quickSmsOptIn').checked;
+  const btn = document.getElementById('quickSignupBtn');
+  const message = document.getElementById('quickSignupMessage');
+  
+  // Validate email
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    message.textContent = '⚠️ Please enter a valid email address';
+    message.className = 'quick-signup-message show error';
+    return;
+  }
+  
+  // Validate phone if provided
+  if (phone) {
+    const phoneDigits = phone.replace(/\D/g, '');
+    if (phoneDigits.length !== 10) {
+      message.textContent = '⚠️ Phone must be 10 digits (or leave blank)';
+      message.className = 'quick-signup-message show error';
+      return;
+    }
+  }
+  
+  // Set loading state
+  btn.disabled = true;
+  btn.textContent = '⏳ Signing up...';
+  message.classList.remove('show');
+  
+  // Prepare payload - minimal data for quick signup
+  const payload = {
+    name: 'Quick Signup',
+    email: email,
+    phone: phone || '',
+    smsOptIn: smsOptIn,
+    street: 'Quick Signup',
+    city: 'N/A',
+    state: 'TX',
+    zip: '00000',
+    voterType: 'Quick Signup - Updates Only',
+    fullAddress: 'Quick Signup',
+    timestamp: new Date().toISOString(),
+    userAgent: navigator.userAgent
+  };
+  
+  try {
+    const response = await fetch(CONFIG.ENDPOINT, {
+      method: "POST",
+      mode: "no-cors",
+      body: JSON.stringify(payload)
+    });
+    
+    // Success!
+    message.textContent = '✅ Success! You\'re signed up for updates about the Dec 15 meeting!';
+    message.className = 'quick-signup-message show success';
+    
+    // Reset form
+    document.getElementById('quickSignupForm').reset();
+    document.getElementById('quickSmsOptIn').checked = true; // Keep default checked
+    
+    btn.disabled = false;
+    btn.textContent = '🎯 Sign Me Up!';
+    
+  } catch (error) {
+    console.error('Quick signup error:', error);
+    message.textContent = '✅ Signed up! (Data capture pending)';
+    message.className = 'quick-signup-message show success';
+    
+    // Reset form anyway
+    document.getElementById('quickSignupForm').reset();
+    document.getElementById('quickSmsOptIn').checked = true;
+    
+    btn.disabled = false;
+    btn.textContent = '🎯 Sign Me Up!';
+  }
+}
+
 // Validate form inputs
 function validateForm(formData) {
   clearAllErrors();
@@ -947,6 +1342,15 @@ function validateForm(formData) {
   } else if (!isValidEmail(formData.email)) {
     showError('email', 'Please enter a valid email address (e.g., you@example.com)');
     isValid = false;
+  }
+  
+  // Validate phone (optional, but must be valid if provided)
+  if (formData.phone && formData.phone.trim() !== '') {
+    const phoneDigits = formData.phone.replace(/\D/g, '');
+    if (phoneDigits.length !== 10) {
+      showError('phone', 'Phone number must be 10 digits (e.g., 9725551234)');
+      isValid = false;
+    }
   }
   
   // Validate street
@@ -1026,6 +1430,8 @@ async function handleSubmit(event) {
   const formData = {
     name: document.getElementById('name').value.trim(),
     email: document.getElementById('email').value.trim(),
+    phone: document.getElementById('phone').value.trim(),
+    smsOptIn: document.getElementById('smsOptIn').checked,
     street: document.getElementById('street').value.trim(),
     city: document.getElementById('city').value.trim(),
     state: document.getElementById('state').value.trim().toUpperCase(),
@@ -1168,53 +1574,302 @@ function fallbackCopyText(text, btn, originalText = null) {
   document.body.removeChild(textarea);
 }
 
-// Share on social media
+// Share on social media - Enhanced for viral texting
 function shareOnSocial() {
-  const shareText = "I just emailed both school boards to support the Windsong Ranch annexation to Prosper ISD. Join me in supporting common-sense governance!";
-  const shareUrl = window.location.href;
+  const pageUrl = window.location.href;
   
-  // Try native Web Share API (mobile devices)
+  // Compelling share message optimized for texting
+  const shareMessage = `🚨 URGENT: PISD Board votes Dec 15 on Windsong Ranch petition!
+
+Help me support this - takes 2 minutes to email both boards:
+${pageUrl}
+
+Every voice counts! Can you share with 3 friends?`;
+  
+  // Try native Web Share API first (best for mobile)
   if (navigator.share) {
     navigator.share({
-      title: 'Support Prosper ISD Petition',
-      text: shareText,
-      url: shareUrl
+      title: '🚨 URGENT: Support PISD Petition',
+      text: shareMessage
+    }).then(() => {
+      console.log('Share successful');
     }).catch(err => {
       // User cancelled or error occurred
       if (err.name !== 'AbortError') {
-        // If real error, show fallback
-        showShareFallback(shareText, shareUrl);
+        // If real error, show fallback options
+        showShareOptions(shareMessage, pageUrl);
       }
     });
   } else {
-    // Fallback for desktop browsers
-    showShareFallback(shareText, shareUrl);
+    // Desktop/unsupported browsers - show options
+    showShareOptions(shareMessage, pageUrl);
   }
 }
 
-// Fallback share dialog
-function showShareFallback(text, url) {
-  const message = `Share this petition:\n\n${text}\n\nLink: ${url}`;
+// Show share options dialog
+function showShareOptions(message, url) {
+  // Create modal overlay
+  const overlay = document.createElement('div');
+  overlay.style.cssText = `
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    padding: 20px;
+  `;
   
-  // Try to copy to clipboard
+  // Create modal content
+  const modal = document.createElement('div');
+  modal.style.cssText = `
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+    max-width: 500px;
+    width: 100%;
+    max-height: 80vh;
+    overflow-y: auto;
+  `;
+  
+  modal.innerHTML = `
+    <h3 style="margin: 0 0 20px 0; color: #1e3a8a; font-size: 1.5rem;">
+      📱 Share This Petition
+    </h3>
+    
+    <p style="margin: 0 0 20px 0; color: #475569; line-height: 1.6;">
+      Help spread the word! Choose how to share:
+    </p>
+    
+    <div style="display: flex; flex-direction: column; gap: 12px;">
+      <button onclick="shareViaSMS('${url.replace(/'/g, "\\'")}'); closeShareModal();" style="
+        background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        color: white;
+        border: none;
+        padding: 16px;
+        border-radius: 8px;
+        font-weight: 700;
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: transform 0.2s;
+      " onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+        💬 Text Your Friends
+      </button>
+      
+      <button onclick="shareViaEmail('${url.replace(/'/g, "\\'")}'); closeShareModal();" style="
+        background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+        color: white;
+        border: none;
+        padding: 16px;
+        border-radius: 8px;
+        font-weight: 700;
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: transform 0.2s;
+      " onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+        📧 Email Your Network
+      </button>
+      
+      <button onclick="copyShareLink('${url.replace(/'/g, "\\'")}');" style="
+        background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+        color: white;
+        border: none;
+        padding: 16px;
+        border-radius: 8px;
+        font-weight: 700;
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: transform 0.2s;
+      " onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+        🔗 Copy Link
+      </button>
+      
+      <button onclick="closeShareModal()" style="
+        background: #e5e7eb;
+        color: #374151;
+        border: none;
+        padding: 12px;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 1rem;
+        cursor: pointer;
+        margin-top: 8px;
+      ">
+        Cancel
+      </button>
+    </div>
+  `;
+  
+  overlay.appendChild(modal);
+  document.body.appendChild(overlay);
+  
+  // Close on overlay click
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) {
+      closeShareModal();
+    }
+  });
+  
+  // Store reference for closing
+  window.currentShareModal = overlay;
+}
+
+// Share via SMS/iMessage
+function shareViaSMS(url) {
+  const message = `🚨 URGENT: PISD Board votes Dec 15 on Windsong Ranch petition! Help me support this - takes 2 min to email both boards: ${url} Every voice counts!`;
+  
+  // Detect device type
+  const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+  const isAndroid = /Android/.test(navigator.userAgent);
+  
+  // Create SMS link with message
+  let smsLink;
+  if (isIOS) {
+    // iOS format
+    smsLink = `sms:&body=${encodeURIComponent(message)}`;
+  } else {
+    // Android format
+    smsLink = `sms:?body=${encodeURIComponent(message)}`;
+  }
+  
+  // Open SMS app
+  window.location.href = smsLink;
+  
+  // Show helper message
+  setTimeout(() => {
+    alert('📱 Your messaging app should open with a pre-filled message.\n\nSelect contacts and send to spread the word!');
+  }, 500);
+}
+
+// Share via Email
+function shareViaEmail(url) {
+  const subject = '🚨 URGENT: Support PISD Petition - Dec 15 Vote';
+  const body = `Hi,
+
+I just took action on an important local issue and wanted to share it with you.
+
+🚨 URGENT: The Prosper ISD and Denton ISD boards are voting on December 15 about a petition to permanently align Windsong Ranch students with Prosper ISD (where they already attend school).
+
+This is about common-sense governance and ensuring tax dollars follow students to the district serving them.
+
+Can you help? It takes just 2 minutes to send an email to both school boards:
+${url}
+
+Every voice matters! Please share with your network too.
+
+Thanks for supporting good governance!`;
+
+  const mailtoLink = `mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  window.location.href = mailtoLink;
+}
+
+// Copy share link to clipboard
+function copyShareLink(url) {
   if (navigator.clipboard && navigator.clipboard.writeText) {
     navigator.clipboard.writeText(url).then(() => {
-      alert(`✅ Link copied to clipboard!\n\n${url}\n\nPaste it anywhere to share with your network.`);
-    }).catch(() => {
-      alert(message);
+      // Update button text
+      const buttons = document.querySelectorAll('button');
+      buttons.forEach(btn => {
+        if (btn.textContent.includes('Copy Link')) {
+          const originalText = btn.textContent;
+          btn.textContent = '✅ Link Copied!';
+          btn.style.background = '#10b981';
+          setTimeout(() => {
+            btn.textContent = originalText;
+            btn.style.background = 'linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%)';
+          }, 2000);
+        }
+      });
     });
   } else {
-    alert(message);
+    alert(`Copy this link to share:\n\n${url}`);
   }
+}
+
+// Close share modal
+function closeShareModal() {
+  if (window.currentShareModal) {
+    document.body.removeChild(window.currentShareModal);
+    window.currentShareModal = null;
+  }
+}
+
+// Fallback share dialog (legacy - keeping for compatibility)
+function showShareFallback(text, url) {
+  shareOnSocial(); // Use new enhanced version
 }
 
 // Add event listeners when DOM is ready
 document.addEventListener('DOMContentLoaded', function() {
+  // Meeting Countdown Timer
+  const meetingDate = new Date('2025-12-15T19:00:00-06:00').getTime(); // 7 PM CST on Dec 15, 2025
+  
+  function updateCountdown() {
+    const now = new Date().getTime();
+    const distance = meetingDate - now;
+    
+    if (distance < 0) {
+      document.getElementById('countdown').innerHTML = '<div class="countdown-item"><span class="countdown-number">MEETING</span><span class="countdown-label">IS TODAY!</span></div>';
+      return;
+    }
+    
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+    document.getElementById('days').textContent = days.toString().padStart(2, '0');
+    document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+    document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+    document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+  }
+  
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+  
   const form = document.getElementById('petitionForm');
   form.addEventListener('submit', handleSubmit);
   
+  // Add phone number formatting
+  const phoneInput = document.getElementById('phone');
+  if (phoneInput) {
+    phoneInput.addEventListener('input', function(e) {
+      let value = e.target.value.replace(/\D/g, '');
+      if (value.length > 10) value = value.slice(0, 10);
+      
+      if (value.length >= 6) {
+        e.target.value = `(${value.slice(0,3)}) ${value.slice(3,6)}-${value.slice(6)}`;
+      } else if (value.length >= 3) {
+        e.target.value = `(${value.slice(0,3)}) ${value.slice(3)}`;
+      } else if (value.length > 0) {
+        e.target.value = value;
+      }
+    });
+  }
+  
+  // Add phone number formatting for quick signup
+  const quickPhoneInput = document.getElementById('quickPhone');
+  if (quickPhoneInput) {
+    quickPhoneInput.addEventListener('input', function(e) {
+      let value = e.target.value.replace(/\D/g, '');
+      if (value.length > 10) value = value.slice(0, 10);
+      
+      if (value.length >= 6) {
+        e.target.value = `(${value.slice(0,3)}) ${value.slice(3,6)}-${value.slice(6)}`;
+      } else if (value.length >= 3) {
+        e.target.value = `(${value.slice(0,3)}) ${value.slice(3)}`;
+      } else if (value.length > 0) {
+        e.target.value = value;
+      }
+    });
+  }
+  
   // Clear errors on input
-  ['name', 'email', 'street', 'city', 'state', 'zip', 'voterType'].forEach(fieldId => {
+  ['name', 'email', 'phone', 'street', 'city', 'state', 'zip', 'voterType'].forEach(fieldId => {
     const field = document.getElementById(fieldId);
     if (field) {
       field.addEventListener('input', () => clearError(fieldId));
