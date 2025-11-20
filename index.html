@@ -58,6 +58,228 @@
     font-weight: 600;
   }
   
+  /* Two-Action Hero Banner */
+  .two-action-banner {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    color: #fff;
+    padding: 30px 20px;
+    text-align: center;
+    border-bottom: 4px solid #b45309;
+    box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+  }
+  .two-action-banner h2 {
+    margin: 0 0 20px 0;
+    font-size: 1.8rem;
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  }
+  .two-action-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .action-card {
+    background: rgba(255,255,255,0.15);
+    padding: 24px;
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255,255,255,0.3);
+  }
+  .action-card h3 {
+    margin: 0 0 12px 0;
+    font-size: 1.4rem;
+    color: #fff;
+  }
+  .action-card p {
+    margin: 0 0 16px 0;
+    font-size: 1rem;
+    opacity: 0.95;
+  }
+  .action-card .action-card-btn {
+    background: #fff;
+    color: #d97706;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    display: inline-block;
+    transition: all 0.2s;
+  }
+  .action-card .action-card-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+  .mandatory-text {
+    margin-top: 20px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    padding: 16px;
+    background: rgba(220, 38, 38, 0.9);
+    border-radius: 8px;
+  }
+  
+  /* Action Checklist */
+  .action-checklist {
+    background: #fef3c7;
+    border: 3px solid #f59e0b;
+    border-radius: 12px;
+    padding: 30px;
+    margin: 30px auto;
+    max-width: 900px;
+  }
+  .action-checklist h2 {
+    margin: 0 0 24px 0;
+    color: #92400e;
+    font-size: 1.75rem;
+    text-align: center;
+  }
+  .checklist-items {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .checklist-item {
+    background: #fff;
+    border: 2px solid #fcd34d;
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    transition: all 0.2s;
+  }
+  .checklist-item:hover {
+    border-color: #f59e0b;
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.2);
+  }
+  .checklist-number {
+    background: #f59e0b;
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+  }
+  .checklist-content {
+    flex: 1;
+  }
+  .checklist-content h3 {
+    margin: 0 0 8px 0;
+    color: #92400e;
+    font-size: 1.2rem;
+  }
+  .checklist-content p {
+    margin: 0;
+    color: #78350f;
+    font-size: 0.95rem;
+  }
+  .checklist-action {
+    flex-shrink: 0;
+  }
+  .checklist-btn {
+    background: #f59e0b;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-block;
+    transition: all 0.2s;
+    border: none;
+    cursor: pointer;
+  }
+  .checklist-btn:hover {
+    background: #d97706;
+    transform: translateY(-1px);
+  }
+  
+  /* In-Person Emphasis */
+  .in-person-emphasis {
+    background: rgba(220, 38, 38, 0.9);
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+    text-align: center;
+  }
+  .in-person-emphasis h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.5rem;
+    color: #fff;
+  }
+  .in-person-emphasis p {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #fff;
+    opacity: 0.95;
+  }
+  
+  /* Post-Email Reminder Box */
+  .post-email-reminder {
+    display: none;
+    background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+    border: 3px solid #7f1d1d;
+    border-radius: 12px;
+    padding: 30px;
+    margin: 20px 0;
+    text-align: center;
+    animation: slideDown 0.5s ease-out;
+  }
+  .post-email-reminder.show {
+    display: block;
+  }
+  .post-email-reminder h3 {
+    margin: 0 0 16px 0;
+    color: #fff;
+    font-size: 1.6rem;
+  }
+  .post-email-reminder p {
+    margin: 0 0 20px 0;
+    color: #fff;
+    font-size: 1.2rem;
+    line-height: 1.6;
+  }
+  .post-email-reminder .reminder-buttons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .post-email-reminder button,
+  .post-email-reminder a {
+    background: #fff;
+    color: #dc2626;
+    padding: 14px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .post-email-reminder button:hover,
+  .post-email-reminder a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
   /* Meeting Countdown Banner */
   .meeting-countdown {
     background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
@@ -756,6 +978,32 @@
     .quick-signup input {
       font-size: 16px; /* Prevents zoom on iOS */
     }
+    
+    .two-action-grid {
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+    
+    .two-action-banner h2 {
+      font-size: 1.4rem;
+    }
+    
+    .action-card h3 {
+      font-size: 1.2rem;
+    }
+    
+    .checklist-item {
+      flex-direction: column;
+      text-align: center;
+    }
+    
+    .checklist-action {
+      width: 100%;
+    }
+    
+    .checklist-btn {
+      width: 100%;
+    }
   }
 </style>
 </head>
@@ -766,6 +1014,70 @@
   <p><strong>These ~274 students already attend Prosper ISD</strong> — yet under a contractual arrangement between Prosper Education Foundation, Windsong Ranch HOA/Developers, and Prosper ISD, <strong>the district receives $0.00 in property tax dollars</strong> to fund their education. This petition corrects this injustice by permanently aligning students with the district that educates them and ensuring tax dollars follow.</p>
   <div class="stats">466 homes • $510M taxable value • ≈$6.2M/year to PISD after approval</div>
 </header>
+
+<!-- TWO-ACTION HERO BANNER -->
+<div class="two-action-banner">
+  <h2>⚠️ YOUR SUPPORT REQUIRES TWO ACTIONS</h2>
+  
+  <div class="two-action-grid">
+    <div class="action-card">
+      <h3>✉️ ACTION 1: Send Email</h3>
+      <p>Email both school boards (takes 2 minutes)</p>
+      <a href="#petitionForm" class="action-card-btn">📧 Send Email Now</a>
+    </div>
+    
+    <div class="action-card">
+      <h3>🏛️ ACTION 2: Show Up</h3>
+      <p>Attend Dec 15 meeting in person (REQUIRED!)</p>
+      <button onclick="showCalendarOptions()" class="action-card-btn">📅 Add to Calendar</button>
+    </div>
+  </div>
+  
+  <div class="mandatory-text">
+    ⚡ Both actions are mandatory to make your voice count! ⚡
+  </div>
+</div>
+
+<!-- ACTION CHECKLIST -->
+<div class="action-checklist">
+  <h2>✅ Your 3-Step Action Checklist</h2>
+  <p style="text-align: center; margin: 0 0 24px 0; color: #92400e; font-size: 1.05rem;"><strong>Complete ALL three steps to support this petition:</strong></p>
+  
+  <div class="checklist-items">
+    <div class="checklist-item">
+      <div class="checklist-number">1</div>
+      <div class="checklist-content">
+        <h3>📧 Send Email to Both Boards</h3>
+        <p>Takes 2 minutes. Opens your email client with pre-written message.</p>
+      </div>
+      <div class="checklist-action">
+        <a href="#petitionForm" class="checklist-btn">Send Email</a>
+      </div>
+    </div>
+    
+    <div class="checklist-item">
+      <div class="checklist-number">2</div>
+      <div class="checklist-content">
+        <h3>📅 Add Meeting to Your Calendar</h3>
+        <p>December 15, 2025 at 7:00 PM. Don't rely on memory!</p>
+      </div>
+      <div class="checklist-action">
+        <button onclick="showCalendarOptions()" class="checklist-btn">Add to Calendar</button>
+      </div>
+    </div>
+    
+    <div class="checklist-item">
+      <div class="checklist-number">3</div>
+      <div class="checklist-content">
+        <h3>🏛️ Show Up In Person</h3>
+        <p>Be at Prosper ISD Admin Building, 605 E 7th St on Dec 15 at 7 PM.</p>
+      </div>
+      <div class="checklist-action">
+        <a href="https://www.google.com/maps/search/?api=1&query=605+E+7th+St+Prosper+TX+75078" target="_blank" class="checklist-btn">Get Directions</a>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- URGENT MEETING COUNTDOWN -->
 <div class="meeting-countdown">
@@ -791,6 +1103,13 @@
     </div>
   </div>
   
+  <!-- IN-PERSON ATTENDANCE EMPHASIS -->
+  <div class="in-person-emphasis">
+    <h3>🚨 YOU MUST BE THERE IN PERSON</h3>
+    <p>Emails are great, but <strong>physical attendance is what wins votes</strong>.<br>
+    Empty seats = trustees ignore us. Full room = trustees listen.</p>
+  </div>
+  
   <div class="meeting-details">
     <strong><span class="location-icon">📍</span> Where:</strong>
     Prosper ISD Administration Building<br>
@@ -806,8 +1125,11 @@
   
   <!-- Quick Signup Form -->
   <div class="quick-signup">
-    <h3>✅ Get Updates Without Sending Email</h3>
-    <p style="margin: 0 0 16px 0; font-size: 0.95rem; opacity: 0.95;">Just want to stay informed? Sign up here for SMS/email updates about the Dec 15 meeting.</p>
+    <h3>📱 Just Want Updates? (This Does NOT Count as Support)</h3>
+    <p style="margin: 0 0 16px 0; font-size: 0.95rem; opacity: 0.95;">
+      ⚠️ <strong>Important:</strong> This signup alone does NOT support the petition. You must still email the boards AND attend the meeting.<br><br>
+      If you can't take action right now, sign up here to stay informed about the Dec 15 meeting.
+    </p>
     
     <form id="quickSignupForm" class="quick-signup-form" onsubmit="handleQuickSignup(event); return false;">
       <input type="email" id="quickEmail" name="email" placeholder="Your email address" required />
@@ -1005,6 +1327,20 @@
     </div>
     
     <div class="status-message" id="statusMessage"></div>
+    
+    <!-- Post-Email Reminder Box -->
+    <div class="post-email-reminder" id="postEmailReminder">
+      <h3>✅ Step 1 Complete!</h3>
+      <p>
+        <strong>⚠️ CRITICAL: Step 2 Required</strong><br>
+        Your email means NOTHING if you don't show up on December 15!<br>
+        Add the meeting to your calendar RIGHT NOW so you don't forget.
+      </p>
+      <div class="reminder-buttons">
+        <button onclick="showCalendarOptions()">📅 Add to Calendar Now</button>
+        <a href="https://www.google.com/maps/search/?api=1&query=605+E+7th+St+Prosper+TX+75078" target="_blank">📍 Get Directions</a>
+      </div>
+    </div>
   </form>
   
   <h3>Option 2: Copy & Paste the Email Yourself</h3>
@@ -1478,9 +1814,19 @@ async function handleSubmit(event) {
   // Show appropriate status
   if (captureResult.success) {
     if (captureResult.warning) {
-      showStatus('✅ Opening your email client... (Data capture not configured)', 'warning');
+      showStatus('✅ Step 1 Complete: Email Opening! ⚠️ STEP 2 REQUIRED: You MUST attend Dec 15 meeting in person. Add to calendar now!', 'warning');
     } else {
-      showStatus('✅ Success! Your information recorded. Opening email client now...', 'success');
+      showStatus('✅ Step 1 Complete: Email Opening! ⚠️ STEP 2 REQUIRED: You MUST attend Dec 15 meeting. Your email means nothing if you don\'t show up! Add to calendar → ', 'success');
+    }
+    
+    // Show the post-email reminder box
+    const reminderBox = document.getElementById('postEmailReminder');
+    if (reminderBox) {
+      reminderBox.classList.add('show');
+      // Scroll to reminder box
+      setTimeout(() => {
+        reminderBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 1000);
     }
     
     // Open email client after backend capture completes
@@ -1493,7 +1839,17 @@ async function handleSubmit(event) {
     }, 2000);
     
   } else {
-    showStatus('⚠️ Data capture failed, but opening your email client anyway.', 'warning');
+    showStatus('✅ Step 1 Complete: Email Opening! ⚠️ STEP 2 REQUIRED: You MUST attend Dec 15 meeting in person. Add to calendar now!', 'warning');
+    
+    // Show the post-email reminder box
+    const reminderBox = document.getElementById('postEmailReminder');
+    if (reminderBox) {
+      reminderBox.classList.add('show');
+      setTimeout(() => {
+        reminderBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 1000);
+    }
+    
     openEmailClient(subject, body);
     setButtonLoading(false);
   }
