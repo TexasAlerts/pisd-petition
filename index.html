@@ -946,7 +946,7 @@
             Suggested Message:
           </p>
           <p style="margin: 8px 0 0 0; color: #4b5563; font-size: 0.95rem;">
-            "Critical meeting Dec 15 at 7:00 PM - Prosper ISD will vote on keeping Windsong Ranch students in our schools permanently. We need everyone there! Takes 3 min to email the boards: https://keepwindsongprosper.com"
+            "Critical meeting Dec 15 at 7:00 PM - Prosper ISD will vote on keeping Windsong Ranch students in our schools permanently. We need everyone there! Takes 3 min to email the boards: https://prosperisdpetition.com"
           </p>
         </div>
       </div>
@@ -1293,7 +1293,7 @@ function downloadICS() {
 VERSION:2.0
 PRODID:-//Windsong Ranch Petition//EN
 BEGIN:VEVENT
-UID:${Date.now()}@keepwindsongprosper.com
+UID:${Date.now()}@prosperisdpetition.com
 DTSTAMP:${new Date().toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '')}
 DTSTART:20251216T010000Z
 DTEND:20251216T030000Z
@@ -1341,7 +1341,7 @@ function completeStep2() {
 
 // Share functions
 function shareViaSMS() {
-  const message = encodeURIComponent('Critical meeting Dec 15 at 7:00 PM - Prosper ISD will vote on keeping Windsong Ranch students in our schools permanently. We need everyone there! Takes 3 min to email the boards: https://keepwindsongprosper.com');
+  const message = encodeURIComponent('Critical meeting Dec 15 at 7:00 PM - Prosper ISD will vote on keeping Windsong Ranch students in our schools permanently. We need everyone there! Takes 3 min to email the boards: https://prosperisdpetition.com');
   window.open(`sms:?&body=${message}`, '_blank');
   completeStep3();
 }
@@ -1354,7 +1354,7 @@ There's a critical meeting on December 15 at 7:00 PM where Prosper ISD will vote
 
 We need as many people as possible to attend and show support. It only takes 3 minutes to email the boards with your support:
 
-https://keepwindsongprosper.com
+https://prosperisdpetition.com
 
 Meeting Details:
 December 15, 2025 at 7:00 PM
@@ -1370,7 +1370,7 @@ Thank you!`);
 }
 
 function copyShareLink() {
-  const text = 'Critical meeting Dec 15 at 7:00 PM - Prosper ISD will vote on keeping Windsong Ranch students in our schools permanently. We need everyone there! Takes 3 min to email the boards: https://keepwindsongprosper.com';
+  const text = 'Critical meeting Dec 15 at 7:00 PM - Prosper ISD will vote on keeping Windsong Ranch students in our schools permanently. We need everyone there! Takes 3 min to email the boards: https://prosperisdpetition.com';
 
   if (navigator.clipboard && navigator.clipboard.writeText) {
     navigator.clipboard.writeText(text).then(() => {
