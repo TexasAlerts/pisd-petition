@@ -1030,7 +1030,7 @@ const CONFIG = {
     'asorendo@wabsa.com',
     'commissioner@tea.texas.gov'
   ],
-  ENDPOINT: "PASTE_YOUR_APPS_SCRIPT_URL_HERE" // Google Apps Script endpoint
+  ENDPOINT: "https://script.google.com/macros/s/AKfycbxugscfEwzf1eweMyhiucZTfBriII0KiYqPgZ-ITKmAuVC5sJPWw5_aJCLKrlJou5wQ0A/exec" // Google Apps Script endpoint
 };
 
 // Countdown Timer
@@ -1221,20 +1221,41 @@ async function handleSubmit(event) {
 
   const { subject, body } = buildEmailContent(formData);
 
-  // Try to capture submission to backend
-  if (CONFIG.ENDPOINT !== "PASTE_YOUR_APPS_SCRIPT_URL_HERE") {
+  // Submit to Google Sheets
+  if (CONFIG.ENDPOINT && CONFIG.ENDPOINT !== "PASTE_YOUR_APPS_SCRIPT_URL_HERE") {
     try {
-      await fetch(CONFIG.ENDPOINT, {
+      // Prepare data for Google Sheets (matching the Apps Script expectations)
+      const sheetData = {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        smsOptIn: formData.smsConsent, // Apps Script expects "smsOptIn"
+        street: formData.street,
+        city: formData.city,
+        state: formData.state,
+        zip: formData.zip,
+        voterType: formData.voterType,
+        website: formData.website, // Honeypot field
+        fullAddress: `${formData.street}, ${formData.city}, ${formData.state} ${formData.zip}`,
+        userAgent: navigator.userAgent,
+        timestamp: new Date().toISOString()
+      };
+
+      // Send to Google Sheets (fire and forget - no need to await)
+      fetch(CONFIG.ENDPOINT, {
         method: "POST",
-        mode: "no-cors",
-        body: JSON.stringify({
-          ...formData,
-          subject,
-          timestamp: new Date().toISOString()
-        })
+        mode: "no-cors", // Required for Google Apps Script
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(sheetData)
+      }).then(() => {
+        console.log('Form data submitted to Google Sheets');
+      }).catch(error => {
+        console.log('Sheet submission error (may have succeeded):', error);
       });
     } catch (error) {
-      console.error('Backend capture failed:', error);
+      console.error('Error preparing sheet submission:', error);
     }
   }
 
