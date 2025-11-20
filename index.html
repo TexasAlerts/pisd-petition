@@ -801,7 +801,7 @@
   <div class="action-buttons">
     <a href="#petitionForm" class="action-btn">📧 Email Boards Now</a>
     <button onclick="shareOnSocial()" class="action-btn secondary">📱 Share This Page</button>
-    <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=PISD+School+Board+Meeting+-+Support+Windsong+Ranch+Petition&dates=20251216T010000Z/20251216T030000Z&details=Support+the+Windsong+Ranch+annexation+petition+at+the+Prosper+ISD+Board+Meeting&location=605+E+7th+St,+Prosper,+TX+75078" target="_blank" class="action-btn secondary">📅 Add to Calendar</a>
+    <button onclick="showCalendarOptions()" class="action-btn secondary">📅 Add to Calendar</button>
   </div>
   
   <!-- Quick Signup Form -->
@@ -1801,6 +1801,261 @@ function closeShareModal() {
 // Fallback share dialog (legacy - keeping for compatibility)
 function showShareFallback(text, url) {
   shareOnSocial(); // Use new enhanced version
+}
+
+// Calendar Functions - Universal Calendar Support
+function showCalendarOptions() {
+  // Create modal overlay
+  const overlay = document.createElement('div');
+  overlay.style.cssText = `
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    padding: 20px;
+  `;
+  
+  // Create modal content
+  const modal = document.createElement('div');
+  modal.style.cssText = `
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+    max-width: 500px;
+    width: 100%;
+    max-height: 80vh;
+    overflow-y: auto;
+  `;
+  
+  modal.innerHTML = `
+    <h3 style="margin: 0 0 20px 0; color: #1e3a8a; font-size: 1.5rem;">
+      📅 Add to Your Calendar
+    </h3>
+    
+    <p style="margin: 0 0 20px 0; color: #475569; line-height: 1.6;">
+      <strong>PISD School Board Meeting</strong><br>
+      December 15, 2025 at 7:00 PM CST<br>
+      Prosper ISD Administration Building<br>
+      605 E 7th St, Prosper, TX 75078
+    </p>
+    
+    <div style="display: flex; flex-direction: column; gap: 12px;">
+      <button onclick="addToGoogleCalendar(); closeCalendarModal();" style="
+        background: linear-gradient(135deg, #4285f4 0%, #34a853 100%);
+        color: white;
+        border: none;
+        padding: 16px;
+        border-radius: 8px;
+        font-weight: 700;
+        font-size: 1.05rem;
+        cursor: pointer;
+        transition: transform 0.2s;
+        text-align: left;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      " onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+        <span style="font-size: 1.3rem;">📅</span>
+        <span>Google Calendar</span>
+      </button>
+      
+      <button onclick="addToAppleCalendar();" style="
+        background: linear-gradient(135deg, #000 0%, #333 100%);
+        color: white;
+        border: none;
+        padding: 16px;
+        border-radius: 8px;
+        font-weight: 700;
+        font-size: 1.05rem;
+        cursor: pointer;
+        transition: transform 0.2s;
+        text-align: left;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      " onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+        <span style="font-size: 1.3rem;">🍎</span>
+        <span>Apple Calendar (iCal)</span>
+      </button>
+      
+      <button onclick="addToOutlook(); closeCalendarModal();" style="
+        background: linear-gradient(135deg, #0078d4 0%, #106ebe 100%);
+        color: white;
+        border: none;
+        padding: 16px;
+        border-radius: 8px;
+        font-weight: 700;
+        font-size: 1.05rem;
+        cursor: pointer;
+        transition: transform 0.2s;
+        text-align: left;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      " onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+        <span style="font-size: 1.3rem;">📧</span>
+        <span>Outlook / Office 365</span>
+      </button>
+      
+      <button onclick="addToYahooCalendar(); closeCalendarModal();" style="
+        background: linear-gradient(135deg, #6001d2 0%, #410093 100%);
+        color: white;
+        border: none;
+        padding: 16px;
+        border-radius: 8px;
+        font-weight: 700;
+        font-size: 1.05rem;
+        cursor: pointer;
+        transition: transform 0.2s;
+        text-align: left;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      " onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+        <span style="font-size: 1.3rem;">📮</span>
+        <span>Yahoo Calendar</span>
+      </button>
+      
+      <button onclick="downloadICS();" style="
+        background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        color: white;
+        border: none;
+        padding: 16px;
+        border-radius: 8px;
+        font-weight: 700;
+        font-size: 1.05rem;
+        cursor: pointer;
+        transition: transform 0.2s;
+        text-align: left;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      " onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+        <span style="font-size: 1.3rem;">💾</span>
+        <span>Download .ics File (Universal)</span>
+      </button>
+      
+      <button onclick="closeCalendarModal()" style="
+        background: #e5e7eb;
+        color: #374151;
+        border: none;
+        padding: 12px;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 1rem;
+        cursor: pointer;
+        margin-top: 8px;
+      ">
+        Cancel
+      </button>
+    </div>
+  `;
+  
+  overlay.appendChild(modal);
+  document.body.appendChild(overlay);
+  
+  // Close on overlay click
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) {
+      closeCalendarModal();
+    }
+  });
+  
+  // Store reference for closing
+  window.currentCalendarModal = overlay;
+}
+
+// Generate ICS file content
+function generateICS() {
+  const event = {
+    title: 'PISD School Board Meeting - Support Windsong Ranch Petition',
+    description: 'Support the Windsong Ranch annexation petition at the Prosper ISD Board Meeting. This is about common-sense governance and ensuring tax dollars follow students to the district serving them.\\n\\nMore info: ' + window.location.href,
+    location: 'Prosper ISD Administration Building, 605 E 7th St, Prosper, TX 75078',
+    start: '20251216T010000Z', // Dec 15, 2025 7:00 PM CST = Dec 16, 01:00 UTC
+    end: '20251216T030000Z'     // 2 hour meeting
+  };
+  
+  const icsContent = [
+    'BEGIN:VCALENDAR',
+    'VERSION:2.0',
+    'PRODID:-//PISD Petition//Meeting Reminder//EN',
+    'CALSCALE:GREGORIAN',
+    'METHOD:PUBLISH',
+    'BEGIN:VEVENT',
+    'DTSTART:' + event.start,
+    'DTEND:' + event.end,
+    'DTSTAMP:' + new Date().toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z',
+    'UID:' + Date.now() + '@prosperisdpetition.com',
+    'SUMMARY:' + event.title,
+    'DESCRIPTION:' + event.description,
+    'LOCATION:' + event.location,
+    'STATUS:CONFIRMED',
+    'SEQUENCE:0',
+    'BEGIN:VALARM',
+    'TRIGGER:-PT24H',
+    'ACTION:DISPLAY',
+    'DESCRIPTION:Reminder: PISD Board Meeting tomorrow!',
+    'END:VALARM',
+    'END:VEVENT',
+    'END:VCALENDAR'
+  ].join('\r\n');
+  
+  return icsContent;
+}
+
+// Add to Google Calendar
+function addToGoogleCalendar() {
+  const url = 'https://www.google.com/calendar/render?action=TEMPLATE&text=PISD+School+Board+Meeting+-+Support+Windsong+Ranch+Petition&dates=20251216T010000Z/20251216T030000Z&details=Support+the+Windsong+Ranch+annexation+petition+at+the+Prosper+ISD+Board+Meeting.+More+info:+' + encodeURIComponent(window.location.href) + '&location=Prosper+ISD+Administration+Building,+605+E+7th+St,+Prosper,+TX+75078';
+  window.open(url, '_blank');
+}
+
+// Add to Apple Calendar (download ICS)
+function addToAppleCalendar() {
+  downloadICS();
+  closeCalendarModal();
+}
+
+// Add to Outlook
+function addToOutlook() {
+  const url = 'https://outlook.live.com/calendar/0/deeplink/compose?subject=PISD+School+Board+Meeting+-+Support+Windsong+Ranch+Petition&startdt=2025-12-16T01:00:00Z&enddt=2025-12-16T03:00:00Z&body=Support+the+Windsong+Ranch+annexation+petition+at+the+Prosper+ISD+Board+Meeting.+More+info:+' + encodeURIComponent(window.location.href) + '&location=Prosper+ISD+Administration+Building,+605+E+7th+St,+Prosper,+TX+75078&path=/calendar/action/compose';
+  window.open(url, '_blank');
+}
+
+// Add to Yahoo Calendar
+function addToYahooCalendar() {
+  const url = 'https://calendar.yahoo.com/?v=60&title=PISD+School+Board+Meeting+-+Support+Windsong+Ranch+Petition&st=20251216T010000Z&et=20251216T030000Z&desc=Support+the+Windsong+Ranch+annexation+petition+at+the+Prosper+ISD+Board+Meeting.+More+info:+' + encodeURIComponent(window.location.href) + '&in_loc=Prosper+ISD+Administration+Building,+605+E+7th+St,+Prosper,+TX+75078';
+  window.open(url, '_blank');
+}
+
+// Download ICS file
+function downloadICS() {
+  const icsContent = generateICS();
+  const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
+  const link = document.createElement('a');
+  link.href = window.URL.createObjectURL(blob);
+  link.download = 'PISD-Board-Meeting-Dec-15-2025.ics';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+  
+  // Show confirmation
+  setTimeout(() => {
+    alert('📅 Calendar file downloaded!\n\nOpen the .ics file to add the meeting to your calendar app.\n\nWorks with: Apple Calendar, Outlook, Thunderbird, and most other calendar applications.');
+  }, 500);
+}
+
+// Close calendar modal
+function closeCalendarModal() {
+  if (window.currentCalendarModal) {
+    document.body.removeChild(window.currentCalendarModal);
+    window.currentCalendarModal = null;
+  }
 }
 
 // Add event listeners when DOM is ready
