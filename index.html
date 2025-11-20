@@ -486,6 +486,107 @@
     border: 1px solid #ef4444;
   }
 
+  /* Resources Section - Matching Current Design */
+  .resources-section {
+    background: #fff;
+    padding: 40px 20px;
+    margin: 0;
+  }
+
+  .resources-section h2 {
+    color: #1e3a8a;
+    margin: 0 0 16px 0;
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-align: center;
+  }
+
+  .resources-section p {
+    color: #4b5563;
+    line-height: 1.6;
+    text-align: center;
+    margin-bottom: 32px;
+    font-size: 1rem;
+  }
+
+  .resources-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 32px 0;
+    display: grid;
+    gap: 16px;
+  }
+
+  .resources-list li {
+    background: #f8f9fa;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 20px;
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+
+  .resources-list li:hover {
+    border-color: #1e3a8a;
+    box-shadow: 0 4px 12px rgba(30, 58, 138, 0.1);
+    transform: translateY(-2px);
+  }
+
+  .resources-list a {
+    color: #1e3a8a;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.05rem;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .resources-list a:hover {
+    color: #1e40af;
+  }
+
+  .resources-list .doc-description {
+    color: #6b7280;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    display: block;
+  }
+
+  .view-all-btn {
+    display: inline-block;
+    background: #1e3a8a;
+    color: #fff;
+    padding: 16px 32px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.05rem;
+    transition: all 0.2s;
+    margin: 0 auto;
+    display: block;
+    width: fit-content;
+  }
+
+  .view-all-btn:hover {
+    background: #1e40af;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 14px rgba(30, 58, 138, 0.3);
+  }
+
+  /* Tablet optimization */
+  @media (min-width: 768px) {
+    .resources-list {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  /* Desktop optimization */
+  @media (min-width: 1024px) {
+    .resources-section {
+      padding: 60px 20px;
+    }
+  }
+
   /* Footer */
   footer {
     background: #f8f9fa;
@@ -966,6 +1067,48 @@
       <button class="btn btn-primary" onclick="copyShareLink()">Copy Link</button>
       <a href="#" class="btn btn-primary" onclick="addToGoogleCalendar(); return false;">Add to Calendar</a>
     </div>
+  </div>
+</section>
+
+<!-- Official Documents Section -->
+<section class="resources-section">
+  <div class="container">
+    <h2>📚 Official Petition Documents</h2>
+    <p>Review the official petition documents, supporting materials, and signature data. All documents are public and available for review, sharing, and distribution.</p>
+
+    <ul class="resources-list">
+      <li>
+        <a href="https://drive.google.com/file/d/1BFF1I86lraSeIR45oli6PI53qnFUovSP/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+          📄 Official Petition Letter
+        </a>
+        <div class="doc-description">The formal letter submitted to both school district boards of trustees</div>
+      </li>
+
+      <li>
+        <a href="https://drive.google.com/file/d/1XV1VBcjgjnIUWBzRx3hjaYGxeFL3OYOv/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+          📧 Electronic Filing Email
+        </a>
+        <div class="doc-description">Email submission sent to trustees when electronically filing the petition</div>
+      </li>
+
+      <li>
+        <a href="https://drive.google.com/file/d/1xvFo7wXAK4KW1ncwtRV6Ryfv32ot5m-1/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+          📋 Current PISD Contract
+        </a>
+        <div class="doc-description">The existing contract between Windsong Ranch and Prosper ISD that allows these homes to attend PISD</div>
+      </li>
+
+      <li>
+        <a href="https://drive.google.com/file/d/19Ee5WkWmEfajzkYhWpLeanoPG-Pc32jB/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+          📊 Signature Statistics
+        </a>
+        <div class="doc-description">Complete summary data showing verified petition signatures and support levels</div>
+      </li>
+    </ul>
+
+    <a href="https://drive.google.com/drive/folders/1iPI_dp-wcZ5YrnVgSWgkF7A44p7iPJ_j" target="_blank" rel="noopener noreferrer" class="view-all-btn">
+      📁 View All Documents →
+    </a>
   </div>
 </section>
 
