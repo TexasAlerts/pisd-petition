@@ -21,142 +21,215 @@
 <style>
   /* Reset and Base Styles */
   *, *::before, *::after { box-sizing: border-box; }
-  
-  body { 
-    font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; 
-    margin: 0; 
-    background: #f8fafc; 
-    color: #0f172a; 
-    line-height: 1.6; 
-  }
-  
-  /* Header */
-  header { 
-    background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
-    color: #fff; 
-    padding: 50px 20px; 
-    text-align: center; 
-  }
-  header h1 { 
-    margin: 0; 
-    font-size: 2.5rem; 
-    font-weight: 700;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
-  }
-  header p {
-    margin: 16px auto 0 auto;
-    font-size: 1.1rem;
+
+  body {
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    margin: 0;
+    background: #ffffff;
+    color: #1a1a1a;
     line-height: 1.6;
-    max-width: 900px;
   }
-  header .stats {
-    display: inline-block;
-    background: rgba(255,255,255,0.15);
-    padding: 12px 24px;
-    border-radius: 8px;
-    margin-top: 16px;
-    font-weight: 600;
+
+  /* Container */
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
   }
-  
-  /* Two-Action Hero Banner */
-  .two-action-banner {
-    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+
+  /* Header - Simple and Clean */
+  header {
+    background: #1e3a8a;
     color: #fff;
-    padding: 30px 20px;
+    padding: 40px 20px;
     text-align: center;
-    border-bottom: 4px solid #b45309;
-    box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
   }
-  .two-action-banner h2 {
-    margin: 0 0 20px 0;
-    font-size: 1.8rem;
-    color: #fff;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+
+  header h1 {
+    margin: 0 0 16px 0;
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
   }
-  .two-action-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    max-width: 900px;
+
+  header .subtitle {
+    font-size: 1.1rem;
+    opacity: 0.95;
+    max-width: 600px;
     margin: 0 auto;
   }
-  .action-card {
-    background: rgba(255,255,255,0.15);
-    padding: 24px;
-    border-radius: 12px;
-    backdrop-filter: blur(10px);
-    border: 2px solid rgba(255,255,255,0.3);
+
+  /* Urgent Meeting Banner */
+  .urgent-banner {
+    background: #dc2626;
+    color: white;
+    padding: 20px;
+    text-align: center;
   }
-  .action-card h3 {
-    margin: 0 0 12px 0;
-    font-size: 1.4rem;
-    color: #fff;
+
+  .urgent-banner .meeting-date {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0 0 8px 0;
   }
-  .action-card p {
-    margin: 0 0 16px 0;
+
+  .urgent-banner .meeting-location {
     font-size: 1rem;
     opacity: 0.95;
   }
-  .action-card .action-card-btn {
-    background: #fff;
-    color: #d97706;
-    padding: 12px 24px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 700;
-    display: inline-block;
-    transition: all 0.2s;
-  }
-  .action-card .action-card-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-  }
-  .mandatory-text {
-    margin-top: 20px;
-    font-size: 1.1rem;
-    font-weight: 700;
-    padding: 16px;
-    background: rgba(220, 38, 38, 0.9);
-    border-radius: 8px;
-  }
-  
-  /* Action Checklist */
-  .action-checklist {
-    background: #fef3c7;
-    border: 3px solid #f59e0b;
-    border-radius: 12px;
-    padding: 30px;
-    margin: 30px auto;
-    max-width: 900px;
-  }
-  .action-checklist h2 {
-    margin: 0 0 24px 0;
-    color: #92400e;
-    font-size: 1.75rem;
-    text-align: center;
-  }
-  .checklist-items {
+
+  /* Countdown Timer */
+  .countdown {
     display: flex;
-    flex-direction: column;
-    gap: 16px;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 16px;
+    flex-wrap: wrap;
   }
-  .checklist-item {
-    background: #fff;
-    border: 2px solid #fcd34d;
+
+  .countdown-item {
+    background: rgba(255,255,255,0.15);
+    padding: 12px 20px;
+    border-radius: 8px;
+    min-width: 80px;
+  }
+
+  .countdown-number {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .countdown-label {
+    display: block;
+    font-size: 0.75rem;
+    margin-top: 4px;
+    text-transform: uppercase;
+    opacity: 0.9;
+  }
+
+  /* Key Facts Section */
+  .key-facts {
+    background: #f8f9fa;
+    padding: 40px 20px;
+  }
+
+  .key-facts h2 {
+    text-align: center;
+    color: #1e3a8a;
+    margin: 0 0 32px 0;
+    font-size: 1.8rem;
+  }
+
+  .facts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 24px;
+    margin-bottom: 32px;
+  }
+
+  .fact-card {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 4px solid #1e3a8a;
+  }
+
+  .fact-card .fact-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1e3a8a;
+    margin: 0;
+  }
+
+  .fact-card .fact-label {
+    color: #666;
+    margin: 4px 0 0 0;
+    font-size: 0.95rem;
+  }
+
+  .why-matters {
+    background: #fff3cd;
+    border: 2px solid #ffc107;
     border-radius: 8px;
     padding: 20px;
+    margin-top: 24px;
+  }
+
+  .why-matters h3 {
+    color: #856404;
+    margin: 0 0 12px 0;
+    font-size: 1.3rem;
+  }
+
+  .why-matters ul {
+    margin: 0;
+    padding-left: 24px;
+    color: #856404;
+  }
+
+  .why-matters li {
+    margin-bottom: 8px;
+  }
+
+  /* Progressive Action Section */
+  .action-section {
+    padding: 40px 20px;
+    background: white;
+  }
+
+  .action-header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .action-header h2 {
+    color: #1e3a8a;
+    margin: 0 0 8px 0;
+    font-size: 1.8rem;
+  }
+
+  .action-header p {
+    color: #666;
+    margin: 0;
+  }
+
+  /* Step Cards */
+  .step-card {
+    background: white;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 32px;
+    margin-bottom: 24px;
+    transition: all 0.3s ease;
+  }
+
+  .step-card.active {
+    border-color: #1e3a8a;
+    box-shadow: 0 4px 12px rgba(30, 58, 138, 0.15);
+  }
+
+  .step-card.completed {
+    border-color: #10b981;
+    background: #f0fdf4;
+  }
+
+  .step-card.locked {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  .step-header {
     display: flex;
     align-items: center;
     gap: 16px;
-    transition: all 0.2s;
+    margin-bottom: 20px;
   }
-  .checklist-item:hover {
-    border-color: #f59e0b;
-    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.2);
-  }
-  .checklist-number {
-    background: #f59e0b;
-    color: #fff;
+
+  .step-number {
+    background: #1e3a8a;
+    color: white;
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -165,2437 +238,1273 @@
     justify-content: center;
     font-weight: 700;
     font-size: 1.2rem;
-    flex-shrink: 0;
   }
-  .checklist-content {
+
+  .step-number.completed {
+    background: #10b981;
+  }
+
+  .step-title {
     flex: 1;
   }
-  .checklist-content h3 {
-    margin: 0 0 8px 0;
-    color: #92400e;
-    font-size: 1.2rem;
-  }
-  .checklist-content p {
+
+  .step-title h3 {
     margin: 0;
-    color: #78350f;
-    font-size: 0.95rem;
-  }
-  .checklist-action {
-    flex-shrink: 0;
-  }
-  .checklist-btn {
-    background: #f59e0b;
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: 600;
-    display: inline-block;
-    transition: all 0.2s;
-    border: none;
-    cursor: pointer;
-  }
-  .checklist-btn:hover {
-    background: #d97706;
-    transform: translateY(-1px);
-  }
-  
-  /* In-Person Emphasis */
-  .in-person-emphasis {
-    background: rgba(220, 38, 38, 0.9);
-    padding: 20px;
-    border-radius: 8px;
-    margin: 20px 0;
-    text-align: center;
-  }
-  .in-person-emphasis h3 {
-    margin: 0 0 10px 0;
-    font-size: 1.5rem;
-    color: #fff;
-  }
-  .in-person-emphasis p {
-    margin: 0;
-    font-size: 1.1rem;
-    color: #fff;
-    opacity: 0.95;
-  }
-  
-  /* Post-Email Reminder Box */
-  .post-email-reminder {
-    display: none;
-    background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
-    border: 3px solid #7f1d1d;
-    border-radius: 12px;
-    padding: 30px;
-    margin: 20px 0;
-    text-align: center;
-    animation: slideDown 0.5s ease-out;
-  }
-  .post-email-reminder.show {
-    display: block;
-  }
-  .post-email-reminder h3 {
-    margin: 0 0 16px 0;
-    color: #fff;
-    font-size: 1.6rem;
-  }
-  .post-email-reminder p {
-    margin: 0 0 20px 0;
-    color: #fff;
-    font-size: 1.2rem;
-    line-height: 1.6;
-  }
-  .post-email-reminder .reminder-buttons {
-    display: flex;
-    gap: 12px;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-  .post-email-reminder button,
-  .post-email-reminder a {
-    background: #fff;
-    color: #dc2626;
-    padding: 14px 28px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 1.1rem;
-    border: none;
-    cursor: pointer;
-    transition: all 0.2s;
-  }
-  .post-email-reminder button:hover,
-  .post-email-reminder a:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-  }
-  @keyframes slideDown {
-    from {
-      opacity: 0;
-      transform: translateY(-20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  /* Viral Sharing Emphasis */
-  .viral-sharing-section {
-    background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
-    color: #fff;
-    padding: 40px 20px;
-    text-align: center;
-    margin: 30px auto;
-    max-width: 900px;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(124, 58, 237, 0.4);
-  }
-  .viral-sharing-section h2 {
-    margin: 0 0 16px 0;
-    font-size: 2rem;
-    color: #fff;
-  }
-  .viral-sharing-section p {
-    margin: 0 0 24px 0;
-    font-size: 1.2rem;
-    line-height: 1.6;
-  }
-  .viral-sharing-section .share-stats {
-    background: rgba(255,255,255,0.15);
-    padding: 20px;
-    border-radius: 8px;
-    margin: 20px 0;
-    backdrop-filter: blur(10px);
-  }
-  .viral-sharing-section .share-stats strong {
+    color: #1a1a1a;
     font-size: 1.3rem;
-    display: block;
-    margin-bottom: 8px;
   }
-  .viral-sharing-section button {
-    background: #fff;
-    color: #7c3aed;
-    padding: 16px 32px;
-    border-radius: 8px;
-    border: none;
-    font-weight: 700;
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: all 0.2s;
-  }
-  .viral-sharing-section button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-  }
-  
-  /* Meeting Countdown Banner */
-  .meeting-countdown {
-    background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
-    color: #fff;
-    padding: 40px 20px;
-    text-align: center;
-    margin: 0;
-    box-shadow: 0 4px 20px rgba(220, 38, 38, 0.4);
-  }
-  .meeting-countdown h2 {
-    margin: 0 0 8px 0;
-    font-size: 2rem;
-    color: #fff;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-  }
-  .meeting-countdown h2 .siren-icon {
-    display: inline-block;
-    background: rgba(255,255,255,0.9);
-    padding: 4px 8px;
-    border-radius: 4px;
-    margin-right: 6px;
-  }
-  .meeting-countdown .meeting-date {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin: 0 0 20px 0;
-  }
-  .countdown-timer {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin: 30px 0;
-    flex-wrap: wrap;
-  }
-  .countdown-item {
-    background: rgba(255,255,255,0.15);
-    padding: 20px 30px;
-    border-radius: 12px;
-    min-width: 100px;
-    backdrop-filter: blur(10px);
-  }
-  .countdown-number {
-    display: block;
-    font-size: 3rem;
-    font-weight: 700;
-    line-height: 1;
-  }
-  .countdown-label {
-    display: block;
+
+  .step-title .time-estimate {
+    color: #666;
     font-size: 0.9rem;
-    margin-top: 8px;
-    opacity: 0.9;
-    text-transform: uppercase;
-    letter-spacing: 1px;
   }
-  .meeting-details {
-    background: rgba(255,255,255,0.1);
-    padding: 20px;
-    border-radius: 8px;
-    margin: 20px auto;
-    max-width: 600px;
-    font-size: 1.1rem;
+
+  .step-content {
+    margin-left: 56px;
   }
-  .meeting-details strong {
-    display: block;
-    font-size: 1.2rem;
-    margin-bottom: 8px;
+
+  .step-description {
+    color: #4b5563;
+    margin-bottom: 20px;
   }
-  .meeting-details .location-icon {
-    display: inline-block;
-    background: rgba(255,255,255,0.9);
-    padding: 4px 8px;
-    border-radius: 4px;
-    margin-right: 4px;
-  }
-  
-  /* Quick Signup Form */
-  .quick-signup {
-    background: rgba(255,255,255,0.15);
-    padding: 24px;
-    border-radius: 12px;
-    margin: 30px auto 0 auto;
-    max-width: 500px;
-    backdrop-filter: blur(10px);
-  }
-  .quick-signup h3 {
-    margin: 0 0 16px 0;
-    font-size: 1.3rem;
-    color: #fff;
-  }
-  .quick-signup-form {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-  .quick-signup input {
-    padding: 12px;
-    border-radius: 6px;
-    border: 2px solid rgba(255,255,255,0.3);
-    background: rgba(255,255,255,0.9);
-    font-size: 1rem;
-    width: 100%;
-  }
-  .quick-signup input:focus {
-    outline: none;
-    border-color: #fff;
-    background: #fff;
-  }
-  .quick-signup-checkbox {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: #fff;
-    font-size: 0.95rem;
-  }
-  .quick-signup-checkbox input[type="checkbox"] {
-    width: auto;
-    margin: 0;
-  }
-  .quick-signup button {
-    background: #fff;
-    color: #dc2626;
-    padding: 14px 24px;
-    border: none;
-    border-radius: 8px;
-    font-weight: 700;
-    font-size: 1.1rem;
-    cursor: pointer;
-    transition: all 0.2s;
-    margin-top: 8px;
-  }
-  .quick-signup button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-  }
-  .quick-signup button:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-  }
-  .quick-signup-message {
-    margin-top: 12px;
-    padding: 12px;
-    border-radius: 6px;
-    font-weight: 600;
-    display: none;
-  }
-  .quick-signup-message.show {
-    display: block;
-  }
-  .quick-signup-message.success {
-    background: rgba(16, 185, 129, 0.9);
-    color: #fff;
-  }
-  .quick-signup-message.error {
-    background: rgba(239, 68, 68, 0.9);
-    color: #fff;
-  }
-  .action-buttons {
-    display: flex;
-    gap: 15px;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 30px;
-  }
-  .action-btn {
-    background: #fff;
-    color: #dc2626;
-    padding: 16px 32px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 1.1rem;
-    transition: all 0.2s;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    border: 2px solid #fff;
-  }
-  .action-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-    background: #fef2f2;
-  }
-  .action-btn.secondary {
-    background: transparent;
-    color: #fff;
-    border: 2px solid #fff;
-  }
-  .action-btn.secondary:hover {
-    background: rgba(255,255,255,0.1);
-  }
-  
-  /* Call to Action Banner */
-  .cta-banner {
-    background: #fef3c7;
-    border-left: 4px solid #f59e0b;
-    padding: 24px;
-    margin: 24px auto;
-    max-width: 900px;
-    border-radius: 8px;
-  }
-  .cta-banner h3 {
-    margin: 0 0 12px 0;
-    color: #92400e;
-    font-size: 1.3rem;
-  }
-  .cta-banner p {
-    margin: 0;
-    color: #78350f;
-    line-height: 1.6;
-  }
-  
-  /* Sections */
-  section { 
-    max-width: 900px; 
-    margin: 24px auto; 
-    background: #fff; 
-    border-radius: 12px; 
-    padding: 30px; 
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08); 
-  }
-  
-  h2 { 
-    color: #1e3a8a; 
-    margin-top: 0;
-    font-size: 1.75rem;
-  }
-  
-  h3 {
-    color: #1e40af;
-    margin-top: 24px;
-    font-size: 1.3rem;
-  }
-  
-  ul {
-    padding-left: 20px;
-  }
-  
-  li {
-    margin-bottom: 12px;
-  }
-  
-  .highlight-box {
-    background: #dbeafe;
-    border-left: 4px solid #1e40af;
-    padding: 20px;
-    margin: 20px 0;
-    border-radius: 4px;
-  }
-  
-  .highlight-box strong {
-    color: #1e40af;
-  }
-  
+
   /* Form Styles */
+  .email-form {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 24px;
+  }
+
   .form-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    margin-bottom: 20px;
+    gap: 16px;
+    margin-bottom: 16px;
   }
-  
+
   .form-row.full {
     grid-template-columns: 1fr;
   }
-  
+
   .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 16px;
   }
-  
-  label { 
+
+  label {
     display: block;
     font-weight: 600;
     margin-bottom: 6px;
-    color: #334155;
-    font-size: 0.95rem;
+    color: #374151;
+    font-size: 0.9rem;
   }
-  
-  input, textarea, select { 
-    width: 100%; 
-    padding: 12px; 
-    border-radius: 8px; 
-    border: 1px solid #cbd5e1;
+
+  input, select, textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 6px;
+    border: 1px solid #d1d5db;
     font-family: inherit;
     font-size: 1rem;
     transition: border-color 0.2s;
   }
-  
-  input:focus, textarea:focus, select:focus {
+
+  input:focus, select:focus, textarea:focus {
     outline: none;
     border-color: #1e3a8a;
     box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.1);
   }
-  
+
   .error-message {
     color: #dc2626;
     font-size: 0.875rem;
     margin-top: 4px;
     display: none;
   }
-  
+
   .error-message.show {
     display: block;
   }
-  
-  input.error, textarea.error, select.error {
+
+  input.error, select.error {
     border-color: #dc2626;
   }
-  
-  /* Honeypot - Hidden spam trap */
+
+  /* Button Styles */
+  .btn {
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+  }
+
+  .btn-primary {
+    background: #1e3a8a;
+    color: white;
+  }
+
+  .btn-primary:hover {
+    background: #1e40af;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(30, 58, 138, 0.2);
+  }
+
+  .btn-primary:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  .btn-secondary {
+    background: #6b7280;
+    color: white;
+  }
+
+  .btn-secondary:hover {
+    background: #4b5563;
+  }
+
+  .btn-success {
+    background: #10b981;
+    color: white;
+  }
+
+  .btn-group {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  /* Calendar Options */
+  .calendar-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 12px;
+    margin-top: 16px;
+  }
+
+  .calendar-btn {
+    padding: 12px;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    background: white;
+    text-align: center;
+    text-decoration: none;
+    color: #1e3a8a;
+    font-weight: 600;
+    transition: all 0.2s;
+  }
+
+  .calendar-btn:hover {
+    border-color: #1e3a8a;
+    background: #f0f4ff;
+  }
+
+  /* Share Options */
+  .share-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-top: 20px;
+  }
+
+  .share-card {
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 16px;
+    text-align: center;
+    transition: all 0.2s;
+  }
+
+  .share-card:hover {
+    border-color: #1e3a8a;
+    box-shadow: 0 4px 12px rgba(30, 58, 138, 0.1);
+  }
+
+  .share-card h4 {
+    margin: 0 0 8px 0;
+    color: #1e3a8a;
+  }
+
+  .share-card p {
+    margin: 0 0 12px 0;
+    color: #666;
+    font-size: 0.9rem;
+  }
+
+  /* Success Messages */
+  .success-message {
+    background: #d1fae5;
+    border: 2px solid #10b981;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 16px 0;
+    display: none;
+  }
+
+  .success-message.show {
+    display: block;
+  }
+
+  .success-message h4 {
+    color: #065f46;
+    margin: 0 0 8px 0;
+  }
+
+  .success-message p {
+    color: #047857;
+    margin: 0;
+  }
+
+  /* Status Messages */
+  .status-message {
+    padding: 12px 16px;
+    border-radius: 6px;
+    margin: 16px 0;
+    font-weight: 500;
+    display: none;
+  }
+
+  .status-message.show {
+    display: block;
+  }
+
+  .status-message.success {
+    background: #d1fae5;
+    color: #065f46;
+    border: 1px solid #10b981;
+  }
+
+  .status-message.error {
+    background: #fee2e2;
+    color: #991b1b;
+    border: 1px solid #ef4444;
+  }
+
+  /* Footer */
+  footer {
+    background: #f8f9fa;
+    padding: 32px 20px;
+    text-align: center;
+    color: #666;
+    margin-top: 60px;
+    border-top: 1px solid #e5e7eb;
+  }
+
+  footer a {
+    color: #1e3a8a;
+    text-decoration: none;
+  }
+
+  footer a:hover {
+    text-decoration: underline;
+  }
+
+  /* Honeypot */
   .honeypot {
     position: absolute;
     left: -9999px;
     width: 1px;
     height: 1px;
   }
-  
-  /* Email Draft Section */
-  .email-draft {
-    background: #f8fafc;
-    border: 2px solid #cbd5e1;
-    border-radius: 8px;
-    padding: 20px;
-    margin: 24px 0;
-  }
-  
-  .email-draft h4 {
-    margin: 0 0 12px 0;
-    color: #1e3a8a;
-    font-size: 1.1rem;
-  }
-  
-  .email-recipients {
-    background: #fff;
-    padding: 12px;
-    border-radius: 4px;
-    margin: 12px 0;
-    font-size: 0.9rem;
-  }
-  
-  .email-recipients strong {
-    display: block;
-    margin-bottom: 6px;
-    color: #475569;
-  }
-  
-  .email-recipients .addresses {
-    color: #64748b;
-    line-height: 1.8;
-  }
-  
-  .email-template {
-    background: #fff;
-    border: 1px solid #e2e8f0;
-    border-radius: 4px;
-    padding: 16px;
-    font-family: 'Courier New', monospace;
-    font-size: 0.9rem;
-    white-space: pre-wrap;
-    max-height: 300px;
-    overflow-y: auto;
-    margin: 12px 0;
-  }
-  
-  .copy-btn {
-    background: #64748b;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 0.95rem;
-    font-weight: 600;
-    transition: background 0.2s;
-  }
-  
-  .copy-btn:hover {
-    background: #475569;
-  }
-  
-  .copy-btn.copied {
-    background: #16a34a;
-  }
-  
-  /* CTA Button */
-  .cta { 
-    text-align: center; 
-    margin: 30px 0 20px 0; 
-  }
-  
-  .cta button { 
-    background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
-    color: #fff; 
-    border: none; 
-    padding: 18px 40px; 
-    font-size: 1.2rem; 
-    font-weight: 700;
-    border-radius: 8px; 
-    cursor: pointer;
-    transition: all 0.3s;
-    position: relative;
-    box-shadow: 0 4px 14px rgba(30, 58, 138, 0.4);
-  }
-  
-  .cta button:hover:not(:disabled) { 
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(30, 58, 138, 0.5);
-  }
-  
-  .cta button:disabled {
-    background: #94a3b8;
-    cursor: not-allowed;
-    box-shadow: none;
-  }
-  
-  .cta button.loading::after {
-    content: "";
-    position: absolute;
-    width: 16px;
-    height: 16px;
-    top: 50%;
-    right: 20px;
-    margin-top: -8px;
-    border: 2px solid #fff;
-    border-radius: 50%;
-    border-top-color: transparent;
-    animation: spinner 0.6s linear infinite;
-  }
-  
-  @keyframes spinner {
-    to { transform: rotate(360deg); }
-  }
-  
-  /* Status Messages */
-  .status-message {
-    padding: 16px;
-    border-radius: 8px;
-    margin-top: 20px;
-    display: none;
-    text-align: center;
-    font-weight: 600;
-  }
-  
-  .status-message.show {
-    display: block;
-  }
-  
-  .status-message.success {
-    background: #dcfce7;
-    color: #166534;
-    border: 1px solid #86efac;
-  }
-  
-  .status-message.error {
-    background: #fee2e2;
-    color: #991b1b;
-    border: 1px solid #fca5a5;
-  }
-  
-  .status-message.warning {
-    background: #fef3c7;
-    color: #92400e;
-    border: 1px solid #fcd34d;
-  }
-  
-  /* Share Section */
-  .share-section {
-    background: #ecfdf5;
-    border: 2px solid #10b981;
-    border-radius: 12px;
-    padding: 30px;
-    text-align: center;
-    margin-top: 30px;
-  }
-  
-  .share-section h3 {
-    color: #065f46;
-    margin-top: 0;
-    font-size: 1.5rem;
-  }
-  
-  .share-section p {
-    color: #047857;
-    font-size: 1.1rem;
-    margin-bottom: 20px;
-  }
-  
-  .share-buttons {
-    display: flex;
-    gap: 12px;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-  
-  .share-btn {
-    background: #fff;
-    color: #065f46;
-    border: 2px solid #10b981;
-    padding: 12px 24px;
-    border-radius: 8px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s;
-    text-decoration: none;
-    display: inline-block;
-  }
-  
-  .share-btn:hover {
-    background: #10b981;
-    color: #fff;
-  }
-  
-  /* Resources Section */
-  .resources-section {
-    background: #f0f9ff;
-    border: 2px solid #0284c7;
-    border-radius: 12px;
-    padding: 30px;
-  }
-  
-  .resources-section h2 {
-    color: #0c4a6e;
-    margin-top: 0;
-    font-size: 1.75rem;
-  }
-  
-  .resources-section p {
-    color: #075985;
-    line-height: 1.6;
-  }
-  
-  .resources-list {
-    list-style: none;
-    padding: 0;
-    margin: 24px 0;
-  }
-  
-  .resources-list li {
-    background: #fff;
-    border: 1px solid #bae6fd;
-    border-radius: 8px;
-    padding: 16px;
-    margin-bottom: 12px;
-    transition: all 0.2s;
-  }
-  
-  .resources-list li:hover {
-    border-color: #0284c7;
-    box-shadow: 0 2px 8px rgba(2, 132, 199, 0.15);
-    transform: translateX(4px);
-  }
-  
-  .resources-list a {
-    color: #0369a1;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 1.05rem;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  
-  .resources-list a:hover {
-    color: #075985;
-  }
-  
-  .resources-list .doc-description {
-    color: #64748b;
-    font-size: 0.9rem;
-    margin-top: 6px;
-    font-weight: 400;
-  }
-  
-  .view-all-btn {
-    display: inline-block;
-    background: #0284c7;
-    color: #fff;
-    padding: 14px 28px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 1.05rem;
-    transition: all 0.2s;
-    margin-top: 12px;
-  }
-  
-  .view-all-btn:hover {
-    background: #0369a1;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
-  }
-  
-  /* Footer */
-  footer { 
-    text-align: center; 
-    font-size: 0.9rem; 
-    color: #475569; 
-    padding: 30px 20px; 
-    margin-top: 40px;
-    background: #f1f5f9;
-  }
-  
-  footer a {
-    color: #1e3a8a;
-    text-decoration: none;
-  }
-  
-  footer a:hover {
-    text-decoration: underline;
-  }
-  
-  /* Privacy Notice */
-  .privacy-notice {
-    font-size: 0.85rem;
-    color: #64748b;
-    text-align: center;
-    margin-top: 16px;
-    line-height: 1.5;
-    padding: 16px;
-    background: #f8fafc;
-    border-radius: 6px;
-  }
-  
-  /* Responsive Design */
+
+  /* Enhanced Mobile and Tablet Optimization */
   @media (max-width: 768px) {
+    body {
+      font-size: 16px; /* Prevent iOS zoom */
+    }
+
+    .container {
+      padding: 0 16px;
+    }
+
     header h1 {
       font-size: 1.75rem;
+      line-height: 1.2;
     }
-    
-    header p {
+
+    .subtitle {
       font-size: 1rem;
     }
-    
-    section {
-      padding: 20px;
-      margin: 16px;
-    }
-    
+
     .form-row {
       grid-template-columns: 1fr;
+      gap: 16px;
     }
-    
-    .cta button {
-      width: 100%;
-      padding: 16px 24px;
-      font-size: 1.1rem;
+
+    /* Critical: Better touch targets for mobile */
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    select {
+      font-size: 16px !important; /* Prevent iOS zoom */
+      height: 48px;
+      padding: 12px;
+      -webkit-appearance: none;
     }
-    
-    .share-buttons {
-      flex-direction: column;
-    }
-    
-    .share-btn {
-      width: 100%;
-    }
-    
-    .meeting-countdown h2 {
-      font-size: 1.5rem;
-    }
-    
-    .meeting-countdown .meeting-date {
-      font-size: 1.2rem;
-    }
-    
-    .countdown-item {
-      padding: 15px 20px;
-      min-width: 70px;
-    }
-    
-    .countdown-number {
-      font-size: 2rem;
-    }
-    
-    .countdown-label {
-      font-size: 0.75rem;
-    }
-    
-    .action-buttons {
-      flex-direction: column;
-      gap: 10px;
-    }
-    
-    .action-btn {
-      width: 100%;
+
+    .btn {
       padding: 14px 24px;
       font-size: 1rem;
+      min-height: 48px;
+      width: 100%;
+      -webkit-tap-highlight-color: transparent;
     }
-    
-    .quick-signup {
-      padding: 20px;
-      margin: 20px auto 0 auto;
+
+    input[type="checkbox"] {
+      width: 20px !important;
+      height: 20px !important;
     }
-    
-    .quick-signup h3 {
-      font-size: 1.1rem;
-    }
-    
-    .quick-signup input {
-      font-size: 16px; /* Prevents zoom on iOS */
-    }
-    
-    .two-action-grid {
-      grid-template-columns: 1fr;
+
+    .facts-grid {
+      grid-template-columns: repeat(2, 1fr);
       gap: 12px;
     }
-    
-    .two-action-banner h2 {
-      font-size: 1.4rem;
+
+    .urgent-banner .meeting-date {
+      font-size: 1.1rem;
     }
-    
-    .action-card h3 {
-      font-size: 1.2rem;
+
+    .meeting-location {
+      font-size: 0.9rem;
     }
-    
-    .checklist-item {
+
+    .countdown {
+      gap: 8px;
+    }
+
+    .countdown-item {
+      padding: 8px;
+      min-width: 55px;
+    }
+
+    .countdown-number {
+      font-size: 1.25rem;
+    }
+
+    .calendar-options {
       flex-direction: column;
+    }
+
+    .calendar-btn {
+      width: 100%;
+      margin: 4px 0;
+      padding: 12px;
+    }
+
+    .share-grid {
+      grid-template-columns: 1fr;
+    }
+
+    footer > .container > div {
+      grid-template-columns: 1fr !important;
       text-align: center;
     }
-    
-    .checklist-action {
-      width: 100%;
+  }
+
+  @media (max-width: 480px) {
+    header h1 {
+      font-size: 1.5rem;
     }
-    
-    .checklist-btn {
-      width: 100%;
+
+    .facts-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .countdown-item {
+      min-width: 45px;
+    }
+  }
+
+  /* iPad specific */
+  @media (min-width: 768px) and (max-width: 1024px) {
+    .container {
+      max-width: 90%;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    select {
+      font-size: 16px !important;
+    }
+  }
+
+  /* Ensure no zoom on all iOS devices */
+  @supports (-webkit-touch-callout: none) {
+    input, select, textarea {
+      font-size: 16px !important;
     }
   }
 </style>
 </head>
 <body>
 
+<!-- Header -->
 <header>
-  <h1>🏫 Prosper ISD: Bring Our Students' Tax Dollars Home</h1>
-  <p><strong>These ~274 students already attend Prosper ISD</strong> — yet under a contractual arrangement between Prosper Education Foundation, Windsong Ranch HOA/Developers, and Prosper ISD, <strong>the district receives $0.00 in property tax dollars</strong> to fund their education. This petition corrects this injustice by permanently aligning students with the district that educates them and ensuring tax dollars follow.</p>
-  <div class="stats">466 homes • $510M taxable value • ≈$6.2M/year to PISD after approval</div>
+  <div class="container">
+    <h1>Bring Our Students' Tax Dollars Home</h1>
+    <p class="subtitle">274 Windsong Ranch students attend Prosper ISD schools, but Prosper ISD loses $6.2 million annually from $510 million in assessed property value to Denton ISD. <br><strong>A legal petition under TEC 13.051 has been filed with 52.6% voter support. Help ensure both boards approve it.</strong></p>
+  </div>
 </header>
 
-<!-- TWO-ACTION HERO BANNER -->
-<div class="two-action-banner">
-  <h2>⚠️ YOUR SUPPORT REQUIRES TWO ACTIONS</h2>
-  
-  <div class="two-action-grid">
-    <div class="action-card">
-      <h3>✉️ ACTION 1: Send Email</h3>
-      <p>Email both school boards (takes 2 minutes)</p>
-      <a href="#petitionForm" class="action-card-btn">📧 Send Email Now</a>
-    </div>
-    
-    <div class="action-card">
-      <h3>🏛️ ACTION 2: Show Up</h3>
-      <p>Attend Dec 15 meeting in person (REQUIRED!)</p>
-      <button onclick="showCalendarOptions()" class="action-card-btn">📅 Add to Calendar</button>
-    </div>
-  </div>
-  
-  <div class="mandatory-text">
-    ⚡ Both actions are mandatory to make your voice count! ⚡
-  </div>
-</div>
-
-<!-- ACTION CHECKLIST -->
-<div class="action-checklist">
-  <h2>✅ Your 4-Step Action Checklist</h2>
-  <p style="text-align: center; margin: 0 0 24px 0; color: #92400e; font-size: 1.05rem;"><strong>Complete ALL four steps to support this petition:</strong></p>
-  
-  <div class="checklist-items">
-    <div class="checklist-item">
-      <div class="checklist-number">1</div>
-      <div class="checklist-content">
-        <h3>📧 Send Email to Both Boards</h3>
-        <p>Takes 2 minutes. Opens your email client with pre-written message.</p>
+<!-- Urgent Meeting Banner -->
+<div class="urgent-banner">
+  <div class="container">
+    <div class="meeting-date">Prosper ISD Board Meeting: December 15, 2025 at 7:00 PM</div>
+    <div class="meeting-location">605 E 7th Street, Prosper, TX 75078 • Denton ISD: Meeting Not Yet Scheduled</div>
+    <div class="countdown" id="countdown">
+      <div class="countdown-item">
+        <span class="countdown-number" id="days">--</span>
+        <span class="countdown-label">Days</span>
       </div>
-      <div class="checklist-action">
-        <a href="#petitionForm" class="checklist-btn">Send Email</a>
+      <div class="countdown-item">
+        <span class="countdown-number" id="hours">--</span>
+        <span class="countdown-label">Hours</span>
       </div>
-    </div>
-    
-    <div class="checklist-item">
-      <div class="checklist-number">2</div>
-      <div class="checklist-content">
-        <h3>📅 Add Meeting to Your Calendar</h3>
-        <p>December 15, 2025 at 7:00 PM. Don't rely on memory!</p>
+      <div class="countdown-item">
+        <span class="countdown-number" id="minutes">--</span>
+        <span class="countdown-label">Minutes</span>
       </div>
-      <div class="checklist-action">
-        <button onclick="showCalendarOptions()" class="checklist-btn">Add to Calendar</button>
-      </div>
-    </div>
-    
-    <div class="checklist-item">
-      <div class="checklist-number">3</div>
-      <div class="checklist-content">
-        <h3>📱 Share with EVERYONE You Know</h3>
-        <p>Text/email friends, family, neighbors. Every Prosper ISD voter needs to see this!</p>
-      </div>
-      <div class="checklist-action">
-        <button onclick="shareOnSocial()" class="checklist-btn">Share Now</button>
-      </div>
-    </div>
-    
-    <div class="checklist-item">
-      <div class="checklist-number">4</div>
-      <div class="checklist-content">
-        <h3>🏛️ Show Up In Person</h3>
-        <p>Be at Prosper ISD Admin Building, 605 E 7th St on Dec 15 at 7 PM.</p>
-      </div>
-      <div class="checklist-action">
-        <a href="https://www.google.com/maps/search/?api=1&query=605+E+7th+St+Prosper+TX+75078" target="_blank" class="checklist-btn">Get Directions</a>
+      <div class="countdown-item">
+        <span class="countdown-number" id="seconds">--</span>
+        <span class="countdown-label">Seconds</span>
       </div>
     </div>
   </div>
 </div>
 
-<!-- VIRAL SHARING EMPHASIS -->
-<div class="viral-sharing-section">
-  <h2>🚀 Make Your Voice 10x Stronger</h2>
-  <p>
-    <strong>One voice is good. Hundreds of voices are unstoppable.</strong><br>
-    Every person you share this with could be the difference between winning and losing!
-  </p>
-  
-  <div class="share-stats">
-    <strong>🎯 Your Mission: Share with at least 10 people</strong>
-    <p style="margin: 12px 0 0 0; font-size: 1rem; opacity: 0.95;">
-      Friends • Family • Neighbors • Coworkers • Fellow Parents<br>
-      Anyone in Prosper ISD needs to see this!
-    </p>
-  </div>
-  
-  <button onclick="shareOnSocial()" style="margin: 16px 8px;">📱 Text Your Network</button>
-  <button onclick="copyPageLink()" style="margin: 16px 8px; background: rgba(255,255,255,0.9);">🔗 Copy Link to Share</button>
-  
-  <p style="margin-top: 24px; font-size: 1rem; opacity: 0.9;">
-    💡 <strong>Pro Tip:</strong> Personal texts get more responses than social media posts.<br>
-    Copy the link and send it directly to people who care about Prosper ISD!
-  </p>
-</div>
+<!-- Key Facts Section -->
+<section class="key-facts">
+  <div class="container">
+    <h2>The Story: Why Your Voice Matters</h2>
 
-<!-- URGENT MEETING COUNTDOWN -->
-<div class="meeting-countdown">
-  <h2><span class="siren-icon">🚨</span> URGENT: School Board Meeting</h2>
-  <div class="meeting-date">December 15, 2025 at 7:00 PM</div>
-  
-  <div class="countdown-timer" id="countdown">
-    <div class="countdown-item">
-      <span class="countdown-number" id="days">--</span>
-      <span class="countdown-label">Days</span>
-    </div>
-    <div class="countdown-item">
-      <span class="countdown-number" id="hours">--</span>
-      <span class="countdown-label">Hours</span>
-    </div>
-    <div class="countdown-item">
-      <span class="countdown-number" id="minutes">--</span>
-      <span class="countdown-label">Minutes</span>
-    </div>
-    <div class="countdown-item">
-      <span class="countdown-number" id="seconds">--</span>
-      <span class="countdown-label">Seconds</span>
-    </div>
-  </div>
-  
-  <!-- IN-PERSON ATTENDANCE EMPHASIS -->
-  <div class="in-person-emphasis">
-    <h3>🚨 YOU MUST BE THERE IN PERSON</h3>
-    <p>Emails are great, but <strong>physical attendance is what wins votes</strong>.<br>
-    Empty seats = trustees ignore us. Full room = trustees listen.</p>
-  </div>
-  
-  <div class="meeting-details">
-    <strong><span class="location-icon">📍</span> Where:</strong>
-    Prosper ISD Administration Building<br>
-    605 E 7th St, Prosper, TX 75078<br>
-    <a href="https://www.google.com/maps/search/?api=1&query=605+E+7th+St+Prosper+TX+75078" target="_blank" style="color: #fff; text-decoration: underline;">Get Directions →</a>
-  </div>
-  
-  <div class="action-buttons">
-    <a href="#petitionForm" class="action-btn">📧 Email Boards Now</a>
-    <button onclick="shareOnSocial()" class="action-btn secondary">📱 Share This Page</button>
-    <button onclick="showCalendarOptions()" class="action-btn secondary">📅 Add to Calendar</button>
-  </div>
-  
-  <!-- Quick Signup Form -->
-  <div class="quick-signup">
-    <h3>📱 Just Want Updates? (This Does NOT Count as Support)</h3>
-    <p style="margin: 0 0 16px 0; font-size: 0.95rem; opacity: 0.95;">
-      ⚠️ <strong>Important:</strong> This signup alone does NOT support the petition. You must still email the boards AND attend the meeting.<br><br>
-      If you can't take action right now, sign up here to stay informed about the Dec 15 meeting.
-    </p>
-    
-    <form id="quickSignupForm" class="quick-signup-form" onsubmit="handleQuickSignup(event); return false;">
-      <input type="email" id="quickEmail" name="email" placeholder="Your email address" required />
-      <input type="tel" id="quickPhone" name="phone" placeholder="Phone (optional for SMS)" />
-      
-      <label class="quick-signup-checkbox">
-        <input type="checkbox" id="quickSmsOptIn" name="smsOptIn" checked />
-        <span>📲 Yes, text me about the Dec 15 meeting</span>
-      </label>
-      
-      <button type="submit" id="quickSignupBtn">🎯 Sign Me Up!</button>
-      
-      <div class="quick-signup-message" id="quickSignupMessage"></div>
-    </form>
-  </div>
-</div>
-
-<div class="cta-banner">
-  <h3>🎯 Why ALL Prosper ISD Voters Should Act Now</h3>
-  <p><strong>This isn't just about Windsong Ranch</strong> — this is about ensuring <strong>every student who attends Prosper ISD</strong> has their tax dollars aligned with their school. When families pay taxes to one district but send their children to another, it creates inefficiencies, funding gaps, and administrative complexity. <strong>By supporting this petition, you're advocating for common-sense governance, financial accountability, and a stronger Prosper ISD for ALL students.</strong></p>
-</div>
-
-<section>
-  <h2>The Facts: Why This Matters</h2>
-  
-  <div class="highlight-box">
-    <strong>🎓 Students Already Here:</strong> All ~274 students from the affected area attend Prosper ISD today. <strong>NONE</strong> attend Denton ISD.
-  </div>
-  
-  <ul>
-    <li><strong>Unified Community:</strong> ~86% of Windsong Ranch is already in PISD. This petition moves the remaining ~14% to create <strong>one consistent district identity</strong> — ending the confusion of split boundaries within a single neighborhood.</li>
-    
-    <li><strong>Proven Voter Support:</strong> A majority of registered voters have already signed: <strong>360 of 684 registered voters (52.63%)</strong> and <strong>174 of 308 addresses (56.49%)</strong> have verified their support.</li>
-    
-    <li><strong>Good Governance:</strong> This aligns with Texas Education Code §13.051, which allows districts to permanently annex territory when it makes sense for students, families, and taxpayers.</li>
-  </ul>
-  
-  <div class="highlight-box">
-    <strong>💰 Financial Correction:</strong> Currently, these 466 homes pay <strong>$0.00 in property taxes to Prosper ISD</strong> despite their children attending PISD schools. After approval, these homes will generate approximately <strong>$6.2 million annually for Prosper ISD</strong> — finally aligning tax dollars with educational responsibility.
-  </div>
-  
-  <h3>💡 What This Means for ALL Prosper ISD Voters</h3>
-  <p><strong>Even if you don't live in Windsong Ranch</strong>, this petition strengthens YOUR district by:</p>
-  
-  <div class="highlight-box">
-    <ul style="margin: 0; padding-left: 20px;">
-      <li>✅ <strong>Increasing PISD funding</strong> by ~$6.2 million annually</li>
-      <li>✅ <strong>Giving parents and voters in this area a voice</strong> in Prosper ISD governance through voting rights</li>
-      <li>✅ <strong>Leveraging $510M in assessed property values</strong> for future bonds and increased borrowing capabilities</li>
-      <li>✅ <strong>Ensuring accountability</strong> — tax dollars follow students to the district serving them</li>
-    </ul>
-  </div>
-</section>
-
-<section class="resources-section">
-  <h2>📚 View Petition Materials</h2>
-  <p>Want to learn more? Review the official petition documents, supporting materials, and signature data. All documents are public and free to review, share, and distribute.</p>
-  
-  <ul class="resources-list">
-    <li>
-      <a href="https://drive.google.com/file/d/1BFF1I86lraSeIR45oli6PI53qnFUovSP/view?usp=sharing" target="_blank" rel="noopener noreferrer">
-        📄 Official Petition Letter
-      </a>
-      <div class="doc-description">The formal letter submitted to both school district boards of trustees</div>
-    </li>
-    
-    <li>
-      <a href="https://drive.google.com/file/d/1XV1VBcjgjnIUWBzRx3hjaYGxeFL3OYOv/view?usp=sharing" target="_blank" rel="noopener noreferrer">
-        📧 Electronic Filing Email
-      </a>
-      <div class="doc-description">Email submission sent to trustees when electronically filing the petition</div>
-    </li>
-    
-    <li>
-      <a href="https://drive.google.com/file/d/1xvFo7wXAK4KW1ncwtRV6Ryfv32ot5m-1/view?usp=sharing" target="_blank" rel="noopener noreferrer">
-        📋 Current PISD Contract
-      </a>
-      <div class="doc-description">The existing contract between Windsong Ranch and Prosper ISD that allows these homes to attend PISD</div>
-    </li>
-    
-    <li>
-      <a href="https://drive.google.com/file/d/19Ee5WkWmEfajzkYhWpLeanoPG-Pc32jB/view?usp=sharing" target="_blank" rel="noopener noreferrer">
-        📊 Signature Statistics
-      </a>
-      <div class="doc-description">Complete summary data showing verified petition signatures and support levels</div>
-    </li>
-  </ul>
-  
-  <a href="https://drive.google.com/drive/folders/1iPI_dp-wcZ5YrnVgSWgkF7A44p7iPJ_j" target="_blank" rel="noopener noreferrer" class="view-all-btn">
-    📁 View All Documents →
-  </a>
-</section>
-
-<section>
-  <h2>📧 Send Your Support to Both School Boards</h2>
-  <p>The petition has been filed and verified. Now both the <strong>Prosper ISD Board</strong> and <strong>Denton ISD Board</strong> must approve it. <strong>Your voice matters!</strong> Email them directly to show broad community support.</p>
-  
-  <div class="highlight-box">
-    <strong>🎯 Why This Will Succeed:</strong> We need at least one ISD to vote Yes — and <strong>Prosper ISD should absolutely vote yes</strong>. We are the <strong>only known case in Texas</strong> where students already attend the ISD they are petitioning to join. When at least one ISD approves, the Texas Education Commissioner will likely approve as well, given the precedent and case law supporting this process.
-  </div>
-  
-  <p><strong>To Denton ISD Trustees:</strong> While Denton ISD could oppose this petition, doing so would waste taxpayer dollars fighting a case strongly supported by Texas Supreme Court precedent and the Education Commissioner's authority — especially after your November 2025 tax rate increase. The right decision is to say <strong>yes for the students and families</strong> who don't attend your schools, and <strong>yes to fiscal responsibility</strong> by not spending money on a likely losing legal battle.</p>
-  
-  <h3>Option 1: Fill Out the Form (Recommended)</h3>
-  <p>We'll open your email client with a pre-written, powerful message ready to send.</p>
-  
-  <div style="background: #fef3c7; border-left: 4px solid #f59e0b; padding: 16px; margin: 16px 0; border-radius: 6px;">
-    <strong>📧 Important Note:</strong> When you click submit, your browser may ask for permission to open your email app. <strong>Click "Allow" or "OK"</strong> — this is a normal security feature. It simply lets this website open your email so you can review and send the message yourself. We never send emails on your behalf.
-  </div>
-  
-  <form id="petitionForm" novalidate>
-    
-    <!-- Honeypot Field - Leave empty to prevent spam -->
-    <input type="text" name="website" class="honeypot" tabindex="-1" autocomplete="off" />
-    
-    <div class="form-group">
-      <label for="name">Full Name *</label>
-      <input type="text" id="name" name="name" placeholder="Your full name" required aria-required="true" />
-      <div class="error-message" id="name-error">Please enter your full name</div>
-    </div>
-    
-    <div class="form-group">
-      <label for="email">Email Address *</label>
-      <input type="email" id="email" name="email" placeholder="you@example.com" required aria-required="true" />
-      <div class="error-message" id="email-error">Please enter a valid email address</div>
-    </div>
-    
-    <div class="form-group">
-      <label for="phone">Phone Number (Optional - for SMS updates)</label>
-      <input type="tel" id="phone" name="phone" placeholder="(972) 555-1234" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" />
-      <div class="error-message" id="phone-error">Please enter a valid 10-digit phone number</div>
-      <div style="font-size: 0.875rem; color: #64748b; margin-top: 4px;">
-        📱 If you provide your phone, we can send you text updates about the petition progress
-      </div>
-    </div>
-    
-    <div class="form-group" style="padding: 12px; background: #f0f9ff; border-radius: 8px; border: 1px solid #bae6fd;">
-      <label style="display: flex; align-items: center; cursor: pointer; margin: 0;">
-        <input type="checkbox" id="smsOptIn" name="smsOptIn" style="width: auto; margin-right: 10px;" checked />
-        <span style="font-weight: 600; color: #0c4a6e;">
-          📲 Yes, send me SMS updates about the petition
-        </span>
-      </label>
-      <div style="font-size: 0.85rem; color: #075985; margin-top: 8px; margin-left: 30px;">
-        ✅ <strong>Recommended:</strong> Get important updates about the Dec 15 board meeting. Uncheck to opt out. Standard message rates apply.
-      </div>
-    </div>
-    
-    <div class="form-group">
-      <label for="street">Street Address *</label>
-      <input type="text" id="street" name="street" placeholder="123 Main Street" required aria-required="true" />
-      <div class="error-message" id="street-error">Please enter your street address</div>
-    </div>
-    
-    <div class="form-row">
-      <div class="form-group">
-        <label for="city">City *</label>
-        <input type="text" id="city" name="city" placeholder="Prosper" required aria-required="true" />
-        <div class="error-message" id="city-error">Please enter your city</div>
-      </div>
-      
-      <div class="form-group">
-        <label for="state">State *</label>
-        <input type="text" id="state" name="state" placeholder="TX" value="TX" required aria-required="true" maxlength="2" />
-        <div class="error-message" id="state-error">Please enter state</div>
-      </div>
-    </div>
-    
-    <div class="form-group">
-      <label for="zip">ZIP Code *</label>
-      <input type="text" id="zip" name="zip" placeholder="75078" required aria-required="true" pattern="[0-9]{5}" />
-      <div class="error-message" id="zip-error">Please enter a valid 5-digit ZIP code</div>
-    </div>
-    
-    <div class="form-group">
-      <label for="voterType">Your Connection to This Issue *</label>
-      <select id="voterType" name="voterType" required aria-required="true">
-        <option value="">-- Select one --</option>
-        <option value="Prosper ISD Voter (NOT in Windsong Ranch)">Prosper ISD Voter (NOT in Windsong Ranch)</option>
-        <option value="Windsong Ranch Resident (Affected by Petition)">Windsong Ranch Resident (Affected by Petition)</option>
-        <option value="Denton ISD Voter">Denton ISD Voter</option>
-        <option value="Concerned Community Member">Concerned Community Member</option>
-      </select>
-      <div class="error-message" id="voterType-error">Please select your connection</div>
-    </div>
-    
-    <div class="privacy-notice">
-      ✅ By submitting, your email client will open with a pre-filled message to both school boards. <strong>You review and send it yourself</strong> — we don't send it for you.
-      <br><br>
-      ⚠️ <strong>Browser Permission:</strong> Your browser may ask for permission to open your email app. Click <strong>"Allow"</strong> or <strong>"OK"</strong> — this is a normal security feature and completely safe.
-    </div>
-    
-    <div class="cta">
-      <button type="submit" id="submitBtn">✉️ Email Both Boards Now</button>
-    </div>
-    
-    <div class="status-message" id="statusMessage"></div>
-    
-    <!-- Post-Email Reminder Box -->
-    <div class="post-email-reminder" id="postEmailReminder">
-      <h3>✅ Step 1 Complete!</h3>
-      <p>
-        <strong>⚠️ CRITICAL: 3 More Steps Required</strong><br>
-        <strong>Step 2:</strong> Add meeting to your calendar<br>
-        <strong>Step 3:</strong> Share with EVERYONE (friends, family, neighbors)<br>
-        <strong>Step 4:</strong> Show up December 15 at 7 PM<br><br>
-        Your email means NOTHING if you don't complete all steps!
+    <div style="max-width: 700px; margin: 0 auto 32px auto; text-align: center;">
+      <p style="font-size: 1.15rem; color: #374151; line-height: 1.8;">
+        <strong>Texas Education Code Section 13.051</strong> provides for detachment and annexation of territory between school districts.
+        Our petition achieved <strong>52.6% support</strong> from registered voters (360 of 684 signed).
+        This will bring <strong>$6.2 million annually</strong> in tax revenue home to Prosper ISD - where these 274 students already attend school.
       </p>
-      <div class="reminder-buttons">
-        <button onclick="showCalendarOptions()">📅 Add to Calendar</button>
-        <button onclick="shareOnSocial()">📱 Share Now</button>
-        <a href="https://www.google.com/maps/search/?api=1&query=605+E+7th+St+Prosper+TX+75078" target="_blank">📍 Get Directions</a>
+    </div>
+
+    <div class="facts-grid">
+      <div class="fact-card">
+        <p class="fact-number">274</p>
+        <p class="fact-label">Windsong Ranch students currently attending Prosper ISD schools from 466 homes</p>
+      </div>
+      <div class="fact-card">
+        <p class="fact-number">$6.2M</p>
+        <p class="fact-label">Annual tax revenue Prosper ISD loses to Denton ISD while educating these students</p>
+      </div>
+      <div class="fact-card">
+        <p class="fact-number">52.6%</p>
+        <p class="fact-label">Of registered voters signed the petition (360 of 684) - majority support demonstrated</p>
+      </div>
+      <div class="fact-card">
+        <p class="fact-number">$510M</p>
+        <p class="fact-label">In assessed property value generating the $6.2M annual tax revenue for future bond capacity</p>
       </div>
     </div>
-  </form>
-  
-  <h3>Option 2: Copy & Paste the Email Yourself</h3>
-  <p>If your email client doesn't open automatically, you can copy this template and send it manually.</p>
-  
-  <div class="email-draft">
-    <h4>📧 Email Template</h4>
-    
-    <div class="email-recipients">
-      <strong>TO:</strong>
-      <div class="addresses">
-        <strong>Denton ISD:</strong> superintendent@dentonisd.org, jthompson6@dentonisd.org, cstafford@dentonisd.org, barbara.burns@dentonisd.org, ltays@dentonisd.org, psosasanchez@dentonisd.org, buddy.dunworth@dentonisd.org, sheryl.english@dentonisd.org, disdgeneralcounsel@dentonisd.org, tanya.wright@dentonisd.org
-        <br><br>
-        <strong>Prosper ISD:</strong> wlmclaughlin@prosper-isd.net, HJFerguson@prosper-isd.net, dldixon@prosper-isd.net, wbbeavers@prosper-isd.net, grlinker@prosper-isd.net, dmwebb@prosper-isd.net, kpcavender@prosper-isd.net, jrcrownover@prosper-isd.net, tjvanwolfe@prosper-isd.net, jmdial@prosper-isd.net
-      </div>
+
+    <div class="why-matters">
+      <h3>What's Really Happening Here</h3>
+      <ul>
+        <li><strong>The Legal Framework:</strong> Texas Education Code Section 13.051 provides for detachment and annexation of territory. Section 13.004 addresses debt allocation. Section 13.005 sets effective dates</li>
+        <li><strong>The Financial Reality:</strong> Prosper ISD educates all 274 students but loses $6.2 million annually from $510 million in assessed property value to Denton ISD - funds desperately needed for our schools and future bond capacity</li>
+        <li><strong>The Student Reality:</strong> All students from these 466 homes attend Prosper ISD schools under the Windsong Ranch Education Agreement. Zero attend Denton ISD</li>
+        <li><strong>The Petition Filed:</strong> October 20, 2025 - Official petition submitted with 52.6% voter support (360 of 684 registered voters), demonstrating clear majority support</li>
+        <li><strong>Board Actions Required:</strong> Prosper ISD scheduled hearing for December 15 at 7:00 PM. Denton ISD must also hold hearing and vote. Both boards must approve</li>
+      </ul>
     </div>
-    
-    <div class="email-recipients">
-      <strong>CC:</strong>
-      <div class="addresses">
-        hturner@wabsa.com, asorendo@wabsa.com, commissioner@tea.texas.gov
-      </div>
+
+    <div style="background: #fee2e2; border: 2px solid #dc2626; border-radius: 8px; padding: 20px; margin-top: 24px; text-align: center;">
+      <h3 style="color: #991b1b; margin: 0 0 12px 0;">Prosper ISD Board Meeting: December 15, 2025</h3>
+      <p style="color: #7f1d1d; margin: 0; font-size: 1.05rem;">
+        <strong>7:00 PM at 605 E 7th Street, Prosper, TX 75078</strong><br>
+        Physical attendance matters. Board members need to see a room full of parents supporting this petition.<br>
+        <a href="https://meetings.boardbook.org/Public/Organization/2084" target="_blank" style="color: #1e3a8a; text-decoration: underline;">View Board Meeting Agenda (when published)</a><br>
+        Denton ISD must also schedule their hearing and vote.
+      </p>
     </div>
-    
-    <div class="email-recipients">
-      <strong>SUBJECT:</strong>
-      <div class="addresses">
-        Please Approve Denton ISD Detachment and Prosper ISD Attachment under TEC §13.051
-      </div>
-    </div>
-    
-    <div class="email-template" id="emailTemplate">Dear Trustees,
-
-My name is [YOUR NAME], a [YOUR VOTER TYPE] residing at [YOUR ADDRESS].
-
-I urge both Boards to approve the pending petition for detachment from Denton ISD and attachment to Prosper ISD under Texas Education Code §13.051.
-
-To Prosper ISD: You should absolutely vote YES. These 274 students already attend your schools, yet you receive $0.00 in property taxes to educate them. This petition will:
-• Generate $6.2 million annually for Prosper ISD operations
-• Add $510M in taxable property for future bond capacity
-• Give these families voting rights in PISD governance
-• Align tax responsibility with educational responsibility
-
-This is the only known case in Texas where students already attend the district they're petitioning to join. Approval is the fiscally responsible and morally correct decision.
-
-To Denton ISD: The right decision is to vote YES and avoid costly litigation. Texas Supreme Court precedent and the Education Commissioner's authority strongly support this petition. With your recent November 2025 tax rate increase, spending taxpayer dollars fighting a likely losing battle is indefensible. These students don't attend your schools — do the right thing for them and your taxpayers.
-
-This petition has majority voter support (52.63% of registered voters, 56.49% of addresses). It represents common-sense governance, fairness for students, and fiscal accountability.
-
-I respectfully urge both Boards to approve this petition.
-
-Thank you for your service and consideration.
-
-Sincerely,
-[YOUR NAME]
-[YOUR ADDRESS]
-[YOUR EMAIL]</div>
-    
-    <button class="copy-btn" onclick="copyTemplate()">📋 Copy Email Template</button>
   </div>
 </section>
 
-<section class="share-section">
-  <h3>⚠️ Final Reminder: Did You Complete Step 3?</h3>
-  <p><strong>Before you go - have you shared this with 10+ people?</strong> This is <strong>MANDATORY for success.</strong> Every person you share with = more pressure on trustees = higher chance we WIN on December 15!</p>
-  
-  <div style="background: rgba(220, 38, 38, 0.1); border-left: 4px solid #dc2626; padding: 16px; margin: 20px 0; border-radius: 4px;">
-    <strong style="color: #991b1b; display: block; margin-bottom: 8px;">📊 Why Sharing is Critical:</strong>
-    <ul style="margin: 0; padding-left: 20px; color: #7f1d1d;">
-      <li>Empty room on Dec 15 = trustees ignore us</li>
-      <li>Full room on Dec 15 = trustees know they're being watched</li>
-      <li>Your email means nothing without bodies in seats</li>
-      <li>Each person shares with 10 = exponential growth</li>
-    </ul>
+<!-- Progressive Action Section -->
+<section class="action-section">
+  <div class="container">
+    <div class="action-header">
+      <h2>Drive Both School Boards to Approve</h2>
+      <p>The legal petition has been filed under TEC 13.051 with overwhelming support. Now we need both boards to approve this common-sense realignment.</p>
+      <div style="margin-top: 20px; padding: 16px; background: #fef3c7; border-radius: 8px; display: inline-block;">
+        <p style="margin: 0; color: #92400e; font-weight: 600;">
+          ✅ Legal petition filed October 20, 2025 under Texas Education Code Section 13.051<br>
+          ✅ 52.6% of registered voters signed (360 of 684) - majority support achieved<br>
+          ⚠️ Prosper ISD hearing: December 15 at 7:00 PM • Denton ISD: Not yet scheduled<br>
+          🎯 Goal: Both boards approve to bring $6.2M annually home to Prosper ISD
+        </p>
+      </div>
+    </div>
+
+    <!-- Step 1: Email -->
+    <div class="step-card active" id="step1">
+      <div class="step-header">
+        <div class="step-number" id="step1-number">1</div>
+        <div class="step-title">
+          <h3>Email Both School Boards</h3>
+          <div class="time-estimate">Takes 2 minutes</div>
+        </div>
+      </div>
+      <div class="step-content">
+        <p class="step-description">
+          <strong>Why this matters:</strong> Board members count every email. When they see hundreds of messages from real families,
+          it becomes impossible to ignore. Your email directly influences their December 15th vote.
+          The form below auto-generates a professional message - just fill in your info and click send.
+        </p>
+
+        <div class="email-form">
+          <form id="petitionForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Full Name *</label>
+                <input type="text" id="name" name="name" required />
+                <span class="error-message" id="name-error"></span>
+              </div>
+              <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" name="email" required />
+                <span class="error-message" id="email-error"></span>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="street">Street Address *</label>
+                <input type="text" id="street" name="street" required />
+                <span class="error-message" id="street-error"></span>
+              </div>
+              <div class="form-group">
+                <label for="city">City *</label>
+                <input type="text" id="city" name="city" value="Prosper" required />
+                <span class="error-message" id="city-error"></span>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="state">State *</label>
+                <input type="text" id="state" name="state" value="TX" maxlength="2" required />
+                <span class="error-message" id="state-error"></span>
+              </div>
+              <div class="form-group">
+                <label for="zip">ZIP Code *</label>
+                <input type="text" id="zip" name="zip" pattern="[0-9]{5}" required />
+                <span class="error-message" id="zip-error"></span>
+              </div>
+            </div>
+
+            <div class="form-row full">
+              <div class="form-group">
+                <label for="voterType">Your Connection *</label>
+                <select id="voterType" name="voterType" required>
+                  <option value="">-- Select one --</option>
+                  <option value="Prosper ISD Voter (NOT in Windsong Ranch)">Prosper ISD Voter (NOT in Windsong Ranch)</option>
+                  <option value="Windsong Ranch Resident (Affected by Petition)">Windsong Ranch Resident (Affected by Petition)</option>
+                  <option value="Denton ISD Voter">Denton ISD Voter</option>
+                  <option value="Concerned Community Member">Concerned Community Member</option>
+                </select>
+                <span class="error-message" id="voterType-error"></span>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="phone">Mobile Phone Number *</label>
+                <input type="tel" id="phone" name="phone" placeholder="(214) 555-1234" required />
+                <span class="error-message" id="phone-error"></span>
+              </div>
+              <div class="form-group" style="padding-top: 8px;">
+                <div style="background: #f3f4f6; padding: 12px; border-radius: 6px; border: 1px solid #d1d5db;">
+                  <label style="display: flex; align-items: flex-start; cursor: pointer; font-weight: normal; font-size: 0.85rem; line-height: 1.4;">
+                    <input type="checkbox" id="smsOptOut" name="smsOptOut" style="width: auto; margin-right: 8px; margin-top: 2px;" checked />
+                    <span>
+                      <strong>Uncheck to opt-out of text messages</strong><br>
+                      By providing your phone number, you consent to receive text messages regarding the December 15 meeting reminders
+                      and annexation status updates only. Message and data rates may apply. Text STOP to cancel.
+                      We will NOT send marketing messages or share your number.
+                    </span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Honeypot -->
+            <input type="text" class="honeypot" tabindex="-1" autocomplete="off" />
+
+            <div class="status-message" id="statusMessage"></div>
+
+            <div style="background: #fef3c7; padding: 12px; border-radius: 6px; margin: 16px 0; border: 1px solid #fbbf24;">
+              <p style="margin: 0; color: #92400e; font-size: 0.9rem; line-height: 1.4;">
+                <strong>⚠️ Email Client Notice:</strong> When you click the button below, your browser may ask for permission to open your email application. Click "Allow" or "Yes" to continue. This is a standard security feature and completely safe.
+              </p>
+            </div>
+
+            <button type="submit" class="btn btn-primary" id="submitBtn">
+              Send Email to Both Boards
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 2: Calendar (Initially Locked) -->
+    <div class="step-card locked" id="step2">
+      <div class="step-header">
+        <div class="step-number" id="step2-number">2</div>
+        <div class="step-title">
+          <h3>Add Meeting to Your Calendar</h3>
+          <div class="time-estimate">Takes 30 seconds</div>
+        </div>
+      </div>
+      <div class="step-content">
+        <p class="step-description">
+          <strong>Why this matters:</strong> Board members make decisions based on who shows up. An empty room signals apathy.
+          A packed room of concerned parents sends an undeniable message. Set your reminder now so nothing keeps you from being there.
+        </p>
+
+        <div class="success-message" id="step2-success">
+          <h4>✓ Step 2 Complete!</h4>
+          <p>Meeting added to your calendar. See you December 15th at 7:00 PM!</p>
+        </div>
+
+        <div class="calendar-options" id="calendar-options">
+          <a href="#" class="calendar-btn" onclick="addToGoogleCalendar(); return false;">
+            Google Calendar
+          </a>
+          <a href="#" class="calendar-btn" onclick="addToOutlookCalendar(); return false;">
+            Outlook
+          </a>
+          <a href="#" class="calendar-btn" onclick="downloadICS(); return false;">
+            Apple/Other (.ics)
+          </a>
+        </div>
+
+        <p style="margin-top: 20px; color: #666; font-size: 0.9rem;">
+          <strong>Meeting Details:</strong><br>
+          December 15, 2025 at 7:00 PM<br>
+          Prosper ISD Administration Building<br>
+          605 E 7th Street, Prosper, TX 75078
+        </p>
+      </div>
+    </div>
+
+    <!-- Step 3: Share (Initially Locked) -->
+    <div class="step-card locked" id="step3">
+      <div class="step-header">
+        <div class="step-number" id="step3-number">3</div>
+        <div class="step-title">
+          <h3>Share with Your Network</h3>
+          <div class="time-estimate">Takes 2 minutes</div>
+        </div>
+      </div>
+      <div class="step-content">
+        <p class="step-description">
+          <strong>Why this matters:</strong> Your participation demonstrates community support for this common-sense realignment under Texas law.
+          If every supporter gets just 10 others involved, we'll pack that meeting room and secure our children's future.
+          Your personal outreach is the most powerful tool we have - people respond when friends and neighbors ask for help.
+        </p>
+
+        <div class="success-message" id="step3-success">
+          <h4>✓ All Steps Complete!</h4>
+          <p>Thank you for taking action! Remember to attend the meeting on December 15th at 7:00 PM.</p>
+        </div>
+
+        <div class="share-grid" id="share-options">
+          <div class="share-card">
+            <h4>Text Message</h4>
+            <p>Quick & personal - highest response rate</p>
+            <button class="btn btn-primary" onclick="shareViaSMS()">Send Text</button>
+          </div>
+          <div class="share-card">
+            <h4>Email</h4>
+            <p>Share with your email contacts</p>
+            <button class="btn btn-primary" onclick="shareViaEmail()">Send Email</button>
+          </div>
+          <div class="share-card">
+            <h4>Copy Link</h4>
+            <p>Share on social media or messaging apps</p>
+            <button class="btn btn-primary" onclick="copyShareLink()">Copy Link</button>
+          </div>
+        </div>
+
+        <div style="margin-top: 24px; padding: 16px; background: #f0f4ff; border-radius: 8px;">
+          <p style="margin: 0; color: #1e3a8a; font-weight: 600;">
+            Suggested Message:
+          </p>
+          <p style="margin: 8px 0 0 0; color: #4b5563; font-size: 0.95rem;">
+            "Critical meeting Dec 15 at 7:00 PM - Prosper ISD will vote on keeping Windsong Ranch students in our schools permanently. We need everyone there! Takes 3 min to email the boards: https://keepwindsongprosper.com"
+          </p>
+        </div>
+      </div>
+    </div>
+
   </div>
-  
-  <p style="font-size: 1.1rem; font-weight: 600; color: #065f46; margin-bottom: 20px;">
-    ✅ Share NOW with: Friends • Family • Neighbors • Coworkers • Fellow Parents
-  </p>
-  
-  <div class="share-buttons">
-    <a href="mailto:?subject=ACTION%20NEEDED%3A%20Support%20Prosper%20ISD%20Petition%20-%20EVERY%20Voice%20Counts!&body=I%20just%20sent%20my%20email%20to%20BOTH%20school%20boards%20supporting%20the%20Windsong%20Ranch%20annexation%20to%20Prosper%20ISD%20-%20and%20YOU%20need%20to%20do%20the%20same!%0A%0A%F0%9F%9A%A8%20THIS%20IS%20URGENT%3A%0A%E2%9C%85%20Every%20person%20in%20your%20household%20needs%20to%20send%20this%20email%0A%E2%9C%85%20Forward%20this%20to%20ALL%20your%20friends%20and%20family%0A%E2%9C%85%20Share%20on%20social%20media%0A%E2%9C%85%20Text%20it%20to%20your%20neighbors%0A%0AIt%20takes%202%20minutes%20and%20makes%20a%20HUGE%20difference.%20The%20more%20voices%20we%20have%2C%20the%20stronger%20our%20case!%0A%0A%F0%9F%91%89%20Go%20here%20NOW%20and%20send%20your%20email%3A%0Ahttps%3A%2F%2Fprosperisdpetition.com%0A%0AThen%20share%20this%20link%20EVERYWHERE.%20We%20need%20EVERYONE%20to%20take%20action!%0A%0ALet%27s%20bring%20our%20students%27%20tax%20dollars%20home%20to%20Prosper%20ISD!" class="share-btn">✉️ Email Your Network</a>
-    <button class="share-btn" onclick="copyPageLink()">🔗 Copy Link to Share</button>
-    <button class="share-btn" onclick="shareOnSocial()">📱 Text Your Friends</button>
-  </div>
-  
-  <p style="margin-top: 24px; font-size: 0.95rem; color: #047857; text-align: center;">
-    <strong>💪 Remember:</strong> We're not asking for donations. Just 2 minutes to share = potentially 10+ more attendees!
-  </p>
 </section>
 
+<!-- Always Available Share Section -->
+<section style="background: #f8f9fa; padding: 40px 20px; text-align: center;">
+  <div class="container">
+    <h2 style="color: #1e3a8a; margin: 0 0 16px 0;">Quick Share Tools</h2>
+    <p style="color: #666; margin: 0 0 24px 0;">Already sent your email? Share this page with others:</p>
+    <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+      <button class="btn btn-primary" onclick="shareViaSMS()">Text Message</button>
+      <button class="btn btn-primary" onclick="shareViaEmail()">Email</button>
+      <button class="btn btn-primary" onclick="copyShareLink()">Copy Link</button>
+      <a href="#" class="btn btn-primary" onclick="addToGoogleCalendar(); return false;">Add to Calendar</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
 <footer>
-  <p><strong>Built by Doug Charles</strong> • Co-Petitioner and Project Lead for Windsong Ranch Annexation</p>
-  <p>In collaboration with <strong>Co-Petitioner Jeff Sterling</strong> • Verified public petition materials</p>
-  <p style="margin-top: 20px; font-size: 0.85rem;">
-    <a href="#privacy">Privacy</a> • 
-    <a href="mailto:dbcharles@me.com">Contact</a> • 
-    © 2025
-  </p>
+  <div class="container">
+    <h3 style="color: #1e3a8a; margin: 0 0 16px 0;">Lead Petitioners</h3>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 600px; margin: 0 auto 24px auto;">
+      <div>
+        <strong>Douglas Charles</strong><br>
+        4360 Mill Branch Dr.<br>
+        Prosper, TX 75078<br>
+        <a href="mailto:dbcharles@me.com">dbcharles@me.com</a><br>
+        317-941-1212
+      </div>
+      <div>
+        <strong>Jeff Sterling</strong><br>
+        200 Bunton Branch Ln.<br>
+        Prosper, TX 75078<br>
+        <a href="mailto:jeffsterlingtx@gmail.com">jeffsterlingtx@gmail.com</a><br>
+        972-214-8700
+      </div>
+    </div>
+    <p style="margin-top: 16px; font-size: 0.9rem; color: #666;">
+      Website designed and developed by Douglas Charles<br>
+      Not affiliated with Prosper ISD or Denton ISD. Grassroots effort by concerned parents.<br>
+      Petition submitted October 20, 2025 under Texas Education Code Section 13.051
+    </p>
+  </div>
 </footer>
 
 <script>
 // Configuration
 const CONFIG = {
-  ENDPOINT: "https://script.google.com/macros/s/AKfycbxugscfEwzf1eweMyhiucZTfBriII0KiYqPgZ-ITKmAuVC5sJPWw5_aJCLKrlJou5wQ0A/exec",
+  MEETING_DATE: new Date('2025-12-15T19:00:00-06:00'),
   RECIPIENTS_TO: [
-    // Denton ISD (10)
-    "superintendent@dentonisd.org",
-    "jthompson6@dentonisd.org",
-    "cstafford@dentonisd.org",
-    "barbara.burns@dentonisd.org",
-    "ltays@dentonisd.org",
-    "psosasanchez@dentonisd.org",
-    "buddy.dunworth@dentonisd.org",
-    "sheryl.english@dentonisd.org",
-    "disdgeneralcounsel@dentonisd.org",
-    "tanya.wright@dentonisd.org",
-    // Prosper ISD (10)
-    "wlmclaughlin@prosper-isd.net",
-    "HJFerguson@prosper-isd.net",
-    "dldixon@prosper-isd.net",
-    "wbbeavers@prosper-isd.net",
-    "grlinker@prosper-isd.net",
-    "dmwebb@prosper-isd.net",
-    "kpcavender@prosper-isd.net",
-    "jrcrownover@prosper-isd.net",
-    "tjvanwolfe@prosper-isd.net",
-    "jmdial@prosper-isd.net"
+    // Denton ISD Officials
+    'superintendent@dentonisd.org',
+    'jthompson6@dentonisd.org',
+    'cstafford@dentonisd.org',
+    'barbara.burns@dentonisd.org',
+    'ltays@dentonisd.org',
+    'psosasanchez@dentonisd.org',
+    'buddy.dunworth@dentonisd.org',
+    'sheryl.english@dentonisd.org',
+    'disdgeneralcounsel@dentonisd.org',
+    'tanya.wright@dentonisd.org',
+    // Prosper ISD Board Members
+    'wlmclaughlin@prosper-isd.net',
+    'HJFerguson@prosper-isd.net',
+    'dldixon@prosper-isd.net',
+    'wbbeavers@prosper-isd.net',
+    'grlinker@prosper-isd.net',
+    'dmwebb@prosper-isd.net',
+    'kpcavender@prosper-isd.net',
+    'jrcrownover@prosper-isd.net',
+    'tjvanwolfe@prosper-isd.net',
+    'jmdial@prosper-isd.net'
   ],
   RECIPIENTS_CC: [
-    // Legal Counsel
-    "hturner@wabsa.com",
-    "asorendo@wabsa.com",
-    // State Education Commissioner
-    "commissioner@tea.texas.gov"
-  ]
+    'hturner@wabsa.com',
+    'asorendo@wabsa.com',
+    'commissioner@tea.texas.gov'
+  ],
+  ENDPOINT: "PASTE_YOUR_APPS_SCRIPT_URL_HERE" // Google Apps Script endpoint
 };
 
-// Utility: Sanitize user input to prevent XSS
-function sanitizeInput(input) {
-  const div = document.createElement('div');
-  div.textContent = input;
-  return div.innerHTML;
+// Countdown Timer
+function updateCountdown() {
+  const now = new Date();
+  const timeLeft = CONFIG.MEETING_DATE - now;
+
+  if (timeLeft > 0) {
+    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+    document.getElementById('days').textContent = days;
+    document.getElementById('hours').textContent = hours;
+    document.getElementById('minutes').textContent = minutes;
+    document.getElementById('seconds').textContent = seconds;
+  } else {
+    document.getElementById('countdown').innerHTML = '<p style="font-size: 1.5rem; margin: 0;">Meeting is happening now!</p>';
+  }
 }
 
-// Utility: Validate email format
-function isValidEmail(email) {
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return emailRegex.test(email);
-}
+// Start countdown
+setInterval(updateCountdown, 1000);
+updateCountdown();
 
-// Utility: Show error message
+// Form Validation
 function showError(fieldId, message) {
   const field = document.getElementById(fieldId);
-  const errorDiv = document.getElementById(`${fieldId}-error`);
-  
-  field.classList.add('error');
-  if (errorDiv) {
-    errorDiv.textContent = message;
-    errorDiv.classList.add('show');
+  const errorElement = document.getElementById(fieldId + '-error');
+  if (field) field.classList.add('error');
+  if (errorElement) {
+    errorElement.textContent = message;
+    errorElement.classList.add('show');
   }
 }
 
-// Utility: Clear error message
-function clearError(fieldId) {
-  const field = document.getElementById(fieldId);
-  const errorDiv = document.getElementById(`${fieldId}-error`);
-  
-  field.classList.remove('error');
-  if (errorDiv) {
-    errorDiv.classList.remove('show');
-  }
+function clearErrors() {
+  document.querySelectorAll('.error').forEach(el => el.classList.remove('error'));
+  document.querySelectorAll('.error-message').forEach(el => {
+    el.textContent = '';
+    el.classList.remove('show');
+  });
 }
 
-// Utility: Clear all errors
-function clearAllErrors() {
-  ['name', 'email', 'phone', 'street', 'city', 'state', 'zip', 'voterType'].forEach(clearError);
-}
-
-// Utility: Show status message
-function showStatus(message, type = 'success') {
-  const statusDiv = document.getElementById('statusMessage');
-  statusDiv.textContent = message;
-  statusDiv.className = `status-message show ${type}`;
-  
-  setTimeout(() => {
-    statusDiv.classList.remove('show');
-  }, 10000);
-}
-
-// Utility: Set button loading state
-function setButtonLoading(loading) {
-  const btn = document.getElementById('submitBtn');
-  if (loading) {
-    btn.disabled = true;
-    btn.classList.add('loading');
-    btn.innerHTML = '⏳ Processing...';
-  } else {
-    btn.disabled = false;
-    btn.classList.remove('loading');
-    btn.innerHTML = '✉️ Email Both Boards Now';
-  }
-}
-
-// Build email subject
-function buildSubject() {
-  return "Please Approve Denton ISD Detachment and Prosper ISD Attachment under TEC §13.051";
-}
-
-// Build full address
-function buildFullAddress(street, city, state, zip) {
-  return `${street}, ${city}, ${state} ${zip}`;
-}
-
-// Build email body with sanitized inputs
-function buildBody(name, email, street, city, state, zip, voterType) {
-  const sanitizedName = sanitizeInput(name);
-  const sanitizedAddress = buildFullAddress(
-    sanitizeInput(street),
-    sanitizeInput(city),
-    sanitizeInput(state),
-    sanitizeInput(zip)
-  );
-  const sanitizedVoterType = sanitizeInput(voterType);
-  
-  let body = `Dear Trustees,\n\nMy name is ${sanitizedName}, a ${sanitizedVoterType} residing at ${sanitizedAddress}.\n\n`;
-  
-  body += `I urge both Boards to approve the pending petition for detachment from Denton ISD and attachment to Prosper ISD under Texas Education Code §13.051.\n\n`;
-  
-  body += `To Prosper ISD: You should absolutely vote YES. These 274 students already attend your schools, yet you receive $0.00 in property taxes to educate them. This petition will:\n`;
-  body += `• Generate $6.2 million annually for Prosper ISD operations\n`;
-  body += `• Add $510M in taxable property for future bond capacity\n`;
-  body += `• Give these families voting rights in PISD governance\n`;
-  body += `• Align tax responsibility with educational responsibility\n\n`;
-  
-  body += `This is the only known case in Texas where students already attend the district they're petitioning to join. Approval is the fiscally responsible and morally correct decision.\n\n`;
-  
-  body += `To Denton ISD: The right decision is to vote YES and avoid costly litigation. Texas Supreme Court precedent and the Education Commissioner's authority strongly support this petition. With your recent November 2025 tax rate increase, spending taxpayer dollars fighting a likely losing battle is indefensible. These students don't attend your schools — do the right thing for them and your taxpayers.\n\n`;
-  
-  body += `This petition has majority voter support (52.63% of registered voters, 56.49% of addresses). It represents common-sense governance, fairness for students, and fiscal accountability.\n\n`;
-  
-  body += `I respectfully urge both Boards to approve this petition.\n\n`;
-  
-  body += `Thank you for your service and consideration.\n\n`;
-  body += `Sincerely,\n${sanitizedName}\n${sanitizedAddress}\n${email}`;
-  
-  return body;
-}
-
-// Handle Quick Signup Form (no email client, just capture data)
-async function handleQuickSignup(event) {
-  event.preventDefault();
-  
-  const email = document.getElementById('quickEmail').value.trim();
-  const phone = document.getElementById('quickPhone').value.trim();
-  const smsOptIn = document.getElementById('quickSmsOptIn').checked;
-  const btn = document.getElementById('quickSignupBtn');
-  const message = document.getElementById('quickSignupMessage');
-  
-  // Validate email
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailRegex.test(email)) {
-    message.textContent = '⚠️ Please enter a valid email address';
-    message.className = 'quick-signup-message show error';
-    return;
-  }
-  
-  // Validate phone if provided
-  if (phone) {
-    const phoneDigits = phone.replace(/\D/g, '');
-    if (phoneDigits.length !== 10) {
-      message.textContent = '⚠️ Phone must be 10 digits (or leave blank)';
-      message.className = 'quick-signup-message show error';
-      return;
-    }
-  }
-  
-  // Set loading state
-  btn.disabled = true;
-  btn.textContent = '⏳ Signing up...';
-  message.classList.remove('show');
-  
-  // Prepare payload - minimal data for quick signup
-  const payload = {
-    name: 'Quick Signup',
-    email: email,
-    phone: phone || '',
-    smsOptIn: smsOptIn,
-    street: 'Quick Signup',
-    city: 'N/A',
-    state: 'TX',
-    zip: '00000',
-    voterType: 'Quick Signup - Updates Only',
-    fullAddress: 'Quick Signup',
-    timestamp: new Date().toISOString(),
-    userAgent: navigator.userAgent
-  };
-  
-  try {
-    const response = await fetch(CONFIG.ENDPOINT, {
-      method: "POST",
-      mode: "no-cors",
-      body: JSON.stringify(payload)
-    });
-    
-    // Success!
-    message.textContent = '✅ Success! You\'re signed up for updates about the Dec 15 meeting!';
-    message.className = 'quick-signup-message show success';
-    
-    // Reset form
-    document.getElementById('quickSignupForm').reset();
-    document.getElementById('quickSmsOptIn').checked = true; // Keep default checked
-    
-    btn.disabled = false;
-    btn.textContent = '🎯 Sign Me Up!';
-    
-  } catch (error) {
-    console.error('Quick signup error:', error);
-    message.textContent = '✅ Signed up! (Data capture pending)';
-    message.className = 'quick-signup-message show success';
-    
-    // Reset form anyway
-    document.getElementById('quickSignupForm').reset();
-    document.getElementById('quickSmsOptIn').checked = true;
-    
-    btn.disabled = false;
-    btn.textContent = '🎯 Sign Me Up!';
-  }
-}
-
-// Validate form inputs
 function validateForm(formData) {
-  clearAllErrors();
+  clearErrors();
   let isValid = true;
-  
-  // Check honeypot
+
+  // Honeypot check
   if (formData.website) {
-    console.warn('Honeypot triggered - possible spam');
-    showStatus('There was an issue with your submission. Please try again.', 'error');
     return false;
   }
-  
-  // Validate name
+
+  // Validate required fields
   if (!formData.name || formData.name.length < 2) {
     showError('name', 'Please enter your full name');
     isValid = false;
   }
-  
-  // Validate email
-  if (!formData.email) {
-    showError('email', 'Please enter your email address');
-    isValid = false;
-  } else if (!isValidEmail(formData.email)) {
-    showError('email', 'Please enter a valid email address (e.g., you@example.com)');
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!formData.email || !emailRegex.test(formData.email)) {
+    showError('email', 'Please enter a valid email address');
     isValid = false;
   }
-  
-  // Validate phone (optional, but must be valid if provided)
-  if (formData.phone && formData.phone.trim() !== '') {
-    const phoneDigits = formData.phone.replace(/\D/g, '');
-    if (phoneDigits.length !== 10) {
-      showError('phone', 'Phone number must be 10 digits (e.g., 9725551234)');
-      isValid = false;
-    }
-  }
-  
-  // Validate street
+
   if (!formData.street || formData.street.length < 3) {
     showError('street', 'Please enter your street address');
     isValid = false;
   }
-  
-  // Validate city
+
   if (!formData.city || formData.city.length < 2) {
     showError('city', 'Please enter your city');
     isValid = false;
   }
-  
-  // Validate state
+
   if (!formData.state || formData.state.length !== 2) {
     showError('state', 'Please enter 2-letter state code');
     isValid = false;
   }
-  
-  // Validate ZIP
+
   const zipRegex = /^\d{5}$/;
   if (!formData.zip || !zipRegex.test(formData.zip)) {
     showError('zip', 'Please enter a valid 5-digit ZIP code');
     isValid = false;
   }
-  
-  // Validate voter type
+
   if (!formData.voterType) {
-    showError('voterType', 'Please select your connection to this issue');
+    showError('voterType', 'Please select your connection');
     isValid = false;
   }
-  
+
+  // Validate phone (now required)
+  if (!formData.phone || formData.phone.trim() === '') {
+    showError('phone', 'Phone number is required');
+    isValid = false;
+  } else {
+    const phoneDigits = formData.phone.replace(/\D/g, '');
+    if (phoneDigits.length !== 10) {
+      showError('phone', 'Please enter a valid 10-digit phone number');
+      isValid = false;
+    }
+  }
+
   return isValid;
 }
 
-// Send data to backend for capture
-async function captureSubmission(data) {
-  if (CONFIG.ENDPOINT === "PASTE_YOUR_APPS_SCRIPT_URL_HERE") {
-    console.warn('Backend endpoint not configured - skipping data capture');
-    return { success: true, warning: 'Backend not configured' };
-  }
-  
-  try {
-    const response = await fetch(CONFIG.ENDPOINT, {
-      method: "POST",
-      mode: "no-cors",
-      body: JSON.stringify(data)
-    });
-    
-    // Note: no-cors mode means we can't read the response, but submission will work
-    return { success: true };
-  } catch (error) {
-    console.error('Backend capture failed:', error);
-    return { success: false, error: error.message };
-  }
+// Build email content
+function buildEmailContent(formData) {
+  const subject = `Support for Windsong Ranch Realignment to Prosper ISD - ${formData.name}`;
+
+  const body = `Dear Prosper ISD and Denton ISD Board Members,
+
+My name is ${formData.name}, a ${formData.voterType} residing at ${formData.street}, ${formData.city}, ${formData.state} ${formData.zip}.
+
+I urge both Boards to approve the pending petition for detachment from Denton ISD and attachment to Prosper ISD under Texas Education Code Section 13.051, filed October 20, 2025.
+
+==============================
+TO PROSPER ISD BOARD:
+==============================
+
+Thank you for scheduling the December 15 hearing to address this petition. Your swift action demonstrates leadership and commitment to the students you serve. I urge you to vote YES to approve this petition. These 274 students already attend your schools, yet you receive $0.00 in property taxes to educate them.
+
+This petition will:
+• Generate $6.2 million annually for Prosper ISD operations
+• Add $510 million in taxable property for future bond capacity
+• Give these families voting rights in PISD governance
+• Align tax responsibility with educational responsibility
+
+This is the only known case in Texas where students already attend the district they're petitioning to join. Approval is the fiscally responsible and morally correct decision for our students and community.
+
+==============================
+TO DENTON ISD BOARD:
+==============================
+
+I respectfully urge you to schedule your hearing promptly as required under Texas Education Code Section 13.051. It has been nearly two months since the petition was filed, and there has been no communication about scheduling. Time is of the essence for these families and students.
+
+The right decision is to vote YES and avoid costly litigation. Texas Supreme Court precedent and the Education Commissioner's authority strongly support this petition. With your recent November 2025 tax rate increase, spending taxpayer dollars fighting a likely losing battle is indefensible. These students don't attend your schools — do the right thing for them and your taxpayers by approving this common-sense realignment.
+
+==============================
+KEY FACTS:
+==============================
+
+• The petition has majority voter support (52.6% of registered voters signed - 360 of 684)
+• All 274 students from these 466 homes already attend Prosper ISD schools
+• Zero students from this territory attend Denton ISD
+• This represents common-sense governance, fairness for students, and fiscal accountability
+• Permanent realignment ensures stability versus agreements that can be broken
+
+Both boards have an opportunity to do what's right for our children and communities. I respectfully urge both Boards to approve this petition.
+
+Thank you for your service and consideration.
+
+Sincerely,
+
+${formData.name}
+${formData.street}, ${formData.city}, ${formData.state} ${formData.zip}
+${formData.email}
+${formData.phone}`;
+
+  return { subject, body };
 }
 
-// Open email client with mailto link
-function openEmailClient(subject, body) {
-  const mailto = `mailto:${CONFIG.RECIPIENTS_TO.join(',')}?cc=${CONFIG.RECIPIENTS_CC.join(',')}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  
-  if (mailto.length > 2000) {
-    showStatus('Email created! Opening your email client... If it doesn\'t open, use the "Copy & Paste" option below.', 'warning');
-  }
-  
-  setTimeout(() => {
-    window.location.href = mailto;
-  }, 500);
-}
-
-// Main form submission handler
+// Form submission handler
 async function handleSubmit(event) {
   event.preventDefault();
-  
-  // Collect form data
+
   const formData = {
     name: document.getElementById('name').value.trim(),
     email: document.getElementById('email').value.trim(),
     phone: document.getElementById('phone').value.trim(),
-    smsOptIn: document.getElementById('smsOptIn').checked,
+    smsConsent: document.getElementById('smsOptOut').checked, // checked = consent given
     street: document.getElementById('street').value.trim(),
     city: document.getElementById('city').value.trim(),
     state: document.getElementById('state').value.trim().toUpperCase(),
     zip: document.getElementById('zip').value.trim(),
     voterType: document.getElementById('voterType').value,
-    website: document.querySelector('.honeypot').value
+    website: document.querySelector('.honeypot')?.value || ''
   };
-  
-  // Validate
+
   if (!validateForm(formData)) {
     return;
   }
-  
-  // Set loading state
-  setButtonLoading(true);
-  
-  // Build email content
-  const subject = buildSubject();
-  const body = buildBody(
-    formData.name,
-    formData.email,
-    formData.street,
-    formData.city,
-    formData.state,
-    formData.zip,
-    formData.voterType
-  );
-  
-  // Prepare payload for backend
-  const payload = {
-    ...formData,
-    fullAddress: buildFullAddress(formData.street, formData.city, formData.state, formData.zip),
-    subject,
-    body,
-    recipients_to: CONFIG.RECIPIENTS_TO,
-    recipients_cc: CONFIG.RECIPIENTS_CC,
-    timestamp: new Date().toISOString(),
-    userAgent: navigator.userAgent
-  };
-  
-  // Capture to backend (await completion)
-  const captureResult = await captureSubmission(payload);
-  
-  // Show appropriate status
-  if (captureResult.success) {
-    if (captureResult.warning) {
-      showStatus('✅ Step 1 Complete: Email Opening! ⚠️ 3 MORE STEPS: Add to calendar, share with everyone, show up Dec 15!', 'warning');
-    } else {
-      showStatus('✅ Step 1 Complete: Email Opening! ⚠️ 3 MORE STEPS: Add to calendar, share with 10+ people, show up Dec 15!', 'success');
+
+  const submitBtn = document.getElementById('submitBtn');
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Sending...';
+
+  const { subject, body } = buildEmailContent(formData);
+
+  // Try to capture submission to backend
+  if (CONFIG.ENDPOINT !== "PASTE_YOUR_APPS_SCRIPT_URL_HERE") {
+    try {
+      await fetch(CONFIG.ENDPOINT, {
+        method: "POST",
+        mode: "no-cors",
+        body: JSON.stringify({
+          ...formData,
+          subject,
+          timestamp: new Date().toISOString()
+        })
+      });
+    } catch (error) {
+      console.error('Backend capture failed:', error);
     }
-    
-    // Show the post-email reminder box
-    const reminderBox = document.getElementById('postEmailReminder');
-    if (reminderBox) {
-      reminderBox.classList.add('show');
-      // Scroll to reminder box
-      setTimeout(() => {
-        reminderBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }, 1000);
-    }
-    
-    // Open email client after backend capture completes
-    openEmailClient(subject, body);
-    
-    // Reset form after successful submission
-    setTimeout(() => {
-      document.getElementById('petitionForm').reset();
-      setButtonLoading(false);
-    }, 2000);
-    
-  } else {
-    showStatus('✅ Step 1 Complete: Email Opening! ⚠️ 3 MORE STEPS: Add to calendar, share with everyone, show up Dec 15!', 'warning');
-    
-    // Show the post-email reminder box
-    const reminderBox = document.getElementById('postEmailReminder');
-    if (reminderBox) {
-      reminderBox.classList.add('show');
-      setTimeout(() => {
-        reminderBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }, 1000);
-    }
-    
-    openEmailClient(subject, body);
-    setButtonLoading(false);
   }
+
+  // Open email client
+  const mailto = `mailto:${CONFIG.RECIPIENTS_TO.join(',')}?cc=${CONFIG.RECIPIENTS_CC.join(',')}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  window.location.href = mailto;
+
+  // Show success and unlock Step 2
+  setTimeout(() => {
+    // Mark Step 1 as complete
+    document.getElementById('step1').classList.remove('active');
+    document.getElementById('step1').classList.add('completed');
+    document.getElementById('step1-number').classList.add('completed');
+    document.getElementById('step1-number').innerHTML = '✓';
+
+    // Unlock and activate Step 2
+    document.getElementById('step2').classList.remove('locked');
+    document.getElementById('step2').classList.add('active');
+
+    // Scroll to Step 2
+    document.getElementById('step2').scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+    // Reset button
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Send Email to Both Boards';
+  }, 1000);
 }
 
-// Copy email template to clipboard
-function copyTemplate() {
-  const template = document.getElementById('emailTemplate').textContent;
-  const btn = event.target;
-  
-  // Try modern clipboard API first
+// Calendar functions
+function addToGoogleCalendar() {
+  const startDate = '20251215T190000';
+  const endDate = '20251215T210000';
+  const details = encodeURIComponent('Critical vote on Windsong Ranch realignment to Prosper ISD. Your attendance is crucial!');
+  const location = encodeURIComponent('Prosper ISD Administration Building, 605 E 7th Street, Prosper, TX 75078');
+
+  const url = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent('Prosper ISD Board Meeting - Windsong Ranch Vote')}&dates=${startDate}/${endDate}&details=${details}&location=${location}`;
+
+  window.open(url, '_blank');
+  completeStep2();
+}
+
+function addToOutlookCalendar() {
+  const startDate = '2025-12-15T19:00:00';
+  const endDate = '2025-12-15T19:00:00';
+  const details = encodeURIComponent('Critical vote on Windsong Ranch realignment to Prosper ISD. Your attendance is crucial!');
+  const location = encodeURIComponent('Prosper ISD Administration Building, 605 E 7th Street, Prosper, TX 75078');
+
+  const url = `https://outlook.live.com/calendar/0/deeplink/compose?subject=${encodeURIComponent('Prosper ISD Board Meeting - Windsong Ranch Vote')}&startdt=${startDate}&enddt=${endDate}&body=${details}&location=${location}`;
+
+  window.open(url, '_blank');
+  completeStep2();
+}
+
+function downloadICS() {
+  const icsContent = `BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Windsong Ranch Petition//EN
+BEGIN:VEVENT
+UID:${Date.now()}@keepwindsongprosper.com
+DTSTAMP:${new Date().toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '')}
+DTSTART:20251216T010000Z
+DTEND:20251216T030000Z
+SUMMARY:Prosper ISD Board Meeting - Windsong Ranch Vote
+DESCRIPTION:Critical vote on Windsong Ranch realignment to Prosper ISD. Your attendance is crucial!
+LOCATION:Prosper ISD Administration Building, 605 E 7th Street, Prosper, TX 75078
+END:VEVENT
+END:VCALENDAR`;
+
+  const blob = new Blob([icsContent], { type: 'text/calendar' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'prosper-isd-meeting.ics';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+
+  completeStep2();
+}
+
+function completeStep2() {
+  // Hide calendar options
+  document.getElementById('calendar-options').style.display = 'none';
+
+  // Show success message
+  document.getElementById('step2-success').classList.add('show');
+
+  // Mark Step 2 as complete
+  setTimeout(() => {
+    document.getElementById('step2').classList.remove('active');
+    document.getElementById('step2').classList.add('completed');
+    document.getElementById('step2-number').classList.add('completed');
+    document.getElementById('step2-number').innerHTML = '✓';
+
+    // Unlock and activate Step 3
+    document.getElementById('step3').classList.remove('locked');
+    document.getElementById('step3').classList.add('active');
+
+    // Scroll to Step 3
+    document.getElementById('step3').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }, 1500);
+}
+
+// Share functions
+function shareViaSMS() {
+  const message = encodeURIComponent('Critical meeting Dec 15 at 7:00 PM - Prosper ISD will vote on keeping Windsong Ranch students in our schools permanently. We need everyone there! Takes 3 min to email the boards: https://keepwindsongprosper.com');
+  window.open(`sms:?&body=${message}`, '_blank');
+  completeStep3();
+}
+
+function shareViaEmail() {
+  const subject = encodeURIComponent('Important: Prosper ISD Meeting Dec 15 - Need Your Support');
+  const body = encodeURIComponent(`Hi,
+
+There's a critical meeting on December 15 at 7:00 PM where Prosper ISD will vote on keeping Windsong Ranch students in our schools permanently.
+
+We need as many people as possible to attend and show support. It only takes 3 minutes to email the boards with your support:
+
+https://keepwindsongprosper.com
+
+Meeting Details:
+December 15, 2025 at 7:00 PM
+Prosper ISD Administration Building
+605 E 7th Street, Prosper, TX 75078
+
+This affects 274 students and $6.2 million in annual tax revenue. Please help spread the word!
+
+Thank you!`);
+
+  window.open(`mailto:?subject=${subject}&body=${body}`, '_blank');
+  completeStep3();
+}
+
+function copyShareLink() {
+  const text = 'Critical meeting Dec 15 at 7:00 PM - Prosper ISD will vote on keeping Windsong Ranch students in our schools permanently. We need everyone there! Takes 3 min to email the boards: https://keepwindsongprosper.com';
+
   if (navigator.clipboard && navigator.clipboard.writeText) {
-    navigator.clipboard.writeText(template).then(() => {
-      btn.textContent = '✅ Copied!';
-      btn.classList.add('copied');
-      setTimeout(() => {
-        btn.textContent = '📋 Copy Email Template';
-        btn.classList.remove('copied');
-      }, 2000);
-    }).catch(err => {
-      // Fallback for clipboard API failure
-      fallbackCopyText(template, btn);
+    navigator.clipboard.writeText(text).then(() => {
+      alert('Link and message copied to clipboard! Paste it anywhere to share.');
+      completeStep3();
+    }).catch(() => {
+      fallbackCopy(text);
+      completeStep3();
     });
   } else {
-    // Fallback for older browsers or file:// protocol
-    fallbackCopyText(template, btn);
+    fallbackCopy(text);
+    completeStep3();
   }
 }
 
-// Copy page link
-function copyPageLink() {
-  const btn = event.target;
-  const originalText = btn.textContent;
-  const url = window.location.href;
-  
-  // Try modern clipboard API first
-  if (navigator.clipboard && navigator.clipboard.writeText) {
-    navigator.clipboard.writeText(url).then(() => {
-      btn.textContent = '✅ Link Copied!';
-      setTimeout(() => {
-        btn.textContent = originalText;
-      }, 2000);
-    }).catch(err => {
-      // Fallback for clipboard API failure
-      fallbackCopyText(url, btn, originalText);
-    });
-  } else {
-    // Fallback for older browsers or file:// protocol
-    fallbackCopyText(url, btn, originalText);
-  }
-}
-
-// Fallback copy method using textarea
-function fallbackCopyText(text, btn, originalText = null) {
+function fallbackCopy(text) {
   const textarea = document.createElement('textarea');
   textarea.value = text;
   textarea.style.position = 'fixed';
   textarea.style.opacity = '0';
   document.body.appendChild(textarea);
   textarea.select();
-  
-  try {
-    const successful = document.execCommand('copy');
-    if (successful) {
-      btn.textContent = '✅ Copied!';
-      if (originalText) btn.classList.add('copied');
-      setTimeout(() => {
-        btn.textContent = originalText || '📋 Copy Email Template';
-        if (originalText) btn.classList.remove('copied');
-      }, 2000);
-    } else {
-      alert('Unable to copy. Please manually select and copy the text.');
-    }
-  } catch (err) {
-    alert('Unable to copy. Please manually select and copy the text.');
-  }
-  
+  document.execCommand('copy');
   document.body.removeChild(textarea);
+  alert('Link and message copied to clipboard! Paste it anywhere to share.');
 }
 
-// Share on social media - Enhanced for viral texting
-function shareOnSocial() {
-  const pageUrl = window.location.href;
-  
-  // Compelling share message optimized for texting
-  const shareMessage = `🚨 URGENT: PISD Board votes Dec 15 on Windsong Ranch petition!
+function completeStep3() {
+  // Hide share options
+  document.getElementById('share-options').style.display = 'none';
 
-Help me support this - takes 2 minutes to email both boards:
-${pageUrl}
+  // Show success message
+  document.getElementById('step3-success').classList.add('show');
 
-Every voice counts! Can you share with 3 friends?`;
-  
-  // Try native Web Share API first (best for mobile)
-  if (navigator.share) {
-    navigator.share({
-      title: '🚨 URGENT: Support PISD Petition',
-      text: shareMessage
-    }).then(() => {
-      console.log('Share successful');
-    }).catch(err => {
-      // User cancelled or error occurred
-      if (err.name !== 'AbortError') {
-        // If real error, show fallback options
-        showShareOptions(shareMessage, pageUrl);
-      }
-    });
-  } else {
-    // Desktop/unsupported browsers - show options
-    showShareOptions(shareMessage, pageUrl);
-  }
-}
-
-// Show share options dialog
-function showShareOptions(message, url) {
-  // Create modal overlay
-  const overlay = document.createElement('div');
-  overlay.style.cssText = `
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0,0,0,0.8);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 10000;
-    padding: 20px;
-  `;
-  
-  // Create modal content
-  const modal = document.createElement('div');
-  modal.style.cssText = `
-    background: white;
-    border-radius: 12px;
-    padding: 30px;
-    max-width: 500px;
-    width: 100%;
-    max-height: 80vh;
-    overflow-y: auto;
-  `;
-  
-  modal.innerHTML = `
-    <h3 style="margin: 0 0 20px 0; color: #1e3a8a; font-size: 1.5rem;">
-      📱 Share This Petition
-    </h3>
-    
-    <p style="margin: 0 0 20px 0; color: #475569; line-height: 1.6;">
-      Help spread the word! Choose how to share:
-    </p>
-    
-    <div style="display: flex; flex-direction: column; gap: 12px;">
-      <button onclick="shareViaSMS('${url.replace(/'/g, "\\'")}'); closeShareModal();" style="
-        background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-        color: white;
-        border: none;
-        padding: 16px;
-        border-radius: 8px;
-        font-weight: 700;
-        font-size: 1.1rem;
-        cursor: pointer;
-        transition: transform 0.2s;
-      " onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
-        💬 Text Your Friends
-      </button>
-      
-      <button onclick="shareViaEmail('${url.replace(/'/g, "\\'")}'); closeShareModal();" style="
-        background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-        color: white;
-        border: none;
-        padding: 16px;
-        border-radius: 8px;
-        font-weight: 700;
-        font-size: 1.1rem;
-        cursor: pointer;
-        transition: transform 0.2s;
-      " onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
-        📧 Email Your Network
-      </button>
-      
-      <button onclick="copyShareLink('${url.replace(/'/g, "\\'")}');" style="
-        background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
-        color: white;
-        border: none;
-        padding: 16px;
-        border-radius: 8px;
-        font-weight: 700;
-        font-size: 1.1rem;
-        cursor: pointer;
-        transition: transform 0.2s;
-      " onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
-        🔗 Copy Link
-      </button>
-      
-      <button onclick="closeShareModal()" style="
-        background: #e5e7eb;
-        color: #374151;
-        border: none;
-        padding: 12px;
-        border-radius: 8px;
-        font-weight: 600;
-        font-size: 1rem;
-        cursor: pointer;
-        margin-top: 8px;
-      ">
-        Cancel
-      </button>
-    </div>
-  `;
-  
-  overlay.appendChild(modal);
-  document.body.appendChild(overlay);
-  
-  // Close on overlay click
-  overlay.addEventListener('click', (e) => {
-    if (e.target === overlay) {
-      closeShareModal();
-    }
-  });
-  
-  // Store reference for closing
-  window.currentShareModal = overlay;
-}
-
-// Share via SMS/iMessage
-function shareViaSMS(url) {
-  const message = `🚨 URGENT: PISD Board votes Dec 15 on Windsong Ranch petition! Help me support this - takes 2 min to email both boards: ${url} Every voice counts!`;
-  
-  // Detect device type
-  const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
-  const isAndroid = /Android/.test(navigator.userAgent);
-  
-  // Create SMS link with message
-  let smsLink;
-  if (isIOS) {
-    // iOS format
-    smsLink = `sms:&body=${encodeURIComponent(message)}`;
-  } else {
-    // Android format
-    smsLink = `sms:?body=${encodeURIComponent(message)}`;
-  }
-  
-  // Open SMS app
-  window.location.href = smsLink;
-  
-  // Show helper message
+  // Mark Step 3 as complete
   setTimeout(() => {
-    alert('📱 Your messaging app should open with a pre-filled message.\n\nSelect contacts and send to spread the word!');
+    document.getElementById('step3').classList.remove('active');
+    document.getElementById('step3').classList.add('completed');
+    document.getElementById('step3-number').classList.add('completed');
+    document.getElementById('step3-number').innerHTML = '✓';
   }, 500);
 }
 
-// Share via Email
-function shareViaEmail(url) {
-  const subject = '🚨 URGENT: Support PISD Petition - Dec 15 Vote';
-  const body = `Hi,
-
-I just took action on an important local issue and wanted to share it with you.
-
-🚨 URGENT: The Prosper ISD and Denton ISD boards are voting on December 15 about a petition to permanently align Windsong Ranch students with Prosper ISD (where they already attend school).
-
-This is about common-sense governance and ensuring tax dollars follow students to the district serving them.
-
-Can you help? It takes just 2 minutes to send an email to both school boards:
-${url}
-
-Every voice matters! Please share with your network too.
-
-Thanks for supporting good governance!`;
-
-  const mailtoLink = `mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  window.location.href = mailtoLink;
-}
-
-// Copy share link to clipboard
-function copyShareLink(url) {
-  if (navigator.clipboard && navigator.clipboard.writeText) {
-    navigator.clipboard.writeText(url).then(() => {
-      // Update button text
-      const buttons = document.querySelectorAll('button');
-      buttons.forEach(btn => {
-        if (btn.textContent.includes('Copy Link')) {
-          const originalText = btn.textContent;
-          btn.textContent = '✅ Link Copied!';
-          btn.style.background = '#10b981';
-          setTimeout(() => {
-            btn.textContent = originalText;
-            btn.style.background = 'linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%)';
-          }, 2000);
-        }
-      });
-    });
-  } else {
-    alert(`Copy this link to share:\n\n${url}`);
+// Initialize
+// Phone field formatting and tab/enter support
+const phoneInput = document.getElementById('phone');
+phoneInput.addEventListener('input', function(e) {
+  let value = e.target.value.replace(/\D/g, '');
+  if (value.length >= 6) {
+    value = value.slice(0, 3) + '-' + value.slice(3, 6) + '-' + value.slice(6, 10);
+  } else if (value.length >= 3) {
+    value = value.slice(0, 3) + '-' + value.slice(3);
   }
-}
-
-// Close share modal
-function closeShareModal() {
-  if (window.currentShareModal) {
-    document.body.removeChild(window.currentShareModal);
-    window.currentShareModal = null;
-  }
-}
-
-// Fallback share dialog (legacy - keeping for compatibility)
-function showShareFallback(text, url) {
-  shareOnSocial(); // Use new enhanced version
-}
-
-// Calendar Functions - Universal Calendar Support
-function showCalendarOptions() {
-  // Create modal overlay
-  const overlay = document.createElement('div');
-  overlay.style.cssText = `
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0,0,0,0.8);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 10000;
-    padding: 20px;
-  `;
-  
-  // Create modal content
-  const modal = document.createElement('div');
-  modal.style.cssText = `
-    background: white;
-    border-radius: 12px;
-    padding: 30px;
-    max-width: 500px;
-    width: 100%;
-    max-height: 80vh;
-    overflow-y: auto;
-  `;
-  
-  modal.innerHTML = `
-    <h3 style="margin: 0 0 20px 0; color: #1e3a8a; font-size: 1.5rem;">
-      📅 Add to Your Calendar
-    </h3>
-    
-    <p style="margin: 0 0 20px 0; color: #475569; line-height: 1.6;">
-      <strong>PISD School Board Meeting</strong><br>
-      December 15, 2025 at 7:00 PM CST<br>
-      Prosper ISD Administration Building<br>
-      605 E 7th St, Prosper, TX 75078
-    </p>
-    
-    <div style="display: flex; flex-direction: column; gap: 12px;">
-      <button onclick="addToGoogleCalendar(); closeCalendarModal();" style="
-        background: linear-gradient(135deg, #4285f4 0%, #34a853 100%);
-        color: white;
-        border: none;
-        padding: 16px;
-        border-radius: 8px;
-        font-weight: 700;
-        font-size: 1.05rem;
-        cursor: pointer;
-        transition: transform 0.2s;
-        text-align: left;
-        display: flex;
-        align-items: center;
-        gap: 12px;
-      " onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
-        <span style="font-size: 1.3rem;">📅</span>
-        <span>Google Calendar</span>
-      </button>
-      
-      <button onclick="addToAppleCalendar();" style="
-        background: linear-gradient(135deg, #000 0%, #333 100%);
-        color: white;
-        border: none;
-        padding: 16px;
-        border-radius: 8px;
-        font-weight: 700;
-        font-size: 1.05rem;
-        cursor: pointer;
-        transition: transform 0.2s;
-        text-align: left;
-        display: flex;
-        align-items: center;
-        gap: 12px;
-      " onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
-        <span style="font-size: 1.3rem;">🍎</span>
-        <span>Apple Calendar (iCal)</span>
-      </button>
-      
-      <button onclick="addToOutlook(); closeCalendarModal();" style="
-        background: linear-gradient(135deg, #0078d4 0%, #106ebe 100%);
-        color: white;
-        border: none;
-        padding: 16px;
-        border-radius: 8px;
-        font-weight: 700;
-        font-size: 1.05rem;
-        cursor: pointer;
-        transition: transform 0.2s;
-        text-align: left;
-        display: flex;
-        align-items: center;
-        gap: 12px;
-      " onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
-        <span style="font-size: 1.3rem;">📧</span>
-        <span>Outlook / Office 365</span>
-      </button>
-      
-      <button onclick="addToYahooCalendar(); closeCalendarModal();" style="
-        background: linear-gradient(135deg, #6001d2 0%, #410093 100%);
-        color: white;
-        border: none;
-        padding: 16px;
-        border-radius: 8px;
-        font-weight: 700;
-        font-size: 1.05rem;
-        cursor: pointer;
-        transition: transform 0.2s;
-        text-align: left;
-        display: flex;
-        align-items: center;
-        gap: 12px;
-      " onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
-        <span style="font-size: 1.3rem;">📮</span>
-        <span>Yahoo Calendar</span>
-      </button>
-      
-      <button onclick="downloadICS();" style="
-        background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-        color: white;
-        border: none;
-        padding: 16px;
-        border-radius: 8px;
-        font-weight: 700;
-        font-size: 1.05rem;
-        cursor: pointer;
-        transition: transform 0.2s;
-        text-align: left;
-        display: flex;
-        align-items: center;
-        gap: 12px;
-      " onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
-        <span style="font-size: 1.3rem;">💾</span>
-        <span>Download .ics File (Universal)</span>
-      </button>
-      
-      <button onclick="closeCalendarModal()" style="
-        background: #e5e7eb;
-        color: #374151;
-        border: none;
-        padding: 12px;
-        border-radius: 8px;
-        font-weight: 600;
-        font-size: 1rem;
-        cursor: pointer;
-        margin-top: 8px;
-      ">
-        Cancel
-      </button>
-    </div>
-  `;
-  
-  overlay.appendChild(modal);
-  document.body.appendChild(overlay);
-  
-  // Close on overlay click
-  overlay.addEventListener('click', (e) => {
-    if (e.target === overlay) {
-      closeCalendarModal();
-    }
-  });
-  
-  // Store reference for closing
-  window.currentCalendarModal = overlay;
-}
-
-// Generate ICS file content
-function generateICS() {
-  const event = {
-    title: 'PISD School Board Meeting - Support Windsong Ranch Petition',
-    description: 'Support the Windsong Ranch annexation petition at the Prosper ISD Board Meeting. This is about common-sense governance and ensuring tax dollars follow students to the district serving them.\\n\\nMore info: ' + window.location.href,
-    location: 'Prosper ISD Administration Building, 605 E 7th St, Prosper, TX 75078',
-    start: '20251216T010000Z', // Dec 15, 2025 7:00 PM CST = Dec 16, 01:00 UTC
-    end: '20251216T030000Z'     // 2 hour meeting
-  };
-  
-  const icsContent = [
-    'BEGIN:VCALENDAR',
-    'VERSION:2.0',
-    'PRODID:-//PISD Petition//Meeting Reminder//EN',
-    'CALSCALE:GREGORIAN',
-    'METHOD:PUBLISH',
-    'BEGIN:VEVENT',
-    'DTSTART:' + event.start,
-    'DTEND:' + event.end,
-    'DTSTAMP:' + new Date().toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z',
-    'UID:' + Date.now() + '@prosperisdpetition.com',
-    'SUMMARY:' + event.title,
-    'DESCRIPTION:' + event.description,
-    'LOCATION:' + event.location,
-    'STATUS:CONFIRMED',
-    'SEQUENCE:0',
-    'BEGIN:VALARM',
-    'TRIGGER:-PT24H',
-    'ACTION:DISPLAY',
-    'DESCRIPTION:Reminder: PISD Board Meeting tomorrow!',
-    'END:VALARM',
-    'END:VEVENT',
-    'END:VCALENDAR'
-  ].join('\r\n');
-  
-  return icsContent;
-}
-
-// Add to Google Calendar
-function addToGoogleCalendar() {
-  const url = 'https://www.google.com/calendar/render?action=TEMPLATE&text=PISD+School+Board+Meeting+-+Support+Windsong+Ranch+Petition&dates=20251216T010000Z/20251216T030000Z&details=Support+the+Windsong+Ranch+annexation+petition+at+the+Prosper+ISD+Board+Meeting.+More+info:+' + encodeURIComponent(window.location.href) + '&location=Prosper+ISD+Administration+Building,+605+E+7th+St,+Prosper,+TX+75078';
-  window.open(url, '_blank');
-}
-
-// Add to Apple Calendar (download ICS)
-function addToAppleCalendar() {
-  downloadICS();
-  closeCalendarModal();
-}
-
-// Add to Outlook
-function addToOutlook() {
-  const url = 'https://outlook.live.com/calendar/0/deeplink/compose?subject=PISD+School+Board+Meeting+-+Support+Windsong+Ranch+Petition&startdt=2025-12-16T01:00:00Z&enddt=2025-12-16T03:00:00Z&body=Support+the+Windsong+Ranch+annexation+petition+at+the+Prosper+ISD+Board+Meeting.+More+info:+' + encodeURIComponent(window.location.href) + '&location=Prosper+ISD+Administration+Building,+605+E+7th+St,+Prosper,+TX+75078&path=/calendar/action/compose';
-  window.open(url, '_blank');
-}
-
-// Add to Yahoo Calendar
-function addToYahooCalendar() {
-  const url = 'https://calendar.yahoo.com/?v=60&title=PISD+School+Board+Meeting+-+Support+Windsong+Ranch+Petition&st=20251216T010000Z&et=20251216T030000Z&desc=Support+the+Windsong+Ranch+annexation+petition+at+the+Prosper+ISD+Board+Meeting.+More+info:+' + encodeURIComponent(window.location.href) + '&in_loc=Prosper+ISD+Administration+Building,+605+E+7th+St,+Prosper,+TX+75078';
-  window.open(url, '_blank');
-}
-
-// Download ICS file
-function downloadICS() {
-  const icsContent = generateICS();
-  const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
-  const link = document.createElement('a');
-  link.href = window.URL.createObjectURL(blob);
-  link.download = 'PISD-Board-Meeting-Dec-15-2025.ics';
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
-  
-  // Show confirmation
-  setTimeout(() => {
-    alert('📅 Calendar file downloaded!\n\nOpen the .ics file to add the meeting to your calendar app.\n\nWorks with: Apple Calendar, Outlook, Thunderbird, and most other calendar applications.');
-  }, 500);
-}
-
-// Close calendar modal
-function closeCalendarModal() {
-  if (window.currentCalendarModal) {
-    document.body.removeChild(window.currentCalendarModal);
-    window.currentCalendarModal = null;
-  }
-}
-
-// Add event listeners when DOM is ready
-document.addEventListener('DOMContentLoaded', function() {
-  // Meeting Countdown Timer
-  const meetingDate = new Date('2025-12-15T19:00:00-06:00').getTime(); // 7 PM CST on Dec 15, 2025
-  
-  function updateCountdown() {
-    const now = new Date().getTime();
-    const distance = meetingDate - now;
-    
-    if (distance < 0) {
-      document.getElementById('countdown').innerHTML = '<div class="countdown-item"><span class="countdown-number">MEETING</span><span class="countdown-label">IS TODAY!</span></div>';
-      return;
-    }
-    
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    
-    document.getElementById('days').textContent = days.toString().padStart(2, '0');
-    document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
-    document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
-    document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
-  }
-  
-  updateCountdown();
-  setInterval(updateCountdown, 1000);
-  
-  const form = document.getElementById('petitionForm');
-  form.addEventListener('submit', handleSubmit);
-  
-  // Add phone number formatting
-  const phoneInput = document.getElementById('phone');
-  if (phoneInput) {
-    phoneInput.addEventListener('input', function(e) {
-      let value = e.target.value.replace(/\D/g, '');
-      if (value.length > 10) value = value.slice(0, 10);
-      
-      if (value.length >= 6) {
-        e.target.value = `(${value.slice(0,3)}) ${value.slice(3,6)}-${value.slice(6)}`;
-      } else if (value.length >= 3) {
-        e.target.value = `(${value.slice(0,3)}) ${value.slice(3)}`;
-      } else if (value.length > 0) {
-        e.target.value = value;
-      }
-    });
-  }
-  
-  // Add phone number formatting for quick signup
-  const quickPhoneInput = document.getElementById('quickPhone');
-  if (quickPhoneInput) {
-    quickPhoneInput.addEventListener('input', function(e) {
-      let value = e.target.value.replace(/\D/g, '');
-      if (value.length > 10) value = value.slice(0, 10);
-      
-      if (value.length >= 6) {
-        e.target.value = `(${value.slice(0,3)}) ${value.slice(3,6)}-${value.slice(6)}`;
-      } else if (value.length >= 3) {
-        e.target.value = `(${value.slice(0,3)}) ${value.slice(3)}`;
-      } else if (value.length > 0) {
-        e.target.value = value;
-      }
-    });
-  }
-  
-  // Clear errors on input
-  ['name', 'email', 'phone', 'street', 'city', 'state', 'zip', 'voterType'].forEach(fieldId => {
-    const field = document.getElementById(fieldId);
-    if (field) {
-      field.addEventListener('input', () => clearError(fieldId));
-      field.addEventListener('change', () => clearError(fieldId));
-    }
-  });
-  
-  console.log('✅ Petition form initialized successfully');
+  e.target.value = value;
 });
+
+// Allow Enter key to move to next field (like Tab)
+phoneInput.addEventListener('keydown', function(e) {
+  if (e.key === 'Enter' || e.key === 'Tab') {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+    }
+    // For Tab, let default behavior happen but ensure street field gets focus
+    if (e.key === 'Enter') {
+      setTimeout(() => {
+        const streetField = document.getElementById('street');
+        if (streetField) {
+          streetField.focus();
+          streetField.select();
+        }
+      }, 50);
+    }
+  }
+});
+
+// Real-time field validation
+const fields = ['name', 'email', 'phone', 'street', 'city', 'state', 'zip', 'voterType'];
+fields.forEach(fieldId => {
+  const field = document.getElementById(fieldId);
+  if (field) {
+    field.addEventListener('blur', function() {
+      validateField(fieldId, field.value);
+    });
+  }
+});
+
+function validateField(fieldId, value) {
+  clearError(fieldId);
+
+  switch(fieldId) {
+    case 'name':
+      if (!value || value.trim().length < 2) {
+        showError(fieldId, 'Please enter your full name');
+        return false;
+      }
+      break;
+    case 'email':
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailPattern.test(value)) {
+        showError(fieldId, 'Please enter a valid email address');
+        return false;
+      }
+      break;
+    case 'phone':
+      const phoneDigits = value.replace(/\D/g, '');
+      if (phoneDigits.length !== 10) {
+        showError(fieldId, 'Please enter a valid 10-digit phone number');
+        return false;
+      }
+      break;
+    case 'zip':
+      const zipPattern = /^\d{5}$/;
+      if (!zipPattern.test(value)) {
+        showError(fieldId, 'Please enter a valid 5-digit ZIP code');
+        return false;
+      }
+      break;
+    case 'state':
+      if (value.length !== 2) {
+        showError(fieldId, 'Please enter a 2-letter state code (e.g., TX)');
+        return false;
+      }
+      break;
+    case 'voterType':
+      if (!value) {
+        showError(fieldId, 'Please select your connection');
+        return false;
+      }
+      break;
+  }
+  return true;
+}
+
+document.getElementById('petitionForm').addEventListener('submit', handleSubmit);
 </script>
 
 </body>
