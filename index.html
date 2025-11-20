@@ -280,6 +280,55 @@
     }
   }
   
+  /* Viral Sharing Emphasis */
+  .viral-sharing-section {
+    background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
+    color: #fff;
+    padding: 40px 20px;
+    text-align: center;
+    margin: 30px auto;
+    max-width: 900px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(124, 58, 237, 0.4);
+  }
+  .viral-sharing-section h2 {
+    margin: 0 0 16px 0;
+    font-size: 2rem;
+    color: #fff;
+  }
+  .viral-sharing-section p {
+    margin: 0 0 24px 0;
+    font-size: 1.2rem;
+    line-height: 1.6;
+  }
+  .viral-sharing-section .share-stats {
+    background: rgba(255,255,255,0.15);
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+    backdrop-filter: blur(10px);
+  }
+  .viral-sharing-section .share-stats strong {
+    font-size: 1.3rem;
+    display: block;
+    margin-bottom: 8px;
+  }
+  .viral-sharing-section button {
+    background: #fff;
+    color: #7c3aed;
+    padding: 16px 32px;
+    border-radius: 8px;
+    border: none;
+    font-weight: 700;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .viral-sharing-section button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+  }
+  
   /* Meeting Countdown Banner */
   .meeting-countdown {
     background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
@@ -1040,8 +1089,8 @@
 
 <!-- ACTION CHECKLIST -->
 <div class="action-checklist">
-  <h2>✅ Your 3-Step Action Checklist</h2>
-  <p style="text-align: center; margin: 0 0 24px 0; color: #92400e; font-size: 1.05rem;"><strong>Complete ALL three steps to support this petition:</strong></p>
+  <h2>✅ Your 4-Step Action Checklist</h2>
+  <p style="text-align: center; margin: 0 0 24px 0; color: #92400e; font-size: 1.05rem;"><strong>Complete ALL four steps to support this petition:</strong></p>
   
   <div class="checklist-items">
     <div class="checklist-item">
@@ -1069,6 +1118,17 @@
     <div class="checklist-item">
       <div class="checklist-number">3</div>
       <div class="checklist-content">
+        <h3>📱 Share with EVERYONE You Know</h3>
+        <p>Text/email friends, family, neighbors. Every Prosper ISD voter needs to see this!</p>
+      </div>
+      <div class="checklist-action">
+        <button onclick="shareOnSocial()" class="checklist-btn">Share Now</button>
+      </div>
+    </div>
+    
+    <div class="checklist-item">
+      <div class="checklist-number">4</div>
+      <div class="checklist-content">
         <h3>🏛️ Show Up In Person</h3>
         <p>Be at Prosper ISD Admin Building, 605 E 7th St on Dec 15 at 7 PM.</p>
       </div>
@@ -1077,6 +1137,31 @@
       </div>
     </div>
   </div>
+</div>
+
+<!-- VIRAL SHARING EMPHASIS -->
+<div class="viral-sharing-section">
+  <h2>🚀 Make Your Voice 10x Stronger</h2>
+  <p>
+    <strong>One voice is good. Hundreds of voices are unstoppable.</strong><br>
+    Every person you share this with could be the difference between winning and losing!
+  </p>
+  
+  <div class="share-stats">
+    <strong>🎯 Your Mission: Share with at least 10 people</strong>
+    <p style="margin: 12px 0 0 0; font-size: 1rem; opacity: 0.95;">
+      Friends • Family • Neighbors • Coworkers • Fellow Parents<br>
+      Anyone in Prosper ISD needs to see this!
+    </p>
+  </div>
+  
+  <button onclick="shareOnSocial()" style="margin: 16px 8px;">📱 Text Your Network</button>
+  <button onclick="copyPageLink()" style="margin: 16px 8px; background: rgba(255,255,255,0.9);">🔗 Copy Link to Share</button>
+  
+  <p style="margin-top: 24px; font-size: 1rem; opacity: 0.9;">
+    💡 <strong>Pro Tip:</strong> Personal texts get more responses than social media posts.<br>
+    Copy the link and send it directly to people who care about Prosper ISD!
+  </p>
 </div>
 
 <!-- URGENT MEETING COUNTDOWN -->
@@ -1332,12 +1417,15 @@
     <div class="post-email-reminder" id="postEmailReminder">
       <h3>✅ Step 1 Complete!</h3>
       <p>
-        <strong>⚠️ CRITICAL: Step 2 Required</strong><br>
-        Your email means NOTHING if you don't show up on December 15!<br>
-        Add the meeting to your calendar RIGHT NOW so you don't forget.
+        <strong>⚠️ CRITICAL: 3 More Steps Required</strong><br>
+        <strong>Step 2:</strong> Add meeting to your calendar<br>
+        <strong>Step 3:</strong> Share with EVERYONE (friends, family, neighbors)<br>
+        <strong>Step 4:</strong> Show up December 15 at 7 PM<br><br>
+        Your email means NOTHING if you don't complete all steps!
       </p>
       <div class="reminder-buttons">
-        <button onclick="showCalendarOptions()">📅 Add to Calendar Now</button>
+        <button onclick="showCalendarOptions()">📅 Add to Calendar</button>
+        <button onclick="shareOnSocial()">📱 Share Now</button>
         <a href="https://www.google.com/maps/search/?api=1&query=605+E+7th+St+Prosper+TX+75078" target="_blank">📍 Get Directions</a>
       </div>
     </div>
@@ -1814,9 +1902,9 @@ async function handleSubmit(event) {
   // Show appropriate status
   if (captureResult.success) {
     if (captureResult.warning) {
-      showStatus('✅ Step 1 Complete: Email Opening! ⚠️ STEP 2 REQUIRED: You MUST attend Dec 15 meeting in person. Add to calendar now!', 'warning');
+      showStatus('✅ Step 1 Complete: Email Opening! ⚠️ 3 MORE STEPS: Add to calendar, share with everyone, show up Dec 15!', 'warning');
     } else {
-      showStatus('✅ Step 1 Complete: Email Opening! ⚠️ STEP 2 REQUIRED: You MUST attend Dec 15 meeting. Your email means nothing if you don\'t show up! Add to calendar → ', 'success');
+      showStatus('✅ Step 1 Complete: Email Opening! ⚠️ 3 MORE STEPS: Add to calendar, share with 10+ people, show up Dec 15!', 'success');
     }
     
     // Show the post-email reminder box
@@ -1839,7 +1927,7 @@ async function handleSubmit(event) {
     }, 2000);
     
   } else {
-    showStatus('✅ Step 1 Complete: Email Opening! ⚠️ STEP 2 REQUIRED: You MUST attend Dec 15 meeting in person. Add to calendar now!', 'warning');
+    showStatus('✅ Step 1 Complete: Email Opening! ⚠️ 3 MORE STEPS: Add to calendar, share with everyone, show up Dec 15!', 'warning');
     
     // Show the post-email reminder box
     const reminderBox = document.getElementById('postEmailReminder');
