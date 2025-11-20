@@ -1505,7 +1505,11 @@ function completeStep2() {
 
 // Share functions
 function shareViaSMS() {
-  const message = encodeURIComponent('Critical meeting Dec 15 at 7:00 PM - Prosper ISD will vote on keeping Windsong Ranch students in our schools permanently. We need everyone there! Takes 3 min to email the boards: https://prosperisdpetition.com');
+  const message = encodeURIComponent(`Critical meeting Dec 15 at 7:00 PM - Prosper ISD will vote on keeping Windsong Ranch students in our schools permanently. We need everyone there!
+
+Click this link, send your email to show support, then share with others: https://prosperisdpetition.com
+
+Takes just 3 minutes to make a difference!`);
   window.open(`sms:?&body=${message}`, '_blank');
   completeStep3();
 }
@@ -1516,16 +1520,20 @@ function shareViaEmail() {
 
 There's a critical meeting on December 15 at 7:00 PM where Prosper ISD will vote on keeping Windsong Ranch students in our schools permanently.
 
-We need as many people as possible to attend and show support. It only takes 3 minutes to email the boards with your support:
+We need as many people as possible to attend and show support.
+
+Please click this link, send your email to the boards to show your support, then share with others:
 
 https://prosperisdpetition.com
+
+It only takes 3 minutes to make a real difference!
 
 Meeting Details:
 December 15, 2025 at 7:00 PM
 Prosper ISD Administration Building
 605 E 7th Street, Prosper, TX 75078
 
-This affects 274 students and $6.2 million in annual tax revenue. Please help spread the word!
+This affects 274 students and $6.2 million in annual tax revenue. Your voice matters!
 
 Thank you!`);
 
@@ -1534,7 +1542,11 @@ Thank you!`);
 }
 
 function copyShareLink() {
-  const text = 'Critical meeting Dec 15 at 7:00 PM - Prosper ISD will vote on keeping Windsong Ranch students in our schools permanently. We need everyone there! Takes 3 min to email the boards: https://prosperisdpetition.com';
+  const text = `Critical meeting Dec 15 at 7:00 PM - Prosper ISD will vote on keeping Windsong Ranch students in our schools permanently. We need everyone there!
+
+Click this link, send your email to show support, then share with others: https://prosperisdpetition.com
+
+Takes just 3 minutes to make a difference!`;
 
   if (navigator.clipboard && navigator.clipboard.writeText) {
     navigator.clipboard.writeText(text).then(() => {
