@@ -159,6 +159,16 @@
     color: #059669;
   }
 
+  /* Financial highlight styling */
+  .fact-card.financial {
+    border-left: 4px solid #059669;
+    background: linear-gradient(to bottom, #ecfdf5 0%, #ffffff 20%);
+  }
+
+  .fact-card.financial .fact-number {
+    color: #059669;
+  }
+
   /* Section divider */
   .section-divider {
     text-align: center;
@@ -209,6 +219,99 @@
 
   .why-matters li {
     margin-bottom: 8px;
+  }
+
+  /* Financial Impact Section */
+  .financial-impact {
+    background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+    padding: 40px 20px;
+    border-top: 4px solid #059669;
+    border-bottom: 4px solid #059669;
+  }
+
+  .financial-impact h2 {
+    text-align: center;
+    color: #047857;
+    margin: 0 0 16px 0;
+    font-size: 1.8rem;
+  }
+
+  .financial-impact .subtitle {
+    text-align: center;
+    color: #065f46;
+    margin-bottom: 32px;
+  }
+
+  .financial-table {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    overflow: hidden;
+    max-width: 600px;
+    margin: 0 auto 24px auto;
+  }
+
+  .financial-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 24px;
+    border-bottom: 1px solid #e5e7eb;
+    align-items: center;
+  }
+
+  .financial-row:last-child {
+    border-bottom: none;
+  }
+
+  .financial-row.header {
+    background: #047857;
+    color: white;
+    font-weight: 700;
+  }
+
+  .financial-row.total {
+    background: #ecfdf5;
+    font-weight: 700;
+    font-size: 1.1rem;
+  }
+
+  .financial-row.positive .amount {
+    color: #059669;
+  }
+
+  .financial-row.negative .amount {
+    color: #dc2626;
+  }
+
+  .financial-row .label {
+    flex: 1;
+  }
+
+  .financial-row .amount {
+    font-weight: 700;
+    font-family: monospace;
+    font-size: 1.05rem;
+  }
+
+  .calculator-link {
+    display: block;
+    text-align: center;
+    background: #047857;
+    color: white;
+    padding: 16px 32px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    max-width: 400px;
+    margin: 0 auto;
+    transition: all 0.2s;
+  }
+
+  .calculator-link:hover {
+    background: #065f46;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(4, 120, 87, 0.3);
   }
 
   /* Progressive Action Section */
@@ -744,6 +847,14 @@
       grid-template-columns: 1fr !important;
       text-align: center;
     }
+
+    .financial-row {
+      padding: 12px 16px;
+    }
+
+    .financial-row .amount {
+      font-size: 0.95rem;
+    }
   }
 
   @media (max-width: 480px) {
@@ -788,7 +899,7 @@
 <header>
   <div class="container">
     <h1>Bring Our Students' Tax Dollars Home</h1>
-    <p class="subtitle">274 Windsong Ranch students attend Prosper ISD schools, but Prosper ISD loses $6.2 million annually from $510 million in assessed property value to Denton ISD. <br><strong>A legal petition under TEC 13.051 has been filed with 52.6% voter support. Help ensure both boards approve it.</strong></p>
+    <p class="subtitle">274 Windsong Ranch students attend Prosper ISD schools, but Prosper ISD loses $6.75 million annually from $537.7 million in assessed property value to Denton ISD. <br><strong>A legal petition under TEC 13.051 has been filed with 52.6% voter support. Help ensure both boards approve it.</strong></p>
   </div>
 </header>
 
@@ -827,7 +938,7 @@
       <p style="font-size: 1.15rem; color: #374151; line-height: 1.8;">
         <strong>Texas Education Code Section 13.051</strong> provides for detachment and annexation of territory between school districts.
         Our petition achieved <strong>52.6% support</strong> from registered voters (360 of 684 signed).
-        This will bring <strong>$6.2 million annually</strong> in tax revenue home to Prosper ISD - where these 274 students already attend school.
+        This will bring <strong>$6.75 million annually</strong> in tax revenue home to Prosper ISD - where these 274 students already attend school.
       </p>
     </div>
 
@@ -836,17 +947,17 @@
         <p class="fact-number">274</p>
         <p class="fact-label">Windsong Ranch students currently attending Prosper ISD schools from 466 homes</p>
       </div>
-      <div class="fact-card">
-        <p class="fact-number">$6.2M</p>
+      <div class="fact-card financial">
+        <p class="fact-number">$6.75M</p>
         <p class="fact-label">Annual tax revenue Prosper ISD loses to Denton ISD while educating these students</p>
       </div>
       <div class="fact-card">
         <p class="fact-number">52.6%</p>
         <p class="fact-label">Of registered voters signed the petition (360 of 684) - majority support demonstrated</p>
       </div>
-      <div class="fact-card">
-        <p class="fact-number">$510M</p>
-        <p class="fact-label">In assessed property value generating the $6.2M annual tax revenue for future bond capacity</p>
+      <div class="fact-card financial">
+        <p class="fact-number">$537.7M</p>
+        <p class="fact-label">In assessed property value generating tax revenue for future bond capacity</p>
       </div>
     </div>
 
@@ -878,7 +989,7 @@
       <h3>What's Really Happening Here</h3>
       <ul>
         <li><strong>The Legal Framework:</strong> Texas Education Code Section 13.051 provides for detachment and annexation of territory. Section 13.004 addresses debt allocation. Section 13.005 sets effective dates</li>
-        <li><strong>The Financial Reality:</strong> Prosper ISD educates all 274 students but loses $6.2 million annually from $510 million in assessed property value to Denton ISD - funds desperately needed for our schools and future bond capacity</li>
+        <li><strong>The Financial Reality:</strong> Prosper ISD educates all 274 students but loses $6.75 million annually from $537.7 million in assessed property value to Denton ISD - funds desperately needed for our schools and future bond capacity</li>
         <li><strong>The Academic Reality:</strong> Families chose Prosper ISD where 100% of schools are A-rated (vs 12.5% for DISD), with a 99.5% graduation rate (vs 97.6%), and 24 National Merit Scholars (vs 4). Parents don't choose educational excellence by accident</li>
         <li><strong>The Student Reality:</strong> All students from these 466 homes attend Prosper ISD schools under the Windsong Ranch Education Agreement. Zero attend Denton ISD</li>
         <li><strong>The Petition Filed:</strong> October 20, 2025 - Official petition submitted with 52.6% voter support (360 of 684 registered voters), demonstrating clear majority support</li>
@@ -898,6 +1009,58 @@
   </div>
 </section>
 
+<!-- Financial Impact Section -->
+<section class="financial-impact">
+  <div class="container">
+    <h2>💰 Year 1 Financial Impact</h2>
+    <p class="subtitle">TEA-validated figures using 2024-25 Near-Final data (Run ID: 46163)</p>
+    
+    <div class="financial-table">
+      <div class="financial-row header">
+        <span class="label">Component</span>
+        <span class="amount">Amount</span>
+      </div>
+      <div class="financial-row positive">
+        <span class="label">Total Additional Revenue</span>
+        <span class="amount">+$6.75M</span>
+      </div>
+      <div class="financial-row" style="padding-left: 40px; font-size: 0.9rem; color: #666;">
+        <span class="label">M&O Revenue (Operations)</span>
+        <span class="amount">+$4.06M</span>
+      </div>
+      <div class="financial-row" style="padding-left: 40px; font-size: 0.9rem; color: #666;">
+        <span class="label">I&S Revenue (Debt Service)</span>
+        <span class="amount">+$2.69M</span>
+      </div>
+      <div class="financial-row negative">
+        <span class="label">Less: Additional Recapture</span>
+        <span class="amount">−$286K</span>
+      </div>
+      <div class="financial-row negative">
+        <span class="label">Less: Denton Debt Share (TEC § 13.004)</span>
+        <span class="amount">−$2.64M</span>
+      </div>
+      <div class="financial-row total positive">
+        <span class="label">Year 1 Net Benefit to PISD</span>
+        <span class="amount">+$3.83M</span>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin-bottom: 24px;">
+      <p style="font-size: 1.3rem; color: #047857; font-weight: 700; margin: 0;">
+        30-Year Cumulative Benefit: <span style="font-size: 1.5rem;">+$231 Million</span>
+      </p>
+      <p style="color: #065f46; font-size: 0.9rem; margin-top: 8px;">
+        Property value: $537.7M (Denton CAD 2024 Certified) • Zero new students (already counted as transfers)
+      </p>
+    </div>
+
+    <a href="/calculator.html" class="calculator-link">
+      📊 View Full Financial Analysis →
+    </a>
+  </div>
+</section>
+
 <!-- Progressive Action Section -->
 <section class="action-section">
   <div class="container">
@@ -909,7 +1072,7 @@
           ✅ Legal petition filed October 20, 2025 under Texas Education Code Section 13.051<br>
           ✅ 52.6% of registered voters signed (360 of 684) - majority support achieved<br>
           ⚠️ Prosper ISD hearing: December 15 at 7:00 PM • Denton ISD: Not yet scheduled<br>
-          🎯 Goal: Both boards approve to bring $6.2M annually home to Prosper ISD
+          🎯 Goal: Both boards approve to bring $6.75M annually home to Prosper ISD
         </p>
       </div>
     </div>
@@ -1091,7 +1254,7 @@
         <div class="share-grid" id="share-options">
           <div class="share-card">
             <h4>Text Message</h4>
-            <p>Quick & personal - highest response rate</p>
+            <p>Quick &amp; personal - highest response rate</p>
             <button class="btn btn-primary" onclick="shareViaSMS()">Send Text</button>
           </div>
           <div class="share-card">
@@ -1283,6 +1446,16 @@ function clearErrors() {
   });
 }
 
+function clearError(fieldId) {
+  const field = document.getElementById(fieldId);
+  const errorElement = document.getElementById(fieldId + '-error');
+  if (field) field.classList.remove('error');
+  if (errorElement) {
+    errorElement.textContent = '';
+    errorElement.classList.remove('show');
+  }
+}
+
 function validateForm(formData) {
   clearErrors();
   let isValid = true;
@@ -1362,8 +1535,8 @@ TO PROSPER ISD BOARD:
 Thank you for scheduling the December 15 hearing to address this petition. Your swift action demonstrates leadership and commitment to the students you serve. I urge you to vote YES to approve this petition. These 274 students already attend your schools, yet you receive $0.00 in property taxes to educate them.
 
 This petition will:
-• Generate $6.2 million annually for Prosper ISD operations
-• Add $510 million in taxable property for future bond capacity
+• Generate $6.75 million annually for Prosper ISD operations
+• Add $537.7 million in taxable property for future bond capacity
 • Give these families voting rights in PISD governance
 • Align tax responsibility with educational responsibility
 
@@ -1597,7 +1770,7 @@ December 15, 2025 at 7:00 PM
 Prosper ISD Administration Building
 605 E 7th Street, Prosper, TX 75078
 
-This affects 274 students and $6.2 million in annual tax revenue. Your voice matters!
+This affects 274 students and $6.75 million in annual tax revenue. Your voice matters!
 
 Thank you!`);
 
