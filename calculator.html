@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prosper ISD Annexation Financial Model v7</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --primary: #1e3a5f;
+            --secondary: #2c5282;
+            --accent: #38a169;
+            --warning: #d69e2e;
+            --danger: #e53e3e;
+            --light: #f7fafc;
+            --dark: #1a202c;
+            --border: #e2e8f0;
+            --no-annex: #6b7280;
+            --with-annex: #3b82f6;
+            --recapture: #ef4444;
+            --debt: #f59e0b;
+            --compressed: #6366f1;
+            --golden: #eab308;
+            --copper: #f97316;
+            --is-color: #06b6d4;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--light); color: var(--dark); line-height: 1.6; }
+        .header { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; padding: 2rem; text-align: center; }
+        .header h1 { font-size: 1.8rem; margin-bottom: 0.5rem; }
+        .header p { opacity: 0.9; }
+        .tea-badge { display: inline-block; background: rgba(255,255,255,0.2); padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem; margin-top: 0.5rem; }
+        .back-link { display: inline-block; margin-top: 1rem; color: white; text-decoration: none; opacity: 0.9; }
+        .back-link:hover { opacity: 1; text-decoration: underline; }
+        .container { max-width: 1400px; margin: 0 auto; padding: 1.5rem; }
+        .section { background: white; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); margin-bottom: 1.5rem; overflow: hidden; }
+        .section-header { background: var(--primary); color: white; padding: 1rem 1.5rem; font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+        .section-header .num { background: rgba(255,255,255,0.2); width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; }
+        .section-body { padding: 1.5rem; }
+        .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+        .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+        .grid-5 { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; }
+        @media (max-width: 1000px) { .grid-2, .grid-3, .grid-4, .grid-5 { grid-template-columns: 1fr; } }
+        .form-group { margin-bottom: 1rem; }
+        .form-group label { display: block; font-size: 0.85rem; font-weight: 500; color: #4a5568; margin-bottom: 0.25rem; }
+        .form-group input { width: 100%; padding: 0.6rem; border: 1px solid var(--border); border-radius: 6px; font-size: 0.95rem; }
+        .form-group input:focus { outline: none; border-color: var(--secondary); }
+        .form-group input[readonly] { background: #f1f5f9; color: #64748b; }
+        .form-group small { display: block; font-size: 0.75rem; color: #718096; margin-top: 0.25rem; }
+        .metric-card { background: linear-gradient(135deg, #f8fafc, #edf2f7); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; text-align: center; }
+        .metric-card.positive { border-left: 4px solid var(--accent); }
+        .metric-card.negative { border-left: 4px solid var(--danger); }
+        .metric-card.neutral { border-left: 4px solid var(--warning); }
+        .metric-card.info { border-left: 4px solid var(--secondary); }
+        .metric-card .label { font-size: 0.75rem; color: #718096; margin-bottom: 0.25rem; }
+        .metric-card .value { font-size: 1.3rem; font-weight: 700; color: var(--primary); }
+        .metric-card .value.green { color: var(--accent); }
+        .metric-card .value.red { color: var(--danger); }
+        .metric-card .subtext { font-size: 0.7rem; color: #a0aec0; margin-top: 0.25rem; }
+        .rate-bar { display: flex; height: 36px; border-radius: 6px; overflow: hidden; margin: 0.75rem 0; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .rate-bar .seg { display: flex; align-items: center; justify-content: center; color: white; font-weight: 600; font-size: 0.8rem; }
+        .rate-bar .compressed { background: var(--compressed); }
+        .rate-bar .golden { background: var(--golden); }
+        .rate-bar .copper { background: var(--copper); }
+        .rate-bar .is { background: var(--is-color); }
+        .rate-legend { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 0.5rem; font-size: 0.8rem; }
+        .rate-legend-item { display: flex; align-items: center; gap: 0.35rem; }
+        .rate-legend-item .dot { width: 12px; height: 12px; border-radius: 3px; }
+        .data-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+        .data-table th, .data-table td { padding: 0.6rem 0.75rem; text-align: left; border-bottom: 1px solid var(--border); }
+        .data-table th { background: #f7fafc; font-weight: 600; color: #4a5568; }
+        .data-table .text-right { text-align: right; }
+        .data-table .subtotal-row { font-weight: 600; background: #f8fafc; }
+        .chart-box { background: white; border: 1px solid var(--border); border-radius: 8px; padding: 1rem; margin-bottom: 1rem; }
+        .chart-box h4 { font-size: 0.95rem; color: var(--primary); margin-bottom: 0.75rem; text-align: center; }
+        .chart-container { position: relative; height: 300px; }
+        .tabs { display: flex; border-bottom: 2px solid var(--border); margin-bottom: 1rem; flex-wrap: wrap; }
+        .tab { padding: 0.75rem 1.25rem; cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -2px; color: #718096; font-weight: 500; font-size: 0.9rem; }
+        .tab:hover { color: var(--primary); }
+        .tab.active { color: var(--primary); border-bottom-color: var(--primary); }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        .btn { display: inline-block; padding: 0.75rem 1.5rem; background: var(--primary); color: white; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; }
+        .btn:hover { background: var(--secondary); }
+        .info-box { background: #ebf8ff; border: 1px solid #90cdf4; border-radius: 8px; padding: 1rem; margin-bottom: 1rem; font-size: 0.9rem; }
+        .info-box.warn { background: #fffbeb; border-color: #fcd34d; }
+        .info-box strong { color: var(--primary); }
+        .callout { background: #fef3c7; border-left: 4px solid var(--warning); padding: 0.75rem 1rem; margin: 1rem 0; font-size: 0.9rem; border-radius: 0 6px 6px 0; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Prosper ISD Windsong Ranch Annexation Model</h1>
+        <p>Financial Impact Analysis with TEA Funding Formula</p>
+        <div class="tea-badge">✓ TEA 2024-25 Near-Final Data</div>
+        <br>
+        <a href="/" class="back-link">← Back to Main Petition Page</a>
+    </div>
+    
+    <div class="container">
+        <!-- Section 1: Tax Rates -->
+        <div class="section">
+            <div class="section-header"><span class="num">1</span> Tax Rate Components</div>
+            <div class="section-body">
+                <div class="grid-2">
+                    <div>
+                        <h4 style="margin-bottom:0.5rem;">M&O Tax Rate (Operations)</h4>
+                        <div class="rate-bar" id="moRateBar"></div>
+                        <div class="rate-legend">
+                            <div class="rate-legend-item"><div class="dot" style="background:var(--compressed);"></div> MCR - Tier One</div>
+                            <div class="rate-legend-item"><div class="dot" style="background:var(--golden);"></div> Golden - Protected</div>
+                            <div class="rate-legend-item"><div class="dot" style="background:var(--copper);"></div> Copper - Recapture</div>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 style="margin-bottom:0.5rem;">I&S Tax Rate (Debt Service)</h4>
+                        <div class="rate-bar"><div class="seg is" style="width:100%;">I&S: $0.5000 — NOT Subject to Recapture</div></div>
+                        <div class="rate-legend">
+                            <div class="rate-legend-item"><div class="dot" style="background:var(--is-color);"></div> Pays bond principal & interest</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="callout"><strong>Key:</strong> Only <strong>Copper Pennies</strong> generate recapture. MCR and Golden are protected.</div>
+            </div>
+        </div>
+
+        <!-- Section 2: Summary -->
+        <div class="section">
+            <div class="section-header"><span class="num">2</span> Year 1 Impact Summary</div>
+            <div class="section-body">
+                <div class="grid-3" id="summaryTop" style="margin-bottom:1rem;"></div>
+                <div class="grid-4" id="summaryBottom"></div>
+            </div>
+        </div>
+
+        <!-- Section 3: Inputs -->
+        <div class="section">
+            <div class="section-header"><span class="num">3</span> Model Inputs</div>
+            <div class="section-body">
+                <div class="tabs">
+                    <div class="tab active" onclick="switchTab('baseline')">PISD Baseline</div>
+                    <div class="tab" onclick="switchTab('rates')">Tax Rates</div>
+                    <div class="tab" onclick="switchTab('students')">Students</div>
+                    <div class="tab" onclick="switchTab('annexation')">Annexation</div>
+                    <div class="tab" onclick="switchTab('denton')">Denton Debt</div>
+                </div>
+                
+                <div id="tab-baseline" class="tab-content active">
+                    <div class="grid-4">
+                        <div class="form-group"><label>District Property Value</label><input type="number" id="baseDPV" value="22589151510"><small>TEA 2024: $22.59B</small></div>
+                        <div class="form-group"><label>Refined ADA</label><input type="number" id="baseADA" value="29945.977" step="0.001"><small>Includes Windsong transfers</small></div>
+                        <div class="form-group"><label>WADA</label><input type="number" id="baseWADA" value="41495.926" step="0.001"><small>Includes Windsong transfers</small></div>
+                        <div class="form-group"><label>WADA/ADA Ratio</label><input type="number" id="wadaRatio" value="1.386" step="0.001"></div>
+                        <div class="form-group"><label>Basic Allotment</label><input type="number" id="basicAllotment" value="6160"></div>
+                        <div class="form-group"><label>Golden Yield ($/WADA/penny)</label><input type="number" id="goldenYield" value="98.56" step="0.01"></div>
+                        <div class="form-group"><label>Copper Yield ($/WADA/penny)</label><input type="number" id="copperYield" value="49.28" step="0.01"></div>
+                        <div class="form-group"><label>CAD Credit Rate (%)</label><input type="number" id="cadCreditRate" value="1.13" step="0.01"></div>
+                    </div>
+                </div>
+                
+                <div id="tab-rates" class="tab-content">
+                    <div class="grid-4">
+                        <div class="form-group"><label>Total M&O Rate</label><input type="number" id="moRate" value="0.7552" step="0.0001"></div>
+                        <div class="form-group"><label>MCR (Compressed)</label><input type="number" id="mcr" value="0.6169" step="0.0001"></div>
+                        <div class="form-group"><label>Golden Pennies</label><input type="number" id="goldenRate" value="0.08" readonly><small>Fixed at 8¢</small></div>
+                        <div class="form-group"><label>Copper Pennies</label><input type="number" id="copperRate" value="0.0583" readonly><small>Calculated</small></div>
+                        <div class="form-group"><label>I&S Rate</label><input type="number" id="isRate" value="0.5000" step="0.0001"></div>
+                    </div>
+                </div>
+                
+                <div id="tab-students" class="tab-content">
+                    <div class="info-box"><strong>Important:</strong> The 274 Windsong students are ALREADY in PISD counts as transfers. Annexation adds property value only, not students.</div>
+                    <div class="grid-4">
+                        <div class="form-group"><label>Current PISD Enrollment</label><input type="number" id="enrollment" value="31651"><small>PEIMS 2024-25</small></div>
+                        <div class="form-group"><label>Historical Growth (%/yr)</label><input type="number" id="studentGrowth" value="5.8" step="0.1"><small>3-year CAGR</small></div>
+                        <div class="form-group"><label>Capacity Cap</label><input type="number" id="studentCap" value="55000"><small>Max students</small></div>
+                        <div class="form-group"><label>Post-Cap Growth (%/yr)</label><input type="number" id="postCapGrowth" value="0.5" step="0.1"><small>After 55K</small></div>
+                        <div class="form-group"><label>Property Value Growth (%/yr)</label><input type="number" id="pvGrowth" value="5.0" step="0.1"></div>
+                        <div class="form-group"><label>Projection Years</label><input type="number" id="projYears" value="30" min="5" max="30"></div>
+                    </div>
+                </div>
+                
+                <div id="tab-annexation" class="tab-content">
+                    <div class="info-box warn"><strong>Note:</strong> Annexation adds $537.7M property but ZERO new students (they're already transfers).</div>
+                    <div class="grid-3">
+                        <div class="form-group"><label>Annexed Property Value</label><input type="number" id="annexValue" value="537675424"><small>Windsong Ranch TAV</small></div>
+                        <div class="form-group"><label>Homes in Area</label><input type="number" id="annexHomes" value="466"></div>
+                        <div class="form-group"><label>Students (Already Counted)</label><input type="number" id="annexStudents" value="274" readonly></div>
+                        <div class="form-group"><label>Annexed Property Growth (%/yr)</label><input type="number" id="annexGrowth" value="3.2" step="0.1"></div>
+                    </div>
+                </div>
+                
+                <div id="tab-denton" class="tab-content">
+                    <div class="info-box"><strong>TEC § 13.004:</strong> PISD assumes Denton's proportionate debt, paid from I&S collections.</div>
+                    <div class="grid-3">
+                        <div class="form-group"><label>Denton Annual Debt Service</label><input type="number" id="dentonDebt" value="174065801"><small>$174.07M</small></div>
+                        <div class="form-group"><label>Denton TAV</label><input type="number" id="dentonTAV" value="35440000000"></div>
+                        <div class="form-group"><label>Debt Years Remaining</label><input type="number" id="dentonDebtYears" value="25"></div>
+                    </div>
+                </div>
+                
+                <div style="margin-top:1.5rem;text-align:center;"><button class="btn" onclick="calculate()">🔄 Calculate</button></div>
+            </div>
+        </div>
+
+        <!-- Section 4: Component Table -->
+        <div class="section">
+            <div class="section-header"><span class="num">4</span> Year 1 Revenue by Component</div>
+            <div class="section-body">
+                <table class="data-table">
+                    <thead><tr><th>Component</th><th class="text-right">Rate</th><th class="text-right">Without Annexation</th><th class="text-right">With Annexation</th><th class="text-right">Difference</th><th>Recapture?</th></tr></thead>
+                    <tbody id="compTable"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Section 5: Revenue Charts -->
+        <div class="section">
+            <div class="section-header"><span class="num">5</span> Revenue Projections</div>
+            <div class="section-body">
+                <div class="grid-2">
+                    <div class="chart-box"><h4>Gross M&O Revenue</h4><div class="chart-container"><canvas id="chartGrossMO"></canvas></div></div>
+                    <div class="chart-box"><h4>Net M&O Revenue (After Recapture)</h4><div class="chart-container"><canvas id="chartNetMO"></canvas></div></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 6: I&S and Recapture -->
+        <div class="section">
+            <div class="section-header"><span class="num">6</span> I&S & Recapture Analysis</div>
+            <div class="section-body">
+                <div class="grid-2">
+                    <div class="chart-box"><h4>I&S Revenue vs Denton Debt</h4><div class="chart-container"><canvas id="chartIS"></canvas></div></div>
+                    <div class="chart-box"><h4>Recapture Comparison</h4><div class="chart-container"><canvas id="chartRecapture"></canvas></div></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 7: Net Benefit -->
+        <div class="section">
+            <div class="section-header"><span class="num">7</span> Net Benefit Analysis</div>
+            <div class="section-body">
+                <div class="grid-2">
+                    <div class="chart-box"><h4>Annual Net Benefit</h4><div class="chart-container"><canvas id="chartAnnual"></canvas></div></div>
+                    <div class="chart-box"><h4>Cumulative Net Benefit</h4><div class="chart-container"><canvas id="chartCumulative"></canvas></div></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 8: Enrollment -->
+        <div class="section">
+            <div class="section-header"><span class="num">8</span> Student Enrollment</div>
+            <div class="section-body">
+                <div class="chart-box"><h4>PISD Enrollment vs 55K Capacity</h4><div class="chart-container" style="height:250px;"><canvas id="chartEnroll"></canvas></div></div>
+            </div>
+        </div>
+
+        <!-- Section 9: Detail Table -->
+        <div class="section">
+            <div class="section-header"><span class="num">9</span> Detailed Projections</div>
+            <div class="section-body" style="overflow-x:auto;">
+                <table class="data-table">
+                    <thead><tr><th>Year</th><th class="text-right">Enrollment</th><th class="text-right">Gross M&O (No)</th><th class="text-right">Gross M&O (Yes)</th><th class="text-right">Recapture (No)</th><th class="text-right">Recapture (Yes)</th><th class="text-right">Add'l I&S</th><th class="text-right">DISD Debt</th><th class="text-right">Net Benefit</th><th class="text-right">Cumulative</th></tr></thead>
+                    <tbody id="detailTable"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Section 10: Methodology -->
+        <div class="section">
+            <div class="section-header"><span class="num">10</span> Calculation Methodology</div>
+            <div class="section-body">
+                <h4 style="color:var(--primary);margin-bottom:1rem;">Tax Rate Component Formulas</h4>
+                <table class="data-table">
+                    <thead><tr><th>Component</th><th>Formula</th><th>Description</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Compressed Rate (MCR)</strong></td><td><code>$0.6169 per $100</code></td><td>Maximum Compressed Rate set by TEA. Funds Tier One (basic allotment).</td></tr>
+                        <tr><td><strong>Golden Pennies</strong></td><td><code>$0.08 (fixed 8¢)</code></td><td>First 8 cents above MCR. <strong>Protected from recapture</strong>. Yield: $98.56/WADA/penny.</td></tr>
+                        <tr><td><strong>Copper Pennies</strong></td><td><code>M&O - MCR - Golden = $0.0583</code></td><td>Remaining pennies. <strong>Subject to recapture</strong>. Yield: $49.28/WADA/penny.</td></tr>
+                        <tr><td><strong>I&S Rate</strong></td><td><code>$0.5000 per $100</code></td><td>Debt service fund. <strong>Not subject to recapture</strong>.</td></tr>
+                    </tbody>
+                </table>
+
+                <h4 style="color:var(--primary);margin:1.5rem 0 1rem;">Net Benefit Calculation</h4>
+                <table class="data-table">
+                    <thead><tr><th>Component</th><th>Formula</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Total Additional Revenue</strong></td><td><code>Additional Gross M&O + Additional I&S = $4.06M + $2.69M = $6.75M</code></td></tr>
+                        <tr><td><strong>Less: Additional Recapture</strong></td><td><code>Recapture(with) - Recapture(without) = ~$286K</code></td></tr>
+                        <tr><td><strong>Less: Denton Debt Share</strong></td><td><code>$174.07M × ($537.7M ÷ $35.44B) = $2.64M</code></td></tr>
+                        <tr><td><strong>Year 1 Net Benefit</strong></td><td><code>$6.75M - $0.29M - $2.64M = $3.83M</code></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Section 11: Data Sources -->
+        <div class="section">
+            <div class="section-header"><span class="num">11</span> Data Sources</div>
+            <div class="section-body">
+                <table class="data-table">
+                    <thead><tr><th>Data Element</th><th>Value</th><th>Source</th></tr></thead>
+                    <tbody>
+                        <tr><td colspan="3" style="background:#edf2f7;font-weight:600;">TEA Foundation School Program Data (2024-25 Near-Final)</td></tr>
+                        <tr><td>District Property Value</td><td>$22,589,151,510</td><td>TEA Summary of Finances, Run ID: 46163</td></tr>
+                        <tr><td>Refined ADA / WADA</td><td>29,945.977 / 41,495.926</td><td>TEA ADA/WADA Detail Reports</td></tr>
+                        <tr><td>Actual Recapture</td><td>$1,235,593</td><td>TEA Cost of Recapture Report</td></tr>
+                        <tr><td colspan="3" style="background:#edf2f7;font-weight:600;">Windsong Ranch Annexation Data</td></tr>
+                        <tr><td>Property Value</td><td>$537,675,424</td><td>Denton CAD 2024 Certified Values</td></tr>
+                        <tr><td>Homes / Students</td><td>466 / 274</td><td>Windsong Ranch HOA / PISD Transfer Records</td></tr>
+                        <tr><td colspan="3" style="background:#edf2f7;font-weight:600;">Denton ISD Debt Data</td></tr>
+                        <tr><td>Annual Debt Service</td><td>$174,065,801</td><td>Denton ISD 2025-26 Adopted Budget</td></tr>
+                        <tr><td>Total Assessed Value</td><td>$35,440,000,000</td><td>Denton CAD 2024</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Section 12: Assumptions -->
+        <div class="section">
+            <div class="section-header"><span class="num">12</span> Key Assumptions</div>
+            <div class="section-body">
+                <table class="data-table">
+                    <thead><tr><th>Assumption</th><th>Rationale</th><th>Sensitivity</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Students Already Counted</strong></td><td>274 Windsong students are in PISD ADA/WADA as transfers</td><td>HIGH</td></tr>
+                        <tr><td><strong>Tax Rates Constant</strong></td><td>M&O $0.7552, I&S $0.5000</td><td>MEDIUM</td></tr>
+                        <tr><td><strong>Property Growth 5%/yr</strong></td><td>Conservative vs historical 8.2% CAGR</td><td>HIGH</td></tr>
+                        <tr><td><strong>Enrollment Cap 55,000</strong></td><td>PISD Long-Range Facility Plan</td><td>MEDIUM</td></tr>
+                        <tr><td><strong>Denton Debt per TEC § 13.004</strong></td><td>Proportionate share based on property value</td><td>LOW</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Section 13: Glossary -->
+        <div class="section">
+            <div class="section-header"><span class="num">13</span> Glossary</div>
+            <div class="section-body">
+                <table class="data-table">
+                    <thead><tr><th style="width:20%;">Term</th><th>Definition</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>WADA</strong></td><td>Weighted Average Daily Attendance - ADA adjusted for special populations</td></tr>
+                        <tr><td><strong>MCR</strong></td><td>Maximum Compressed Rate - Compressed M&O rate set by TEA ($0.6169)</td></tr>
+                        <tr><td><strong>Golden Pennies</strong></td><td>First 8¢ above MCR, protected from recapture</td></tr>
+                        <tr><td><strong>Copper Pennies</strong></td><td>Tax rate above golden, subject to recapture</td></tr>
+                        <tr><td><strong>Recapture</strong></td><td>"Robin Hood" - payment from property-wealthy districts to state</td></tr>
+                        <tr><td><strong>I&S</strong></td><td>Interest & Sinking - tax for bond debt service, not subject to recapture</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div style="text-align:center;padding:2rem;color:#718096;font-size:0.85rem;">
+            <p><strong>Prosper ISD Windsong Ranch Annexation Financial Model v7</strong></p>
+            <p>Prepared for financial planning purposes only. Not an official TEA document.</p>
+            <p>Model last updated: November 2025 | TEA Data: 2024-25 Near-Final (Run ID: 46163)</p>
+            <p>For questions or corrections, contact Doug Charles</p>
+            <p style="margin-top:1rem;"><a href="/" style="color:#1e3a8a;">← Back to Main Petition Page</a></p>
+        </div>
+    </div>
+
+    <script>
+        let charts = {}, data = [];
+        const fmt = n => new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',maximumFractionDigits:0}).format(n);
+        const fmtS = n => Math.abs(n)>=1e9?'$'+(n/1e9).toFixed(2)+'B':Math.abs(n)>=1e6?'$'+(n/1e6).toFixed(1)+'M':Math.abs(n)>=1e3?'$'+(n/1e3).toFixed(0)+'K':'$'+n.toFixed(0);
+        const fmtN = n => new Intl.NumberFormat('en-US',{maximumFractionDigits:0}).format(n);
+
+        function switchTab(id) {
+            document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(c=>c.classList.remove('active'));
+            event.target.classList.add('active');
+            document.getElementById('tab-'+id).classList.add('active');
+        }
+
+        function updateRateBar() {
+            const mo = parseFloat(document.getElementById('moRate').value);
+            const mcr = parseFloat(document.getElementById('mcr').value);
+            const gold = 0.08, copper = mo - mcr - gold;
+            document.getElementById('copperRate').value = copper.toFixed(4);
+            const mcrP = (mcr/mo*100).toFixed(1), goldP = (gold/mo*100).toFixed(1), copperP = (copper/mo*100).toFixed(1);
+            document.getElementById('moRateBar').innerHTML = `<div class="seg compressed" style="width:${mcrP}%">MCR $${mcr.toFixed(4)}</div><div class="seg golden" style="width:${goldP}%">$${gold.toFixed(2)}</div><div class="seg copper" style="width:${copperP}%">$${copper.toFixed(4)}</div>`;
+        }
+
+        function calcFunding(dpv, wada, p) {
+            const gold = 0.08, copper = p.mo - p.mcr - gold, copperCents = copper * 100;
+            const compMO = dpv/100*p.mcr, goldMO = dpv/100*gold, copperMO = dpv/100*copper;
+            const grossMO = compMO + goldMO + copperMO, grossIS = dpv/100*p.is;
+            const copperEnt = p.copperYield * wada * copperCents;
+            const excess = Math.max(0, copperMO - copperEnt);
+            const cad = excess * (p.cadRate/100);
+            const recap = Math.max(0, excess - cad);
+            return { compMO, goldMO, copperMO, grossMO, grossIS, recap, netMO: grossMO - recap };
+        }
+
+        function calculate() {
+            const baseDPV = +document.getElementById('baseDPV').value;
+            const baseADA = +document.getElementById('baseADA').value;
+            const baseWADA = +document.getElementById('baseWADA').value;
+            const wadaRatio = +document.getElementById('wadaRatio').value;
+            const mo = +document.getElementById('moRate').value;
+            const mcr = +document.getElementById('mcr').value;
+            const is = +document.getElementById('isRate').value;
+            const copperYield = +document.getElementById('copperYield').value;
+            const cadRate = +document.getElementById('cadCreditRate').value;
+            const enroll0 = +document.getElementById('enrollment').value;
+            const studGr = +document.getElementById('studentGrowth').value/100;
+            const cap = +document.getElementById('studentCap').value;
+            const postCap = +document.getElementById('postCapGrowth').value/100;
+            const pvGr = +document.getElementById('pvGrowth').value/100;
+            const years = +document.getElementById('projYears').value;
+            const annexVal = +document.getElementById('annexValue').value;
+            const annexGr = +document.getElementById('annexGrowth').value/100;
+            const dDebt = +document.getElementById('dentonDebt').value;
+            const dTAV = +document.getElementById('dentonTAV').value;
+            const dYears = +document.getElementById('dentonDebtYears').value;
+            const p = { mo, mcr, is, copperYield, cadRate };
+            const adaRatio = baseADA / enroll0;
+            updateRateBar();
+            data = [];
+            let cumul = 0;
+            for (let y = 1; y <= years; y++) {
+                const pvF = Math.pow(1+pvGr, y-1);
+                const annexF = Math.pow(1+annexGr, y-1);
+                let enroll = enroll0 * Math.pow(1+studGr, y-1);
+                if (enroll >= cap) {
+                    const yAtCap = Math.ceil(Math.log(cap/enroll0)/Math.log(1+studGr));
+                    const yPast = y - yAtCap;
+                    enroll = yPast > 0 ? cap * Math.pow(1+postCap, yPast) : cap;
+                }
+                const ada = enroll * adaRatio;
+                const wada = ada * wadaRatio;
+                const dpvNo = baseDPV * pvF;
+                const annexY = annexVal * annexF;
+                const dpvYes = dpvNo + annexY;
+                const fNo = calcFunding(dpvNo, wada, p);
+                const fYes = calcFunding(dpvYes, wada, p);
+                const addIS = fYes.grossIS - fNo.grossIS;
+                const addRecap = fYes.recap - fNo.recap;
+                const addNetMO = fYes.netMO - fNo.netMO;
+                const yRem = Math.max(0, dYears - y + 1);
+                const dShare = yRem > 0 ? dDebt * (annexY / dTAV) : 0;
+                const netIS = addIS - dShare;
+                const benefit = addNetMO + netIS;
+                cumul += benefit;
+                data.push({ y, fy: 2024+y, enroll, fNo, fYes, addIS, addRecap, addNetMO, dShare, netIS, benefit, cumul });
+            }
+            updateAll();
+        }
+
+        function updateAll() {
+            const y1 = data[0], yL = data[data.length-1];
+            const totalRev = (y1.fYes.grossMO - y1.fNo.grossMO) + y1.addIS;
+            document.getElementById('summaryTop').innerHTML = `
+                <div class="metric-card positive" style="border-left-width:6px;">
+                    <div class="label">TOTAL ADDITIONAL REVENUE</div>
+                    <div class="value green" style="font-size:1.6rem;">+${fmtS(totalRev)}</div>
+                    <div class="subtext">Gross M&O + I&S from annexed property</div>
+                </div>
+                <div class="metric-card info">
+                    <div class="label">Additional M&O Revenue</div>
+                    <div class="value">+${fmtS(y1.fYes.grossMO - y1.fNo.grossMO)}</div>
+                    <div class="subtext">Operations funding</div>
+                </div>
+                <div class="metric-card info">
+                    <div class="label">Additional I&S Revenue</div>
+                    <div class="value">+${fmtS(y1.addIS)}</div>
+                    <div class="subtext">Debt service funding</div>
+                </div>
+            `;
+            document.getElementById('summaryBottom').innerHTML = `
+                <div class="metric-card negative">
+                    <div class="label">Additional Recapture</div>
+                    <div class="value red">-${fmtS(y1.addRecap)}</div>
+                    <div class="subtext">Robin Hood (copper pennies)</div>
+                </div>
+                <div class="metric-card neutral">
+                    <div class="label">Denton ISD Debt Share</div>
+                    <div class="value">-${fmtS(y1.dShare)}</div>
+                    <div class="subtext">TEC § 13.004 obligation</div>
+                </div>
+                <div class="metric-card ${y1.benefit>=0?'positive':'negative'}">
+                    <div class="label">Year 1 Net Benefit</div>
+                    <div class="value ${y1.benefit>=0?'green':'red'}">${y1.benefit>=0?'+':''}${fmtS(y1.benefit)}</div>
+                    <div class="subtext">Revenue - Recapture - Debt</div>
+                </div>
+                <div class="metric-card ${yL.cumul>=0?'positive':'negative'}">
+                    <div class="label">30-Year Cumulative</div>
+                    <div class="value ${yL.cumul>=0?'green':'red'}">${yL.cumul>=0?'+':''}${fmtS(yL.cumul)}</div>
+                    <div class="subtext">Total net benefit</div>
+                </div>
+            `;
+            const mo = +document.getElementById('moRate').value, mcr = +document.getElementById('mcr').value, is = +document.getElementById('isRate').value;
+            const gold = 0.08, copper = mo-mcr-gold;
+            const fN = y1.fNo, fY = y1.fYes;
+            const totalRevNo = fN.grossMO + fN.grossIS;
+            const totalRevYes = fY.grossMO + fY.grossIS;
+            const rows = [
+                {l:'<strong>TOTAL GROSS REVENUE</strong>',r:mo+is,no:totalRevNo,yes:totalRevYes,rec:'',total:1},
+                {l:'',r:null,no:null,yes:null,rec:'',spacer:1},
+                {l:'M&O COMPONENTS',r:null,no:null,yes:null,rec:'',header:1},
+                {l:'&nbsp;&nbsp;Compressed (MCR)',r:mcr,no:fN.compMO,yes:fY.compMO,rec:'❌ No',c:'var(--compressed)'},
+                {l:'&nbsp;&nbsp;Golden Pennies',r:gold,no:fN.goldMO,yes:fY.goldMO,rec:'❌ Protected',c:'var(--golden)'},
+                {l:'&nbsp;&nbsp;Copper Pennies',r:copper,no:fN.copperMO,yes:fY.copperMO,rec:'⚠️ YES',c:'var(--copper)'},
+                {l:'<strong>Total M&O Revenue</strong>',r:mo,no:fN.grossMO,yes:fY.grossMO,rec:'',sub:1},
+                {l:'',r:null,no:null,yes:null,rec:'',spacer:1},
+                {l:'I&S COMPONENT',r:null,no:null,yes:null,rec:'',header:1},
+                {l:'&nbsp;&nbsp;I&S (Debt Service)',r:is,no:fN.grossIS,yes:fY.grossIS,rec:'❌ No',c:'var(--is-color)'},
+                {l:'',r:null,no:null,yes:null,rec:'',spacer:1},
+                {l:'DEDUCTIONS',r:null,no:null,yes:null,rec:'',header:1},
+                {l:'&nbsp;&nbsp;Less: Recapture',r:null,no:fN.recap,yes:fY.recap,rec:'From copper excess',c:'var(--recapture)',neg:1},
+                {l:'&nbsp;&nbsp;Less: DISD Debt Share',r:null,no:0,yes:y1.dShare,rec:'TEC § 13.004',c:'var(--debt)',neg:1},
+                {l:'',r:null,no:null,yes:null,rec:'',spacer:1},
+                {l:'<strong>NET REVENUE TO DISTRICT</strong>',r:null,no:fN.grossMO+fN.grossIS-fN.recap,yes:fY.grossMO+fY.grossIS-fY.recap-y1.dShare,rec:'',total:1}
+            ];
+            document.getElementById('compTable').innerHTML = rows.map(r=>{
+                if(r.spacer) return '<tr><td colspan="6" style="height:8px;border:none;"></td></tr>';
+                if(r.header) return `<tr><td colspan="6" style="background:#f1f5f9;font-weight:600;font-size:0.8rem;color:#64748b;padding:0.4rem 0.75rem;">${r.l}</td></tr>`;
+                const d = r.yes-r.no;
+                let dc = d>0?'var(--accent)':(d<0?'var(--danger)':'');
+                if(r.neg) dc = d>0?'var(--danger)':'var(--accent)';
+                const rowStyle = r.total ? 'background:#edf2f7;font-weight:700;' : (r.sub ? 'background:#f8fafc;font-weight:600;' : '');
+                return `<tr style="${rowStyle}"><td style="${r.c?'color:'+r.c:''}">${r.l}</td><td class="text-right">${r.r!==null?'$'+r.r.toFixed(4):''}</td><td class="text-right">${r.no!==null?fmt(r.no):''}</td><td class="text-right">${r.yes!==null?fmt(r.yes):''}</td><td class="text-right" style="color:${dc}">${r.no!==null?(d>=0?'+':'')+fmt(d):''}</td><td>${r.rec}</td></tr>`;
+            }).join('');
+            document.getElementById('detailTable').innerHTML = data.map(p=>`<tr><td><strong>${p.fy}</strong></td><td class="text-right">${fmtN(Math.round(p.enroll))}</td><td class="text-right">${fmtS(p.fNo.grossMO)}</td><td class="text-right">${fmtS(p.fYes.grossMO)}</td><td class="text-right">${fmtS(p.fNo.recap)}</td><td class="text-right">${fmtS(p.fYes.recap)}</td><td class="text-right" style="color:var(--is-color)">${fmtS(p.addIS)}</td><td class="text-right" style="color:var(--debt)">${fmtS(p.dShare)}</td><td class="text-right" style="color:${p.benefit>=0?'var(--accent)':'var(--danger)'}"><strong>${p.benefit>=0?'+':''}${fmtS(p.benefit)}</strong></td><td class="text-right" style="color:${p.cumul>=0?'var(--accent)':'var(--danger)'}"><strong>${p.cumul>=0?'+':''}${fmtS(p.cumul)}</strong></td></tr>`).join('');
+            updateCharts();
+        }
+
+        function updateCharts() {
+            const yrs = data.map(d=>d.fy), cap = +document.getElementById('studentCap').value;
+            Object.values(charts).forEach(c=>c&&c.destroy());
+            const opts = { responsive:true, maintainAspectRatio:false, plugins:{legend:{position:'bottom',labels:{boxWidth:12,padding:10,font:{size:11}}}} };
+            charts.grossMO = new Chart(document.getElementById('chartGrossMO'),{type:'line',data:{labels:yrs,datasets:[{label:'Without Annexation',data:data.map(d=>d.fNo.grossMO/1e6),borderColor:'#6b7280',backgroundColor:'rgba(107,114,128,0.1)',borderWidth:2,fill:true,tension:0.3},{label:'With Annexation',data:data.map(d=>d.fYes.grossMO/1e6),borderColor:'#3b82f6',backgroundColor:'rgba(59,130,246,0.1)',borderWidth:2,fill:true,tension:0.3}]},options:{...opts,scales:{y:{beginAtZero:false,title:{display:true,text:'$ Millions'}}}}});
+            charts.netMO = new Chart(document.getElementById('chartNetMO'),{type:'line',data:{labels:yrs,datasets:[{label:'Without Annexation',data:data.map(d=>d.fNo.netMO/1e6),borderColor:'#6b7280',backgroundColor:'rgba(107,114,128,0.1)',borderWidth:2,fill:true,tension:0.3},{label:'With Annexation',data:data.map(d=>d.fYes.netMO/1e6),borderColor:'#3b82f6',backgroundColor:'rgba(59,130,246,0.1)',borderWidth:2,fill:true,tension:0.3}]},options:{...opts,scales:{y:{beginAtZero:false,title:{display:true,text:'$ Millions'}}}}});
+            charts.is = new Chart(document.getElementById('chartIS'),{type:'bar',data:{labels:yrs,datasets:[{label:"Add'l I&S Revenue",data:data.map(d=>d.addIS/1e6),backgroundColor:'rgba(6,182,212,0.7)'},{label:'Denton Debt',data:data.map(d=>-d.dShare/1e6),backgroundColor:'rgba(245,158,11,0.7)'}]},options:{...opts,scales:{y:{title:{display:true,text:'$ Millions'}}}}});
+            charts.recap = new Chart(document.getElementById('chartRecapture'),{type:'line',data:{labels:yrs,datasets:[{label:'Without Annexation',data:data.map(d=>d.fNo.recap/1e6),borderColor:'#6b7280',borderWidth:2,tension:0.3,fill:false},{label:'With Annexation',data:data.map(d=>d.fYes.recap/1e6),borderColor:'#ef4444',borderWidth:2,tension:0.3,fill:false}]},options:{...opts,scales:{y:{beginAtZero:true,title:{display:true,text:'$ Millions'}}}}});
+            charts.annual = new Chart(document.getElementById('chartAnnual'),{type:'bar',data:{labels:yrs,datasets:[{label:'Net Benefit',data:data.map(d=>d.benefit/1e6),backgroundColor:data.map(d=>d.benefit>=0?'rgba(56,161,105,0.7)':'rgba(229,62,62,0.7)')}]},options:{...opts,plugins:{legend:{display:false}},scales:{y:{title:{display:true,text:'$ Millions'}}}}});
+            charts.cumul = new Chart(document.getElementById('chartCumulative'),{type:'line',data:{labels:yrs,datasets:[{label:'Cumulative',data:data.map(d=>d.cumul/1e6),borderColor:'#38a169',backgroundColor:'rgba(56,161,105,0.2)',borderWidth:3,fill:true,tension:0.3}]},options:{...opts,plugins:{legend:{display:false}},scales:{y:{title:{display:true,text:'$ Millions'}}}}});
+            charts.enroll = new Chart(document.getElementById('chartEnroll'),{type:'line',data:{labels:yrs,datasets:[{label:'Enrollment',data:data.map(d=>d.enroll/1000),borderColor:'#3b82f6',backgroundColor:'rgba(59,130,246,0.1)',borderWidth:2,fill:true,tension:0.3},{label:'Capacity (55K)',data:data.map(()=>cap/1000),borderColor:'#ef4444',borderWidth:2,borderDash:[5,5],pointRadius:0,fill:false}]},options:{...opts,scales:{y:{beginAtZero:false,title:{display:true,text:'Students (thousands)'}}}}});
+        }
+
+        document.addEventListener('DOMContentLoaded',()=>{updateRateBar();calculate();});
+        document.getElementById('moRate').addEventListener('change',updateRateBar);
+        document.getElementById('mcr').addEventListener('change',updateRateBar);
+    </script>
+</body>
+</html>
