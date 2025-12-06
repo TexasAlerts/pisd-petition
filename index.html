@@ -1195,38 +1195,39 @@
       <div class="step-header">
         <div class="step-number" id="step2-number">2</div>
         <div class="step-title">
-          <h3>Add Meeting to Your Calendar</h3>
+          <h3>Add BOTH Meetings to Your Calendar</h3>
           <div class="time-estimate">Takes 30 seconds</div>
         </div>
       </div>
       <div class="step-content">
         <p class="step-description">
-          <strong>Why this matters:</strong> Board members make decisions based on who shows up. An empty room signals apathy.
-          A packed room of concerned parents sends an undeniable message. Set your reminder now so nothing keeps you from being there.
+          <strong>Why this matters:</strong> Both districts must approve this annexation. Your attendance at BOTH meetings demonstrates strong community support.
+          Board members make decisions based on who shows up. Set your reminders now for both hearings.
         </p>
 
         <div class="success-message" id="step2-success">
           <h4>✓ Step 2 Complete!</h4>
-          <p>Meeting added to your calendar. See you December 15th at 6:00 PM!</p>
+          <p>Both meetings added to your calendar. See you at both hearings!</p>
         </div>
 
         <div class="calendar-options" id="calendar-options">
+          <a href="#" class="calendar-btn" onclick="downloadICS(); return false;" style="background: #dbeafe; border-color: #2563eb; font-weight: 600;">
+            📥 Download Both (.ics) - Recommended
+          </a>
           <a href="#" class="calendar-btn" onclick="addToGoogleCalendar(); return false;">
-            Google Calendar
+            Google Calendar (opens 2 tabs)
           </a>
           <a href="#" class="calendar-btn" onclick="addToOutlookCalendar(); return false;">
-            Outlook
-          </a>
-          <a href="#" class="calendar-btn" onclick="downloadICS(); return false;">
-            Apple/Other (.ics)
+            Outlook (opens 2 tabs)
           </a>
         </div>
 
         <p style="margin-top: 20px; color: #666; font-size: 0.9rem;">
           <strong>Meeting Details:</strong><br>
-          December 15, 2025 at 6:00 PM<br>
-          Prosper ISD Administration Building<br>
-          605 E 7th Street, Prosper, TX 75078
+          🔵 <strong>Denton ISD:</strong> December 9, 2025 at 6:00 PM<br>
+          <span style="padding-left: 20px;">1307 N. Locust Street, Denton, TX 76201</span><br><br>
+          🔴 <strong>Prosper ISD:</strong> December 15, 2025 at 6:00 PM<br>
+          <span style="padding-left: 20px;">605 E 7th Street, Prosper, TX 75078</span>
         </p>
       </div>
     </div>
@@ -1293,7 +1294,7 @@
       <button class="btn btn-primary" onclick="shareViaSMS()">Text Message</button>
       <button class="btn btn-primary" onclick="shareViaEmail()">Email</button>
       <button class="btn btn-primary" onclick="copyShareLink()">Copy Link</button>
-      <a href="#" class="btn btn-primary" onclick="addToGoogleCalendar(); return false;">Add to Calendar</a>
+      <a href="#" class="btn btn-primary" onclick="downloadICS(); return false;">Add Both Meetings to Calendar</a>
     </div>
   </div>
 </section>
@@ -1723,49 +1724,96 @@ async function handleSubmit(event) {
 
 // Calendar functions
 function addToGoogleCalendar() {
-  const startDate = '20251215T190000';
-  const endDate = '20251215T210000';
-  const details = encodeURIComponent('Critical vote on Windsong Ranch realignment to Prosper ISD. Your attendance is crucial!');
-  const location = encodeURIComponent('Prosper ISD Administration Building, 605 E 7th Street, Prosper, TX 75078');
+  // Denton ISD Meeting - December 9, 2025 at 6:00 PM
+  const dentonStart = '20251209T180000';
+  const dentonEnd = '20251209T200000';
+  const dentonDetails = encodeURIComponent('Denton ISD hearing on Windsong Ranch annexation petition. Your attendance demonstrates community support!');
+  const dentonLocation = encodeURIComponent('Denton ISD Board Room, 1307 N. Locust Street, Denton, TX 76201');
+  const dentonUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent('Denton ISD Board Hearing - Windsong Ranch')}&dates=${dentonStart}/${dentonEnd}&details=${dentonDetails}&location=${dentonLocation}`;
 
-  const url = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent('Prosper ISD Board Meeting - Windsong Ranch Vote')}&dates=${startDate}/${endDate}&details=${details}&location=${location}`;
+  // Prosper ISD Meeting - December 15, 2025 at 6:00 PM
+  const prosperStart = '20251215T180000';
+  const prosperEnd = '20251215T200000';
+  const prosperDetails = encodeURIComponent('Prosper ISD hearing on Windsong Ranch annexation petition. Your attendance is crucial!');
+  const prosperLocation = encodeURIComponent('Prosper ISD Administration Building, 605 E 7th Street, Prosper, TX 75078');
+  const prosperUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent('Prosper ISD Board Meeting - Windsong Ranch')}&dates=${prosperStart}/${prosperEnd}&details=${prosperDetails}&location=${prosperLocation}`;
 
-  window.open(url, '_blank');
+  // Open both calendar events
+  window.open(dentonUrl, '_blank');
+  setTimeout(() => window.open(prosperUrl, '_blank'), 500);
+
   completeStep2();
 }
 
 function addToOutlookCalendar() {
-  const startDate = '2025-12-15T19:00:00';
-  const endDate = '2025-12-15T19:00:00';
-  const details = encodeURIComponent('Critical vote on Windsong Ranch realignment to Prosper ISD. Your attendance is crucial!');
-  const location = encodeURIComponent('Prosper ISD Administration Building, 605 E 7th Street, Prosper, TX 75078');
+  // Denton ISD Meeting - December 9, 2025 at 6:00 PM
+  const dentonStart = '2025-12-09T18:00:00';
+  const dentonEnd = '2025-12-09T20:00:00';
+  const dentonDetails = encodeURIComponent('Denton ISD hearing on Windsong Ranch annexation petition. Your attendance demonstrates community support!');
+  const dentonLocation = encodeURIComponent('Denton ISD Board Room, 1307 N. Locust Street, Denton, TX 76201');
+  const dentonUrl = `https://outlook.live.com/calendar/0/deeplink/compose?subject=${encodeURIComponent('Denton ISD Board Hearing - Windsong Ranch')}&startdt=${dentonStart}&enddt=${dentonEnd}&body=${dentonDetails}&location=${dentonLocation}`;
 
-  const url = `https://outlook.live.com/calendar/0/deeplink/compose?subject=${encodeURIComponent('Prosper ISD Board Meeting - Windsong Ranch Vote')}&startdt=${startDate}&enddt=${endDate}&body=${details}&location=${location}`;
+  // Prosper ISD Meeting - December 15, 2025 at 6:00 PM
+  const prosperStart = '2025-12-15T18:00:00';
+  const prosperEnd = '2025-12-15T20:00:00';
+  const prosperDetails = encodeURIComponent('Prosper ISD hearing on Windsong Ranch annexation petition. Your attendance is crucial!');
+  const prosperLocation = encodeURIComponent('Prosper ISD Administration Building, 605 E 7th Street, Prosper, TX 75078');
+  const prosperUrl = `https://outlook.live.com/calendar/0/deeplink/compose?subject=${encodeURIComponent('Prosper ISD Board Meeting - Windsong Ranch')}&startdt=${prosperStart}&enddt=${prosperEnd}&body=${prosperDetails}&location=${prosperLocation}`;
 
-  window.open(url, '_blank');
+  // Open both calendar events
+  window.open(dentonUrl, '_blank');
+  setTimeout(() => window.open(prosperUrl, '_blank'), 500);
+
   completeStep2();
 }
 
 function downloadICS() {
+  const timestamp = new Date().toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
+
   const icsContent = `BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//Windsong Ranch Petition//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
 BEGIN:VEVENT
-UID:${Date.now()}@prosperisdpetition.com
-DTSTAMP:${new Date().toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '')}
-DTSTART:20251216T010000Z
-DTEND:20251216T030000Z
-SUMMARY:Prosper ISD Board Meeting - Windsong Ranch Vote
-DESCRIPTION:Critical vote on Windsong Ranch realignment to Prosper ISD. Your attendance is crucial!
+UID:denton-${Date.now()}@prosperisdpetition.com
+DTSTAMP:${timestamp}
+DTSTART:20251209T180000
+DTEND:20251209T200000
+SUMMARY:Denton ISD Board Hearing - Windsong Ranch Annexation
+DESCRIPTION:Denton ISD public hearing on Windsong Ranch annexation petition. Your attendance demonstrates community support! Sign up to speak in person by 6:00 PM on December 9.
+LOCATION:Denton ISD Board Room, 1307 N. Locust Street, Denton, TX 76201
+STATUS:CONFIRMED
+SEQUENCE:0
+BEGIN:VALARM
+TRIGGER:-PT24H
+ACTION:DISPLAY
+DESCRIPTION:Reminder: Denton ISD Hearing Tomorrow at 6:00 PM
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:prosper-${Date.now() + 1}@prosperisdpetition.com
+DTSTAMP:${timestamp}
+DTSTART:20251215T180000
+DTEND:20251215T200000
+SUMMARY:Prosper ISD Board Meeting - Windsong Ranch Annexation
+DESCRIPTION:Prosper ISD public hearing on Windsong Ranch annexation petition. Your attendance is crucial! Submit public comment form by noon on December 15.
 LOCATION:Prosper ISD Administration Building, 605 E 7th Street, Prosper, TX 75078
+STATUS:CONFIRMED
+SEQUENCE:0
+BEGIN:VALARM
+TRIGGER:-PT24H
+ACTION:DISPLAY
+DESCRIPTION:Reminder: Prosper ISD Meeting Tomorrow at 6:00 PM
+END:VALARM
 END:VEVENT
 END:VCALENDAR`;
 
-  const blob = new Blob([icsContent], { type: 'text/calendar' });
+  const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = url;
-  a.download = 'prosper-isd-meeting.ics';
+  a.download = 'windsong-ranch-board-meetings.ics';
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);
