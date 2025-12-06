@@ -993,17 +993,41 @@
         <li><strong>The Academic Reality:</strong> Families chose Prosper ISD where 100% of schools are A-rated (vs 12.5% for DISD), with a 99.5% graduation rate (vs 97.6%), and 24 National Merit Scholars (vs 4). Parents don't choose educational excellence by accident</li>
         <li><strong>The Student Reality:</strong> All students from these 466 homes attend Prosper ISD schools under the Windsong Ranch Education Agreement. Zero attend Denton ISD</li>
         <li><strong>The Petition Filed:</strong> October 20, 2025 - Official petition submitted with 52.6% voter support (360 of 684 registered voters), demonstrating clear majority support</li>
-        <li><strong>Board Actions Required:</strong> Prosper ISD scheduled hearing for December 15 at 6:00 PM. Denton ISD must also hold hearing and vote. Both boards must approve</li>
+        <li><strong>Board Actions Required:</strong> Denton ISD hearing scheduled for December 9 at 6:00 PM. Prosper ISD hearing scheduled for December 15 at 6:00 PM. Both boards must approve</li>
       </ul>
     </div>
 
-    <div style="background: #fee2e2; border: 2px solid #dc2626; border-radius: 8px; padding: 20px; margin-top: 24px; text-align: center;">
-      <h3 style="color: #991b1b; margin: 0 0 12px 0;">Prosper ISD Board Meeting: December 15, 2025</h3>
+    <!-- DENTON ISD BOARD HEARING - Blue Theme -->
+    <div style="background: #dbeafe; border: 2px solid #2563eb; border-radius: 8px; padding: 20px; margin-top: 24px; text-align: center;">
+      <h3 style="color: #1e3a8a; margin: 0 0 12px 0;">🔵 Denton ISD Board Hearing: December 9, 2025</h3>
+      <p style="color: #1e40af; margin: 0; font-size: 1.05rem;">
+        <strong>6:00 PM at 1307 N. Locust Street, Denton, TX 76201</strong><br>
+        <span style="font-size: 0.95rem;">Board Room, Denton ISD Central Office</span><br><br>
+        <strong style="color: #991b1b; font-size: 1.1rem;">⚠️ SIGN UP IN PERSON BY 6:00 PM ON DECEMBER 9</strong><br>
+        <span style="font-size: 0.95rem;">Sign up at 1307 N. Locust Street, Denton, TX 76201</span><br><br>
+        Your physical presence demonstrates community support for this annexation.
+      </p>
+      <div id="denton-countdown" style="margin-top: 16px; padding: 12px; background: white; border-radius: 6px; font-weight: 700; color: #1e3a8a; font-size: 1.1rem;"></div>
+    </div>
+
+    <!-- PROSPER ISD BOARD MEETING - Red Theme -->
+    <div style="background: #fee2e2; border: 2px solid #dc2626; border-radius: 8px; padding: 20px; margin-top: 16px; text-align: center;">
+      <h3 style="color: #991b1b; margin: 0 0 12px 0;">🔴 Prosper ISD Board Meeting: December 15, 2025</h3>
       <p style="color: #7f1d1d; margin: 0; font-size: 1.05rem;">
         <strong>6:00 PM at 605 E 7th Street, Prosper, TX 75078</strong><br>
+        <span style="font-size: 0.95rem;">Central Administration Board Room</span><br><br>
+        <strong style="color: #991b1b; font-size: 1.1rem;">⚠️ SUBMIT PUBLIC COMMENT FORM BY NOON ON DECEMBER 15</strong><br>
+        <a href="https://www.prosper-isd.net/page/school-board-meetings" target="_blank" style="color: #1e3a8a; text-decoration: underline; font-weight: 600;">Complete Public Comment Form Here</a><br><br>
         Physical attendance matters. Board members need to see a room full of parents supporting this petition.<br>
-        <a href="https://meetings.boardbook.org/Public/Organization/2084" target="_blank" style="color: #1e3a8a; text-decoration: underline;">View Board Meeting Agenda (when published)</a><br>
-        Denton ISD must also schedule their hearing and vote.
+        <a href="https://meetings.boardbook.org/Public/Organization/2084" target="_blank" style="color: #1e3a8a; text-decoration: underline;">View Board Meeting Agenda (posted 72 hours before meeting)</a>
+      </p>
+      <div id="prosper-countdown" style="margin-top: 16px; padding: 12px; background: white; border-radius: 6px; font-weight: 700; color: #991b1b; font-size: 1.1rem;"></div>
+    </div>
+
+    <!-- Both Districts Required -->
+    <div style="background: #fef3c7; border: 2px solid #f59e0b; border-radius: 8px; padding: 16px; margin-top: 16px; text-align: center;">
+      <p style="color: #92400e; margin: 0; font-size: 0.95rem;">
+        <strong>📋 Both districts must approve this annexation.</strong> Your attendance at both meetings is crucial to demonstrate community support.
       </p>
     </div>
   </div>
@@ -1426,6 +1450,66 @@ function updateCountdown() {
 // Start countdown
 setInterval(updateCountdown, 1000);
 updateCountdown();
+
+// Denton ISD Countdown (Dec 9, 2025 6:00 PM)
+function updateDentonCountdown() {
+  const now = new Date().getTime();
+  const dentonMeeting = new Date('December 9, 2025 18:00:00').getTime();
+  const distance = dentonMeeting - now;
+
+  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+  const dentonEl = document.getElementById('denton-countdown');
+  if (dentonEl) {
+    if (distance < 0) {
+      dentonEl.innerHTML = "Meeting has passed";
+      dentonEl.style.background = "#e5e7eb";
+      dentonEl.style.color = "#6b7280";
+    } else {
+      dentonEl.innerHTML = `⏰ ${days} days, ${hours} hours, ${minutes} minutes until Denton ISD hearing`;
+    }
+  }
+}
+
+// Prosper ISD Countdown (Dec 15, 2025 12:00 PM - NOON DEADLINE)
+function updateProsperCountdown() {
+  const now = new Date().getTime();
+  const prosperDeadline = new Date('December 15, 2025 12:00:00').getTime();
+  const prosperMeeting = new Date('December 15, 2025 18:00:00').getTime();
+  const distance = prosperDeadline - now;
+  const distanceToMeeting = prosperMeeting - now;
+
+  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+  const prosperEl = document.getElementById('prosper-countdown');
+  if (prosperEl) {
+    if (distanceToMeeting < 0) {
+      prosperEl.innerHTML = "Meeting has passed";
+      prosperEl.style.background = "#e5e7eb";
+      prosperEl.style.color = "#6b7280";
+    } else if (distance < 0) {
+      prosperEl.innerHTML = "⚠️ Form deadline passed - Meeting at 6:00 PM today";
+      prosperEl.style.background = "#fef3c7";
+      prosperEl.style.color = "#92400e";
+    } else {
+      prosperEl.innerHTML = `⏰ ${days} days, ${hours} hours, ${minutes} minutes until form submission deadline`;
+    }
+  }
+}
+
+// Update both board meeting countdowns
+setInterval(() => {
+  updateDentonCountdown();
+  updateProsperCountdown();
+}, 60000);
+
+// Initial call
+updateDentonCountdown();
+updateProsperCountdown();
 
 // Form Validation
 function showError(fieldId, message) {
