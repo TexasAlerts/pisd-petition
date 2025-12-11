@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Windsong Ranch Annexation - Tax Rate Comparison Analysis</title>
+    <style>
+        @page {
+            size: letter;
+            margin: 0.75in;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            font-size: 11pt;
+            line-height: 1.5;
+            color: #1a1a1a;
+            background: white;
+            padding: 0.5in;
+        }
+
+        .header {
+            text-align: center;
+            border-bottom: 3px solid #1e3a8a;
+            padding-bottom: 16px;
+            margin-bottom: 24px;
+        }
+
+        .header h1 {
+            font-size: 20pt;
+            color: #1e3a8a;
+            margin-bottom: 4px;
+        }
+
+        .header h2 {
+            font-size: 14pt;
+            color: #4b5563;
+            font-weight: 500;
+        }
+
+        .header .date {
+            font-size: 10pt;
+            color: #6b7280;
+            margin-top: 8px;
+        }
+
+        .section {
+            margin-bottom: 24px;
+        }
+
+        .section-title {
+            font-size: 13pt;
+            font-weight: 700;
+            color: #1e3a8a;
+            border-bottom: 2px solid #e5e7eb;
+            padding-bottom: 6px;
+            margin-bottom: 12px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 16px;
+            font-size: 10pt;
+        }
+
+        th, td {
+            padding: 10px 12px;
+            text-align: left;
+            border: 1px solid #d1d5db;
+        }
+
+        th {
+            background: #1e3a8a;
+            color: white;
+            font-weight: 600;
+        }
+
+        td {
+            background: white;
+        }
+
+        .text-right {
+            text-align: right;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .highlight-row {
+            background: #f0fdf4 !important;
+            font-weight: 600;
+        }
+
+        .highlight-row td {
+            background: #f0fdf4;
+        }
+
+        .total-row {
+            background: #1e3a8a !important;
+            color: white;
+            font-weight: 700;
+        }
+
+        .total-row td {
+            background: #1e3a8a;
+            color: white;
+        }
+
+        .positive {
+            color: #059669;
+            font-weight: 600;
+        }
+
+        .negative {
+            color: #dc2626;
+            font-weight: 600;
+        }
+
+        .neutral {
+            color: #1e3a8a;
+            font-weight: 600;
+        }
+
+        .callout {
+            background: #fef3c7;
+            border: 2px solid #f59e0b;
+            border-radius: 8px;
+            padding: 16px;
+            margin: 16px 0;
+        }
+
+        .callout-title {
+            font-weight: 700;
+            color: #92400e;
+            margin-bottom: 8px;
+        }
+
+        .callout p {
+            color: #78350f;
+            margin: 0;
+        }
+
+        .callout-green {
+            background: #ecfdf5;
+            border-color: #10b981;
+        }
+
+        .callout-green .callout-title {
+            color: #065f46;
+        }
+
+        .callout-green p {
+            color: #047857;
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin: 16px 0;
+        }
+
+        .summary-card {
+            background: #f8fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 16px;
+            text-align: center;
+        }
+
+        .summary-card.highlight {
+            background: #ecfdf5;
+            border-color: #10b981;
+        }
+
+        .summary-card .label {
+            font-size: 9pt;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+
+        .summary-card .value {
+            font-size: 18pt;
+            font-weight: 700;
+            color: #1e3a8a;
+        }
+
+        .summary-card.highlight .value {
+            color: #059669;
+        }
+
+        .summary-card .subtext {
+            font-size: 8pt;
+            color: #94a3b8;
+            margin-top: 4px;
+        }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .footnote {
+            font-size: 9pt;
+            color: #6b7280;
+            border-top: 1px solid #e5e7eb;
+            padding-top: 12px;
+            margin-top: 24px;
+        }
+
+        .footnote p {
+            margin-bottom: 4px;
+        }
+
+        .page-break {
+            page-break-before: always;
+        }
+
+        @media print {
+            body {
+                padding: 0;
+            }
+
+            .page-break {
+                page-break-before: always;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>Windsong Ranch Annexation</h1>
+    <h2>Tax Rate & Assessed Value Comparison Analysis</h2>
+    <div class="date">Prepared December 2025 | 2025-26 Tax Year Rates</div>
+</div>
+
+<!-- Executive Summary -->
+<div class="section">
+    <div class="section-title">Executive Summary</div>
+
+    <div class="summary-grid">
+        <div class="summary-card highlight">
+            <div class="label">Annual Tax Difference</div>
+            <div class="value">$83</div>
+            <div class="subtext">Per average home/year</div>
+        </div>
+        <div class="summary-card highlight">
+            <div class="label">Monthly Difference</div>
+            <div class="value">$6.92</div>
+            <div class="subtext">Per average home/month</div>
+        </div>
+        <div class="summary-card">
+            <div class="label">Total Rate Difference</div>
+            <div class="value">$0.0072</div>
+            <div class="subtext">Per $100 valuation</div>
+        </div>
+    </div>
+
+    <div class="callout callout-green">
+        <div class="callout-title">Key Finding</div>
+        <p>The tax rate difference between Prosper ISD and Denton ISD has narrowed to just <strong>0.72 cents per $100</strong> of assessed value. For the average Windsong Ranch home, this translates to approximately <strong>$83 per year</strong> — less than $7 per month — to align tax dollars with where students actually attend school.</p>
+    </div>
+</div>
+
+<!-- Tax Rate Comparison -->
+<div class="section">
+    <div class="section-title">2025-26 Tax Rate Comparison</div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Component</th>
+                <th class="text-right">Prosper ISD</th>
+                <th class="text-right">Denton ISD</th>
+                <th class="text-right">Difference</th>
+                <th class="text-center">Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>M&O Rate</strong> (Maintenance & Operations)</td>
+                <td class="text-right">$0.7141</td>
+                <td class="text-right">$0.7269</td>
+                <td class="text-right positive">-$0.0128</td>
+                <td class="text-center">PISD is lower</td>
+            </tr>
+            <tr>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;Tier 1 (MCR - Compressed)</td>
+                <td class="text-right">$0.5758</td>
+                <td class="text-right">—</td>
+                <td class="text-right">—</td>
+                <td class="text-center">TEA mandated</td>
+            </tr>
+            <tr>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;Tier 2 (Golden + Copper)</td>
+                <td class="text-right">$0.1383</td>
+                <td class="text-right">—</td>
+                <td class="text-right">—</td>
+                <td class="text-center">Voter approved</td>
+            </tr>
+            <tr>
+                <td><strong>I&S Rate</strong> (Interest & Sinking/Debt)</td>
+                <td class="text-right">$0.5000</td>
+                <td class="text-right">$0.4800</td>
+                <td class="text-right negative">+$0.0200</td>
+                <td class="text-center">Bond obligations</td>
+            </tr>
+            <tr class="total-row">
+                <td><strong>TOTAL TAX RATE</strong></td>
+                <td class="text-right">$1.2141</td>
+                <td class="text-right">$1.2069</td>
+                <td class="text-right">+$0.0072</td>
+                <td class="text-center">0.6% higher</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Assessed Value Comparison -->
+<div class="section">
+    <div class="section-title">Assessed Value Comparison: PISD Overview vs. Our Model</div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Metric</th>
+                <th class="text-right">PISD Overview</th>
+                <th class="text-right">Our Model</th>
+                <th class="text-right">Variance</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Total Taxable Value (TV)</td>
+                <td class="text-right">$474,676,531</td>
+                <td class="text-right">$537,675,424</td>
+                <td class="text-right">+$62,998,893</td>
+            </tr>
+            <tr>
+                <td>Number of Homes</td>
+                <td class="text-right">349 (420 build-out)</td>
+                <td class="text-right">466</td>
+                <td class="text-right">+117 homes</td>
+            </tr>
+            <tr>
+                <td>Number of Students</td>
+                <td class="text-right">299</td>
+                <td class="text-right">274</td>
+                <td class="text-right">-25 students</td>
+            </tr>
+            <tr>
+                <td>Registered Voters</td>
+                <td class="text-right">690</td>
+                <td class="text-right">684</td>
+                <td class="text-right">-6 voters</td>
+            </tr>
+            <tr class="highlight-row">
+                <td>Average Home Value</td>
+                <td class="text-right">$1,360,105</td>
+                <td class="text-right">$1,153,596</td>
+                <td class="text-right">-$206,509</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="callout">
+        <div class="callout-title">Note on Data Sources</div>
+        <p>PISD Overview uses 349 homes (current) with 420 at build-out. Our model's 466 figure from Denton CAD includes green lots/common areas that will not have homes built on them. The actual build-out of 420 homes aligns with PISD's analysis. Both datasets support the same conclusion: minimal tax impact for homeowners.</p>
+    </div>
+</div>
+
+<!-- Homeowner Impact Analysis -->
+<div class="section">
+    <div class="section-title">Homeowner Tax Impact Analysis</div>
+
+    <div class="two-col">
+        <div>
+            <h4 style="color: #1e3a8a; margin-bottom: 8px;">Using PISD Average ($1,360,105)</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Component</th>
+                        <th class="text-right">DISD Tax</th>
+                        <th class="text-right">PISD Tax</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>M&O</td>
+                        <td class="text-right">$9,886</td>
+                        <td class="text-right">$9,712</td>
+                    </tr>
+                    <tr>
+                        <td>I&S</td>
+                        <td class="text-right">$6,528</td>
+                        <td class="text-right">$6,801</td>
+                    </tr>
+                    <tr class="highlight-row">
+                        <td><strong>Total</strong></td>
+                        <td class="text-right">$16,414</td>
+                        <td class="text-right">$16,512</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><strong>Annual Difference:</strong></td>
+                        <td class="text-right neutral">+$98/year</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <h4 style="color: #1e3a8a; margin-bottom: 8px;">Using Our Model Average ($1,153,596)</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Component</th>
+                        <th class="text-right">DISD Tax</th>
+                        <th class="text-right">PISD Tax</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>M&O</td>
+                        <td class="text-right">$8,386</td>
+                        <td class="text-right">$8,238</td>
+                    </tr>
+                    <tr>
+                        <td>I&S</td>
+                        <td class="text-right">$5,537</td>
+                        <td class="text-right">$5,768</td>
+                    </tr>
+                    <tr class="highlight-row">
+                        <td><strong>Total</strong></td>
+                        <td class="text-right">$13,923</td>
+                        <td class="text-right">$14,006</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><strong>Annual Difference:</strong></td>
+                        <td class="text-right neutral">+$83/year</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Revenue Comparison -->
+<div class="section">
+    <div class="section-title">Revenue Impact Comparison</div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Revenue Component</th>
+                <th class="text-right">PISD Overview<br>($474.7M TV)</th>
+                <th class="text-right">Our Model<br>($537.7M TV)</th>
+                <th class="text-right">Variance</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>M&O Revenue</td>
+                <td class="text-right">$3,862,000</td>
+                <td class="text-right">$3,840,000*</td>
+                <td class="text-right">-$22,000</td>
+            </tr>
+            <tr>
+                <td>I&S Revenue</td>
+                <td class="text-right">$2,708,009</td>
+                <td class="text-right">$2,688,000*</td>
+                <td class="text-right">-$20,009</td>
+            </tr>
+            <tr class="highlight-row">
+                <td><strong>Total Revenue</strong></td>
+                <td class="text-right">~$6,570,000</td>
+                <td class="text-right">~$6,528,000</td>
+                <td class="text-right">-$42,000</td>
+            </tr>
+            <tr>
+                <td>Additional Recapture</td>
+                <td class="text-right">+$68,559</td>
+                <td class="text-right">+$286,000</td>
+                <td class="text-right">+$217,441</td>
+            </tr>
+            <tr>
+                <td>Denton Debt Share</td>
+                <td class="text-right">~$2,646,000**</td>
+                <td class="text-right">$2,490,000</td>
+                <td class="text-right">-$156,000</td>
+            </tr>
+        </tbody>
+    </table>
+    <p style="font-size: 9pt; color: #6b7280; margin-top: 8px;">
+        * Adjusted for 2025-26 tax rates<br>
+        ** Calculated from $31.75M debt ÷ 12 years
+    </p>
+</div>
+
+<!-- Bottom Line -->
+<div class="section">
+    <div class="section-title">Bottom Line</div>
+
+    <div class="callout callout-green">
+        <div class="callout-title">For Less Than $7/Month, Homeowners Get:</div>
+        <ul style="margin: 8px 0 0 20px; color: #047857;">
+            <li><strong>Tax dollars following their children</strong> to the schools they actually attend</li>
+            <li><strong>Voting rights</strong> in Prosper ISD board elections</li>
+            <li><strong>Permanent alignment</strong> — no more transfer agreements to renew or worry about</li>
+            <li><strong>Support for an A-rated district</strong> with 100% A-rated schools and 99.5% graduation rate</li>
+        </ul>
+    </div>
+
+    <div class="summary-grid">
+        <div class="summary-card">
+            <div class="label">PISD M&O Rate</div>
+            <div class="value" style="color: #059669;">$0.7141</div>
+            <div class="subtext">Lower than Denton ISD</div>
+        </div>
+        <div class="summary-card">
+            <div class="label">Total Rate Difference</div>
+            <div class="value">0.6%</div>
+            <div class="subtext">Essentially equal</div>
+        </div>
+        <div class="summary-card highlight">
+            <div class="label">Daily Cost</div>
+            <div class="value">$0.23</div>
+            <div class="subtext">Per household</div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<div class="footnote">
+    <p><strong>Data Sources:</strong></p>
+    <p>• Prosper ISD 2025-26 Tax Rates: PISD Board Approved Budget</p>
+    <p>• Denton ISD 2025-26 Tax Rates: DISD Post-VATRE Election (November 2025)</p>
+    <p>• Property Values: Denton CAD 2024 Certified Values; PISD Annexation Overview</p>
+    <p>• Student/Home Counts: Windsong Ranch HOA; PISD Transfer Records</p>
+    <p style="margin-top: 12px;"><strong>Prepared by:</strong> Douglas Charles & Jeff Sterling | <strong>Contact:</strong> dbcharles@me.com</p>
+    <p><strong>Website:</strong> https://prosperisdpetition.com</p>
+</div>
+
+</body>
+</html>
