@@ -93,7 +93,7 @@
     <div class="header">
         <h1>Prosper ISD Windsong Ranch Annexation Model</h1>
         <p>Financial Impact Analysis with TEA Funding Formula</p>
-        <div class="tea-badge">✓ TEA 2024-25 Near-Final Data</div>
+        <div class="tea-badge">✓ TEA 2025-26 Tax Rates</div>
         <br>
         <a href="/" class="back-link">← Back to Main Petition Page</a>
     </div>
@@ -108,9 +108,8 @@
                         <h4 style="margin-bottom:0.5rem;">M&O Tax Rate (Operations)</h4>
                         <div class="rate-bar" id="moRateBar"></div>
                         <div class="rate-legend">
-                            <div class="rate-legend-item"><div class="dot" style="background:var(--compressed);"></div> MCR - Tier One</div>
-                            <div class="rate-legend-item"><div class="dot" style="background:var(--golden);"></div> Golden - Protected</div>
-                            <div class="rate-legend-item"><div class="dot" style="background:var(--copper);"></div> Copper - Recapture</div>
+                            <div class="rate-legend-item"><div class="dot" style="background:var(--compressed);"></div> Tier 1 (MCR) - $0.5758</div>
+                            <div class="rate-legend-item"><div class="dot" style="background:var(--golden);"></div> Tier 2 - $0.1383</div>
                         </div>
                     </div>
                     <div>
@@ -121,7 +120,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="callout"><strong>Key:</strong> Only <strong>Copper Pennies</strong> generate recapture. MCR and Golden are protected.</div>
+                <div class="callout"><strong>Key:</strong> Total M&O = $0.7141 (Tier 1 $0.5758 + Tier 2 $0.1383). I&S = $0.5000. Total Tax Rate = $1.2141.</div>
             </div>
         </div>
 
@@ -161,11 +160,11 @@
                 
                 <div id="tab-rates" class="tab-content">
                     <div class="grid-4">
-                        <div class="form-group"><label>Total M&O Rate</label><input type="number" id="moRate" value="0.7552" step="0.0001"></div>
-                        <div class="form-group"><label>MCR (Compressed)</label><input type="number" id="mcr" value="0.6169" step="0.0001"></div>
-                        <div class="form-group"><label>Golden Pennies</label><input type="number" id="goldenRate" value="0.08" readonly><small>Fixed at 8¢</small></div>
+                        <div class="form-group"><label>Total M&O Rate</label><input type="number" id="moRate" value="0.7141" step="0.0001"><small>2025-26: $0.7141</small></div>
+                        <div class="form-group"><label>MCR (Tier 1 Compressed)</label><input type="number" id="mcr" value="0.5758" step="0.0001"><small>2025-26: $0.5758</small></div>
+                        <div class="form-group"><label>Tier 2 (Golden + Copper)</label><input type="number" id="goldenRate" value="0.1383" readonly><small>2025-26: $0.1383</small></div>
                         <div class="form-group"><label>Copper Pennies</label><input type="number" id="copperRate" value="0.0583" readonly><small>Calculated</small></div>
-                        <div class="form-group"><label>I&S Rate</label><input type="number" id="isRate" value="0.5000" step="0.0001"></div>
+                        <div class="form-group"><label>I&S Rate</label><input type="number" id="isRate" value="0.5000" step="0.0001"><small>2025-26: $0.5000</small></div>
                     </div>
                 </div>
                 
@@ -275,9 +274,9 @@
                 <table class="data-table">
                     <thead><tr><th>Component</th><th>Formula</th><th>Description</th></tr></thead>
                     <tbody>
-                        <tr><td><strong>Compressed Rate (MCR)</strong></td><td><code>$0.6169 per $100</code></td><td>Maximum Compressed Rate set by TEA. Funds Tier One (basic allotment).</td></tr>
-                        <tr><td><strong>Golden Pennies</strong></td><td><code>$0.08 (fixed 8¢)</code></td><td>First 8 cents above MCR. <strong>Protected from recapture</strong>. Yield: $98.56/WADA/penny.</td></tr>
-                        <tr><td><strong>Copper Pennies</strong></td><td><code>M&O - MCR - Golden = $0.0583</code></td><td>Remaining pennies. <strong>Subject to recapture</strong>. Yield: $49.28/WADA/penny.</td></tr>
+                        <tr><td><strong>Tier 1 (MCR Compressed)</strong></td><td><code>$0.5758 per $100</code></td><td>Maximum Compressed Rate set by TEA for 2025-26. Funds Tier One (basic allotment).</td></tr>
+                        <tr><td><strong>Tier 2 (Golden + Copper)</strong></td><td><code>$0.1383 (13.83¢)</code></td><td>Voter-approved enrichment pennies. Partially protected from recapture.</td></tr>
+                        <tr><td><strong>Total M&O Rate</strong></td><td><code>$0.5758 + $0.1383 = $0.7141</code></td><td>Total Maintenance & Operations rate for 2025-26.</td></tr>
                         <tr><td><strong>I&S Rate</strong></td><td><code>$0.5000 per $100</code></td><td>Debt service fund. <strong>Not subject to recapture</strong>.</td></tr>
                     </tbody>
                 </table>
@@ -286,10 +285,10 @@
                 <table class="data-table">
                     <thead><tr><th>Component</th><th>Formula</th></tr></thead>
                     <tbody>
-                        <tr><td><strong>Total Additional Revenue</strong></td><td><code>Additional Gross M&O + Additional I&S = $4.06M + $2.69M = $6.75M</code></td></tr>
-                        <tr><td><strong>Less: Additional Recapture</strong></td><td><code>Recapture(with) - Recapture(without) = ~$286K</code></td></tr>
+                        <tr><td><strong>Total Additional Revenue</strong></td><td><code>Additional Gross M&O + Additional I&S = $3.84M + $2.69M = $6.53M</code></td></tr>
+                        <tr><td><strong>Less: Additional Recapture</strong></td><td><code>Recapture(with) - Recapture(without) = ~$69K</code></td></tr>
                         <tr><td><strong>Less: Denton Debt Share</strong></td><td><code>$174.07M × ($537.7M ÷ $37.52B) = $2.49M</code></td></tr>
-                        <tr><td><strong>Year 1 Net Benefit</strong></td><td><code>$6.75M - $0.29M - $2.49M = $3.97M</code></td></tr>
+                        <tr><td><strong>Year 1 Net Benefit</strong></td><td><code>$6.53M - $0.07M - $2.49M = $3.97M</code></td></tr>
                     </tbody>
                 </table>
             </div>
@@ -302,7 +301,7 @@
                 <table class="data-table">
                     <thead><tr><th>Data Element</th><th>Value</th><th>Source</th></tr></thead>
                     <tbody>
-                        <tr><td colspan="3" style="background:#edf2f7;font-weight:600;">TEA Foundation School Program Data (2024-25 Near-Final)</td></tr>
+                        <tr><td colspan="3" style="background:#edf2f7;font-weight:600;">TEA Foundation School Program Data (2025-26)</td></tr>
                         <tr><td>District Property Value</td><td>$22,589,151,510</td><td>TEA Summary of Finances, Run ID: 46163</td></tr>
                         <tr><td>Refined ADA / WADA</td><td>29,945.977 / 41,495.926</td><td>TEA ADA/WADA Detail Reports</td></tr>
                         <tr><td>Actual Recapture</td><td>$1,235,593</td><td>TEA Cost of Recapture Report</td></tr>
@@ -325,7 +324,7 @@
                     <thead><tr><th>Assumption</th><th>Rationale</th><th>Sensitivity</th></tr></thead>
                     <tbody>
                         <tr><td><strong>Students Already Counted</strong></td><td>274 Windsong students are in PISD ADA/WADA as transfers</td><td>HIGH</td></tr>
-                        <tr><td><strong>Tax Rates Constant</strong></td><td>M&O $0.7552, I&S $0.5000</td><td>MEDIUM</td></tr>
+                        <tr><td><strong>Tax Rates Constant</strong></td><td>M&O $0.7141, I&S $0.5000 (2025-26)</td><td>MEDIUM</td></tr>
                         <tr><td><strong>Property Growth 5%/yr</strong></td><td>Conservative vs historical 8.2% CAGR</td><td>HIGH</td></tr>
                         <tr><td><strong>Enrollment Cap 55,000</strong></td><td>PISD Long-Range Facility Plan</td><td>MEDIUM</td></tr>
                         <tr><td><strong>Denton Debt per TEC § 13.004</strong></td><td>Proportionate share based on property value</td><td>LOW</td></tr>
@@ -342,7 +341,7 @@
                     <thead><tr><th style="width:20%;">Term</th><th>Definition</th></tr></thead>
                     <tbody>
                         <tr><td><strong>WADA</strong></td><td>Weighted Average Daily Attendance - ADA adjusted for special populations</td></tr>
-                        <tr><td><strong>MCR</strong></td><td>Maximum Compressed Rate - Compressed M&O rate set by TEA ($0.6169)</td></tr>
+                        <tr><td><strong>MCR</strong></td><td>Maximum Compressed Rate - Compressed M&O rate set by TEA ($0.5758 for 2025-26)</td></tr>
                         <tr><td><strong>Golden Pennies</strong></td><td>First 8¢ above MCR, protected from recapture</td></tr>
                         <tr><td><strong>Copper Pennies</strong></td><td>Tax rate above golden, subject to recapture</td></tr>
                         <tr><td><strong>Recapture</strong></td><td>"Robin Hood" - payment from property-wealthy districts to state</td></tr>
@@ -356,7 +355,7 @@
         <div style="text-align:center;padding:2rem;color:#718096;font-size:0.85rem;">
             <p><strong>Prosper ISD Windsong Ranch Annexation Financial Model v7</strong></p>
             <p>Prepared for financial planning purposes only. Not an official TEA document.</p>
-            <p>Model last updated: December 2025 | TEA Data: 2024-25 Near-Final (Run ID: 46163) | Denton CAD: 2025 Certified</p>
+            <p>Model last updated: December 2025 | Tax Rates: 2025-26 | Denton CAD: 2025 Certified</p>
             <p>For questions or corrections, contact Doug Charles</p>
             <p style="margin-top:1rem;"><a href="/" style="color:#1e3a8a;">← Back to Main Petition Page</a></p>
         </div>
@@ -378,10 +377,9 @@
         function updateRateBar() {
             const mo = parseFloat(document.getElementById('moRate').value);
             const mcr = parseFloat(document.getElementById('mcr').value);
-            const gold = 0.08, copper = mo - mcr - gold;
-            document.getElementById('copperRate').value = copper.toFixed(4);
-            const mcrP = (mcr/mo*100).toFixed(1), goldP = (gold/mo*100).toFixed(1), copperP = (copper/mo*100).toFixed(1);
-            document.getElementById('moRateBar').innerHTML = `<div class="seg compressed" style="width:${mcrP}%">MCR $${mcr.toFixed(4)}</div><div class="seg golden" style="width:${goldP}%">$${gold.toFixed(2)}</div><div class="seg copper" style="width:${copperP}%">$${copper.toFixed(4)}</div>`;
+            const tier2 = parseFloat(document.getElementById('goldenRate').value);
+            const mcrP = (mcr/mo*100).toFixed(1), tier2P = (tier2/mo*100).toFixed(1);
+            document.getElementById('moRateBar').innerHTML = `<div class="seg compressed" style="width:${mcrP}%">Tier 1 (MCR) $${mcr.toFixed(4)}</div><div class="seg golden" style="width:${tier2P}%">Tier 2 $${tier2.toFixed(4)}</div>`;
         }
 
         function calcFunding(dpv, wada, p) {
