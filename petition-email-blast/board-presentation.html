@@ -435,14 +435,115 @@
             color: rgba(255,255,255,0.7);
         }
 
+        /* Responsive Design */
         @media (max-width: 1200px) {
             .slide { padding: 40px 50px; }
             h1 { font-size: 2.5rem; }
             h2 { font-size: 2rem; }
+            h3 { font-size: 1.4rem; }
             p, li { font-size: 1.3rem; }
             .stat-card .number { font-size: 2.5rem; }
+            .stat-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+            .stat-grid-4 { grid-template-columns: repeat(2, 1fr); gap: 15px; }
             .big-number { font-size: 5rem; }
             .footnote { bottom: 50px; left: 50px; right: 50px; font-size: 0.8rem; }
+            table { font-size: 1.1rem; }
+            th, td { padding: 12px 16px; }
+            .two-col { gap: 30px; }
+        }
+
+        @media (max-width: 900px) {
+            body { overflow-y: auto; }
+            .slide {
+                padding: 30px 25px;
+                min-height: auto;
+                padding-bottom: 120px;
+            }
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.6rem; margin-bottom: 25px; }
+            h3 { font-size: 1.2rem; }
+            p, li { font-size: 1.1rem; line-height: 1.5; margin-bottom: 12px; }
+            ul li { padding-left: 25px; margin-bottom: 12px; }
+            .stat-grid, .stat-grid-4 { grid-template-columns: 1fr 1fr; gap: 12px; }
+            .stat-card { padding: 15px; }
+            .stat-card .number { font-size: 1.8rem; }
+            .stat-card .label { font-size: 0.85rem; }
+            .stat-card .sublabel { font-size: 0.75rem; }
+            .big-number { font-size: 3.5rem; }
+            .subtitle { font-size: 1.2rem; }
+            .two-col { grid-template-columns: 1fr; gap: 20px; }
+            .box { padding: 20px; }
+            .quote { font-size: 1.3rem; padding-left: 20px; margin: 25px 0; }
+            .quote-source { font-size: 1rem; }
+            table { font-size: 0.95rem; }
+            th, td { padding: 10px 12px; }
+            table.small { font-size: 0.85rem; }
+            .math-box { padding: 20px; font-size: 1rem; }
+            .footnote {
+                position: relative;
+                bottom: auto;
+                left: auto;
+                right: auto;
+                margin-top: 30px;
+                font-size: 0.75rem;
+            }
+            .slide-number {
+                bottom: 15px;
+                right: 20px;
+                font-size: 0.85rem;
+            }
+            .logo {
+                top: 15px;
+                right: 20px;
+                font-size: 0.8rem;
+            }
+            .private-badge {
+                top: 15px;
+                left: 20px;
+                font-size: 0.75rem;
+                padding: 4px 12px;
+            }
+            .nav-hint {
+                bottom: 15px;
+                left: 20px;
+                font-size: 0.75rem;
+            }
+            .question-box { padding: 15px; margin: 8px 0; }
+            .question-box h3 { font-size: 1.1rem; margin-bottom: 8px; }
+            .title-slide h1 { font-size: 2.2rem; }
+            .title-slide .subtitle { font-size: 1.2rem; margin-bottom: 30px; }
+            .title-slide .presenter { font-size: 1rem; }
+            .rate-bar { height: 40px; font-size: 0.75rem; }
+            .legend { font-size: 0.85rem; gap: 12px; }
+        }
+
+        @media (max-width: 600px) {
+            .slide { padding: 20px 15px; padding-bottom: 100px; }
+            h1 { font-size: 1.6rem; }
+            h2 { font-size: 1.4rem; margin-bottom: 20px; }
+            h3 { font-size: 1.1rem; }
+            p, li { font-size: 1rem; }
+            .stat-grid, .stat-grid-4 { grid-template-columns: 1fr; gap: 10px; }
+            .stat-card .number { font-size: 1.5rem; }
+            .big-number { font-size: 2.5rem; }
+            table { font-size: 0.85rem; }
+            th, td { padding: 8px 10px; }
+            .box { padding: 15px; }
+            .box p { font-size: 0.95rem; }
+            .math-box { font-size: 0.9rem; padding: 15px; }
+            .rate-bar { height: 35px; font-size: 0.65rem; }
+            .rate-bar .segment { padding: 0 5px; }
+        }
+
+        /* Print styles for better PDF export */
+        @media print {
+            body { overflow: visible; }
+            .slide {
+                display: block !important;
+                page-break-after: always;
+                min-height: 100vh;
+            }
+            .nav-hint { display: none; }
         }
     </style>
 </head>
@@ -480,7 +581,7 @@
     </div>
 
     <p style="margin-top: 30px; color: rgba(255,255,255,0.6);">The TEA Commissioner will evaluate your decision on these criteria.</p>
-    <div class="slide-number">2 / 17</div>
+    <div class="slide-number">2 / 19</div>
 </div>
 
 <!-- Slide 3: Current Reality -->
@@ -511,7 +612,7 @@
     </ul>
 
     <div class="footnote"><strong>Sources:</strong> Student count from PISD Transfer Records; School assignments from PISD Administration</div>
-    <div class="slide-number">3 / 17</div>
+    <div class="slide-number">3 / 19</div>
 </div>
 
 <!-- Slide 4: What Annexation Means for Students -->
@@ -536,7 +637,7 @@
         </div>
     </div>
 
-    <div class="slide-number">4 / 17</div>
+    <div class="slide-number">4 / 19</div>
 </div>
 
 <!-- Slide 5: Tax Rate Components Explained -->
@@ -573,7 +674,7 @@
     <p style="margin-top: 20px; text-align: center;"><strong>Total PISD Tax Rate: $1.2141 per $100</strong></p>
 
     <div class="footnote"><strong>Sources:</strong> PISD 2025-26 Adopted Budget; MCR from TEA Tax Year 2025 Final MCRs (ty2025-final-mcrs.pdf)</div>
-    <div class="slide-number">5 / 17</div>
+    <div class="slide-number">5 / 19</div>
 </div>
 
 <!-- Slide 6: Current Student Cost Reality -->
@@ -629,7 +730,7 @@
     </div>
 
     <div class="footnote"><strong>Source:</strong> PISD 2025-2026 Adopted Budget — State Revenue $201,465,591 ÷ 32,832 ADA = $6,136/student; Total Expenditures $427,215,623 ÷ 32,832 ADA = $13,012/student</div>
-    <div class="slide-number">6 / 18</div>
+    <div class="slide-number">6 / 19</div>
 </div>
 
 <!-- Slide 7: What Annexation Brings -->
@@ -693,7 +794,7 @@
     </p>
 
     <div class="footnote"><strong>Sources:</strong> TAV from Denton CAD 2024; Tax rates from PISD 2025-26 Budget; Recapture per TEA copper penny formula; Denton Debt per TEC § 13.004</div>
-    <div class="slide-number">7 / 18</div>
+    <div class="slide-number">7 / 19</div>
 </div>
 
 <!-- Slide 8: Recapture Explained -->
@@ -730,7 +831,7 @@
     </div>
 
     <div class="footnote"><strong>Sources:</strong> TEA copper penny yield $49.28/WADA; Recapture calculation per prosperisdpetition.com/calculator; PISD Admin figure: $68,559 (different methodology)</div>
-    <div class="slide-number">8 / 18</div>
+    <div class="slide-number">8 / 19</div>
 </div>
 
 <!-- Slide 9: The Long-Term Picture -->
@@ -749,7 +850,7 @@
     </div>
 
     <div class="footnote"><strong>Sources:</strong> Year 26+: ~$9M net benefit; Assumes 5% property value growth, enrollment capped 55K, 25-year Denton debt per TEC § 13.004</div>
-    <div class="slide-number">9 / 18</div>
+    <div class="slide-number">9 / 19</div>
 </div>
 
 <!-- Slide 10: 30-Year Cumulative -->
@@ -767,7 +868,7 @@
     </p>
 
     <div class="footnote"><strong>Sources:</strong> 30-year projection per prosperisdpetition.com/calculator; Copper Penny recapture per TEA formula (PISD not in Tier 1); 5% property value growth, enrollment capped 55K; 25-year Denton debt per TEC § 13.004</div>
-    <div class="slide-number">10 / 18</div>
+    <div class="slide-number">10 / 19</div>
 </div>
 
 <!-- Slide 11: Tax Impact to Windsong Homeowners -->
@@ -811,7 +912,7 @@
     </p>
 
     <div class="footnote"><strong>Sources:</strong> Avg home value from Denton CAD 2024; PISD rates from PISD 2025-26 Budget; DISD rates from DISD 2025-26 Budget (Post-VATRE)</div>
-    <div class="slide-number">11 / 18</div>
+    <div class="slide-number">11 / 19</div>
 </div>
 
 <!-- Slide 12: Rate Breakdown Comparison -->
@@ -878,7 +979,7 @@
     </div>
 
     <div class="footnote"><strong>Sources:</strong> PISD 2025-26 Adopted Budget; DISD 2025-26 Adopted Budget (Post-VATRE)</div>
-    <div class="slide-number">12 / 18</div>
+    <div class="slide-number">12 / 19</div>
 </div>
 
 <!-- Slide 13: Social Impact -->
@@ -904,7 +1005,7 @@
     </p>
 
     <div class="footnote"><strong>Sources:</strong> Quote from PISD Administration Analysis; TAV from Denton CAD 2024; Signatures from Denton County Voter Registrar</div>
-    <div class="slide-number">13 / 18</div>
+    <div class="slide-number">13 / 19</div>
 </div>
 
 <!-- Slide 14: The Alternative -->
@@ -937,7 +1038,7 @@
     </p>
 
     <div class="footnote"><strong>Sources:</strong> DISD revenue: Denton CAD × DISD rates; Copper Penny recapture per TEA formula (PISD not in Tier 1); 5% property value growth</div>
-    <div class="slide-number">14 / 18</div>
+    <div class="slide-number">14 / 19</div>
 </div>
 
 <!-- Slide 15: Addressing Concerns -->
@@ -948,9 +1049,9 @@
     <div class="question-box" style="margin: 10px 0; padding: 20px;">
         <h3 style="margin-bottom: 10px;">"What about PEF?"</h3>
         <ul style="margin: 0;">
-            <li>PEF has <span class="highlight">$3.27M in assets</span> and $1.65M annual revenue</li>
-            <li>PEF leadership confirmed WSR was always a <span class="highlight">"declining revenue source"</span></li>
-            <li>PEF will survive and thrive — they always have</li>
+            <li>PEF has <span class="highlight">$3.27M in assets</span> and $1.65M annual revenue (Form 990)</li>
+            <li>WSR CEF contributions: $4.45M total (2021-2025), now <span class="warning">declining to ~$479K/yr</span></li>
+            <li>WSR is <span class="highlight">&lt;10%</span> of PEF's total revenue — PEF will thrive</li>
         </ul>
     </div>
 
@@ -970,12 +1071,58 @@
         </ul>
     </div>
 
-    <div class="footnote"><strong>Sources:</strong> PEF data from Form 990 (2024) via ProPublica Nonprofit Explorer; TEC Chapter 13 from Texas Education Code</div>
-    <div class="slide-number">15 / 18</div>
+    <div class="footnote"><strong>Sources:</strong> PEF Form 990 (2024) via ProPublica; WSR HOA CEF Budget 2021-2026; TEC Chapter 13</div>
+    <div class="slide-number">15 / 19</div>
 </div>
 
-<!-- Slide 16: Fiduciary Duty -->
+<!-- Slide 16: Trustee Questions Answered -->
 <div class="slide" data-slide="16">
+    <div class="logo">prosperisdpetition.com</div>
+    <h2>Your Questions, Answered</h2>
+    <h3 style="color: rgba(255,255,255,0.6);">Key Financial Questions from the Board</h3>
+
+    <div class="table-container" style="margin-top: 10px;">
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 50%;">Question</th>
+                    <th class="right">Answer</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>What is the true net tax revenue impact?</strong></td>
+                    <td class="right highlight" style="font-size: 1.4rem;"><strong>+$3,727,891</strong> Year 1</td>
+                </tr>
+                <tr>
+                    <td><strong>How much additional recapture would PISD owe?</strong></td>
+                    <td class="right warning"><strong>$310,000</strong> (copper penny only)</td>
+                </tr>
+                <tr>
+                    <td><strong>What Denton ISD debt would PISD assume?</strong></td>
+                    <td class="right warning"><strong>$2,490,000/yr</strong> for 25 years</td>
+                </tr>
+                <tr>
+                    <td><strong>What if DISD voted NO?</strong></td>
+                    <td class="right">TEA Commissioner decides<br><span style="font-size: 0.9rem; color: rgba(255,255,255,0.6);">TEC § 13.051 criteria apply</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="box green" style="margin-top: 15px;">
+        <p style="text-align: center; font-size: 1.1rem; margin: 0;">
+            <strong>Bottom Line:</strong> After recapture and Denton debt, PISD nets <span class="highlight">$3.73M in Year 1</span>.<br>
+            After 25 years (debt paid off), annual benefit grows to <span class="highlight">$6.2M+</span>
+        </p>
+    </div>
+
+    <div class="footnote"><strong>Sources:</strong> Net revenue per prosperisdpetition.com/calculator; Recapture per TEA formula; Denton Debt per TEC § 13.004; TEA process per TEC Chapter 13</div>
+    <div class="slide-number">16 / 19</div>
+</div>
+
+<!-- Slide 17: Fiduciary Duty -->
+<div class="slide" data-slide="17">
     <div class="logo">prosperisdpetition.com</div>
     <h2>The Fiduciary Question</h2>
 
@@ -1010,11 +1157,11 @@
     </div>
 
     <div class="footnote"><strong>Sources:</strong> Budget shortfall from PISD 2025-26 Adopted Budget; Copper Penny recapture per TEA formula (PISD not in Tier 1); 5% property value growth, enrollment capped 55K</div>
-    <div class="slide-number">16 / 18</div>
+    <div class="slide-number">17 / 19</div>
 </div>
 
-<!-- Slide 17: Data Sources -->
-<div class="slide" data-slide="17">
+<!-- Slide 18: Data Sources -->
+<div class="slide" data-slide="18">
     <div class="logo">prosperisdpetition.com</div>
     <h2>Data Sources</h2>
     <h3 style="color: rgba(255,255,255,0.6);">All Financial Data Verified from Official Sources</h3>
@@ -1080,11 +1227,11 @@
         Full analysis available at <span class="highlight">prosperisdpetition.com</span>
     </p>
 
-    <div class="slide-number">17 / 18</div>
+    <div class="slide-number">18 / 19</div>
 </div>
 
-<!-- Slide 18: Closing -->
-<div class="slide title-slide" data-slide="18">
+<!-- Slide 19: Closing -->
+<div class="slide title-slide" data-slide="19">
     <h1>We Ask for Your YES Vote</h1>
 
     <div style="margin-top: 40px;">
@@ -1112,8 +1259,8 @@
 
 <!-- ==================== PRIVATE SLIDES (Q&A / Backup) ==================== -->
 
-<!-- Slide 19: PRIVATE - Data Comparison -->
-<div class="slide" data-slide="19">
+<!-- Slide 20: PRIVATE - Data Comparison -->
+<div class="slide" data-slide="20">
     <div class="private-badge">PRIVATE - Q&A BACKUP</div>
     <div class="logo">prosperisdpetition.com</div>
     <h2>Data Comparison: PISD vs Our Model</h2>
@@ -1186,11 +1333,11 @@
         **Students already in ADA — no NEW cost to educate them.
     </p>
 
-    <div class="slide-number">19 / 22</div>
+    <div class="slide-number">20 / 23</div>
 </div>
 
-<!-- Slide 20: PRIVATE - Long-Term Projections Comparison -->
-<div class="slide" data-slide="20">
+<!-- Slide 21: PRIVATE - Long-Term Projections Comparison -->
+<div class="slide" data-slide="21">
     <div class="private-badge">PRIVATE - Q&A BACKUP</div>
     <div class="logo">prosperisdpetition.com</div>
     <h2>Long-Term Projections: PISD Admin vs Our Model</h2>
@@ -1250,11 +1397,11 @@
         *Students already attend PISD schools — no incremental cost to educate them
     </p>
 
-    <div class="slide-number">20 / 22</div>
+    <div class="slide-number">21 / 23</div>
 </div>
 
-<!-- Slide 21: PRIVATE - Questions for Administration -->
-<div class="slide" data-slide="21">
+<!-- Slide 22: PRIVATE - Questions for Administration -->
+<div class="slide" data-slide="22">
     <div class="private-badge">PRIVATE - Q&A BACKUP</div>
     <div class="logo">prosperisdpetition.com</div>
     <h2>Questions to Ask Administration</h2>
@@ -1279,11 +1426,11 @@
         <p>We see none — students already fully integrated in PISD schools</p>
     </div>
 
-    <div class="slide-number">21 / 22</div>
+    <div class="slide-number">22 / 23</div>
 </div>
 
-<!-- Slide 22: PRIVATE - Data Sources -->
-<div class="slide" data-slide="22">
+<!-- Slide 23: PRIVATE - Data Sources -->
+<div class="slide" data-slide="23">
     <div class="private-badge">PRIVATE - Q&A BACKUP</div>
     <div class="logo">prosperisdpetition.com</div>
     <h2>Data Sources</h2>
@@ -1342,10 +1489,10 @@
         </table>
     </div>
 
-    <div class="slide-number">22 / 22</div>
+    <div class="slide-number">23 / 23</div>
 </div>
 
-<div class="nav-hint">← → Arrow keys or click to navigate | Slides 19-22 are private backup</div>
+<div class="nav-hint">← → Arrow keys or click to navigate | Slides 20-23 are private backup</div>
 
 <script>
     let currentSlide = 1;
