@@ -452,7 +452,9 @@
                 const addRecap = fYes.recap - fNo.recap;
                 const addNetMO = fYes.netMO - fNo.netMO;
                 const yRem = Math.max(0, dYears - y + 1);
-                const dShare = yRem > 0 ? dDebt * (annexY / dTAV) : 0;
+                // Denton TAV grows at same rate as PISD property values
+                const dTAVy = dTAV * pvF;
+                const dShare = yRem > 0 ? dDebt * (annexY / dTAVy) : 0;
                 const netIS = addIS - dShare;
                 const benefit = addNetMO + netIS;
                 cumul += benefit;
