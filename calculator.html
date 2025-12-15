@@ -452,9 +452,9 @@
                 const addRecap = fYes.recap - fNo.recap;
                 const addNetMO = fYes.netMO - fNo.netMO;
                 const yRem = Math.max(0, dYears - y + 1);
-                // Denton TAV grows at same rate as PISD property values
-                const dTAVy = dTAV * pvF;
-                const dShare = yRem > 0 ? dDebt * (annexY / dTAVy) : 0;
+                // Debt share is fixed at annexation time per TEC § 13.004
+                // Uses Year 1 property values (annexVal / dTAV), not growing values
+                const dShare = yRem > 0 ? dDebt * (annexVal / dTAV) : 0;
                 const netIS = addIS - dShare;
                 const benefit = addNetMO + netIS;
                 cumul += benefit;
