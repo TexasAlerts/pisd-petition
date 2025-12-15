@@ -74,7 +74,7 @@ But here's what changes after Year 25 when the Denton debt is paid off:
 
 **Annual Net Benefit (Year 26+)**: **$9+ Million per year**
 
-**30-Year Cumulative Net Benefit: $248 Million**
+**30-Year Cumulative Net Benefit: $350 Million**
 
 This analysis uses official TEA formulas, including Copper Penny recapture. PISD is not currently in Tier 1 (MCR) recapture. We encourage you to verify these figures with your administration.
 
@@ -135,11 +135,11 @@ You have a fiduciary duty to the financial health of Prosper ISD.
 The data shows this annexation generates:
 - $6.5 million in Year 1 revenue
 - Net positive returns even after all costs
-- $248 million over 30 years (our model with full recapture)
+- $350 million over 30 years (our model with Copper Penny recapture)
 
 Voting NO means:
 - Continuing to educate students without local tax support
-- Leaving $248 million on the table over 30 years
+- Leaving $350 million on the table over 30 years
 - Forcing other PISD taxpayers to subsidize our children
 
 **A NO vote is not fiscally responsible. It's not what's best for PISD students. And it's not what the law intends.**
@@ -166,7 +166,7 @@ Thank you. I'm happy to answer questions.
 If trustees want to probe the financial impact, consider asking:
 
 1. **"What is the 30-year cumulative net revenue from this annexation?"**
-   - Our independent model shows ~$248 million
+   - Our independent model shows ~$350 million
 
 2. **"After the Denton debt is paid off in Year 25, what is the annual net benefit?"**
    - Our model shows ~$9 million/year (Year 26+)
