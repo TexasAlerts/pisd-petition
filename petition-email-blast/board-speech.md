@@ -65,18 +65,18 @@ We built a model using current TEA school finance formulas, 2025-26 adopted tax 
 | **Total New Revenue** | **$6.5 Million** |
 | | |
 | **Less: Student Education Costs** | -$3,700,000 |
-| **Less: Additional Recapture** | -$310,000 |
+| **Less: Additional Recapture (Copper Penny)** | -$310,000 |
 | **Less: Denton Debt Share (Year 1)** | -$2,490,000 |
 | | |
 | **Year 1 Net Benefit** | **$3.73 Million** |
 
-But here's what changes after Year 12 when the Denton debt is paid off:
+But here's what changes after Year 25 when the Denton debt is paid off:
 
-**Annual Net Benefit (Year 13+)**: **$9+ Million per year**
+**Annual Net Benefit (Year 26+)**: **$9+ Million per year**
 
 **30-Year Cumulative Net Benefit: $248 Million**
 
-This analysis uses official TEA formulas, including full recapture modeling. We encourage you to verify these figures with your administration.
+This analysis uses official TEA formulas, including Copper Penny recapture. PISD is not currently in Tier 1 (MCR) recapture. We encourage you to verify these figures with your administration.
 
 ---
 
@@ -168,8 +168,8 @@ If trustees want to probe the financial impact, consider asking:
 1. **"What is the 30-year cumulative net revenue from this annexation?"**
    - Our independent model shows ~$248 million
 
-2. **"After the Denton debt is paid off in Year 12, what is the annual net benefit?"**
-   - Our model shows ~$9 million/year
+2. **"After the Denton debt is paid off in Year 25, what is the annual net benefit?"**
+   - Our model shows ~$9 million/year (Year 26+)
 
 3. **"What is the cost to PISD of continuing to educate these students without annexation?"**
    - Answer: They're already in our ADA count. We educate them regardless. Annexation just brings the revenue.
@@ -190,7 +190,7 @@ If trustees want to probe the financial impact, consider asking:
 | Property Value ($537.7M) | Denton CAD 2024 Certified Values |
 | Student Count (274) | PISD Transfer Records |
 | Voter Signatures (360/684) | Denton County Voter Registrar |
-| Denton Debt ($31.75M over 12 years) | Denton ISD Budget Documents |
+| Denton Debt (25 years per TEC § 13.004) | Denton ISD Budget Documents |
 | Recapture Model | TEA School Finance Formulas (MCR $0.5758, Copper Yield $49.28/WADA) |
 | Growth Assumptions | 5% property value growth, 5.8% enrollment growth (capped 55K) |
 | PEF Financials | Form 990 (2024), ProPublica Nonprofit Explorer |
