@@ -1,0 +1,27 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Windsong Ranch Petition//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:prosper-meeting-20251215@prosperisdpetition.com
+DTSTAMP:20251212T120000Z
+DTSTART:20251215T190000
+DTEND:20251215T210000
+SUMMARY:CRITICAL: Prosper ISD Board Vote - Windsong Ranch Annexation
+DESCRIPTION:CRITICAL: Prosper ISD votes on Windsong Ranch annexation petition.\n\nDenton ISD denied on Dec 9 - now PISD approval sends this to TEA Commissioner for final decision.\n\nYour attendance is crucial!\n\nSign up to speak by NOON on December 15:\nhttps://www.prosper-isd.net/page/school-board-meetings\n\nMore info: https://prosperisdpetition.com
+LOCATION:Prosper ISD Administration Building, 605 E 7th Street, Prosper, TX 75078
+STATUS:CONFIRMED
+SEQUENCE:0
+BEGIN:VALARM
+TRIGGER:-PT24H
+ACTION:DISPLAY
+DESCRIPTION:CRITICAL: Prosper ISD Vote Tomorrow at 7:00 PM - Pack the Room!
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-PT2H
+ACTION:DISPLAY
+DESCRIPTION:Prosper ISD Vote in 2 hours at 7:00 PM!
+END:VALARM
+END:VEVENT
+END:VCALENDAR

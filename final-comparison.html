@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Final Comparison - With All Academic Changes</title>
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+
+  body {
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #1a1a1a;
+  }
+
+  /* Fixed header */
+  .comparison-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #1a1a1a;
+    color: white;
+    padding: 16px;
+    z-index: 1000;
+    border-bottom: 2px solid #444;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .header-section {
+    text-align: center;
+  }
+
+  .header-section h2 {
+    margin: 0;
+    font-size: 1.2rem;
+    padding: 8px;
+    border-radius: 6px;
+  }
+
+  .current-header {
+    background: #dc2626;
+  }
+
+  .proposed-header {
+    background: #10b981;
+  }
+
+  /* Main comparison container */
+  .comparison-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 80px;
+    height: calc(100vh - 80px);
+    overflow: hidden;
+  }
+
+  /* Website frames */
+  .website-frame {
+    height: 100%;
+    overflow-y: auto;
+    background: white;
+    border: 2px solid #333;
+  }
+
+  .website-frame::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  .website-frame::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  .website-frame::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px;
+  }
+
+  .website-frame::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
+  /* Content styles matching actual website */
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /* Header */
+  header {
+    background: #1e3a8a;
+    color: #fff;
+    padding: 40px 20px;
+    text-align: center;
+  }
+
+  header h1 {
+    margin: 0 0 16px 0;
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+  }
+
+  header .subtitle {
+    font-size: 1.1rem;
+    opacity: 0.95;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  /* Urgent Meeting Banner */
+  .urgent-banner {
+    background: #dc2626;
+    color: white;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .urgent-banner .meeting-date {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0 0 8px 0;
+  }
+
+  .urgent-banner .meeting-location {
+    font-size: 1rem;
+    opacity: 0.95;
+  }
+
+  /* Countdown Timer */
+  .countdown {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 16px;
+    flex-wrap: wrap;
+  }
+
+  .countdown-item {
+    background: rgba(255,255,255,0.15);
+    padding: 12px 20px;
+    border-radius: 8px;
+    min-width: 80px;
+  }
+
+  .countdown-number {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .countdown-label {
+    display: block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    opacity: 0.9;
+    margin-top: 4px;
+  }
+
+  /* Facts Section */
+  .facts-section {
+    background: #f8f9fa;
+    padding: 40px 20px;
+  }
+
+  .facts-section h2 {
+    color: #1e3a8a;
+    text-align: center;
+    margin: 0 0 32px 0;
+    font-size: 1.8rem;
+  }
+
+  .facts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 32px;
+  }
+
+  .fact-card {
+    background: white;
+    padding: 24px;
+    border-radius: 12px;
+    text-align: center;
+    border: 2px solid #e5e7eb;
+    transition: all 0.2s;
+  }
+
+  .fact-card:hover {
+    border-color: #1e3a8a;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(30, 58, 138, 0.1);
+  }
+
+  /* Financial KPIs */
+  .fact-card.financial {
+    border-top: 4px solid #1e3a8a;
+  }
+
+  /* Academic KPIs - NEW */
+  .fact-card.academic {
+    border-top: 4px solid #10b981;
+    background: linear-gradient(to bottom, #f0fdf4 0%, #ffffff 20%);
+  }
+
+  .fact-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1e3a8a;
+    margin: 0 0 8px 0;
+  }
+
+  .fact-card.academic .fact-number {
+    color: #059669;
+  }
+
+  .fact-label {
+    color: #64748b;
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+
+  /* Section divider */
+  .section-divider {
+    text-align: center;
+    margin: 32px 0;
+    position: relative;
+  }
+
+  .section-divider::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    height: 1px;
+    background: #e5e7eb;
+  }
+
+  .section-divider span {
+    background: #f8f9fa;
+    padding: 0 16px;
+    position: relative;
+    font-weight: 600;
+    color: #64748b;
+    font-size: 0.9rem;
+  }
+
+  .new-indicator {
+    background: #10b981;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    display: inline-block;
+    margin-left: 8px;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+  }
+
+  .why-matters {
+    background: white;
+    padding: 24px;
+    border-radius: 12px;
+    margin-top: 24px;
+  }
+
+  .why-matters h3 {
+    color: #1e3a8a;
+    margin: 0 0 16px 0;
+  }
+
+  .why-matters ul {
+    margin: 0;
+    padding-left: 20px;
+  }
+
+  .why-matters li {
+    margin-bottom: 12px;
+    color: #4b5563;
+  }
+
+  .why-matters li strong {
+    color: #1e3a8a;
+  }
+
+  /* Highlight new content */
+  .new-content {
+    background: #dcfce7;
+    border-left: 4px solid #10b981;
+    padding-left: 12px;
+    margin-left: -16px;
+    animation: highlight 2s infinite;
+  }
+
+  @keyframes highlight {
+    0%, 100% { background: #dcfce7; }
+    50% { background: #bbf7d0; }
+  }
+
+  /* Red box for meeting */
+  .meeting-alert {
+    background: #fee2e2;
+    border: 2px solid #dc2626;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 24px;
+    text-align: center;
+  }
+
+  .meeting-alert h3 {
+    color: #991b1b;
+    margin: 0 0 12px 0;
+  }
+
+  .meeting-alert p {
+    color: #7f1d1d;
+    margin: 0;
+    font-size: 1.05rem;
+  }
+
+  .meeting-alert a {
+    color: #1e3a8a;
+    text-decoration: underline;
+  }
+
+  /* Action Section */
+  .action-section {
+    background: #fff;
+    padding: 60px 20px;
+  }
+
+  .action-header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .action-header h2 {
+    color: #1e3a8a;
+    font-size: 2rem;
+    margin: 0 0 16px 0;
+  }
+
+  .action-header p {
+    color: #4b5563;
+    font-size: 1.05rem;
+  }
+
+  .status-box {
+    margin-top: 20px;
+    padding: 16px;
+    background: #fef3c7;
+    border-radius: 8px;
+    display: inline-block;
+  }
+
+  .status-box p {
+    margin: 0;
+    color: #92400e;
+    font-weight: 600;
+  }
+
+  /* Steps */
+  .step-container {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .step-card {
+    background: #f8f9fa;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 24px;
+    transition: all 0.3s;
+  }
+
+  .step-card.active {
+    background: #fff;
+    border-color: #1e3a8a;
+    box-shadow: 0 4px 12px rgba(30, 58, 138, 0.1);
+  }
+
+  .step-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  .step-number {
+    background: #1e3a8a;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.2rem;
+  }
+
+  .step-title h3 {
+    margin: 0;
+    color: #1e3a8a;
+  }
+
+  .time-estimate {
+    font-size: 0.9rem;
+    color: #64748b;
+  }
+
+  .step-description {
+    color: #4b5563;
+    margin-bottom: 20px;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 14px 28px;
+    background: #1e3a8a;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1.05rem;
+    border: none;
+    cursor: pointer;
+  }
+
+  .btn:hover {
+    background: #1e40af;
+  }
+
+  /* Share Section */
+  .share-section {
+    background: #f8f9fa;
+    padding: 40px 20px;
+    text-align: center;
+  }
+
+  .share-section h2 {
+    color: #1e3a8a;
+    margin: 0 0 16px 0;
+    font-size: 1.8rem;
+  }
+
+  /* Resources Section */
+  .resources-section {
+    background: #fff;
+    padding: 40px 20px;
+  }
+
+  .resources-section h2 {
+    color: #1e3a8a;
+    text-align: center;
+    margin: 0 0 16px 0;
+    font-size: 1.8rem;
+  }
+
+  .resources-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 32px 0;
+    display: grid;
+    gap: 16px;
+  }
+
+  .resources-list li {
+    background: #f8f9fa;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 20px;
+  }
+
+  .resources-list a {
+    color: #1e3a8a;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.05rem;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .doc-description {
+    color: #6b7280;
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  /* Footer */
+  footer {
+    background: #f8f9fa;
+    padding: 32px 20px;
+    text-align: center;
+    color: #666;
+    border-top: 1px solid #e5e7eb;
+  }
+
+  footer a {
+    color: #1e3a8a;
+    text-decoration: none;
+  }
+
+  /* Changes indicator */
+  .changes-indicator {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #10b981;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 20px;
+    font-weight: 600;
+    z-index: 999;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  }
+
+  /* Mobile adjustment */
+  @media (max-width: 768px) {
+    .facts-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- Fixed comparison header -->
+<div class="comparison-header">
+  <div class="header-section">
+    <h2 class="current-header">❌ CURRENT LIVE WEBSITE</h2>
+    <p style="margin: 4px 0 0 0; font-size: 0.9rem; color: #aaa;">What visitors see now</p>
+  </div>
+  <div class="header-section">
+    <h2 class="proposed-header">✅ PROPOSED VERSION</h2>
+    <p style="margin: 4px 0 0 0; font-size: 0.9rem; color: #aaa;">With academic data integrated</p>
+  </div>
+</div>
+
+<!-- Main comparison -->
+<div class="comparison-container">
+
+  <!-- CURRENT VERSION (LEFT) -->
+  <div class="website-frame" id="current">
+
+    <!-- Header -->
+    <header>
+      <div class="container">
+        <h1>Bring the Money Home to Prosper ISD</h1>
+        <p class="subtitle">274 Windsong Ranch students already attend Prosper ISD schools. Their $6.2 million in tax dollars should too.</p>
+      </div>
+    </header>
+
+    <!-- Urgent Meeting Banner -->
+    <section class="urgent-banner">
+      <div class="container">
+        <div class="meeting-date">🚨 December 15, 2025 at 7:00 PM</div>
+        <div class="meeting-location">Prosper ISD Board Meeting • 605 E 7th Street, Prosper, TX 75078</div>
+        <div class="countdown">
+          <div class="countdown-item">
+            <span class="countdown-number">24</span>
+            <span class="countdown-label">Days</span>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-number">16</span>
+            <span class="countdown-label">Hours</span>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-number">42</span>
+            <span class="countdown-label">Minutes</span>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-number">18</span>
+            <span class="countdown-label">Seconds</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Facts Section - CURRENT -->
+    <section class="facts-section">
+      <div class="container">
+        <h2>The Facts You Need to Know</h2>
+
+        <div class="facts-grid">
+          <div class="fact-card">
+            <p class="fact-number">274</p>
+            <p class="fact-label">Windsong Ranch students currently attending Prosper ISD schools</p>
+          </div>
+          <div class="fact-card">
+            <p class="fact-number">$6.2M</p>
+            <p class="fact-label">Annual tax revenue Prosper ISD loses to Denton ISD while educating these students</p>
+          </div>
+          <div class="fact-card">
+            <p class="fact-number">52.6%</p>
+            <p class="fact-label">Of registered voters signed the petition (360 of 684) - majority support demonstrated</p>
+          </div>
+          <div class="fact-card">
+            <p class="fact-number">$510M</p>
+            <p class="fact-label">In assessed property value generating the $6.2M annual tax revenue for future bond capacity</p>
+          </div>
+        </div>
+
+        <div class="why-matters">
+          <h3>What's Really Happening Here</h3>
+          <ul>
+            <li><strong>The Legal Framework:</strong> Texas Education Code Section 13.051 provides for detachment and annexation of territory. Section 13.004 addresses debt allocation. Section 13.005 sets effective dates</li>
+            <li><strong>The Financial Reality:</strong> Prosper ISD educates all 274 students but loses $6.2 million annually from $510 million in assessed property value to Denton ISD - funds desperately needed for our schools and future bond capacity</li>
+            <li><strong>The Student Reality:</strong> All students from these 466 homes attend Prosper ISD schools under the Windsong Ranch Education Agreement. Zero attend Denton ISD</li>
+            <li><strong>The Petition Filed:</strong> October 20, 2025 - Official petition submitted with 52.6% voter support (360 of 684 registered voters), demonstrating clear majority support</li>
+            <li><strong>Board Actions Required:</strong> Prosper ISD scheduled hearing for December 15 at 7:00 PM. Denton ISD must also hold hearing and vote. Both boards must approve</li>
+          </ul>
+        </div>
+
+        <div class="meeting-alert">
+          <h3>Prosper ISD Board Meeting: December 15, 2025</h3>
+          <p>
+            <strong>7:00 PM at 605 E 7th Street, Prosper, TX 75078</strong><br>
+            Physical attendance matters. Board members need to see a room full of parents supporting this petition.<br>
+            <a href="#">View Board Meeting Agenda (when published)</a><br>
+            Denton ISD must also schedule their hearing and vote.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Continue with rest of current website... -->
+    <section class="action-section">
+      <div class="container">
+        <div class="action-header">
+          <h2>Drive Both School Boards to Approve</h2>
+          <p>The legal petition has been filed under TEC 13.051 with overwhelming support.</p>
+        </div>
+        <!-- Steps would go here -->
+      </div>
+    </section>
+
+    <section class="share-section">
+      <div class="container">
+        <h2>Already Completed? Share Again!</h2>
+        <p>The more people who take action, the stronger our case becomes.</p>
+      </div>
+    </section>
+
+    <section class="resources-section">
+      <div class="container">
+        <h2>📚 Official Petition Documents</h2>
+        <p style="text-align: center; color: #4b5563; margin-bottom: 32px;">Review the official petition documents.</p>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <h3 style="color: #1e3a8a;">Lead Petitioners</h3>
+        <p>Douglas Charles • Jeff Sterling</p>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- PROPOSED VERSION (RIGHT) -->
+  <div class="website-frame" id="proposed">
+
+    <!-- Header -->
+    <header>
+      <div class="container">
+        <h1>Bring the Money Home to Prosper ISD</h1>
+        <p class="subtitle">274 Windsong Ranch students already attend Prosper ISD schools. Their $6.2 million in tax dollars should too.</p>
+      </div>
+    </header>
+
+    <!-- Urgent Meeting Banner -->
+    <section class="urgent-banner">
+      <div class="container">
+        <div class="meeting-date">🚨 December 15, 2025 at 7:00 PM</div>
+        <div class="meeting-location">Prosper ISD Board Meeting • 605 E 7th Street, Prosper, TX 75078</div>
+        <div class="countdown">
+          <div class="countdown-item">
+            <span class="countdown-number">24</span>
+            <span class="countdown-label">Days</span>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-number">16</span>
+            <span class="countdown-label">Hours</span>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-number">42</span>
+            <span class="countdown-label">Minutes</span>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-number">18</span>
+            <span class="countdown-label">Seconds</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Facts Section - PROPOSED WITH ACADEMIC KPIs -->
+    <section class="facts-section">
+      <div class="container">
+        <h2>The Facts You Need to Know</h2>
+
+        <!-- Financial KPIs -->
+        <div class="facts-grid">
+          <div class="fact-card financial">
+            <p class="fact-number">274</p>
+            <p class="fact-label">Windsong Ranch students currently attending Prosper ISD schools</p>
+          </div>
+          <div class="fact-card financial">
+            <p class="fact-number">$6.2M</p>
+            <p class="fact-label">Annual tax revenue Prosper ISD loses to Denton ISD while educating these students</p>
+          </div>
+          <div class="fact-card financial">
+            <p class="fact-number">52.6%</p>
+            <p class="fact-label">Of registered voters signed the petition (360 of 684) - majority support demonstrated</p>
+          </div>
+          <div class="fact-card financial">
+            <p class="fact-number">$510M</p>
+            <p class="fact-label">In assessed property value generating the $6.2M annual tax revenue for future bond capacity</p>
+          </div>
+        </div>
+
+        <!-- Section Divider -->
+        <div class="section-divider">
+          <span>EDUCATIONAL EXCELLENCE <span class="new-indicator">NEW</span></span>
+        </div>
+
+        <!-- Academic KPIs - NEW -->
+        <div class="facts-grid">
+          <div class="fact-card academic">
+            <p class="fact-number">100%</p>
+            <p class="fact-label">Of Prosper ISD schools are A-rated (27 of 27 schools) vs 12.5% for Denton ISD</p>
+          </div>
+          <div class="fact-card academic">
+            <p class="fact-number">99.5%</p>
+            <p class="fact-label">Prosper ISD graduation rate compared to 97.6% for Denton ISD</p>
+          </div>
+          <div class="fact-card academic">
+            <p class="fact-number">24</p>
+            <p class="fact-label">National Merit Scholars in Prosper ISD vs only 4 in Denton ISD (6X more)</p>
+          </div>
+          <div class="fact-card academic">
+            <p class="fact-number">A vs B</p>
+            <p class="fact-label">Prosper ISD district rating (91/100) compared to Denton ISD (80/100)</p>
+          </div>
+        </div>
+
+        <div class="why-matters">
+          <h3>What's Really Happening Here</h3>
+          <ul>
+            <li><strong>The Legal Framework:</strong> Texas Education Code Section 13.051 provides for detachment and annexation of territory. Section 13.004 addresses debt allocation. Section 13.005 sets effective dates</li>
+            <li><strong>The Financial Reality:</strong> Prosper ISD educates all 274 students but loses $6.2 million annually from $510 million in assessed property value to Denton ISD - funds desperately needed for our schools and future bond capacity</li>
+            <li class="new-content"><strong>The Academic Reality:</strong> Families chose Prosper ISD where 100% of schools are A-rated (vs 12.5% for DISD), with a 99.5% graduation rate (vs 97.6%), and 24 National Merit Scholars (vs 4). Parents don't choose educational excellence by accident</li>
+            <li><strong>The Student Reality:</strong> All students from these 466 homes attend Prosper ISD schools under the Windsong Ranch Education Agreement. Zero attend Denton ISD</li>
+            <li><strong>The Petition Filed:</strong> October 20, 2025 - Official petition submitted with 52.6% voter support (360 of 684 registered voters), demonstrating clear majority support</li>
+            <li><strong>Board Actions Required:</strong> Prosper ISD scheduled hearing for December 15 at 7:00 PM. Denton ISD must also hold hearing and vote. Both boards must approve</li>
+          </ul>
+        </div>
+
+        <div class="meeting-alert">
+          <h3>Prosper ISD Board Meeting: December 15, 2025</h3>
+          <p>
+            <strong>7:00 PM at 605 E 7th Street, Prosper, TX 75078</strong><br>
+            Physical attendance matters. Board members need to see a room full of parents supporting this petition.<br>
+            <a href="#">View Board Meeting Agenda (when published)</a><br>
+            Denton ISD must also schedule their hearing and vote.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Continue with rest of proposed website... -->
+    <section class="action-section">
+      <div class="container">
+        <div class="action-header">
+          <h2>Drive Both School Boards to Approve</h2>
+          <p>The legal petition has been filed under TEC 13.051 with overwhelming support.</p>
+        </div>
+        <!-- Steps would go here -->
+      </div>
+    </section>
+
+    <section class="share-section">
+      <div class="container">
+        <h2>Already Completed? Share Again!</h2>
+        <p>The more people who take action, the stronger our case becomes.</p>
+      </div>
+    </section>
+
+    <section class="resources-section">
+      <div class="container">
+        <h2>📚 Official Petition Documents</h2>
+        <p style="text-align: center; color: #4b5563; margin-bottom: 32px;">Review the official petition documents.</p>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <h3 style="color: #1e3a8a;">Lead Petitioners</h3>
+        <p>Douglas Charles • Jeff Sterling</p>
+      </div>
+    </footer>
+
+  </div>
+</div>
+
+<!-- Changes indicator -->
+<div class="changes-indicator">
+  ✨ 2 Changes: Academic KPIs + Academic Reality bullet
+</div>
+
+</body>
+</html>

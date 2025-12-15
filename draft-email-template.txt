@@ -1,0 +1,36 @@
+Dear Prosper ISD and Denton ISD Board Members,
+
+My name is ${formData.name}, a ${formData.voterType} residing at ${formData.street}, ${formData.city}, ${formData.state} ${formData.zip}.
+
+I urge both Boards to approve the pending petition for detachment from Denton ISD and attachment to Prosper ISD under Texas Education Code Section 13.051, filed October 20, 2025.
+
+To Prosper ISD Board:
+Thank you for scheduling the December 15 hearing to address this petition. Your swift action demonstrates leadership and commitment to the students you serve. I urge you to vote YES to approve this petition. These 274 students already attend your schools, yet you receive $0.00 in property taxes to educate them. This petition will:
+• Generate $6.2 million annually for Prosper ISD operations
+• Add $510 million in taxable property for future bond capacity
+• Give these families voting rights in PISD governance
+• Align tax responsibility with educational responsibility
+
+This is the only known case in Texas where students already attend the district they're petitioning to join. Approval is the fiscally responsible and morally correct decision for our students and community.
+
+To Denton ISD Board:
+I respectfully urge you to schedule your hearing promptly as required under Texas Education Code Section 13.051. It has been nearly two months since the petition was filed, and there has been no communication about scheduling. Time is of the essence for these families and students.
+
+The right decision is to vote YES and avoid costly litigation. Texas Supreme Court precedent and the Education Commissioner's authority strongly support this petition. With your recent November 2025 tax rate increase, spending taxpayer dollars fighting a likely losing battle is indefensible. These students don't attend your schools — do the right thing for them and your taxpayers by approving this common-sense realignment.
+
+Key Facts:
+• The petition has majority voter support (52.6% of registered voters signed - 360 of 684)
+• All 274 students from these 466 homes already attend Prosper ISD schools
+• Zero students from this territory attend Denton ISD
+• This represents common-sense governance, fairness for students, and fiscal accountability
+• Permanent realignment ensures stability versus agreements that can be broken
+
+Both boards have an opportunity to do what's right for our children and communities. I respectfully urge both Boards to approve this petition.
+
+Thank you for your service and consideration.
+
+Sincerely,
+${formData.name}
+${formData.street}, ${formData.city}, ${formData.state} ${formData.zip}
+${formData.email}
+${formData.phone}

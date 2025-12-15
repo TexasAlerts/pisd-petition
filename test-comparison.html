@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>TEST VERSION - Prosper ISD: Bring Our Students' Tax Dollars Home</title>
+
+<!-- SEO Meta Tags -->
+<meta name="description" content="Join Prosper ISD voters in supporting permanent alignment of Windsong Ranch students with the district where they already attend school. Make your voice heard!" />
+<meta name="keywords" content="Prosper ISD, Denton ISD, Windsong Ranch, school district, petition, Texas Education Code, TEC 13.051" />
+<meta name="author" content="Doug Charles, Jeff Sterling" />
+
+<!-- Open Graph / Social Media -->
+<meta property="og:title" content="Prosper ISD: Bring Our Students' Tax Dollars Home" />
+<meta property="og:description" content="Support permanent alignment of Windsong Ranch with Prosper ISD - where students already attend!" />
+<meta property="og:type" content="website" />
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏫</text></svg>" />
+
+<style>
+  /* Reset and Base Styles */
+  *, *::before, *::after { box-sizing: border-box; }
+
+  body {
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    margin: 0;
+    background: #ffffff;
+    color: #1a1a1a;
+    line-height: 1.6;
+  }
+
+  /* Container */
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /* Test Banner */
+  .test-banner {
+    background: #fbbf24;
+    color: #000;
+    padding: 12px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.1rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 3px solid #f59e0b;
+  }
+
+  /* Header - Simple and Clean */
+  header {
+    background: #1e3a8a;
+    color: #fff;
+    padding: 40px 20px;
+    text-align: center;
+  }
+
+  header h1 {
+    margin: 0 0 16px 0;
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+  }
+
+  header .subtitle {
+    font-size: 1.1rem;
+    opacity: 0.95;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  /* NEW: Educational Excellence Section */
+  .excellence-section {
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    padding: 60px 20px;
+    margin: 40px 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .excellence-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #1e3a8a, #1e40af, #1e3a8a);
+  }
+
+  .excellence-header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .excellence-header h2 {
+    color: #1e3a8a;
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0 0 16px 0;
+  }
+
+  .excellence-header .tagline {
+    font-size: 1.3rem;
+    color: #1e40af;
+    font-weight: 600;
+    margin: 0 0 8px 0;
+  }
+
+  .excellence-header .subtitle {
+    color: #64748b;
+    font-size: 1rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  /* Comparison Cards */
+  .comparison-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    max-width: 700px;
+    margin: 0 auto 40px auto;
+  }
+
+  .district-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: transform 0.2s;
+  }
+
+  .district-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+  }
+
+  .district-card.denton {
+    border-top: 4px solid #6b7280;
+  }
+
+  .district-card.prosper {
+    border-top: 4px solid #10b981;
+    position: relative;
+  }
+
+  .district-card.prosper::after {
+    content: "✓ Parents' Choice";
+    position: absolute;
+    top: -12px;
+    right: 16px;
+    background: #10b981;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 700;
+  }
+
+  .district-name {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .district-card.denton .district-name {
+    color: #6b7280;
+  }
+
+  .district-card.prosper .district-name {
+    color: #10b981;
+  }
+
+  .metric-row {
+    padding: 12px 0;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  .metric-row:last-child {
+    border-bottom: none;
+  }
+
+  .metric-label {
+    font-size: 0.85rem;
+    color: #6b7280;
+    margin-bottom: 4px;
+  }
+
+  .metric-value {
+    font-size: 1.2rem;
+    font-weight: 700;
+  }
+
+  .district-card.prosper .metric-value {
+    color: #065f46;
+  }
+
+  .district-card.denton .metric-value {
+    color: #374151;
+  }
+
+  .metric-value.highlight {
+    color: #10b981 !important;
+    font-size: 1.3rem;
+  }
+
+  /* Key Stats Bar */
+  .key-stats {
+    background: #fff;
+    border-radius: 12px;
+    padding: 24px;
+    margin: 32px auto;
+    max-width: 700px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    text-align: center;
+  }
+
+  .stat-item {
+    padding: 16px;
+  }
+
+  .stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1e3a8a;
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 0.9rem;
+    color: #64748b;
+    margin-top: 8px;
+  }
+
+  /* Impact Statement */
+  .impact-statement {
+    background: #fef3c7;
+    border-left: 4px solid #f59e0b;
+    padding: 24px;
+    border-radius: 8px;
+    margin: 32px auto;
+    max-width: 700px;
+  }
+
+  .impact-statement h3 {
+    color: #92400e;
+    margin: 0 0 12px 0;
+    font-size: 1.2rem;
+  }
+
+  .impact-statement p {
+    color: #78350f;
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  /* Email Preview Section */
+  .email-preview-section {
+    background: #f8f9fa;
+    padding: 40px 20px;
+    margin: 40px 0;
+  }
+
+  .email-preview-section h2 {
+    color: #1e3a8a;
+    text-align: center;
+    margin-bottom: 24px;
+  }
+
+  .email-preview {
+    background: #fff;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 24px;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .email-header {
+    border-bottom: 1px solid #e5e7eb;
+    padding-bottom: 16px;
+    margin-bottom: 20px;
+  }
+
+  .email-field {
+    margin-bottom: 8px;
+  }
+
+  .email-field strong {
+    color: #6b7280;
+  }
+
+  .email-body {
+    line-height: 1.8;
+    color: #374151;
+    white-space: pre-wrap;
+  }
+
+  /* Mobile Responsive */
+  @media (max-width: 768px) {
+    .comparison-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .stats-grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .excellence-header h2 {
+      font-size: 1.6rem;
+    }
+
+    .district-card.prosper::after {
+      top: 8px;
+      right: 8px;
+    }
+  }
+
+  /* Test Controls */
+  .test-controls {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #1e3a8a;
+    color: white;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    z-index: 999;
+  }
+
+  .test-controls button {
+    background: #fff;
+    color: #1e3a8a;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    margin: 4px;
+  }
+
+  .test-controls button:hover {
+    background: #f3f4f6;
+  }
+</style>
+</head>
+<body>
+
+<!-- Test Banner -->
+<div class="test-banner">
+  ⚠️ TEST VERSION - This is a preview of the new educational comparison section
+</div>
+
+<!-- Header -->
+<header>
+  <div class="container">
+    <h1>Bring the Money Home to Prosper ISD</h1>
+    <p class="subtitle">274 Windsong Ranch students already attend Prosper ISD schools. Their $6.2 million in tax dollars should too.</p>
+  </div>
+</header>
+
+<!-- NEW: Educational Excellence Comparison Section -->
+<section class="excellence-section">
+  <div class="container">
+    <div class="excellence-header">
+      <h2>Why Educational Excellence Matters</h2>
+      <p class="tagline">Windsong Ranch families chose Prosper ISD for a reason</p>
+      <p class="subtitle">The data proves why families choose - and deserve to vote in - the district that shapes their children's future</p>
+    </div>
+
+    <div class="comparison-grid">
+      <!-- Denton ISD Card -->
+      <div class="district-card denton">
+        <div class="district-name">Denton ISD</div>
+
+        <div class="metric-row">
+          <div class="metric-label">District Rating</div>
+          <div class="metric-value">B (80/100)</div>
+        </div>
+
+        <div class="metric-row">
+          <div class="metric-label">A-Rated Schools</div>
+          <div class="metric-value">5 of 40</div>
+          <div class="metric-label" style="color: #dc2626;">Only 12.5%</div>
+        </div>
+
+        <div class="metric-row">
+          <div class="metric-label">Graduation Rate</div>
+          <div class="metric-value">97.6%</div>
+        </div>
+
+        <div class="metric-row">
+          <div class="metric-label">National Merit Scholars</div>
+          <div class="metric-value">4</div>
+          <div class="metric-label">2026 Semifinalists</div>
+        </div>
+      </div>
+
+      <!-- Prosper ISD Card -->
+      <div class="district-card prosper">
+        <div class="district-name">Prosper ISD</div>
+
+        <div class="metric-row">
+          <div class="metric-label">District Rating</div>
+          <div class="metric-value highlight">A (91/100)</div>
+        </div>
+
+        <div class="metric-row">
+          <div class="metric-label">A-Rated Schools</div>
+          <div class="metric-value highlight">27 of 27</div>
+          <div class="metric-label" style="color: #10b981; font-weight: 600;">100% Excellence</div>
+        </div>
+
+        <div class="metric-row">
+          <div class="metric-label">Graduation Rate</div>
+          <div class="metric-value highlight">99.5%</div>
+        </div>
+
+        <div class="metric-row">
+          <div class="metric-label">National Merit Scholars</div>
+          <div class="metric-value highlight">24</div>
+          <div class="metric-label">2026 Semifinalists</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Key Stats Bar -->
+    <div class="key-stats">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">of PISD schools are A-rated</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">6X</div>
+          <div class="stat-label">more National Merit Scholars</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">99.5%</div>
+          <div class="stat-label">graduation rate</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Impact Statement -->
+    <div class="impact-statement">
+      <h3>The Bottom Line</h3>
+      <p>
+        <strong>Every single Prosper ISD school is A-rated.</strong> With 6X more National Merit Scholars and a 99.5% graduation rate,
+        Prosper ISD delivers the educational excellence Windsong Ranch families expect and deserve.
+        These 274 students already attend Prosper ISD schools - now their families deserve to vote
+        in the district that shapes their children's future.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Email Preview Section -->
+<section class="email-preview-section">
+  <div class="container">
+    <h2>📧 Updated Email to Trustees - Preview</h2>
+
+    <div class="email-preview">
+      <div class="email-header">
+        <div class="email-field"><strong>To:</strong> superintendent@dentonisd.org, jthompson6@dentonisd.org, gbooher@dentonisd.org, mariarodriguez1@dentonisd.org, schager@dentonisd.org, deniselynn.smith@dentonisd.org, dfisher@dentonisd.org, mtumazos@dentonisd.org</div>
+        <div class="email-field"><strong>Cc:</strong> superintendent@prosperisd.net, drew.wilborn@prosperisd.net, david_hicks@prosperisd.net, amy_bundgus@prosperisd.net, lauren_mcaree@prosperisd.net, stefani_reinold@prosperisd.net, erick_rottler@prosperisd.net, dawnya_middlebrook@prosperisd.net</div>
+        <div class="email-field"><strong>Subject:</strong> Support Windsong Ranch Annexation to Prosper ISD - TEC 13.051</div>
+      </div>
+
+      <div class="email-body">Dear Board Members,
+
+I am writing to express my strong support for the petition filed under Texas Education Code Section 13.051 to annex the Windsong Ranch area from Denton ISD to Prosper ISD. Thank you, Prosper ISD, for scheduling your December 15 hearing at 7:00 PM.
+
+<strong style="color: #1e3a8a;">THE EDUCATIONAL EXCELLENCE CASE:</strong>
+The data tells a compelling story about why this realignment makes sense. Prosper ISD maintains an A rating (91/100) with ALL 27 schools rated A, compared to Denton ISD's B rating (80/100) with only 5 of 40 schools achieving an A rating. Prosper ISD's 99.5% graduation rate and 24 National Merit Scholars (versus Denton ISD's 97.6% and 4 scholars) demonstrate why Windsong Ranch families chose - and continue to choose - Prosper ISD for their children's education.
+
+<strong style="color: #1e3a8a;">THE FACTS:</strong>
+• All 274 students already attend Prosper ISD schools under contract - zero attend Denton ISD
+• 52.6% of registered voters signed the petition (360 of 684) - clear majority support
+• $6.2 million in annual tax revenue from $510 million in assessed property value
+• 466 homes affected, all within Prosper ISD attendance zones
+• This isn't just about money - it's about families having a voice in the district where their children learn
+
+<strong style="color: #1e3a8a;">THE FAIRNESS ARGUMENT:</strong>
+These families chose educational excellence. They chose a district where 100% of schools are A-rated. They deserve representation where their values and their children's futures align. This is about basic democratic principles - taxation WITH representation in the district that educates their children.
+
+The petition meets all requirements under TEC 13.051, has overwhelming community support, and represents a common-sense realignment. When boards review this petition, you're not just looking at boundaries on a map - you're deciding whether families who chose educational excellence deserve a voice in that excellence.
+
+I urge both boards to support this petition and allow these families to become full voting members of the district their children already attend.
+
+Thank you for your consideration.
+
+Sincerely,
+[Your Name]
+[Your Address]
+[Your Connection to the Issue]</div>
+    </div>
+  </div>
+</section>
+
+<!-- Test Controls -->
+<div class="test-controls">
+  <p style="margin: 0 0 12px 0; font-size: 0.9rem;">Test Controls:</p>
+  <button onclick="alert('This would copy the email to clipboard')">Copy Email</button>
+  <button onclick="window.location.href='index.html'">View Current Site</button>
+</div>
+
+</body>
+</html>

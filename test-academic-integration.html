@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>TEST - Academic Data Integration</title>
+
+<style>
+  body {
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background: #f8f9fa;
+    line-height: 1.6;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .test-banner {
+    background: #fbbf24;
+    color: #000;
+    padding: 16px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-bottom: 32px;
+    border-radius: 8px;
+    border: 2px solid #f59e0b;
+  }
+
+  .comparison-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin-bottom: 40px;
+  }
+
+  .version-card {
+    background: white;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  }
+
+  .version-card h2 {
+    margin: 0 0 8px 0;
+    padding: 12px;
+    border-radius: 6px;
+    text-align: center;
+    font-size: 1.2rem;
+  }
+
+  .current h2 {
+    background: #fee2e2;
+    color: #991b1b;
+  }
+
+  .proposed h2 {
+    background: #dcfce7;
+    color: #166534;
+  }
+
+  .why-matters {
+    background: white;
+    padding: 24px;
+    border-radius: 12px;
+    margin-top: 24px;
+  }
+
+  .why-matters h3 {
+    color: #1e3a8a;
+    margin: 0 0 16px 0;
+    font-size: 1.3rem;
+  }
+
+  .why-matters ul {
+    margin: 0;
+    padding-left: 20px;
+  }
+
+  .why-matters li {
+    margin-bottom: 12px;
+    color: #4b5563;
+    line-height: 1.6;
+  }
+
+  .why-matters li strong {
+    color: #1e3a8a;
+  }
+
+  .highlight {
+    background: #fef3c7;
+    padding: 2px 4px;
+    border-radius: 3px;
+  }
+
+  .new-content {
+    background: #dcfce7;
+    border-left: 3px solid #10b981;
+    padding-left: 12px;
+    margin-left: -15px;
+  }
+
+  .decision-section {
+    background: white;
+    padding: 32px;
+    border-radius: 12px;
+    text-align: center;
+    margin-top: 40px;
+    border: 2px solid #1e3a8a;
+  }
+
+  .decision-section h3 {
+    color: #1e3a8a;
+    margin: 0 0 16px 0;
+  }
+
+  .button-group {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    margin-top: 24px;
+  }
+
+  .btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .btn-approve {
+    background: #10b981;
+    color: white;
+  }
+
+  .btn-approve:hover {
+    background: #059669;
+    transform: translateY(-2px);
+  }
+
+  .btn-modify {
+    background: #f59e0b;
+    color: white;
+  }
+
+  .btn-modify:hover {
+    background: #d97706;
+    transform: translateY(-2px);
+  }
+
+  .btn-reject {
+    background: #ef4444;
+    color: white;
+  }
+
+  .btn-reject:hover {
+    background: #dc2626;
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 768px) {
+    .comparison-section {
+      grid-template-columns: 1fr;
+    }
+
+    .button-group {
+      flex-direction: column;
+    }
+
+    .btn {
+      width: 100%;
+    }
+  }
+
+  .stats-comparison {
+    background: #f0f9ff;
+    border: 1px solid #0284c7;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 20px 0;
+  }
+
+  .stats-comparison h4 {
+    color: #0369a1;
+    margin: 0 0 12px 0;
+  }
+
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .stat-item {
+    background: white;
+    padding: 12px;
+    border-radius: 6px;
+    text-align: center;
+  }
+
+  .stat-number {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1e3a8a;
+  }
+
+  .stat-label {
+    font-size: 0.85rem;
+    color: #64748b;
+    margin-top: 4px;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="test-banner">
+    ⚠️ TEST PREVIEW - Review Changes Before Going Live
+  </div>
+
+  <h1 style="text-align: center; color: #1e3a8a; margin-bottom: 8px;">
+    Proposed Update: Adding Academic Data to Existing Section
+  </h1>
+
+  <p style="text-align: center; color: #64748b; margin-bottom: 40px; font-size: 1.1rem;">
+    Compare the current version with the proposed change below
+  </p>
+
+  <div class="comparison-section">
+    <!-- Current Version -->
+    <div class="version-card current">
+      <h2>❌ CURRENT VERSION (Live Now)</h2>
+
+      <div class="why-matters">
+        <h3>What's Really Happening Here</h3>
+        <ul>
+          <li><strong>The Legal Framework:</strong> Texas Education Code Section 13.051 provides for detachment and annexation of territory. Section 13.004 addresses debt allocation. Section 13.005 sets effective dates</li>
+
+          <li><strong>The Financial Reality:</strong> Prosper ISD educates all 274 students but loses $6.2 million annually from $510 million in assessed property value to Denton ISD - funds desperately needed for our schools and future bond capacity</li>
+
+          <li><strong>The Student Reality:</strong> All students from these 466 homes attend Prosper ISD schools under the Windsong Ranch Education Agreement. Zero attend Denton ISD</li>
+
+          <li><strong>The Petition Filed:</strong> October 20, 2025 - Official petition submitted with 52.6% voter support (360 of 684 registered voters), demonstrating clear majority support</li>
+
+          <li><strong>Board Actions Required:</strong> Prosper ISD scheduled hearing for December 15 at 7:00 PM. Denton ISD must also hold hearing and vote. Both boards must approve</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Proposed Version -->
+    <div class="version-card proposed">
+      <h2>✅ PROPOSED VERSION (With Academic Data)</h2>
+
+      <div class="why-matters">
+        <h3>What's Really Happening Here</h3>
+        <ul>
+          <li><strong>The Legal Framework:</strong> Texas Education Code Section 13.051 provides for detachment and annexation of territory. Section 13.004 addresses debt allocation. Section 13.005 sets effective dates</li>
+
+          <li><strong>The Financial Reality:</strong> Prosper ISD educates all 274 students but loses $6.2 million annually from $510 million in assessed property value to Denton ISD - funds desperately needed for our schools and future bond capacity</li>
+
+          <li class="new-content"><strong>The Academic Reality:</strong> Families chose Prosper ISD where <span class="highlight">100% of schools are A-rated</span> (vs 12.5% for DISD), with a <span class="highlight">99.5% graduation rate</span> (vs 97.6%), and <span class="highlight">24 National Merit Scholars</span> (vs 4). Parents don't choose educational excellence by accident</li>
+
+          <li><strong>The Student Reality:</strong> All students from these 466 homes attend Prosper ISD schools under the Windsong Ranch Education Agreement. Zero attend Denton ISD</li>
+
+          <li><strong>The Petition Filed:</strong> October 20, 2025 - Official petition submitted with 52.6% voter support (360 of 684 registered voters), demonstrating clear majority support</li>
+
+          <li><strong>Board Actions Required:</strong> Prosper ISD scheduled hearing for December 15 at 7:00 PM. Denton ISD must also hold hearing and vote. Both boards must approve</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quick Stats Visual -->
+  <div class="stats-comparison">
+    <h4>📊 The Academic Reality - Quick View</h4>
+    <div class="stat-grid">
+      <div class="stat-item">
+        <div class="stat-number">100%</div>
+        <div class="stat-label">PISD Schools A-Rated<br>(vs 12.5% DISD)</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">99.5%</div>
+        <div class="stat-label">PISD Graduation Rate<br>(vs 97.6% DISD)</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">24</div>
+        <div class="stat-label">PISD Merit Scholars<br>(vs 4 DISD)</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">6X</div>
+        <div class="stat-label">More Merit Scholars<br>in Prosper ISD</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Decision Section -->
+  <div class="decision-section">
+    <h3>Review and Decide</h3>
+    <p style="color: #4b5563; margin-bottom: 8px;">
+      The proposed change adds <strong>"The Academic Reality"</strong> as a new bullet point between Financial and Student realities.
+    </p>
+    <p style="color: #4b5563;">
+      This integrates the educational excellence data seamlessly into your existing "What's Really Happening Here" section without creating a separate new section.
+    </p>
+
+    <div class="button-group">
+      <button class="btn btn-approve" onclick="alert('This would implement the change on your live website')">
+        ✅ Approve - Go Live
+      </button>
+      <button class="btn btn-modify" onclick="alert('Tell me what changes you want')">
+        ✏️ Modify First
+      </button>
+      <button class="btn btn-reject" onclick="alert('No changes will be made')">
+        ❌ Keep Original
+      </button>
+    </div>
+  </div>
+
+  <!-- Additional Context -->
+  <div style="background: #f8f9fa; padding: 24px; border-radius: 12px; margin-top: 32px;">
+    <h4 style="color: #1e3a8a; margin: 0 0 12px 0;">Why This Approach Works:</h4>
+    <ul style="margin: 0; padding-left: 20px; color: #4b5563;">
+      <li>Maintains your current clean design - no new sections needed</li>
+      <li>Adds powerful academic data in a concise, integrated way</li>
+      <li>Creates a complete picture: Legal + Financial + <strong>Academic</strong> + Student + Petition + Board</li>
+      <li>The message "Parents don't choose educational excellence by accident" ties it all together</li>
+      <li>Subtle but impactful - strengthens your case without being overwhelming</li>
+    </ul>
+  </div>
+</div>
+
+</body>
+</html>

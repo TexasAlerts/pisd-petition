@@ -1,0 +1,1337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Windsong Ranch Annexation - PISD Board Presentation</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0f172a;
+            color: white;
+            overflow: hidden;
+        }
+
+        .slide {
+            display: none;
+            min-height: 100vh;
+            padding: 60px 80px;
+            position: relative;
+        }
+
+        .slide.active {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .slide-number {
+            position: absolute;
+            bottom: 30px;
+            right: 40px;
+            font-size: 1rem;
+            color: rgba(255,255,255,0.4);
+        }
+
+        .logo {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.6);
+        }
+
+        .private-badge {
+            position: absolute;
+            top: 30px;
+            left: 40px;
+            background: #dc2626;
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 40px;
+            color: #60a5fa;
+        }
+
+        h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #93c5fd;
+        }
+
+        p, li {
+            font-size: 1.6rem;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        ul li {
+            padding-left: 40px;
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        ul li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #60a5fa;
+        }
+
+        .highlight {
+            color: #34d399;
+            font-weight: 600;
+        }
+
+        .warning {
+            color: #fbbf24;
+        }
+
+        .danger {
+            color: #f87171;
+        }
+
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .stat-grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .stat-card {
+            background: rgba(255,255,255,0.05);
+            border: 2px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .stat-card.positive {
+            border-color: #34d399;
+            background: rgba(52, 211, 153, 0.1);
+        }
+
+        .stat-card.negative {
+            border-color: #f87171;
+            background: rgba(248, 113, 113, 0.1);
+        }
+
+        .stat-card.info {
+            border-color: #60a5fa;
+            background: rgba(96, 165, 250, 0.1);
+        }
+
+        .stat-card.warning {
+            border-color: #fbbf24;
+            background: rgba(251, 191, 36, 0.1);
+        }
+
+        .stat-card .number {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .stat-card.positive .number {
+            color: #34d399;
+        }
+
+        .stat-card.negative .number {
+            color: #f87171;
+        }
+
+        .stat-card.info .number {
+            color: #60a5fa;
+        }
+
+        .stat-card.warning .number {
+            color: #fbbf24;
+        }
+
+        .stat-card .label {
+            font-size: 1rem;
+            color: rgba(255,255,255,0.7);
+        }
+
+        .stat-card .sublabel {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.5);
+            margin-top: 6px;
+        }
+
+        .table-container {
+            margin: 30px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 1.3rem;
+        }
+
+        table.small {
+            font-size: 1.1rem;
+        }
+
+        th, td {
+            padding: 16px 20px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        th {
+            background: rgba(96, 165, 250, 0.2);
+            font-weight: 600;
+            color: #93c5fd;
+        }
+
+        td.right {
+            text-align: right;
+            font-family: 'SF Mono', Monaco, monospace;
+        }
+
+        td.center {
+            text-align: center;
+        }
+
+        tr.total {
+            background: rgba(52, 211, 153, 0.2);
+            font-weight: 700;
+        }
+
+        tr.total td {
+            color: #34d399;
+        }
+
+        tr.highlight-row {
+            background: rgba(251, 191, 36, 0.1);
+        }
+
+        tr.section-header td {
+            background: rgba(96, 165, 250, 0.1);
+            font-weight: 600;
+            color: #93c5fd;
+            font-size: 1rem;
+        }
+
+        .quote {
+            font-size: 2rem;
+            font-style: italic;
+            border-left: 4px solid #60a5fa;
+            padding-left: 30px;
+            margin: 40px 0;
+            color: rgba(255,255,255,0.9);
+        }
+
+        .quote-source {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.5);
+            margin-top: 16px;
+            font-style: normal;
+        }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-top: 30px;
+        }
+
+        .box {
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
+            padding: 30px;
+        }
+
+        .box.green {
+            border: 2px solid #34d399;
+            background: rgba(52, 211, 153, 0.1);
+        }
+
+        .box.red {
+            border: 2px solid #f87171;
+            background: rgba(248, 113, 113, 0.1);
+        }
+
+        .box.blue {
+            border: 2px solid #60a5fa;
+            background: rgba(96, 165, 250, 0.1);
+        }
+
+        .box h3 {
+            margin-bottom: 20px;
+        }
+
+        .box.green h3 { color: #34d399; }
+        .box.red h3 { color: #f87171; }
+        .box.blue h3 { color: #60a5fa; }
+
+        .center {
+            text-align: center;
+        }
+
+        .big-number {
+            font-size: 8rem;
+            font-weight: 700;
+            color: #34d399;
+            line-height: 1;
+        }
+
+        .subtitle {
+            font-size: 1.8rem;
+            color: rgba(255,255,255,0.7);
+            margin-top: 20px;
+        }
+
+        .question-box {
+            background: rgba(96, 165, 250, 0.1);
+            border: 2px solid #60a5fa;
+            border-radius: 12px;
+            padding: 30px;
+            margin: 20px 0;
+        }
+
+        .question-box h3 {
+            color: #60a5fa;
+            margin-bottom: 16px;
+        }
+
+        .nav-hint {
+            position: fixed;
+            bottom: 30px;
+            left: 40px;
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.3);
+        }
+
+        /* Rate bar visualization */
+        .rate-bar {
+            display: flex;
+            height: 50px;
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 20px 0;
+            font-size: 0.9rem;
+        }
+
+        .rate-bar .segment {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            padding: 0 10px;
+        }
+
+        .rate-bar .tier1 { background: #6366f1; }
+        .rate-bar .golden { background: #eab308; }
+        .rate-bar .copper { background: #f97316; }
+        .rate-bar .is { background: #06b6d4; }
+
+        .legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 16px;
+            font-size: 1rem;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .legend-item .dot {
+            width: 16px;
+            height: 16px;
+            border-radius: 4px;
+        }
+
+        .math-box {
+            background: rgba(0,0,0,0.3);
+            border: 2px solid rgba(255,255,255,0.2);
+            border-radius: 12px;
+            padding: 30px;
+            font-family: 'SF Mono', Monaco, monospace;
+            font-size: 1.4rem;
+            margin: 20px 0;
+        }
+
+        .math-box .line {
+            margin: 12px 0;
+        }
+
+        .math-box .result {
+            border-top: 2px solid rgba(255,255,255,0.3);
+            padding-top: 12px;
+            margin-top: 16px;
+            font-weight: 700;
+            color: #34d399;
+        }
+
+        /* Title Slide */
+        .title-slide {
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
+        }
+
+        .title-slide h1 {
+            font-size: 4rem;
+            margin-bottom: 30px;
+        }
+
+        .title-slide .subtitle {
+            font-size: 2rem;
+            margin-bottom: 60px;
+        }
+
+        .title-slide .presenter {
+            font-size: 1.4rem;
+            color: rgba(255,255,255,0.7);
+        }
+
+        .footnote {
+            position: absolute;
+            bottom: 60px;
+            left: 80px;
+            right: 80px;
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.5);
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 10px;
+        }
+
+        .footnote strong {
+            color: rgba(255,255,255,0.7);
+        }
+
+        @media (max-width: 1200px) {
+            .slide { padding: 40px 50px; }
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+            p, li { font-size: 1.3rem; }
+            .stat-card .number { font-size: 2.5rem; }
+            .big-number { font-size: 5rem; }
+            .footnote { bottom: 50px; left: 50px; right: 50px; font-size: 0.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Slide 1: Title -->
+<div class="slide title-slide active" data-slide="1">
+    <h1>Windsong Ranch Annexation</h1>
+    <p class="subtitle">A Case for Fiscal Responsibility & Student Alignment</p>
+    <div style="margin-top: 60px;">
+        <p class="presenter">Doug Charles</p>
+        <p class="presenter" style="opacity: 0.6;">Prosper ISD Board Meeting | December 15, 2025</p>
+    </div>
+</div>
+
+<!-- Slide 2: The Legal Framework -->
+<div class="slide" data-slide="2">
+    <div class="logo">prosperisdpetition.com</div>
+    <h2>Texas Education Code § 13.051</h2>
+    <h3>Three Questions the Law Requires You to Answer</h3>
+
+    <div class="question-box">
+        <h3>Question 1</h3>
+        <p>What are the <span class="highlight">educational interests of students in the affected territory</span>?</p>
+    </div>
+
+    <div class="question-box">
+        <h3>Question 2</h3>
+        <p>What are the <span class="highlight">educational interests of students in the affected districts</span>?</p>
+    </div>
+
+    <div class="question-box">
+        <h3>Question 3</h3>
+        <p>What are the <span class="highlight">social, economic, and educational effects</span> of this boundary change?</p>
+    </div>
+
+    <p style="margin-top: 30px; color: rgba(255,255,255,0.6);">The TEA Commissioner will evaluate your decision on these criteria.</p>
+    <div class="slide-number">2 / 17</div>
+</div>
+
+<!-- Slide 3: Current Reality -->
+<div class="slide" data-slide="3">
+    <div class="logo">prosperisdpetition.com</div>
+    <h2>Question 1: Our Students Today</h2>
+
+    <div class="stat-grid">
+        <div class="stat-card positive">
+            <div class="number">274</div>
+            <div class="label">Students in PISD Schools</div>
+        </div>
+        <div class="stat-card negative">
+            <div class="number">0</div>
+            <div class="label">Students in DISD Schools</div>
+        </div>
+        <div class="stat-card">
+            <div class="number" style="color: #60a5fa;">13</div>
+            <div class="label">Years This Has Been True</div>
+        </div>
+    </div>
+
+    <ul style="margin-top: 40px;">
+        <li>They walk to <span class="highlight">Windsong Ranch, Bryant, & Christie Elementaries</span></li>
+        <li>They attend <span class="highlight">Mosely & Rushing Middle Schools</span></li>
+        <li>They're Raiders at <span class="highlight">Richland High School</span></li>
+        <li>Nearest DISD High School: <span class="danger">5+ miles away</span> (Braswell HS)</li>
+    </ul>
+
+    <div class="footnote"><strong>Sources:</strong> Student count from PISD Transfer Records; School assignments from PISD Administration</div>
+    <div class="slide-number">3 / 17</div>
+</div>
+
+<!-- Slide 4: What Annexation Means for Students -->
+<div class="slide" data-slide="4">
+    <div class="logo">prosperisdpetition.com</div>
+    <h2>What Students Gain from Annexation</h2>
+
+    <div class="two-col">
+        <div class="box green">
+            <h3>✓ What They Gain</h3>
+            <ul>
+                <li><strong>Permanent enrollment</strong> — not through a contractual arrangement</li>
+                <li><strong>Voting rights</strong> for parents in PISD elections</li>
+                <li><strong>Stability</strong> for current and future families</li>
+                <li><strong>Voice</strong> in governance of their education</li>
+            </ul>
+        </div>
+        <div class="box red">
+            <h3>✗ What They Lose</h3>
+            <p style="font-size: 2.5rem; text-align: center; margin-top: 60px; color: rgba(255,255,255,0.5);">Nothing.</p>
+            <p style="text-align: center; color: rgba(255,255,255,0.5);">They're already here.</p>
+        </div>
+    </div>
+
+    <div class="slide-number">4 / 17</div>
+</div>
+
+<!-- Slide 5: Tax Rate Components Explained -->
+<div class="slide" data-slide="5">
+    <div class="logo">prosperisdpetition.com</div>
+    <h2>Question 2: Understanding Tax Rates</h2>
+    <h3>PISD 2025-26 Tax Rate Components</h3>
+
+    <div class="rate-bar">
+        <div class="segment tier1" style="width: 47.4%;">Tier 1 (MCR)<br>$0.5758</div>
+        <div class="segment golden" style="width: 6.6%;">Golden<br>$0.08</div>
+        <div class="segment copper" style="width: 4.8%;">Copper<br>$0.0583</div>
+        <div class="segment is" style="width: 41.2%;">I&S<br>$0.5000</div>
+    </div>
+
+    <div class="legend">
+        <div class="legend-item"><div class="dot" style="background: #6366f1;"></div> Tier 1 (MCR) — TEA Mandated, Subject to Recapture</div>
+        <div class="legend-item"><div class="dot" style="background: #eab308;"></div> Golden Pennies — PROTECTED from Recapture</div>
+        <div class="legend-item"><div class="dot" style="background: #f97316;"></div> Copper Pennies — Subject to Recapture</div>
+        <div class="legend-item"><div class="dot" style="background: #06b6d4;"></div> I&S (Debt Service) — NOT Subject to Recapture</div>
+    </div>
+
+    <div class="two-col" style="margin-top: 30px;">
+        <div class="box blue">
+            <h3>M&O Rate: $0.7141</h3>
+            <p style="font-size: 1.2rem;">Maintenance & Operations<br>Tier 1 + Golden + Copper</p>
+        </div>
+        <div class="box blue">
+            <h3>I&S Rate: $0.5000</h3>
+            <p style="font-size: 1.2rem;">Interest & Sinking (Bonds)<br><span class="highlight">100% stays with PISD</span></p>
+        </div>
+    </div>
+
+    <p style="margin-top: 20px; text-align: center;"><strong>Total PISD Tax Rate: $1.2141 per $100</strong></p>
+
+    <div class="footnote"><strong>Sources:</strong> PISD 2025-26 Adopted Budget; MCR from TEA Tax Year 2025 Final MCRs (ty2025-final-mcrs.pdf)</div>
+    <div class="slide-number">5 / 17</div>
+</div>
+
+<!-- Slide 6: Year 1 Financial Impact -->
+<div class="slide" data-slide="6">
+    <div class="logo">prosperisdpetition.com</div>
+    <h2>Year 1 Financial Impact to PISD</h2>
+    <h3 style="color: rgba(255,255,255,0.6);">Source: Our Model Using Denton CAD Data</h3>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Component</th>
+                    <th class="right">Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="section-header">
+                    <td colspan="2">REVENUE (from $537.7M Assessed Value)</td>
+                </tr>
+                <tr>
+                    <td>M&O Revenue @ $0.7141</td>
+                    <td class="right highlight">+$3,839,514</td>
+                </tr>
+                <tr>
+                    <td>I&S Revenue @ $0.5000</td>
+                    <td class="right highlight">+$2,688,377</td>
+                </tr>
+                <tr class="total">
+                    <td><strong>Total New Revenue</strong></td>
+                    <td class="right"><strong>+$6,527,891</strong></td>
+                </tr>
+                <tr class="section-header">
+                    <td colspan="2">DEDUCTIONS</td>
+                </tr>
+                <tr>
+                    <td>Less: Additional Recapture (Copper Pennies)</td>
+                    <td class="right danger">−$310,000</td>
+                </tr>
+                <tr>
+                    <td>Less: Denton Debt Share (TEC § 13.004)</td>
+                    <td class="right warning">−$2,490,000</td>
+                </tr>
+                <tr class="total">
+                    <td><strong>Year 1 Net Benefit</strong></td>
+                    <td class="right"><strong>+$3,728,000</strong></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="footnote"><strong>Sources:</strong> TAV from Denton CAD 2024 Certified Values; Tax rates from PISD 2025-26 Adopted Budget; Recapture per TEA copper penny formula ($49.28/WADA); Denton Debt from DISD Budget / TEC § 13.004</div>
+    <div class="slide-number">6 / 17</div>
+</div>
+
+<!-- Slide 7: Recapture Explained -->
+<div class="slide" data-slide="7">
+    <div class="logo">prosperisdpetition.com</div>
+    <h2>Why Recapture Impact is Minimal</h2>
+
+    <div class="stat-grid">
+        <div class="stat-card info">
+            <div class="number">$0.08</div>
+            <div class="label">Golden Pennies</div>
+            <div class="sublabel">PROTECTED - No recapture</div>
+        </div>
+        <div class="stat-card warning">
+            <div class="number">$0.0583</div>
+            <div class="label">Copper Pennies</div>
+            <div class="sublabel">Subject to recapture</div>
+        </div>
+        <div class="stat-card positive">
+            <div class="number">$0.50</div>
+            <div class="label">I&S Rate</div>
+            <div class="sublabel">NO recapture - 100% to PISD</div>
+        </div>
+    </div>
+
+    <div class="box" style="margin-top: 30px;">
+        <h3 style="color: #60a5fa;">The Key Point:</h3>
+        <ul>
+            <li>Only <span class="warning">Copper Pennies</span> ($0.0583) trigger additional recapture</li>
+            <li>That's <span class="highlight">$310,000</span> on $537.7M in property value</li>
+            <li><span class="highlight">I&S revenue ($2.69M)</span> is completely protected</li>
+            <li>Net Year 1 benefit: <span class="highlight">$3.73M positive</span></li>
+        </ul>
+    </div>
+
+    <div class="footnote"><strong>Sources:</strong> TEA copper penny yield $49.28/WADA; Recapture calculation per prosperisdpetition.com/calculator; PISD Admin figure: $68,559 (different methodology)</div>
+    <div class="slide-number">7 / 17</div>
+</div>
+
+<!-- Slide 8: The Long-Term Picture -->
+<div class="slide" data-slide="8">
+    <div class="logo">prosperisdpetition.com</div>
+    <h2>After Denton Debt Paid Off (Year 13+)</h2>
+
+    <div class="center" style="margin-top: 60px;">
+        <p class="subtitle">Annual Net Benefit</p>
+        <p class="big-number">$9M+</p>
+        <p class="subtitle">Per Year, Every Year</p>
+    </div>
+
+    <div style="margin-top: 60px; text-align: center;">
+        <p style="font-size: 1.5rem; color: rgba(255,255,255,0.7);">No more Denton debt payments. Same revenue. Same students already in ADA.</p>
+    </div>
+
+    <div class="footnote"><strong>Sources:</strong> Year 13: $9.07M net benefit; Assumes 5% property value growth, 5.8% enrollment growth (capped 55K), 12-year Denton debt</div>
+    <div class="slide-number">8 / 17</div>
+</div>
+
+<!-- Slide 9: 30-Year Cumulative -->
+<div class="slide" data-slide="9">
+    <div class="logo">prosperisdpetition.com</div>
+    <h2>30-Year Cumulative Net Benefit</h2>
+
+    <div class="center" style="margin-top: 80px;">
+        <p class="big-number" style="font-size: 10rem;">$248M+</p>
+        <p class="subtitle" style="font-size: 2rem;">Net benefit to Prosper ISD over 30 years</p>
+    </div>
+
+    <p style="text-align: center; margin-top: 60px; font-size: 1.5rem; color: rgba(255,255,255,0.6);">
+        A NO vote leaves this on the table.
+    </p>
+
+    <div class="footnote"><strong>Sources:</strong> 30-year projection with full recapture modeling; Assumes 5% property value growth, 5.8% enrollment growth (capped at 55K); Denton debt payoff Year 12 per TEC § 13.004</div>
+    <div class="slide-number">9 / 17</div>
+</div>
+
+<!-- Slide 10: Tax Impact to Windsong Homeowners -->
+<div class="slide" data-slide="10">
+    <div class="logo">prosperisdpetition.com</div>
+    <h2>Question 3: Impact to Windsong Homeowners</h2>
+    <h3>The Math: What Does Annexation Cost Our Families?</h3>
+
+    <div class="stat-grid-4">
+        <div class="stat-card info">
+            <div class="number" style="font-size: 2rem;">$1,153,596</div>
+            <div class="label">Average Home Value</div>
+            <div class="sublabel">Denton CAD 2024</div>
+        </div>
+        <div class="stat-card">
+            <div class="number" style="font-size: 2rem;">$1.2069</div>
+            <div class="label">DISD Total Rate</div>
+            <div class="sublabel">M&O + I&S</div>
+        </div>
+        <div class="stat-card">
+            <div class="number" style="font-size: 2rem;">$1.2141</div>
+            <div class="label">PISD Total Rate</div>
+            <div class="sublabel">M&O + I&S</div>
+        </div>
+        <div class="stat-card positive">
+            <div class="number" style="font-size: 2rem;">$0.0072</div>
+            <div class="label">Difference</div>
+            <div class="sublabel">Per $100 value</div>
+        </div>
+    </div>
+
+    <div class="math-box">
+        <div class="line"><strong>Average Home Value:</strong> $1,153,596</div>
+        <div class="line"><strong>DISD Tax:</strong> $1,153,596 × $1.2069 ÷ 100 = <span style="color: #f87171;">$13,923</span></div>
+        <div class="line"><strong>PISD Tax:</strong> $1,153,596 × $1.2141 ÷ 100 = <span style="color: #60a5fa;">$14,006</span></div>
+        <div class="result">Annual Difference: $14,006 − $13,923 = <strong>$83/year</strong> = <strong>$6.92/month</strong></div>
+    </div>
+
+    <p style="text-align: center; font-size: 1.6rem; margin-top: 20px;">
+        <span class="highlight">Less than $7 per month</span> to align our tax dollars with our schools
+    </p>
+
+    <div class="footnote"><strong>Sources:</strong> Avg home value from Denton CAD 2024; PISD rates from PISD 2025-26 Budget; DISD rates from DISD 2025-26 Budget (Post-VATRE)</div>
+    <div class="slide-number">10 / 17</div>
+</div>
+
+<!-- Slide 11: Rate Breakdown Comparison -->
+<div class="slide" data-slide="11">
+    <div class="logo">prosperisdpetition.com</div>
+    <h2>2025-26 Tax Rate Comparison</h2>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Component</th>
+                    <th class="right">Prosper ISD</th>
+                    <th class="right">Denton ISD</th>
+                    <th class="right">Difference</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>M&O Rate</strong> (Operations)</td>
+                    <td class="right">$0.7141</td>
+                    <td class="right">$0.7269</td>
+                    <td class="right highlight">−$0.0128</td>
+                </tr>
+                <tr style="color: rgba(255,255,255,0.6); font-size: 1rem;">
+                    <td style="padding-left: 30px;">PISD M&O is LOWER</td>
+                    <td class="right"></td>
+                    <td class="right"></td>
+                    <td class="right" style="color: #34d399;">PISD Wins</td>
+                </tr>
+                <tr>
+                    <td><strong>I&S Rate</strong> (Debt Service)</td>
+                    <td class="right">$0.5000</td>
+                    <td class="right">$0.4800</td>
+                    <td class="right danger">+$0.0200</td>
+                </tr>
+                <tr style="color: rgba(255,255,255,0.6); font-size: 1rem;">
+                    <td style="padding-left: 30px;">Pays for bonds/facilities</td>
+                    <td class="right"></td>
+                    <td class="right"></td>
+                    <td class="right"></td>
+                </tr>
+                <tr class="total">
+                    <td><strong>TOTAL TAX RATE</strong></td>
+                    <td class="right">$1.2141</td>
+                    <td class="right">$1.2069</td>
+                    <td class="right">+$0.0072</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="box green" style="margin-top: 20px;">
+        <p style="text-align: center; font-size: 1.5rem; margin: 0;">
+            Total rate difference is only <span class="highlight">0.6%</span> — essentially equal<br>
+            <strong>PISD's M&O rate is actually LOWER than Denton ISD</strong>
+        </p>
+    </div>
+
+    <div class="footnote"><strong>Sources:</strong> PISD 2025-26 Adopted Budget; DISD 2025-26 Adopted Budget (Post-VATRE)</div>
+    <div class="slide-number">11 / 17</div>
+</div>
+
+<!-- Slide 12: Social Impact -->
+<div class="slide" data-slide="12">
+    <div class="logo">prosperisdpetition.com</div>
+    <h2>Social & Economic Effects</h2>
+
+    <div class="quote">
+        "There is no negative social impact anticipated."
+        <div class="quote-source">— PISD Administration Analysis</div>
+    </div>
+
+    <h3 style="margin-top: 50px;">Economic Benefits to PISD:</h3>
+    <ul>
+        <li><span class="highlight">$537.7 million</span> in assessed value added to tax base</li>
+        <li>Future <span class="highlight">bond capacity</span> for building schools</li>
+        <li>Tax dollars <span class="highlight">following students</span> to schools that educate them</li>
+        <li><span class="highlight">360 families</span> (52.6% of voters) supporting this district</li>
+    </ul>
+
+    <div class="footnote"><strong>Sources:</strong> Quote from PISD Administration Analysis; TAV from Denton CAD 2024; Signatures from Denton County Voter Registrar</div>
+    <div class="slide-number">12 / 17</div>
+</div>
+
+<!-- Slide 13: The Alternative -->
+<div class="slide" data-slide="13">
+    <div class="logo">prosperisdpetition.com</div>
+    <h2>What Happens If You Vote NO?</h2>
+
+    <div class="two-col">
+        <div class="box red">
+            <h3>PISD Continues To:</h3>
+            <ul>
+                <li>Educate 274 students</li>
+                <li>Receive <span class="danger">$0 local tax revenue</span> from their families</li>
+                <li>Subsidize their education with other taxpayers' money</li>
+                <li>Leave $248M on the table over 30 years</li>
+            </ul>
+        </div>
+        <div class="box">
+            <h3 style="color: #fbbf24;">Denton ISD Continues To:</h3>
+            <ul>
+                <li>Collect <span class="warning">$6.5 million annually</span></li>
+                <li>Educate <span class="danger">zero students</span></li>
+                <li>Benefit from a 13-year-old boundary quirk</li>
+            </ul>
+        </div>
+    </div>
+
+    <p style="text-align: center; margin-top: 40px; font-size: 1.8rem;">
+        Is that fair to <span class="highlight">your constituents</span>?
+    </p>
+
+    <div class="footnote"><strong>Sources:</strong> DISD revenue: Denton CAD × DISD rates; 30-year projection assumes 5% property value growth, includes Tier 1 recapture</div>
+    <div class="slide-number">13 / 17</div>
+</div>
+
+<!-- Slide 14: Addressing Concerns -->
+<div class="slide" data-slide="14">
+    <div class="logo">prosperisdpetition.com</div>
+    <h2>Addressing Concerns</h2>
+
+    <div class="question-box" style="margin-bottom: 30px;">
+        <h3>"What about PEF?"</h3>
+        <ul>
+            <li>PEF has <span class="highlight">$3.27M in assets</span> and $1.65M annual revenue</li>
+            <li>PEF leadership confirmed WSR was always a <span class="highlight">"declining revenue source"</span></li>
+            <li>PEF will survive and thrive — they always have</li>
+        </ul>
+    </div>
+
+    <div class="question-box" style="margin-bottom: 30px;">
+        <h3>"What about precedent?"</h3>
+        <ul>
+            <li>This isn't a loophole — it's <span class="highlight">Texas law working as intended</span></li>
+            <li>TEC Chapter 13 exists for exactly these situations</li>
+        </ul>
+    </div>
+
+    <div class="question-box">
+        <h3>"What about 466 new voters?"</h3>
+        <ul>
+            <li>These families already support your bonds, volunteer in classrooms</li>
+            <li>Shouldn't they have a <span class="highlight">voice in their children's education</span>?</li>
+        </ul>
+    </div>
+
+    <div class="footnote"><strong>Sources:</strong> PEF data from Form 990 (2024) via ProPublica Nonprofit Explorer; TEC Chapter 13 from Texas Education Code</div>
+    <div class="slide-number">14 / 17</div>
+</div>
+
+<!-- Slide 15: Fiduciary Duty -->
+<div class="slide" data-slide="15">
+    <div class="logo">prosperisdpetition.com</div>
+    <h2>The Fiduciary Question</h2>
+
+    <p style="font-size: 1.6rem; margin-bottom: 30px;">
+        You have a fiduciary duty to the financial health of Prosper ISD.<br>
+        <span class="warning">PISD faces a $29.4M budget shortfall for 2025-26.</span>
+    </p>
+
+    <div class="stat-grid">
+        <div class="stat-card positive">
+            <div class="number">$6.5M</div>
+            <div class="label">Year 1 Revenue</div>
+        </div>
+        <div class="stat-card positive">
+            <div class="number">$3.73M</div>
+            <div class="label">Year 1 Net Benefit</div>
+        </div>
+        <div class="stat-card positive">
+            <div class="number">$248M</div>
+            <div class="label">30-Year Cumulative</div>
+        </div>
+    </div>
+
+    <div class="box red" style="margin-top: 30px;">
+        <h3 style="text-align: center;">A NO Vote Means:</h3>
+        <ul>
+            <li>Continuing to educate students without local tax support</li>
+            <li>Leaving $248 million on the table</li>
+            <li>Forcing other PISD taxpayers to subsidize our children</li>
+            <li>Ignoring $3.73M that could help address the budget shortfall</li>
+        </ul>
+    </div>
+
+    <div class="footnote"><strong>Sources:</strong> Budget shortfall from PISD 2025-26 Adopted Budget; Projections assume 5% property value growth, 5.8% enrollment growth; includes full recapture</div>
+    <div class="slide-number">15 / 17</div>
+</div>
+
+<!-- Slide 16: Data Sources -->
+<div class="slide" data-slide="16">
+    <div class="logo">prosperisdpetition.com</div>
+    <h2>Data Sources</h2>
+    <h3 style="color: rgba(255,255,255,0.6);">All Financial Data Verified from Official Sources</h3>
+
+    <div class="table-container">
+        <table class="small">
+            <thead>
+                <tr>
+                    <th>Data Point</th>
+                    <th>Source</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>PISD Tax Rates (M&O $0.7141, I&S $0.5000)</td>
+                    <td>PISD 2025-26 Adopted Budget</td>
+                </tr>
+                <tr>
+                    <td>PISD MCR ($0.5758)</td>
+                    <td>TEA Tax Year 2025 Final MCRs (ty2025-final-mcrs.pdf)</td>
+                </tr>
+                <tr>
+                    <td>DISD Tax Rates (M&O $0.7269, I&S $0.4800)</td>
+                    <td>DISD 2025-26 Budget (Post-VATRE)</td>
+                </tr>
+                <tr>
+                    <td>Property Value ($537,675,424 TAV)</td>
+                    <td>Denton CAD 2024 Certified Values</td>
+                </tr>
+                <tr>
+                    <td>Voter Signatures (360 of 684 = 52.6%)</td>
+                    <td>Denton County Voter Registrar</td>
+                </tr>
+                <tr>
+                    <td>Denton Debt Share ($31.75M / 12 years)</td>
+                    <td>Denton ISD Budget Documents / TEC § 13.004</td>
+                </tr>
+                <tr>
+                    <td>PEF Financial Data ($3.27M assets, $1.65M revenue)</td>
+                    <td>Form 990 (2024) via ProPublica Nonprofit Explorer</td>
+                </tr>
+                <tr>
+                    <td>TEC Requirements</td>
+                    <td>Texas Education Code § 13.051</td>
+                </tr>
+                <tr>
+                    <td>PISD Budget Shortfall ($29.4M)</td>
+                    <td>PISD 2025-26 Adopted Budget</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <p style="text-align: center; margin-top: 30px; font-size: 1.3rem; color: rgba(255,255,255,0.7);">
+        Full analysis available at <span class="highlight">prosperisdpetition.com</span>
+    </p>
+
+    <div class="slide-number">16 / 17</div>
+</div>
+
+<!-- Slide 17: Closing -->
+<div class="slide title-slide" data-slide="17">
+    <h1>We Ask for Your YES Vote</h1>
+
+    <div style="margin-top: 40px;">
+        <p style="font-size: 1.8rem; color: rgba(255,255,255,0.8);">
+            <span class="highlight">360 families</span> — a majority of voters<br>
+            <span class="highlight">274 students</span> — already in your schools<br>
+            <span class="highlight">$248M+</span> — for the future of PISD
+        </p>
+    </div>
+
+    <div style="margin-top: 60px;">
+        <p style="font-size: 1.5rem; color: rgba(255,255,255,0.6);">
+            Right for our children.<br>
+            Right for PISD taxpayers.<br>
+            Right for the financial health of this district.
+        </p>
+    </div>
+
+    <div style="margin-top: 60px;">
+        <p style="font-size: 1.2rem; color: rgba(255,255,255,0.4);">
+            Doug Charles | dbcharles@me.com | prosperisdpetition.com
+        </p>
+    </div>
+</div>
+
+<!-- ==================== PRIVATE SLIDES (Q&A / Backup) ==================== -->
+
+<!-- Slide 18: PRIVATE - Data Comparison -->
+<div class="slide" data-slide="18">
+    <div class="private-badge">PRIVATE - Q&A BACKUP</div>
+    <div class="logo">prosperisdpetition.com</div>
+    <h2>Data Comparison: PISD vs Our Model</h2>
+
+    <div class="table-container">
+        <table class="small">
+            <thead>
+                <tr>
+                    <th>Metric</th>
+                    <th class="right">PISD Overview</th>
+                    <th class="right">Our Model</th>
+                    <th class="right">Variance</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Total Taxable Value (TV)</td>
+                    <td class="right">$474,676,531</td>
+                    <td class="right">$537,675,424</td>
+                    <td class="right">+$62.9M</td>
+                </tr>
+                <tr>
+                    <td>Number of Homes</td>
+                    <td class="right">349 (420 build-out)</td>
+                    <td class="right">466</td>
+                    <td class="right">+117 lots*</td>
+                </tr>
+                <tr>
+                    <td>Number of Students</td>
+                    <td class="right">299</td>
+                    <td class="right">274</td>
+                    <td class="right">−25</td>
+                </tr>
+                <tr>
+                    <td>Registered Voters</td>
+                    <td class="right">690</td>
+                    <td class="right">684</td>
+                    <td class="right">−6</td>
+                </tr>
+                <tr>
+                    <td>M&O Revenue</td>
+                    <td class="right">$3,389,286</td>
+                    <td class="right">$3,839,514</td>
+                    <td class="right">+$450K</td>
+                </tr>
+                <tr>
+                    <td>I&S Revenue</td>
+                    <td class="right">$2,373,383</td>
+                    <td class="right">$2,688,377</td>
+                    <td class="right">+$315K</td>
+                </tr>
+                <tr>
+                    <td>Additional Recapture</td>
+                    <td class="right">+$68,559</td>
+                    <td class="right">+$310,000</td>
+                    <td class="right">+$241K*</td>
+                </tr>
+                <tr>
+                    <td>Student Education Costs</td>
+                    <td class="right">$3,700,000</td>
+                    <td class="right">N/A**</td>
+                    <td class="right">—</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <p style="font-size: 1rem; color: rgba(255,255,255,0.5);">
+        *PISD's recapture figure may use different methodology; our model calculates copper penny recapture per TEA formula.<br>
+        **Students already in ADA — no NEW cost to educate them.
+    </p>
+
+    <div class="slide-number">18 / 21</div>
+</div>
+
+<!-- Slide 19: PRIVATE - Long-Term Projections Comparison -->
+<div class="slide" data-slide="19">
+    <div class="private-badge">PRIVATE - Q&A BACKUP</div>
+    <div class="logo">prosperisdpetition.com</div>
+    <h2>Long-Term Projections: PISD Admin vs Our Model</h2>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Projection</th>
+                    <th class="right">PISD Admin</th>
+                    <th class="right">Our Model</th>
+                    <th class="right">Notes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="section-header">
+                    <td colspan="4">YEAR 1 NET BENEFIT</td>
+                </tr>
+                <tr>
+                    <td>Year 1 Net Benefit</td>
+                    <td class="right">~$162,000</td>
+                    <td class="right highlight">$3,728,000</td>
+                    <td class="right">PISD includes education costs*</td>
+                </tr>
+                <tr class="section-header">
+                    <td colspan="4">AFTER DENTON DEBT (YEAR 13+)</td>
+                </tr>
+                <tr>
+                    <td>Annual Net Benefit</td>
+                    <td class="right">~$2.8M/year</td>
+                    <td class="right highlight">~$9M/year</td>
+                    <td class="right">No more debt payments</td>
+                </tr>
+                <tr class="section-header">
+                    <td colspan="4">30-YEAR CUMULATIVE</td>
+                </tr>
+                <tr class="highlight-row">
+                    <td>Total Net Benefit</td>
+                    <td class="right">~$220M</td>
+                    <td class="right highlight">$248M</td>
+                    <td class="right">Includes Tier 1 recapture</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="box" style="margin-top: 20px;">
+        <h3 style="color: #60a5fa;">Key Methodology Differences:</h3>
+        <ul>
+            <li><strong>Student Education Costs:</strong> PISD includes $3.7M/year; our model excludes (students already in ADA)</li>
+            <li><strong>Recapture Calculation:</strong> PISD: $68K; Our model: $310K (full TEA formula)</li>
+            <li><strong>Growth Assumptions:</strong> Our model: 5% property value growth, 5.8% enrollment (capped 55K)</li>
+        </ul>
+    </div>
+
+    <p style="text-align: center; margin-top: 20px; font-size: 1.3rem; color: rgba(255,255,255,0.6);">
+        *Students already attend PISD schools — no incremental cost to educate them
+    </p>
+
+    <div class="slide-number">19 / 21</div>
+</div>
+
+<!-- Slide 20: PRIVATE - Questions for Administration -->
+<div class="slide" data-slide="20">
+    <div class="private-badge">PRIVATE - Q&A BACKUP</div>
+    <div class="logo">prosperisdpetition.com</div>
+    <h2>Questions to Ask Administration</h2>
+
+    <div class="question-box">
+        <h3>1. "What is the 30-year cumulative net revenue?"</h3>
+        <p>Our model shows: <span class="highlight">~$248 million</span> (includes full recapture modeling)</p>
+    </div>
+
+    <div class="question-box">
+        <h3>2. "After Denton debt is paid (Year 12), what's the annual benefit?"</h3>
+        <p>Our model shows: <span class="highlight">~$9M/year</span> net (Year 13: $9.07M per calculator)</p>
+    </div>
+
+    <div class="question-box">
+        <h3>3. "What's the cost of educating these students WITHOUT annexation?"</h3>
+        <p>Answer: <span class="highlight">Same cost</span> — they're already in ADA. We educate them regardless.</p>
+    </div>
+
+    <div class="question-box">
+        <h3>4. "Is there any negative social impact?"</h3>
+        <p>We see none — students already fully integrated in PISD schools</p>
+    </div>
+
+    <div class="slide-number">20 / 21</div>
+</div>
+
+<!-- Slide 21: PRIVATE - Data Sources -->
+<div class="slide" data-slide="21">
+    <div class="private-badge">PRIVATE - Q&A BACKUP</div>
+    <div class="logo">prosperisdpetition.com</div>
+    <h2>Data Sources</h2>
+
+    <div class="table-container">
+        <table class="small">
+            <thead>
+                <tr>
+                    <th>Data Point</th>
+                    <th>Value</th>
+                    <th>Source</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>PISD Tax Rates (2025-26)</td>
+                    <td>M&O $0.7141, I&S $0.5000</td>
+                    <td>PISD Board Approved Budget</td>
+                </tr>
+                <tr>
+                    <td>DISD Tax Rates (2025-26)</td>
+                    <td>M&O $0.7269, I&S $0.4800</td>
+                    <td>DISD Post-VATRE Budget</td>
+                </tr>
+                <tr>
+                    <td>Property Value</td>
+                    <td>$537,675,424</td>
+                    <td>Denton CAD 2024 Certified</td>
+                </tr>
+                <tr>
+                    <td>Student Count</td>
+                    <td>274 / 299</td>
+                    <td>PISD Transfer Records</td>
+                </tr>
+                <tr>
+                    <td>Voter Signatures</td>
+                    <td>360 of 684 (52.6%)</td>
+                    <td>Denton County Voter Registrar</td>
+                </tr>
+                <tr>
+                    <td>Denton Debt Share</td>
+                    <td>$31.75M over 12 years</td>
+                    <td>Denton ISD Budget / TEC 13.004</td>
+                </tr>
+                <tr>
+                    <td>PEF Assets/Revenue</td>
+                    <td>$3.27M / $1.65M</td>
+                    <td>Form 990 (2024) via ProPublica</td>
+                </tr>
+                <tr>
+                    <td>TEC Requirements</td>
+                    <td>§13.051</td>
+                    <td>Texas Education Code</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="slide-number">21 / 21</div>
+</div>
+
+<div class="nav-hint">← → Arrow keys or click to navigate | Slides 18-21 are private backup</div>
+
+<script>
+    let currentSlide = 1;
+    const totalSlides = document.querySelectorAll('.slide').length;
+
+    function showSlide(n) {
+        const slides = document.querySelectorAll('.slide');
+        slides.forEach(s => s.classList.remove('active'));
+
+        if (n > totalSlides) currentSlide = 1;
+        if (n < 1) currentSlide = totalSlides;
+
+        slides[currentSlide - 1].classList.add('active');
+    }
+
+    function nextSlide() {
+        currentSlide++;
+        showSlide(currentSlide);
+    }
+
+    function prevSlide() {
+        currentSlide--;
+        showSlide(currentSlide);
+    }
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'Enter') {
+            nextSlide();
+        } else if (e.key === 'ArrowLeft') {
+            prevSlide();
+        } else if (e.key === 'Home') {
+            currentSlide = 1;
+            showSlide(currentSlide);
+        } else if (e.key === 'End') {
+            currentSlide = totalSlides;
+            showSlide(currentSlide);
+        }
+    });
+
+    // Click navigation
+    document.addEventListener('click', (e) => {
+        const x = e.clientX;
+        const width = window.innerWidth;
+
+        if (x > width / 2) {
+            nextSlide();
+        } else {
+            prevSlide();
+        }
+    });
+
+    // Touch navigation
+    let touchStartX = 0;
+    document.addEventListener('touchstart', (e) => {
+        touchStartX = e.touches[0].clientX;
+    });
+
+    document.addEventListener('touchend', (e) => {
+        const touchEndX = e.changedTouches[0].clientX;
+        const diff = touchStartX - touchEndX;
+
+        if (Math.abs(diff) > 50) {
+            if (diff > 0) {
+                nextSlide();
+            } else {
+                prevSlide();
+            }
+        }
+    });
+</script>
+
+</body>
+</html>
