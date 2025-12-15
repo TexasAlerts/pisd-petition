@@ -286,11 +286,14 @@
                     <thead><tr><th>Component</th><th>Formula</th></tr></thead>
                     <tbody>
                         <tr><td><strong>Total Additional Revenue</strong></td><td><code>Additional Gross M&O + Additional I&S = $3.84M + $2.69M = $6.53M</code></td></tr>
-                        <tr><td><strong>Less: Additional Recapture</strong></td><td><code>Recapture(with) - Recapture(without) = ~$69K</code></td></tr>
+                        <tr><td><strong>Less: Additional Recapture</strong></td><td><code>Recapture(with) - Recapture(without) = ~$310K</code></td></tr>
                         <tr><td><strong>Less: Denton Debt Share</strong></td><td><code>$174.07M × ($537.7M ÷ $37.52B) = $2.49M</code></td></tr>
-                        <tr><td><strong>Year 1 Net Benefit</strong></td><td><code>$6.53M - $0.07M - $2.49M = $3.97M</code></td></tr>
+                        <tr><td><strong>Year 1 Net Benefit</strong></td><td><code>$6.53M - $0.31M - $2.49M = $3.73M</code></td></tr>
                     </tbody>
                 </table>
+                <div class="info-box" style="margin-top:1rem;">
+                    <strong>Full Recapture Modeling:</strong> This calculator includes both Copper Penny recapture (Years 1+) and Tier 1 (MCR) recapture (triggers Year 28+ when DPV growth outpaces WADA growth). 30-year cumulative: ~$248M.
+                </div>
             </div>
         </div>
 
@@ -386,11 +389,20 @@
             const gold = 0.08, copper = p.mo - p.mcr - gold, copperCents = copper * 100;
             const compMO = dpv/100*p.mcr, goldMO = dpv/100*gold, copperMO = dpv/100*copper;
             const grossMO = compMO + goldMO + copperMO, grossIS = dpv/100*p.is;
+
+            // Tier 1 (MCR) recapture - triggers when MCR revenue > Tier 1 entitlement
+            const tier1Ent = p.basicAllotment * wada;
+            const tier1Excess = Math.max(0, compMO - tier1Ent);
+            const tier1Recap = tier1Excess * (1 - p.cadRate/100);
+
+            // Copper penny recapture
             const copperEnt = p.copperYield * wada * copperCents;
-            const excess = Math.max(0, copperMO - copperEnt);
-            const cad = excess * (p.cadRate/100);
-            const recap = Math.max(0, excess - cad);
-            return { compMO, goldMO, copperMO, grossMO, grossIS, recap, netMO: grossMO - recap };
+            const copperExcess = Math.max(0, copperMO - copperEnt);
+            const copperRecap = copperExcess * (1 - p.cadRate/100);
+
+            // Total recapture
+            const recap = tier1Recap + copperRecap;
+            return { compMO, goldMO, copperMO, grossMO, grossIS, tier1Recap, copperRecap, recap, netMO: grossMO - recap };
         }
 
         function calculate() {
@@ -403,6 +415,7 @@
             const is = +document.getElementById('isRate').value;
             const copperYield = +document.getElementById('copperYield').value;
             const cadRate = +document.getElementById('cadCreditRate').value;
+            const basicAllotment = +document.getElementById('basicAllotment').value;
             const enroll0 = +document.getElementById('enrollment').value;
             const studGr = +document.getElementById('studentGrowth').value/100;
             const cap = +document.getElementById('studentCap').value;
@@ -414,7 +427,7 @@
             const dDebt = +document.getElementById('dentonDebt').value;
             const dTAV = +document.getElementById('dentonTAV').value;
             const dYears = +document.getElementById('dentonDebtYears').value;
-            const p = { mo, mcr, is, copperYield, cadRate };
+            const p = { mo, mcr, is, copperYield, cadRate, basicAllotment };
             const adaRatio = baseADA / enroll0;
             updateRateBar();
             data = [];
