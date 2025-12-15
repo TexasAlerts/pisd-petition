@@ -174,8 +174,7 @@
                         <div class="form-group"><label>Current PISD Enrollment</label><input type="number" id="enrollment" value="31651"><small>PEIMS 2024-25</small></div>
                         <div class="form-group"><label>Historical Growth (%/yr)</label><input type="number" id="studentGrowth" value="5.8" step="0.1"><small>3-year CAGR</small></div>
                         <div class="form-group"><label>Capacity Cap</label><input type="number" id="studentCap" value="55000"><small>Max students</small></div>
-                        <div class="form-group"><label>Post-Cap Growth (%/yr)</label><input type="number" id="postCapGrowth" value="0.5" step="0.1"><small>After 55K</small></div>
-                        <div class="form-group"><label>Property Value Growth (%/yr)</label><input type="number" id="pvGrowth" value="5.0" step="0.1"></div>
+                                                <div class="form-group"><label>Property Value Growth (%/yr)</label><input type="number" id="pvGrowth" value="5.0" step="0.1"></div>
                         <div class="form-group"><label>Projection Years</label><input type="number" id="projYears" value="30" min="5" max="30"></div>
                     </div>
                 </div>
@@ -195,7 +194,7 @@
                     <div class="grid-3">
                         <div class="form-group"><label>Denton Annual Debt Service</label><input type="number" id="dentonDebt" value="174065801"><small>$174.07M</small></div>
                         <div class="form-group"><label>Denton TAV</label><input type="number" id="dentonTAV" value="37518859667"></div>
-                        <div class="form-group"><label>Debt Years Remaining</label><input type="number" id="dentonDebtYears" value="12"></div>
+                        <div class="form-group"><label>Debt Years Remaining</label><input type="number" id="dentonDebtYears" value="25"></div>
                     </div>
                 </div>
                 
@@ -413,7 +412,6 @@
             const enroll0 = +document.getElementById('enrollment').value;
             const studGr = +document.getElementById('studentGrowth').value/100;
             const cap = +document.getElementById('studentCap').value;
-            const postCap = +document.getElementById('postCapGrowth').value/100;
             const pvGr = +document.getElementById('pvGrowth').value/100;
             const years = +document.getElementById('projYears').value;
             const annexVal = +document.getElementById('annexValue').value;
@@ -430,10 +428,9 @@
                 const pvF = Math.pow(1+pvGr, y-1);
                 const annexF = Math.pow(1+annexGr, y-1);
                 let enroll = enroll0 * Math.pow(1+studGr, y-1);
+                // Cap enrollment at max - stays flat once reached
                 if (enroll >= cap) {
-                    const yAtCap = Math.ceil(Math.log(cap/enroll0)/Math.log(1+studGr));
-                    const yPast = y - yAtCap;
-                    enroll = yPast > 0 ? cap * Math.pow(1+postCap, yPast) : cap;
+                    enroll = cap;
                 }
                 const ada = enroll * adaRatio;
                 const wada = ada * wadaRatio;
