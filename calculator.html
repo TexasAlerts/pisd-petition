@@ -292,7 +292,7 @@
                     </tbody>
                 </table>
                 <div class="info-box" style="margin-top:1rem;">
-                    <strong>Full Recapture Modeling:</strong> This calculator includes both Copper Penny recapture (Years 1+) and Tier 1 (MCR) recapture (triggers Year 28+ when DPV growth outpaces WADA growth). 30-year cumulative: ~$248M.
+                    <strong>Recapture Modeling:</strong> This calculator includes Copper Penny recapture per TEA formula. PISD is not currently in Tier 1 (MCR) recapture.
                 </div>
             </div>
         </div>
@@ -390,19 +390,13 @@
             const compMO = dpv/100*p.mcr, goldMO = dpv/100*gold, copperMO = dpv/100*copper;
             const grossMO = compMO + goldMO + copperMO, grossIS = dpv/100*p.is;
 
-            // Tier 1 (MCR) recapture - triggers when MCR revenue > Tier 1 entitlement
-            const tier1Ent = p.basicAllotment * wada;
-            const tier1Excess = Math.max(0, compMO - tier1Ent);
-            const tier1Recap = tier1Excess * (1 - p.cadRate/100);
-
-            // Copper penny recapture
+            // Copper penny recapture only (PISD not currently in Tier 1 recapture)
             const copperEnt = p.copperYield * wada * copperCents;
             const copperExcess = Math.max(0, copperMO - copperEnt);
             const copperRecap = copperExcess * (1 - p.cadRate/100);
 
-            // Total recapture
-            const recap = tier1Recap + copperRecap;
-            return { compMO, goldMO, copperMO, grossMO, grossIS, tier1Recap, copperRecap, recap, netMO: grossMO - recap };
+            const recap = copperRecap;
+            return { compMO, goldMO, copperMO, grossMO, grossIS, copperRecap, recap, netMO: grossMO - recap };
         }
 
         function calculate() {
