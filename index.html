@@ -914,6 +914,7 @@
     </p>
     <div id="tea-appeal-countdown" style="margin-top: 16px; padding: 12px; background: white; border-radius: 6px; font-weight: 700; color: #92400e; font-size: 1.1rem;"></div>
     <div style="margin-top: 16px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+      <a href="/tea-commissioner-letter.html" style="display: inline-block; background: #dc2626; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 1rem;">📧 Email TEA Commissioner →</a>
       <a href="/board-presentation.html" style="display: inline-block; background: #1e3a8a; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 1rem;">📊 View Board Presentation →</a>
       <a href="/prosper-isd-thank-you.html" style="display: inline-block; background: #059669; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 1rem;">Letter to Prosper ISD →</a>
       <a href="/denton-isd-response.html" style="display: inline-block; background: #6b7280; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 1rem;">Letter to Denton ISD →</a>
@@ -1114,20 +1115,20 @@
       </div>
     </div>
 
-    <!-- Step 1: Email -->
+    <!-- Step 1: Email TEA Commissioner -->
     <div class="step-card active" id="step1">
       <div class="step-header">
         <div class="step-number" id="step1-number">1</div>
         <div class="step-title">
-          <h3>Email Both School Boards</h3>
+          <h3>Email the TEA Commissioner</h3>
           <div class="time-estimate">Takes 2 minutes</div>
         </div>
       </div>
       <div class="step-content">
         <p class="step-description">
-          <strong>Why this matters:</strong> Board members count every email. When they see hundreds of messages from real families,
-          it becomes impossible to ignore. Your email directly influences their December 15th vote.
-          The form below auto-generates a professional message - just fill in your info and click send.
+          <strong>Why this matters:</strong> Commissioner Mike Morath will conduct a <strong>de novo review</strong> — an independent assessment not bound by Denton ISD's denial.
+          Letters from community members demonstrate broad support and highlight the educational interests of our students.
+          The form below auto-generates a professional letter - just fill in your info and click send.
         </p>
 
         <div class="email-form">
@@ -1176,11 +1177,12 @@
                 <label for="voterType">Your Connection *</label>
                 <select id="voterType" name="voterType" required>
                   <option value="">-- Select one --</option>
-                  <option value="Prosper ISD Voter (NOT in Windsong Ranch)">Prosper ISD Voter (NOT in Windsong Ranch)</option>
-                  <option value="Windsong Ranch Resident (Affected by Petition)">Windsong Ranch Resident (Affected by Petition)</option>
-                  <option value="Windsong Ranch PISD Voter (Not Impacted)">Windsong Ranch PISD Voter (Not Impacted)</option>
-                  <option value="Denton ISD Voter">Denton ISD Voter</option>
-                  <option value="Concerned Community Member">Concerned Community Member</option>
+                  <option value="Windsong Ranch Resident (Petition Area)">Windsong Ranch Resident (Petition Area)</option>
+                  <option value="Prosper ISD Parent">Prosper ISD Parent</option>
+                  <option value="Prosper ISD Voter/Taxpayer">Prosper ISD Voter/Taxpayer</option>
+                  <option value="Denton ISD Voter/Taxpayer">Denton ISD Voter/Taxpayer</option>
+                  <option value="Prosper Community Member">Prosper Community Member</option>
+                  <option value="Concerned Texas Citizen">Concerned Texas Citizen</option>
                 </select>
                 <span class="error-message" id="voterType-error"></span>
               </div>
@@ -1219,49 +1221,41 @@
             </div>
 
             <button type="submit" class="btn btn-primary" id="submitBtn">
-              Send Email to Both Boards
+              Send Letter to TEA Commissioner
             </button>
           </form>
         </div>
       </div>
     </div>
 
-    <!-- Step 2: Calendar (Initially Locked) -->
+    <!-- Step 2: Donate -->
     <div class="step-card locked" id="step2">
       <div class="step-header">
         <div class="step-number" id="step2-number">2</div>
         <div class="step-title">
-          <h3>Add Monday's Meeting to Your Calendar</h3>
-          <div class="time-estimate">Takes 30 seconds</div>
+          <h3>Help Fund the TEA Appeal</h3>
+          <div class="time-estimate">Takes 1 minute</div>
         </div>
       </div>
       <div class="step-content">
         <p class="step-description">
-          <strong>Why this matters:</strong> Denton ISD denied our petition. Now Prosper ISD's approval sends this to the TEA Commissioner for final decision. A packed room on Monday shows the Commissioner that our community supports this common-sense realignment.
+          <strong>Why this matters:</strong> The TEA Commissioner appeal requires professional preparation and filing. Your donations of $1,750 funded the original petition. We need an additional <strong>$2,000</strong> to ensure our appeal is professionally prepared.
         </p>
 
         <div class="success-message" id="step2-success">
-          <h4>✓ Step 2 Complete!</h4>
-          <p>Meeting added to your calendar. See you Monday at 7 PM!</p>
+          <h4>✓ Thank You!</h4>
+          <p>Your support makes this appeal possible!</p>
         </div>
 
-        <div class="calendar-options" id="calendar-options">
-          <a href="#" class="calendar-btn" onclick="downloadICS(); return false;" style="background: #fee2e2; border-color: #dc2626; font-weight: 600;">
-            📥 Download (.ics) - Recommended
-          </a>
-          <a href="#" class="calendar-btn" onclick="addToGoogleCalendar(); return false;">
-            Google Calendar
-          </a>
-          <a href="#" class="calendar-btn" onclick="addToOutlookCalendar(); return false;">
-            Outlook
+        <div style="text-align: center; margin: 24px 0;">
+          <a href="https://gofund.me/4671b58e" target="_blank" class="btn btn-primary" style="background: #10b981; display: inline-block; width: auto; padding: 16px 40px;" onclick="completeStep2();">
+            Donate to Support the Appeal
           </a>
         </div>
 
-        <p style="margin-top: 20px; color: #991b1b; font-size: 0.95rem; font-weight: 600;">
-          <strong>🔴 CRITICAL Meeting:</strong><br>
-          <strong>Prosper ISD:</strong> Monday, December 15, 2025 at 7:00 PM<br>
-          <span style="font-weight: normal;">605 E 7th Street, Prosper, TX 75078</span><br>
-          <span style="font-weight: normal; font-size: 0.85rem;">Submit public comment form by NOON on December 15</span>
+        <p style="margin-top: 20px; color: #059669; font-size: 0.95rem; text-align: center;">
+          <strong>Filing Deadline: January 23, 2026</strong><br>
+          Every donation helps ensure our appeal is professionally prepared
         </p>
       </div>
     </div>
@@ -1277,14 +1271,13 @@
       </div>
       <div class="step-content">
         <p class="step-description">
-          <strong>Why this matters:</strong> Your participation demonstrates community support for this common-sense realignment under Texas law.
-          If every supporter gets just 10 others involved, we'll pack that meeting room and secure our children's future.
-          Your personal outreach is the most powerful tool we have - people respond when friends and neighbors ask for help.
+          <strong>Why this matters:</strong> The more community voices the TEA Commissioner hears, the stronger our case.
+          Your personal outreach is the most powerful tool we have — ask friends, neighbors, and Prosper ISD families to send their own letters of support.
         </p>
 
         <div class="success-message" id="step3-success">
           <h4>✓ All Steps Complete!</h4>
-          <p>Thank you for taking action! Remember to attend the meeting on December 15th at 6:00 PM.</p>
+          <p>Thank you for supporting the Windsong Ranch annexation appeal!</p>
         </div>
 
         <div class="share-grid" id="share-options">
@@ -1305,12 +1298,12 @@
           </div>
         </div>
 
-        <div style="margin-top: 24px; padding: 16px; background: #fee2e2; border-radius: 8px;">
-          <p style="margin: 0; color: #991b1b; font-weight: 600;">
+        <div style="margin-top: 24px; padding: 16px; background: #d1fae5; border-radius: 8px;">
+          <p style="margin: 0; color: #065f46; font-weight: 600;">
             Suggested Message:
           </p>
-          <p style="margin: 8px 0 0 0; color: #7f1d1d; font-size: 0.95rem;">
-            "MONDAY 7 PM - Prosper ISD votes on Windsong Ranch annexation. Denton ISD denied us (as expected). Now PISD approval sends this to TEA Commissioner. Pack the room! Details: https://prosperisdpetition.com"
+          <p style="margin: 8px 0 0 0; color: #047857; font-size: 0.95rem;">
+            "Prosper ISD approved our annexation petition! Now we need TEA Commissioner support. Send a 2-minute letter to bring 274 students' tax dollars home to PISD: https://prosperisdpetition.com"
           </p>
         </div>
       </div>
@@ -1428,34 +1421,13 @@
 // Configuration
 const CONFIG = {
   MEETING_DATE: new Date('2025-12-15T19:00:00-06:00'),
+  // TEA Commissioner Appeal Recipients
   RECIPIENTS_TO: [
-    // Denton ISD Officials
-    'superintendent@dentonisd.org',
-    'jthompson6@dentonisd.org',
-    'cstafford@dentonisd.org',
-    'barbara.burns@dentonisd.org',
-    'ltays@dentonisd.org',
-    'psosasanchez@dentonisd.org',
-    'buddy.dunworth@dentonisd.org',
-    'sheryl.english@dentonisd.org',
-    'disdgeneralcounsel@dentonisd.org',
-    'tanya.wright@dentonisd.org',
-    // Prosper ISD Board Members
-    'wlmclaughlin@prosper-isd.net',
-    'HJFerguson@prosper-isd.net',
-    'dldixon@prosper-isd.net',
-    'wbbeavers@prosper-isd.net',
-    'grlinker@prosper-isd.net',
-    'dmwebb@prosper-isd.net',
-    'kpcavender@prosper-isd.net',
-    'jrcrownover@prosper-isd.net',
-    'tjvanwolfe@prosper-isd.net',
-    'jmdial@prosper-isd.net'
+    'commissioner@tea.texas.gov',
+    'HearingsandAppeals@tea.texas.gov'
   ],
   RECIPIENTS_CC: [
-    'hturner@wabsa.com',
-    'asorendo@wabsa.com',
-    'commissioner@tea.texas.gov'
+    'dbcharles@me.com'  // Lead petitioner for tracking
   ],
   ENDPOINT: "https://script.google.com/macros/s/AKfycbxugscfEwzf1eweMyhiucZTfBriII0KiYqPgZ-ITKmAuVC5sJPWw5_aJCLKrlJou5wQ0A/exec" // Google Apps Script endpoint
 };
@@ -1609,73 +1581,47 @@ function validateForm(formData) {
   return isValid;
 }
 
-// Build email content
+// Build email content for TEA Commissioner
 function buildEmailContent(formData) {
-  const subject = `Support for Windsong Ranch Realignment to Prosper ISD - ${formData.name}`;
+  const subject = `Support for Windsong Ranch Annexation Appeal - ${formData.name}`;
 
-  const body = `Dear Prosper ISD and Denton ISD Board Members,
+  const body = `Dear Commissioner Morath,
 
-My name is ${formData.name}, a ${formData.voterType} residing at ${formData.street}, ${formData.city}, ${formData.state} ${formData.zip}.
+I am writing to express my strong support for the pending appeal in the matter of the Windsong Ranch annexation petition, filed pursuant to Texas Education Code § 13.051(j).
 
-I urge both Boards to approve the pending petition for detachment from Denton ISD and attachment to Prosper ISD under Texas Education Code Section 13.051, filed October 20, 2025.
-
-==============================
-TO PROSPER ISD BOARD:
-==============================
-
-Thank you for scheduling the December 15 hearing at 6:00 PM. Your swift action demonstrates leadership and commitment to the students you already serve. I urge you to vote YES to approve this petition.
-
-These 274 students already attend your schools, yet you receive $0.00 in local property taxes to educate them. This creates an unfair burden on all Prosper ISD taxpayers.
-
-This petition will:
-• Generate $6.5 million annually for Prosper ISD operations
-• Add $537.7 million in taxable property for future bond capacity
-• Provide these families voting rights in PISD governance
-• Align tax responsibility with educational responsibility
-
-You're already doing the work. You're already educating these children. Now bring home the local tax dollars. This is the fiscally responsible and morally correct decision.
+As a ${formData.voterType} residing at ${formData.street}, ${formData.city}, ${formData.state} ${formData.zip}, I urge you to APPROVE this petition and order the detachment of Windsong Ranch from Denton ISD and its annexation to Prosper ISD.
 
 ==============================
-TO DENTON ISD BOARD:
+THE FACTS ARE CLEAR:
 ==============================
 
-Thank you for scheduling the December 9 hearing at 6:00 PM. Your prompt action respects the democratic process and the 360 registered voters who signed this petition.
+1. STUDENTS ALREADY ATTEND PROSPER ISD: All 274 students from Windsong Ranch attend Prosper ISD schools under transfer agreements. Zero students attend Denton ISD. This has been true since the subdivision was built in 2012.
 
-I respectfully urge you to vote YES and do the right thing for these families. These 274 students already attend Prosper ISD schools by agreement—this petition simply formalizes that reality permanently.
+2. GEOGRAPHIC REALITY: Prosper ISD schools (Windsong Ranch Elementary, Reynolds Middle School, Prosper High School) are within walking distance. The nearest Denton ISD high school is 5+ miles away.
 
-The facts are clear:
-• Students don't attend Denton ISD schools (zero enrollment from this territory)
-• Families chose Prosper ISD for educational excellence
-• The arrangement already exists—this makes it permanent
-• Approving aligns governance with the educational reality
+3. COMMUNITY SUPPORT: 52.6% of registered voters in Windsong Ranch signed this petition (360 of 684). This exceeds the statutory requirement.
 
-This is an opportunity to demonstrate leadership by supporting families who chose Prosper ISD and ensuring school boundaries reflect where students actually attend.
+4. PROSPER ISD AGREED: On December 15, 2025, Prosper ISD's Board of Trustees voted to approve the annexation, finding in favor of the students' educational interests.
+
+5. TAX EQUITY: For 13 years, Denton ISD has collected approximately $6.5 million annually from Windsong Ranch while educating none of our children. This revenue should follow the students.
 
 ==============================
-KEY FACTS:
+THE LEGAL STANDARD SUPPORTS APPROVAL:
 ==============================
 
-• Petition has majority voter support (52.6% - 360 of 684 registered voters signed)
-• All 274 students from these 466 homes already attend Prosper ISD schools
-• Zero students from this territory attend Denton ISD
-• This represents common-sense governance, fairness, and fiscal accountability
-• Permanent realignment provides stability for families and both districts
+Texas Education Code § 13.051(h) requires you to consider "the educational interests of the students in the affected territory." Those interests are clear: these students ARE Prosper ISD students in every way except on paper.
+
+Denton ISD's denial was driven by financial concerns — protecting $6.5 million in annual revenue — not by the educational interests of students. The contrasting findings from Prosper ISD demonstrate this clearly.
 
 ==============================
-UPCOMING HEARINGS:
+MY REQUEST:
 ==============================
 
-DENTON ISD: December 9, 2025 at 6:00 PM
-Location: 1307 N. Locust Street, Denton, TX 76201
+I respectfully request that you exercise your authority under TEC § 13.051(j) to approve this petition and set the earliest effective date permitted under TEC § 13.005(c).
 
-PROSPER ISD: December 15, 2025 at 6:00 PM
-Location: 605 E 7th Street, Prosper, TX 75078
+Thank you for your consideration of this important matter.
 
-Both boards have an opportunity to do what's right for our children and communities. I respectfully urge both Boards to approve this petition.
-
-Thank you for your service and consideration.
-
-Sincerely,
+Respectfully,
 
 ${formData.name}
 ${formData.street}, ${formData.city}, ${formData.state} ${formData.zip}
@@ -1729,7 +1675,8 @@ async function handleSubmit(event) {
         website: formData.website, // Honeypot field
         fullAddress: `${formData.street}, ${formData.city}, ${formData.state} ${formData.zip}`,
         userAgent: navigator.userAgent,
-        timestamp: new Date().toISOString()
+        timestamp: new Date().toISOString(),
+        letterType: 'TEA_COMMISSIONER'  // Track TEA letters vs board letters
       };
 
       // Send to Google Sheets (fire and forget - no need to await)
@@ -1771,7 +1718,7 @@ async function handleSubmit(event) {
 
     // Reset button
     submitBtn.disabled = false;
-    submitBtn.textContent = 'Send Email to Both Boards';
+    submitBtn.textContent = 'Send Letter to TEA Commissioner';
   }, 1000);
 }
 
@@ -1867,57 +1814,67 @@ function completeStep2() {
   }, 1500);
 }
 
+// Complete Step 2 (donate)
+function completeStep2() {
+  document.getElementById('step2').classList.remove('active');
+  document.getElementById('step2').classList.add('completed');
+  document.getElementById('step2-number').classList.add('completed');
+  document.getElementById('step2-number').innerHTML = '✓';
+  document.getElementById('step2-success').classList.add('show');
+
+  // Unlock Step 3
+  document.getElementById('step3').classList.remove('locked');
+  document.getElementById('step3').classList.add('active');
+}
+
 // Share functions
 function shareViaSMS() {
-  const message = encodeURIComponent(`MONDAY 7 PM - Prosper ISD votes on Windsong Ranch annexation!
+  const message = encodeURIComponent(`Prosper ISD APPROVED our annexation petition!
 
-Denton ISD denied us (as expected). Now PISD approval sends this to TEA Commissioner for final decision.
+Now we need TEA Commissioner support to make it official. Send a 2-minute letter of support:
 
-We need to PACK THE ROOM Monday Dec 15 at 7 PM!
+https://prosperisdpetition.com
 
-Details & email the board: https://prosperisdpetition.com`);
+274 students. $6.5M in tax revenue. Let's bring it home to Prosper ISD!`);
   window.open(`sms:?&body=${message}`, '_blank');
   completeStep3();
 }
 
 function shareViaEmail() {
-  const subject = encodeURIComponent('URGENT: Prosper ISD Vote MONDAY 7 PM - We Need You There!');
+  const subject = encodeURIComponent('Help Support Windsong Ranch TEA Appeal - 2 Minutes!');
   const body = encodeURIComponent(`Hi,
 
-Denton ISD denied our annexation petition on December 9 (as expected - they didn't want to lose $6.5M in tax revenue).
+Great news! Prosper ISD approved our annexation petition on December 15!
 
-Now the CRITICAL vote is THIS MONDAY at 7 PM at Prosper ISD!
+Because Denton ISD denied (they didn't want to lose $6.5M in tax revenue), we're now appealing to the TEA Commissioner for final decision.
 
-If Prosper ISD approves, this goes to the TEA Commissioner for final decision. We need to pack the room to show community support!
+Can you help? It takes just 2 minutes to send a letter of support:
+https://prosperisdpetition.com
 
-Please visit https://prosperisdpetition.com to:
-- Email the Prosper ISD board
-- Add the meeting to your calendar
-- Share with others
+THE FACTS:
+- 274 students already attend Prosper ISD (zero attend Denton ISD)
+- Prosper ISD schools are within walking distance
+- 52.6% of Windsong Ranch voters signed the petition
+- For 13 years, Denton ISD has collected $6.5M annually while educating none of our children
 
-Meeting Details:
-MONDAY, December 15, 2025 at 7:00 PM
-Prosper ISD Administration Building
-605 E 7th Street, Prosper, TX 75078
+The TEA Commissioner will conduct a de novo review - an independent assessment. Community support matters!
 
-This affects 274 students and $6.5 million in annual tax revenue. The tax rate difference is only $83/year per home!
+Filing Deadline: January 23, 2026
 
-Your presence matters!
-
-Thank you!`);
+Thank you for your support!`);
 
   window.open(`mailto:?subject=${subject}&body=${body}`, '_blank');
   completeStep3();
 }
 
 function copyShareLink() {
-  const text = `MONDAY 7 PM - Prosper ISD votes on Windsong Ranch annexation!
+  const text = `Prosper ISD APPROVED our annexation petition!
 
-Denton ISD denied us (as expected). Now PISD approval sends this to TEA Commissioner.
+Now we need TEA Commissioner support. Send a 2-minute letter:
 
-Pack the room Monday Dec 15 at 7 PM!
+https://prosperisdpetition.com
 
-Details: https://prosperisdpetition.com`;
+274 students. $6.5M. Let's bring our tax dollars home to Prosper ISD!`;
 
   if (navigator.clipboard && navigator.clipboard.writeText) {
     navigator.clipboard.writeText(text).then(() => {

@@ -74,7 +74,8 @@ function doPost(e) {
       data.voterType || '',
       data.fullAddress || '',
       data.userAgent || '',
-      'Submitted' // Status
+      'Submitted', // Status
+      data.letterType || 'BOARD_LETTER' // Letter type: TEA_COMMISSIONER or BOARD_LETTER
     ];
     
     // Append to sheet
