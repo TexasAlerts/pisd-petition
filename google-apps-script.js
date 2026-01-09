@@ -62,20 +62,25 @@ function doPost(e) {
     // Get the spreadsheet
     const sheet = getSheet();
     
-    // Prepare row data
+    // Prepare row data - matches sheet columns:
+    // A: Timestamp, B: Name, C: Email, D: Phone, E: SMS Opt-In, F: Street, G: City, H: State, I: ZIP,
+    // J: Voter Type, K: Full Address, L: User Agent, M: Status, N: (Duplicate formula), O: Letter Type
     const rowData = [
-      new Date(), // Timestamp
-      data.name || '',
-      data.email || '',
-      data.street || '',
-      data.city || '',
-      data.state || '',
-      data.zip || '',
-      data.voterType || '',
-      data.fullAddress || '',
-      data.userAgent || '',
-      'Submitted', // Status
-      data.letterType || 'BOARD_LETTER' // Letter type: TEA_COMMISSIONER or BOARD_LETTER
+      new Date(), // A: Timestamp
+      data.name || '', // B: Name
+      data.email || '', // C: Email
+      data.phone || '', // D: Phone
+      data.smsConsent ? 'Yes' : 'No', // E: SMS Opt-In
+      data.street || '', // F: Street
+      data.city || '', // G: City
+      data.state || '', // H: State
+      data.zip || '', // I: ZIP
+      data.voterType || '', // J: Voter Type
+      data.fullAddress || '', // K: Full Address
+      data.userAgent || '', // L: User Agent
+      'Submitted', // M: Status
+      '', // N: Leave blank for Duplicate formula
+      data.letterType || 'BOARD_LETTER' // O: Letter Type (TEA_COMMISSIONER or BOARD_LETTER)
     ];
     
     // Append to sheet
@@ -186,20 +191,98 @@ function createCORSResponse() {
 }
 
 /**
+ * COLUMN HEADERS - Run this function once to set up column headers
+ * Go to Apps Script Editor > Run > setupColumnHeaders
+ */
+function setupColumnHeaders() {
+  const sheet = getSheet();
+  if (!sheet) {
+    Logger.log('ERROR: Cannot access sheet. Check SHEET_NAME in CONFIG.');
+    return;
+  }
+
+  // Column headers A through O
+  const headers = [
+    'Timestamp',      // A
+    'Name',           // B
+    'Email',          // C
+    'Phone',          // D
+    'SMS Opt-In',     // E
+    'Street',         // F
+    'City',           // G
+    'State',          // H
+    'ZIP',            // I
+    'Voter Type',     // J
+    'Full Address',   // K
+    'User Agent',     // L
+    'Status',         // M
+    'Duplicate',      // N
+    'Letter Type'     // O
+  ];
+
+  // Set headers in row 1
+  const headerRange = sheet.getRange(1, 1, 1, headers.length);
+  headerRange.setValues([headers]);
+
+  // Format header row
+  headerRange.setFontWeight('bold');
+  headerRange.setBackground('#1e3a8a');
+  headerRange.setFontColor('#ffffff');
+
+  // Freeze header row
+  sheet.setFrozenRows(1);
+
+  // Auto-resize columns
+  for (let i = 1; i <= headers.length; i++) {
+    sheet.autoResizeColumn(i);
+  }
+
+  Logger.log('✅ Column headers set up successfully!');
+  Logger.log('Headers: ' + headers.join(', '));
+}
+
+/**
+ * Set up the Duplicate formula for existing rows
+ * Run this after setupColumnHeaders to add the duplicate detection formula
+ */
+function setupDuplicateFormulas() {
+  const sheet = getSheet();
+  if (!sheet) {
+    Logger.log('ERROR: Cannot access sheet.');
+    return;
+  }
+
+  const lastRow = sheet.getLastRow();
+  if (lastRow < 2) {
+    Logger.log('No data rows found. Add some submissions first.');
+    return;
+  }
+
+  // For each row starting from row 2, set the duplicate formula in column N
+  // Formula checks: same Letter Type (O) + same Email (C) + same Name (B)
+  for (let row = 2; row <= lastRow; row++) {
+    const formula = `=IF(COUNTIFS($O$2:O${row}, O${row}, $C$2:C${row}, C${row}, $B$2:B${row}, B${row}) > 1, "DUPLICATE", "Unique")`;
+    sheet.getRange(row, 14).setFormula(formula); // Column N = 14
+  }
+
+  Logger.log(`✅ Duplicate formulas set for rows 2-${lastRow}`);
+}
+
+/**
  * Test function to verify setup (run this from Script Editor)
  */
 function testSetup() {
   Logger.log('Testing backend setup...');
-  
+
   // Test sheet access
   const sheet = getSheet();
   if (!sheet) {
     Logger.log('ERROR: Cannot access sheet. Check SHEET_NAME in CONFIG.');
     return;
   }
-  
+
   Logger.log('✅ Sheet access successful: ' + sheet.getName());
-  
+
   // Test data validation
   const testData = {
     name: 'Test User',
@@ -211,13 +294,18 @@ function testSetup() {
     voterType: 'Prosper ISD Voter (NOT in Windsong Ranch)',
     fullAddress: '123 Test St, Prosper, TX 75078'
   };
-  
+
   const validation = validateData(testData);
   if (validation.valid) {
     Logger.log('✅ Data validation working');
   } else {
     Logger.log('ERROR: Data validation failed - ' + validation.error);
   }
-  
+
   Logger.log('Backend setup test complete!');
+  Logger.log('');
+  Logger.log('NEXT STEPS:');
+  Logger.log('1. Run setupColumnHeaders() to set up column headers A-O');
+  Logger.log('2. Run setupDuplicateFormulas() to add duplicate detection');
+  Logger.log('3. Deploy as web app');
 }

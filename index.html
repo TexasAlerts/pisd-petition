@@ -915,7 +915,7 @@
     </p>
     <div id="tea-appeal-countdown" style="margin-top: 16px; padding: 12px; background: white; border-radius: 6px; font-weight: 700; color: #92400e; font-size: 1.1rem;"></div>
     <div style="margin-top: 16px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
-      <a href="#step1" style="display: inline-block; background: #dc2626; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 1rem;">📧 Email TEA Commissioner →</a>
+      <a href="#step1" style="display: inline-block; background: #9ca3af; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 1rem; cursor: default;">✓ Community Letters Sent</a>
       <a href="/board-presentation.html" style="display: inline-block; background: #1e3a8a; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 1rem;">📊 View Board Presentation →</a>
       <a href="/prosper-isd-thank-you.html" style="display: inline-block; background: #059669; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 1rem;">Letter to Prosper ISD →</a>
       <a href="/denton-isd-response.html" style="display: inline-block; background: #6b7280; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 1rem;">Letter to Denton ISD →</a>
@@ -1116,121 +1116,42 @@
       </div>
     </div>
 
-    <!-- Step 1: Email TEA Commissioner -->
-    <div class="step-card active" id="step1">
+    <!-- Step 1: Community Letters - COMPLETED -->
+    <div class="step-card completed" id="step1" style="opacity: 0.85;">
       <div class="step-header">
-        <div class="step-number" id="step1-number">1</div>
+        <div class="step-number completed" id="step1-number">✓</div>
         <div class="step-title">
-          <h3>Email the TEA Commissioner</h3>
-          <div class="time-estimate">Takes 2 minutes</div>
+          <h3>Community Letters Sent</h3>
+          <div class="time-estimate" style="color: #059669;">Phase Complete</div>
         </div>
       </div>
       <div class="step-content">
-        <p class="step-description">
-          <strong>Why this matters:</strong> Commissioner Mike Morath will conduct a <strong>de novo review</strong> — an independent assessment not bound by Denton ISD's denial.
-          Letters from community members demonstrate broad support and highlight the educational interests of our students.
-          The form below auto-generates a professional letter - just fill in your info and click send.
-        </p>
+        <div style="background: #f0fdf4; border: 2px solid #10b981; border-radius: 12px; padding: 24px; text-align: center;">
+          <h4 style="color: #065f46; margin: 0 0 16px 0; font-size: 1.3rem;">✅ Thank You for Your Support!</h4>
+          <p style="color: #047857; margin: 0 0 20px 0; font-size: 1rem; line-height: 1.6;">
+            Your voices have been heard! Community members sent letters to the TEA Commissioner supporting our annexation petition. Thank you for your participation!
+          </p>
 
-        <div class="email-form">
-          <form id="petitionForm">
-            <div class="form-row">
-              <div class="form-group">
-                <label for="name">Full Name *</label>
-                <input type="text" id="name" name="name" required />
-                <span class="error-message" id="name-error"></span>
-              </div>
-              <div class="form-group">
-                <label for="email">Email Address *</label>
-                <input type="email" id="email" name="email" required />
-                <span class="error-message" id="email-error"></span>
-              </div>
-            </div>
+          <div style="background: white; border-radius: 8px; padding: 20px; margin: 20px 0; text-align: left;">
+            <p style="margin: 0 0 12px 0; font-weight: 700; color: #1e3a8a;">📢 What's Next?</p>
+            <p style="margin: 0 0 16px 0; color: #4b5563; font-size: 0.95rem;">
+              Our legal counsel, <a href="https://www.plg-law.com" target="_blank" style="color: #1e40af; font-weight: 600;">Powell Law Group</a>, is now handling all official communications with the TEA. We will coordinate any future stakeholder messaging through our attorney, <a href="https://www.plg-law.com/our-people/keaton-l-haney/" target="_blank" style="color: #1e40af;">Keaton Haney</a>.
+            </p>
+            <p style="margin: 0; font-weight: 700; color: #1e3a8a;">🔔 Stay Tuned</p>
+            <p style="margin: 8px 0 0 0; color: #4b5563; font-size: 0.95rem;">
+              Check back for updates on our progress toward gaining state approval. We'll notify you when there are new developments or opportunities to help.
+            </p>
+          </div>
 
-            <div class="form-row">
-              <div class="form-group">
-                <label for="street">Street Address *</label>
-                <input type="text" id="street" name="street" required />
-                <span class="error-message" id="street-error"></span>
-              </div>
-              <div class="form-group">
-                <label for="city">City *</label>
-                <input type="text" id="city" name="city" value="Prosper" required />
-                <span class="error-message" id="city-error"></span>
-              </div>
-            </div>
-
-            <div class="form-row">
-              <div class="form-group">
-                <label for="state">State *</label>
-                <input type="text" id="state" name="state" value="TX" maxlength="2" required />
-                <span class="error-message" id="state-error"></span>
-              </div>
-              <div class="form-group">
-                <label for="zip">ZIP Code *</label>
-                <input type="text" id="zip" name="zip" pattern="[0-9]{5}" required />
-                <span class="error-message" id="zip-error"></span>
-              </div>
-            </div>
-
-            <div class="form-row full">
-              <div class="form-group">
-                <label for="voterType">Your Connection *</label>
-                <select id="voterType" name="voterType" required>
-                  <option value="">-- Select one --</option>
-                  <option value="Windsong Ranch Resident (Petition Area)">Windsong Ranch Resident (Petition Area)</option>
-                  <option value="Prosper ISD Parent">Prosper ISD Parent</option>
-                  <option value="Prosper ISD Voter/Taxpayer">Prosper ISD Voter/Taxpayer</option>
-                  <option value="Denton ISD Voter/Taxpayer">Denton ISD Voter/Taxpayer</option>
-                  <option value="Prosper Community Member">Prosper Community Member</option>
-                  <option value="Concerned Texas Citizen">Concerned Texas Citizen</option>
-                </select>
-                <span class="error-message" id="voterType-error"></span>
-              </div>
-            </div>
-
-            <div class="form-row">
-              <div class="form-group">
-                <label for="phone">Mobile Phone Number *</label>
-                <input type="tel" id="phone" name="phone" placeholder="(214) 555-1234" required />
-                <span class="error-message" id="phone-error"></span>
-              </div>
-              <div class="form-group" style="padding-top: 8px;">
-                <div style="background: #f3f4f6; padding: 12px; border-radius: 6px; border: 1px solid #d1d5db;">
-                  <label style="display: flex; align-items: flex-start; cursor: pointer; font-weight: normal; font-size: 0.85rem; line-height: 1.4;">
-                    <input type="checkbox" id="smsOptOut" name="smsOptOut" style="width: auto; margin-right: 8px; margin-top: 2px;" checked />
-                    <span>
-                      <strong>Uncheck to opt-out of text messages</strong><br>
-                      By providing your phone number, you consent to receive text messages regarding the December 15 meeting reminders
-                      and annexation status updates only. Message and data rates may apply. Text STOP to cancel.
-                      We will NOT send marketing messages or share your number.
-                    </span>
-                  </label>
-                </div>
-              </div>
-            </div>
-
-            <!-- Honeypot -->
-            <input type="text" class="honeypot" tabindex="-1" autocomplete="off" />
-
-            <div class="status-message" id="statusMessage"></div>
-
-            <div style="background: #fef3c7; padding: 12px; border-radius: 6px; margin: 16px 0; border: 1px solid #fbbf24;">
-              <p style="margin: 0; color: #92400e; font-size: 0.9rem; line-height: 1.4;">
-                <strong>⚠️ Email Client Notice:</strong> When you click the button below, your browser may ask for permission to open your email application. Click "Allow" or "Yes" to continue. This is a standard security feature and completely safe.
-              </p>
-            </div>
-
-            <button type="submit" class="btn btn-primary" id="submitBtn">
-              Send Letter to TEA Commissioner
-            </button>
-          </form>
+          <p style="margin: 0; color: #059669; font-weight: 600; font-size: 0.9rem;">
+            Filing Deadline: January 23, 2026 — Our attorneys are preparing the formal petition.
+          </p>
         </div>
       </div>
     </div>
 
     <!-- Step 2: Donate -->
-    <div class="step-card locked" id="step2">
+    <div class="step-card active" id="step2">
       <div class="step-header">
         <div class="step-number" id="step2-number">2</div>
         <div class="step-title">
@@ -1240,7 +1161,7 @@
       </div>
       <div class="step-content">
         <p class="step-description">
-          <strong>Why this matters:</strong> The TEA Commissioner appeal requires professional preparation and filing. Your donations of $1,750 funded the original petition. We need an additional <strong>$2,000</strong> to ensure our appeal is professionally prepared.
+          <strong>Why this matters:</strong> The TEA Commissioner appeal requires professional preparation and filing. Your donations of $1,750 funded the original petition. We need to raise <strong>$5,000</strong> to retain legal counsel and file our appeal.
         </p>
 
         <div class="success-message" id="step2-success">
