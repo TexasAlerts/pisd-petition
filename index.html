@@ -923,12 +923,13 @@
   </div>
 
   <!-- GoFundMe - Help Fund the Appeal -->
-  <div style="background: #eff6ff; border: 2px solid #3b82f6; border-radius: 8px; padding: 20px; margin-bottom: 16px; text-align: center;">
-    <h3 style="color: #1e40af; margin: 0 0 12px 0;">💙 Help Fund the TEA Appeal — $5,000 Goal</h3>
-    <p style="color: #1e3a8a; margin: 0 0 16px 0; font-size: 0.95rem;">
-      Your donations of $1,750 funded the original petition filing. Now we need to raise an estimated <strong>$5,000</strong> to retain legal counsel and successfully file our appeal with the TEA Commissioner.
+  <div style="background: #d1fae5; border: 3px solid #10b981; border-radius: 8px; padding: 20px; margin-bottom: 16px; text-align: center;">
+    <h3 style="color: #065f46; margin: 0 0 12px 0;">✅ $5,000 Retainer Raised — Thank You!</h3>
+    <p style="color: #047857; margin: 0 0 16px 0; font-size: 0.95rem;">
+      Thanks to the generosity of our Windsong Ranch neighbors, we have raised the <strong>$5,000 retainer</strong> to engage Powell Law Group. We expect total legal costs to be between <strong>$10,000 - $15,000</strong>, but won't know the final amount until the law firm drafts the filing and sees how Denton ISD responds.<br><br>
+      <strong>Stay tuned for updates on future needs beyond the $5,000 retainer.</strong>
     </p>
-    <a href="https://gofund.me/5acc47be" target="_blank" style="display: inline-block; background: #10b981; color: white; padding: 14px 32px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 1.1rem;">Donate Now</a>
+    <a href="https://gofund.me/5acc47be" target="_blank" style="display: inline-block; background: #10b981; color: white; padding: 14px 32px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 1.1rem;">Continue to Support →</a>
   </div>
 
   <!-- PROSPER ISD VOTE RESULT - Green/Approved Theme -->
@@ -1182,51 +1183,48 @@
       </div>
     </div>
 
-    <!-- Step 3: Share (Initially Locked) -->
-    <div class="step-card locked" id="step3">
+    <!-- Step 3: Share - Focus on Donations -->
+    <div class="step-card completed" id="step3" style="opacity: 0.85;">
       <div class="step-header">
-        <div class="step-number" id="step3-number">3</div>
+        <div class="step-number completed" id="step3-number">✓</div>
         <div class="step-title">
-          <h3>Share with Your Network</h3>
-          <div class="time-estimate">Takes 2 minutes</div>
+          <h3>Share & Support</h3>
+          <div class="time-estimate" style="color: #059669;">Help spread the word</div>
         </div>
       </div>
       <div class="step-content">
-        <p class="step-description">
-          <strong>Why this matters:</strong> The more community voices the TEA Commissioner hears, the stronger our case.
-          Your personal outreach is the most powerful tool we have — ask friends, neighbors, and Prosper ISD families to send their own letters of support.
-        </p>
-
-        <div class="success-message" id="step3-success">
-          <h4>✓ All Steps Complete!</h4>
-          <p>Thank you for supporting the Windsong Ranch annexation appeal!</p>
-        </div>
-
-        <div class="share-grid" id="share-options">
-          <div class="share-card">
-            <h4>Text Message</h4>
-            <p>Quick &amp; personal - highest response rate</p>
-            <button class="btn btn-primary" onclick="shareViaSMS()">Send Text</button>
-          </div>
-          <div class="share-card">
-            <h4>Email</h4>
-            <p>Share with your email contacts</p>
-            <button class="btn btn-primary" onclick="shareViaEmail()">Send Email</button>
-          </div>
-          <div class="share-card">
-            <h4>Copy Link</h4>
-            <p>Share on social media or messaging apps</p>
-            <button class="btn btn-primary" onclick="copyShareLink()">Copy Link</button>
-          </div>
-        </div>
-
-        <div style="margin-top: 24px; padding: 16px; background: #d1fae5; border-radius: 8px;">
-          <p style="margin: 0; color: #065f46; font-weight: 600;">
-            Suggested Message:
+        <div style="background: #f0fdf4; border: 2px solid #10b981; border-radius: 12px; padding: 24px; text-align: center;">
+          <h4 style="color: #065f46; margin: 0 0 16px 0; font-size: 1.3rem;">📢 Help Us Reach More Neighbors!</h4>
+          <p style="color: #047857; margin: 0 0 20px 0; font-size: 1rem; line-height: 1.6;">
+            Share our progress with neighbors and encourage them to visit the site and donate to support the TEA appeal.
           </p>
-          <p style="margin: 8px 0 0 0; color: #047857; font-size: 0.95rem;">
-            "Prosper ISD approved our annexation petition! Now we need TEA Commissioner support. Send a 2-minute letter to bring 274 students' tax dollars home to PISD: https://prosperisdpetition.com"
-          </p>
+
+          <div class="share-grid" id="share-options">
+            <div class="share-card">
+              <h4>Text Message</h4>
+              <p>Quick &amp; personal</p>
+              <button class="btn btn-primary" onclick="shareDonateViaSMS()" style="background: #059669;">Send Text</button>
+            </div>
+            <div class="share-card">
+              <h4>Email</h4>
+              <p>Share with contacts</p>
+              <button class="btn btn-primary" onclick="shareDonateViaEmail()" style="background: #059669;">Send Email</button>
+            </div>
+            <div class="share-card">
+              <h4>Copy Link</h4>
+              <p>Share anywhere</p>
+              <button class="btn btn-primary" onclick="copyDonateLink()" style="background: #059669;">Copy Link</button>
+            </div>
+          </div>
+
+          <div style="margin-top: 24px; padding: 16px; background: white; border-radius: 8px; text-align: left;">
+            <p style="margin: 0; color: #065f46; font-weight: 600;">
+              Suggested Message:
+            </p>
+            <p style="margin: 8px 0 0 0; color: #047857; font-size: 0.95rem;">
+              "Prosper ISD approved our annexation — now we're filing with the TEA Commissioner! Check out the progress and consider donating to support legal costs: https://prosperisdpetition.com"
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -1237,13 +1235,13 @@
 <!-- Always Available Share Section -->
 <section style="background: #d1fae5; padding: 40px 20px; text-align: center; border-top: 3px solid #10b981; border-bottom: 3px solid #10b981;">
   <div class="container">
-    <h2 style="color: #065f46; margin: 0 0 16px 0;">✅ Prosper ISD Approved — Share the News!</h2>
-    <p style="color: #047857; margin: 0 0 24px 0;">Help us spread the word and support the TEA appeal. Every voice strengthens our case:</p>
+    <h2 style="color: #065f46; margin: 0 0 16px 0;">✅ Prosper ISD Approved — Share & Support!</h2>
+    <p style="color: #047857; margin: 0 0 24px 0;">Help us reach more neighbors! Share the site and encourage donations to support our TEA appeal:</p>
     <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
-      <button class="btn btn-primary" onclick="shareViaSMS()" style="background: #059669;">Text Message</button>
-      <button class="btn btn-primary" onclick="shareViaEmail()" style="background: #059669;">Email</button>
-      <button class="btn btn-primary" onclick="copyShareLink()" style="background: #059669;">Copy Link</button>
-      <a href="https://www.gofundme.com/f/support-windsong-ranchs-annexation-to-prosper-isd" target="_blank" class="btn btn-primary" style="background: #1e40af;">Support GoFundMe</a>
+      <button class="btn btn-primary" onclick="shareDonateViaSMS()" style="background: #059669;">Text Message</button>
+      <button class="btn btn-primary" onclick="shareDonateViaEmail()" style="background: #059669;">Email</button>
+      <button class="btn btn-primary" onclick="copyDonateLink()" style="background: #059669;">Copy Link</button>
+      <a href="https://gofund.me/5acc47be" target="_blank" class="btn btn-primary" style="background: #1e40af;">Donate Now</a>
     </div>
   </div>
 </section>
@@ -1845,97 +1843,57 @@ function completeStep3() {
   }, 500);
 }
 
-// Initialize
-// Phone field formatting and tab/enter support
-const phoneInput = document.getElementById('phone');
-phoneInput.addEventListener('input', function(e) {
-  let value = e.target.value.replace(/\D/g, '');
-  if (value.length >= 6) {
-    value = value.slice(0, 3) + '-' + value.slice(3, 6) + '-' + value.slice(6, 10);
-  } else if (value.length >= 3) {
-    value = value.slice(0, 3) + '-' + value.slice(3);
-  }
-  e.target.value = value;
-});
+// Donation-focused share functions
+function shareDonateViaSMS() {
+  const message = encodeURIComponent(`Prosper ISD approved our annexation petition!
 
-// Allow Enter key to move to next field (like Tab)
-phoneInput.addEventListener('keydown', function(e) {
-  if (e.key === 'Enter' || e.key === 'Tab') {
-    if (e.key === 'Enter') {
-      e.preventDefault();
-    }
-    // For Tab, let default behavior happen but ensure street field gets focus
-    if (e.key === 'Enter') {
-      setTimeout(() => {
-        const streetField = document.getElementById('street');
-        if (streetField) {
-          streetField.focus();
-          streetField.select();
-        }
-      }, 50);
-    }
-  }
-});
+Now we're filing with the TEA Commissioner. We've raised the $5k retainer, but expect total legal costs of $10-15k.
 
-// Real-time field validation
-const fields = ['name', 'email', 'phone', 'street', 'city', 'state', 'zip', 'voterType'];
-fields.forEach(fieldId => {
-  const field = document.getElementById(fieldId);
-  if (field) {
-    field.addEventListener('blur', function() {
-      validateField(fieldId, field.value);
-    });
-  }
-});
+Check out our progress and consider donating:
+https://prosperisdpetition.com
 
-function validateField(fieldId, value) {
-  clearError(fieldId);
-
-  switch(fieldId) {
-    case 'name':
-      if (!value || value.trim().length < 2) {
-        showError(fieldId, 'Please enter your full name');
-        return false;
-      }
-      break;
-    case 'email':
-      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailPattern.test(value)) {
-        showError(fieldId, 'Please enter a valid email address');
-        return false;
-      }
-      break;
-    case 'phone':
-      const phoneDigits = value.replace(/\D/g, '');
-      if (phoneDigits.length !== 10) {
-        showError(fieldId, 'Please enter a valid 10-digit phone number');
-        return false;
-      }
-      break;
-    case 'zip':
-      const zipPattern = /^\d{5}$/;
-      if (!zipPattern.test(value)) {
-        showError(fieldId, 'Please enter a valid 5-digit ZIP code');
-        return false;
-      }
-      break;
-    case 'state':
-      if (value.length !== 2) {
-        showError(fieldId, 'Please enter a 2-letter state code (e.g., TX)');
-        return false;
-      }
-      break;
-    case 'voterType':
-      if (!value) {
-        showError(fieldId, 'Please select your connection');
-        return false;
-      }
-      break;
-  }
-  return true;
+Donate directly: https://gofund.me/5acc47be`);
+  window.open(`sms:?&body=${message}`, '_blank');
 }
 
-document.getElementById('petitionForm').addEventListener('submit', handleSubmit);
+function shareDonateViaEmail() {
+  const subject = encodeURIComponent('Windsong Ranch Annexation Update — Support Needed!');
+  const body = encodeURIComponent(`Hi,
+
+Great news! Prosper ISD approved our annexation petition on December 15!
+
+We've retained Powell Law Group and raised the $5,000 retainer. Total legal costs are expected to be $10,000 - $15,000, depending on how Denton ISD responds to our TEA filing.
+
+Check out our progress: https://prosperisdpetition.com
+
+If you'd like to support the effort, donations are appreciated:
+https://gofund.me/5acc47be
+
+Thank you for your support!`);
+
+  window.open(`mailto:?subject=${subject}&body=${body}`, '_blank');
+}
+
+function copyDonateLink() {
+  const text = `Prosper ISD approved our annexation!
+
+We're filing with the TEA Commissioner. Check out the progress and consider donating to support legal costs:
+
+https://prosperisdpetition.com
+https://gofund.me/5acc47be`;
+
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(() => {
+      alert('Message copied to clipboard! Paste it anywhere to share.');
+    }).catch(() => {
+      fallbackCopy(text);
+    });
+  } else {
+    fallbackCopy(text);
+  }
+}
+
+// Initialize - Form removed, keeping core functionality
 </script>
 
 </body>
